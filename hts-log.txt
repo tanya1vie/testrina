@@ -1,0 +1,32 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 10 Mar 2025 09:14:14 at https://www.testrina.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qiC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.testrina.com/ -O1 "C:\My Web Sites\Portoflio" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:14:57	Error: 	"Not Found" (404) at link https://www.testrina.com/s (from https://www.testrina.com/)
+09:15:27	Error: 	"Not Found" (404) at link https://www.testrina.com/t (from https://www.testrina.com/)
+09:15:46	Error: 	Unable to save file C:/My Web Sites/Portoflio/static.wixstatic.com/media/4c2a10_c076702ca5f5435fbe7c402d6f2708ad_mv2.gif: Permission denied
+09:15:46	Warning: 	file not stored in cache due to bogus state (broken size, expected 6733849 got 0): https://static.wixstatic.com/media/4c2a10_c076702ca5f5435fbe7c402d6f2708ad~mv2.gif
+09:15:47	Error: 	"Not Found" (404) at link https://www.testrina.com/feed.xml (from https://www.testrina.com/)
+09:16:58	Error: 	"Bad Request" (400) at link https://www.testrina.com/decodeURIComponent(e (from https://www.testrina.com/)
+09:16:59	Error: 	"Not Found" (404) at link https://www.testrina.com/media/emptystate.85a4add5.svg (from https://www.testrina.com/work)
+09:17:18	Error: 	"Not Found" (404) at link https://www.testrina.com/api/ (from https://www.testrina.com/work)
+09:17:50	Error: 	"Not Found" (404) at link https://www.testrina.com/envelope/ (from https://www.testrina.com/work)
+09:18:08	Error: 	"Not Found" (404) at link https://www.testrina.com/_files/ugd/4c2a10_2d427225c10448c8a4149349c61bb64f.pdf (from https://www.testrina.com/about)
+09:20:06	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 6733849 expected)) at link https://static.wixstatic.com/media/4c2a10_c076702ca5f5435fbe7c402d6f2708ad~mv2.gif (from https://www.testrina.com/projects-1)
+09:20:07	Error: 	Unable to save file C:/My Web Sites/Portoflio/static.wixstatic.com/media/4c2a10_b3c3b79aa69645939cab0c32abadee26_mv2.gif: Permission denied
+09:20:07	Warning: 	file not stored in cache due to bogus state (broken size, expected 7784510 got 0): https://static.wixstatic.com/media/4c2a10_b3c3b79aa69645939cab0c32abadee26~mv2.gif
+09:20:08	Error: 	Unable to save file C:/My Web Sites/Portoflio/static.wixstatic.com/media/4c2a10_9e06aafb627f4743a285e1a4f185cb60_mv2.gif: Permission denied
+09:20:08	Warning: 	file not stored in cache due to bogus state (broken size, expected 5566928 got 0): https://static.wixstatic.com/media/4c2a10_9e06aafb627f4743a285e1a4f185cb60~mv2.gif
+09:20:09	Error: 	Unable to save file C:/My Web Sites/Portoflio/static.wixstatic.com/media/4c2a10_02701056811448a797020d2b2778b088_mv2.gif: Permission denied
+09:20:09	Warning: 	file not stored in cache due to bogus state (broken size, expected 8963448 got 0): https://static.wixstatic.com/media/4c2a10_02701056811448a797020d2b2778b088~mv2.gif
+09:22:43	Error: 	Unable to save file C:/My Web Sites/Portoflio/static.wixstatic.com/media/4c2a10_c076702ca5f5435fbe7c402d6f2708ad_mv2.gif: Permission denied
+09:22:43	Warning: 	file not stored in cache due to bogus state (broken size, expected 6733849 got 0): https://static.wixstatic.com/media/4c2a10_c076702ca5f5435fbe7c402d6f2708ad~mv2.gif
+09:22:51	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 6733849 expected)) at link https://static.wixstatic.com/media/4c2a10_c076702ca5f5435fbe7c402d6f2708ad~mv2.gif (from https://www.testrina.com/projects-1)
+09:24:03	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 7784510 expected)) at link https://static.wixstatic.com/media/4c2a10_b3c3b79aa69645939cab0c32abadee26~mv2.gif (from https://www.testrina.com/matter)
+09:24:03	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 5566928 expected)) at link https://static.wixstatic.com/media/4c2a10_9e06aafb627f4743a285e1a4f185cb60~mv2.gif (from https://www.testrina.com/matter)
+09:25:16	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 8963448 expected)) at link https://static.wixstatic.com/media/4c2a10_02701056811448a797020d2b2778b088~mv2.gif (from https://www.testrina.com/matter)
+09:25:34	Error: 	"Forbidden" (403) at link https://static.wixstatic.com/media/4c2a10_9dcf3410819e499b824da2159fd08b60~mv2.jpg/v1/fill/w_566,h_755,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c2a10_9dcf3410819e499b824da2159fd08b60~mv2.jpg (from https://www.testrina.com/yamal)

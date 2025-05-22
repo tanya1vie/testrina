@@ -1,144 +1,416 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="description" content="HTTrack is an easy-to-use website mirror utility. It allows you to download a World Wide website from the Internet to a local directory,building recursively all structures, getting html, images, and other files from the server to your computer. Links are rebuiltrelatively so that you can freely browse to the local site (works with any browser). You can mirror several sites together so that you can jump from one toanother. You can, also, update an existing mirror site, or resume an interrupted download. The robot is fully configurable, with an integrated help" />
-	<meta name="keywords" content="httrack, HTTRACK, HTTrack, winhttrack, WINHTTRACK, WinHTTrack, offline browser, web mirror utility, aspirateur web, surf offline, web capture, www mirror utility, browse offline, local  site builder, website mirroring, aspirateur www, internet grabber, capture de site web, internet tool, hors connexion, unix, dos, windows 95, windows 98, solaris, ibm580, AIX 4.0, HTS, HTGet, web aspirator, web aspirateur, libre, GPL, GNU, free software" />
-	<title>Local index - HTTrack Website Copier</title>
-  <!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
-	<style type="text/css">
-	<!--
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatiana Estrina</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Page-specific styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-body {
-	margin: 0;  padding: 0;  margin-bottom: 15px;  margin-top: 8px;
-	background: #77b;
+        body {
+            background: white;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .home-icon, .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header {
+            text-align: left;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #666;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none; /* Added for <a> tags */
+            display: block; /* Added for <a> tags */
+        }
+
+        .grid-item:hover {
+            transform: scale(1.02);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: white;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+        }
+
+        .number {
+            font-size: 72px;
+            font-weight: bold;
+        }
+
+        .design-type {
+            font-size: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+
+        /* New styles for navigation links */
+        .nav-icons a, .home-icon a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .nav-icons img:hover, .home-icon img:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+		
+
+		@keyframes fall-wobble {
+  0% {
+    transform: translateY(-30px) translateX(0);
+  }
+  25% {
+    transform: translateY(25vh) translateX(-5px);
+  }
+  50% {
+    transform: translateY(50vh) translateX(0);
+  }
+  75% {
+    transform: translateY(75vh) translateX(5px);
+  }
+  100% {
+    transform: translateY(100vh) translateX(0);
+  }
 }
-body, td {
-	font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	}
 
-#subTitle {
-	background: #000;  color: #fff;  padding: 4px;  font-weight: bold; 
-	}
-
-#siteNavigation a, #siteNavigation .current {
-	font-weight: bold;  color: #448;
-	}
-#siteNavigation a:link    { text-decoration: none; }
-#siteNavigation a:visited { text-decoration: none; }
-
-#siteNavigation .current { background-color: #ccd; }
-
-#siteNavigation a:hover   { text-decoration: none;  background-color: #fff;  color: #000; }
-#siteNavigation a:active  { text-decoration: none;  background-color: #ccc; }
+.falling-icon {
+    position: fixed;
+    top: -30px;
+    font-size: 28px;
+    pointer-events: auto;
+    z-index: 9999;
+	-webkit-user-select: none;
+    user-select: none;
+    animation-name: fall-wobble;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
 
 
-a:link    { text-decoration: underline;  color: #00f; }
-a:visited { text-decoration: underline;  color: #000; }
-a:hover   { text-decoration: underline;  color: #c00; }
-a:active  { text-decoration: underline; }
-
-#pageContent {
-	clear: both;
-	border-bottom: 6px solid #000;
-	padding: 10px;  padding-top: 20px;
-	line-height: 1.65em;
-	background-image: url(backblue.gif);
-	background-repeat: no-repeat;
-	background-position: top right;
-	}
-
-#pageContent, #siteNavigation {
-	background-color: #ccd;
-	}
 
 
-.imgLeft  { float: left;   margin-right: 10px;  margin-bottom: 10px; }
-.imgRight { float: right;  margin-left: 10px;   margin-bottom: 10px; }
+		/* Pop-up styles */
+		.popup {
+			position: fixed;
+			background: white;
+			border: 2px solid #ddd;
+			padding: 20px;
+			border-radius: 10px;
+			z-index: 10000;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+			animation: pop-in 0.3s ease-out;
+			max-width: 200px;
+			word-wrap: break-word;
+		}
 
-hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; }
+		.popup-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+		}
 
-h1 { margin: 0;  font-weight: bold;  font-size: 2em; }
-h2 { margin: 0;  font-weight: bold;  font-size: 1.6em; }
-h3 { margin: 0;  font-weight: bold;  font-size: 1.3em; }
-h4 { margin: 0;  font-weight: bold;  font-size: 1.18em; }
+		.popup .close-btn {
+			background: none;
+			border: none;
+			font-size: 18px;
+			cursor: pointer;
+			color: #333;
+		}
 
-.blak { background-color: #000; }
-.hide { display: none; }
-.tableWidth { min-width: 400px; }
+		@keyframes pop-in {
+			from {
+				opacity: 0;
+				transform: translate(-50%, -60%);
+			}
+			to {
+				opacity: 1;
+				transform: translate(-50%, -50%);
+			}
+		}
 
-.tblRegular       { border-collapse: collapse; }
-.tblRegular td    { padding: 6px;  background-image: url(fade.gif);  border: 2px solid #99c; }
-.tblHeaderColor, .tblHeaderColor td { background: #99c; }
-.tblNoBorder td   { border: 0; }
 
-
-// -->
-</style>
-
+    </style>
 </head>
+<body>
+    <nav>
+        <div class="home-icon">
+            <a href="index.html">
+                <img src="https://placehold.co/24x24" alt="Home">
+            </a>
+        </div>
+        <div class="nav-icons">
+            <a href="coffee.html">
+                <img src="https://placehold.co/24x24" alt="Coffee">
+            </a>
+            <a href="gallery.html">
+                <img src="https://placehold.co/24x24" alt="Gallery">
+            </a>
+            <a href="profile.html">
+                <img src="https://placehold.co/24x24" alt="Profile">
+            </a>
+        </div>
+    </nav>
 
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="3" class="tableWidth">
-	<tr>
-	<td id="subTitle">HTTrack Website Copier - Open Source offline browser</td>
-	</tr>
-</table>
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="0" class="tableWidth">
-<tr class="blak">
-<td>
-	<table width="100%" border="0" align="center" cellspacing="1" cellpadding="0">
-	<tr>
-	<td colspan="6"> 
-		<table width="100%" border="0" align="center" cellspacing="0" cellpadding="10">
-		<tr> 
-		<td id="pageContent"> 
-<!-- ==================== End prologue ==================== -->
+    <header class="header">
+        <h1>tatiana estrina.</h1>
+        <div class="subtitle">multi-disciplinary designer // creative coder // ballroom dancer</div>
+    </header>
 
-	<meta name="generator" content="HTTrack Website Copier/3.x">
-	<TITLE>Local index - HTTrack</TITLE>
-</HEAD>
-<BODY>
-<H1 ALIGN=Center>Index of locally available sites:</H1>
-	<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="0">
-		<TR>
-			<TD BACKGROUND="fade.gif">
-				&middot;
-					<A HREF="www.testrina.com/index.html">
-						www.testrina.com/index.html
-					</A>		
-			</TD>
-		</TR>
-	</TABLE>
-	<BR>
-	<BR>
-	<BR>
-  	<H6 ALIGN="RIGHT">
-	<I>Mirror and index made by HTTrack Website Copier [XR&amp;CO'2008]</I>
-	</H6>
-	<!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
-	<!-- Thanks for using HTTrack Website Copier! -->
-	<meta HTTP-EQUIV="Refresh" CONTENT="0; URL=www.testrina.com/index.html">
+    <div class="grid-container">
+        <a href="spatial-design.html" class="grid-item">
+            <img src="https://placehold.co/400x400" alt="Spatial Design">
+            <div class="overlay">
+                <div class="number">01</div>
+                <div class="design-type">Spatial<br>Design</div>
+            </div>
+        </a>
+        <a href="industrial-design.html" class="grid-item">
+            <img src="https://placehold.co/400x400" alt="Industrial Design">
+            <div class="overlay">
+                <div class="number">02</div>
+                <div class="design-type">Industrial<br>Design</div>
+            </div>
+        </a>
+        <a href="interaction-design.html" class="grid-item">
+            <img src="https://placehold.co/400x400" alt="Interaction Design">
+            <div class="overlay">
+                <div class="number">03</div>
+                <div class="design-type">Interaction<br>Design</div>
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        © 2023 by Tatiana Estrina
+    </footer>
+
+    <script>
+        // Optional: Add click event listeners for analytics or additional functionality
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                console.log('Clicked:', item.querySelector('.design-type').textContent);
+            });
+        });
+
+        document.querySelectorAll('.nav-icons a').forEach(icon => {
+            icon.addEventListener('click', (e) => {
+  e.stopPropagation();
+  icon.style.animationPlayState = 'paused';
+
+  const iconRect = icon.getBoundingClientRect();
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.style.visibility = 'hidden';
+  popup.style.position = 'fixed';
+  popup.innerHTML = `
+    <div class="popup-content">
+      <p>${iconObj.message}</p>
+      <button class="close-btn">X</button>
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+
+  // Measure popup size while hidden
+  const popupRect = popup.getBoundingClientRect();
+
+  // Position horizontally centered above the icon
+  let leftPos = iconRect.left + (iconRect.width / 2) - (popupRect.width / 2);
+  let topPos = iconRect.top - popupRect.height - 10; // 10px gap above icon
+
+  // Make sure popup doesn't go off left edge
+  if (leftPos < 10) leftPos = 10;
+
+  // Make sure popup doesn't go off right edge
+  if (leftPos + popupRect.width > window.innerWidth - 10) {
+    leftPos = window.innerWidth - popupRect.width - 10;
+  }
+
+  // If there's no room above, place it below the icon
+  if (topPos < 10) {
+    topPos = iconRect.bottom + 10;
+  }
+
+  popup.style.left = `${leftPos}px`;
+  popup.style.top = `${topPos}px`;
+
+  popup.style.visibility = 'visible';
+
+  popup.querySelector('.close-btn').addEventListener('click', () => {
+    icon.style.animationPlayState = 'running';
+    document.body.removeChild(popup);
+  });
+});
 
 
-<!-- ==================== Start epilogue ==================== -->
-		</td>
-		</tr>
-		</table>
-	</td>
-	</tr>
-	</table>
-</td>
-</tr>
-</table>
-
-<table width="76%" border="0" align="center" valign="bottom" cellspacing="0" cellpadding="0">
-	<tr>
-	<td id="footer"><small>&copy; 2008 Xavier Roche & other contributors - Web Design: Leto Kauler.</small></td>
-	</tr>
-</table>
-
+        });
+    </script>
+	<script>
+		const iconData = [
+		  { icon: "🏺", message: "Ceramics inspiration 🏺" },      
+		  { icon: "💃", message: "Fun fact! I am a competitive ballroom dancer! Take a look at my dancing here:" },             
+		  { icon: "🎨", message: "I am an avid urban sketcher! Take a look at some of my sketches here:" },      
+		  { icon: "🦫", message: "Beaver at work 🦫" },           
+		  { icon: "🏙️", message: "I am originally from Toronto!" },      
+		  { icon: "👋", message: "Just dropped in to say hi 👋" }   
+		];
+	  
+		const activeIcons = new Set();
+	  
+		function spawnIcon(iconObj) {
+		  if (activeIcons.has(iconObj.icon)) {
+			// This icon is already falling, skip spawning another
+			return;
+		  }
+	  
+		  activeIcons.add(iconObj.icon);
+	  
+		  const icon = document.createElement('div');
+		  icon.className = 'falling-icon';
+		  icon.textContent = iconObj.icon;
+	  
+		  // Random horizontal position (0 - 90 vw to avoid overflow)
+		  icon.style.left = `${Math.random() * 90}vw`;
+	  
+		  // Random fall duration between 8 and 15 seconds
+		  const fallDuration = 8 + Math.random() * 7;
+		  icon.style.animation = `fall-wobble ${fallDuration}s linear forwards`;
+	  
+		  // Append icon to body
+		  document.body.appendChild(icon);
+	  
+		  // When animation ends, remove icon and mark it inactive
+		  icon.addEventListener('animationend', () => {
+			if (icon.parentNode) {
+			  icon.parentNode.removeChild(icon);
+			}
+			activeIcons.delete(iconObj.icon);
+		  });
+	  
+		  // Show popup on click
+		  icon.addEventListener('click', (e) => {
+			e.stopPropagation();
+			icon.style.animationPlayState = 'paused';
+	  
+			// Create popup
+			const popup = document.createElement('div');
+			popup.className = 'popup';
+			popup.innerHTML = `
+			  <div class="popup-content">
+				<p>${iconObj.message}</p>
+				<button class="close-btn">X</button>
+			  </div>
+			`;
+	  
+			document.body.appendChild(popup);
+	  
+			const iconRect = icon.getBoundingClientRect();
+			const popupRect = popup.getBoundingClientRect();
+	  
+			// Position popup to the right if fits, else to the left
+			let leftPos = iconRect.right + 10;
+			if (leftPos + popupRect.width > window.innerWidth) {
+			  leftPos = iconRect.left - popupRect.width - 10;
+			}
+	  
+			// Vertically align with icon top, adjust if overflow bottom
+			let topPos = iconRect.top;
+			if (topPos + popupRect.height > window.innerHeight) {
+			  topPos = window.innerHeight - popupRect.height - 10;
+			}
+	  
+			popup.style.left = `${leftPos}px`;
+			popup.style.top = `${topPos}px`;
+	  
+			// Close popup and resume animation on button click
+			popup.querySelector('.close-btn').addEventListener('click', () => {
+			  icon.style.animationPlayState = 'running';
+			  if (popup.parentNode) popup.parentNode.removeChild(popup);
+			});
+		  });
+		}
+	  
+		// Drop a new icon every 1.5 seconds, max 3 icons on screen
+		setInterval(() => {
+		  const currentIconsCount = document.querySelectorAll('.falling-icon').length;
+		  if (currentIconsCount >= 3) return;
+	  
+		  // Choose a random icon from iconData
+		  const randomIcon = iconData[Math.floor(Math.random() * iconData.length)];
+		  spawnIcon(randomIcon);
+		}, 1500);
+	  </script>
+	  
 </body>
-
 </html>
+
 
 

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Design</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Page-specific styles -->
+    <style>
+        /* All original styles remain exactly the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: white;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header {
+            padding: 50px 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #666;
+        }
+
+        .project {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 100px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-info {
+            width: 50%;
+        }
+
+        .project-image {
+            width: 45%;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .project-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            margin-bottom: 10px;
+        }
+
+        .project-tags {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Add only these new styles for clickable elements */
+        .nav-icons a, .breadcrumb a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="breadcrumb">
+            <a href="index.html">
+                <img src="https://placehold.co/24x24" alt="Home">
+            </a>
+            <span>/</span>
+            <span>Spatial Design</span>
+        </div>
+        <div class="nav-icons">
+            <a href="coffee.html">
+                <img src="https://placehold.co/24x24" alt="Coffee">
+            </a>
+            <a href="gallery.html">
+                <img src="https://placehold.co/24x24" alt="Gallery">
+            </a>
+            <a href="profile.html">
+                <img src="https://placehold.co/24x24" alt="Profile">
+            </a>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>spatial design.</h1>
+        <div class="subtitle">architecture // installations // conceptual proposals // built work</div>
+    </header>
+
+    <a href="vela.html" class="project">
+        <div class="project-info">
+            <div class="project-title">Vela</div>
+            <h2>How can a restaurant become a spatial experience?</h2>
+            <p class="project-description">Internship at PARTISANS</p>
+            <p class="project-tags">Professional // Architecture // Interior Design // Detailing</p>
+        </div>
+        <div class="project-image">
+            <img src="https://placehold.co/600x400" alt="Restaurant interior">
+        </div>
+    </a>
+
+    <a href="uproot.html" class="project">
+        <div class="project-info">
+            <div class="project-title">Uproot</div>
+            <h2>What if a mine could now be a garden?</h2>
+            <p class="project-description">ACSA / AISC Steel Design Competition</p>
+        </div>
+        <div class="project-image">
+            <img src="https://placehold.co/600x400" alt="Mine garden concept">
+        </div>
+    </a>
+</body>
+</html>
+
+
+

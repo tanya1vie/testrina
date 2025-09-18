@@ -425,8 +425,8 @@
 .image-row-three figcaption {
   margin-top: 6px;
   font-size: 0.6rem;
-  color: #000000;
   text-align: center;
+  color: #000;
 }
 .bold-line {
   font-weight: bold;
@@ -503,9 +503,6 @@
 
 
 
-.black-section video {
-  border: 2px solid white;
-}
 
 .black-section pre {
   background-color: #111;

@@ -54,9 +54,9 @@
   <main id="main" class="main">
     <!-- HERO -->
     <div class="project-header">
-      <p class="project-year">2025</p>
+      <p class="project-year">2024</p>
       <h1 class="project-title">PHANTOM PARTNER</h1>
-      <p class="project-subtitle">Never dance alone — AI predicts a partner from your steps.</p>
+      <p class="project-subtitle">never dance alone</p>
       <p class="project-description">
         Phantom Partner learns the motion patterns of five social dance styles—<b>waltz, chacha, salsa, samba, swing</b>—and
         predicts the <b>follower</b> trajectory directly from the <b>leader</b>. Skeletons are processed from mocap (C3D/FBX) into NumPy,
@@ -71,10 +71,6 @@
             <h2 class="detail-title">CONTEXT</h2>
             <p>Drawing ++<br>MIT Media Lab</p>
           </div>
-      <div class="detail-column">
-        <h2 class="detail-title">CONTEXT</h2>
-        <p>Independent research<br/>Motion, ML & Visualization</p>
-      </div>
       <div class="detail-column">
         <h2 class="detail-title">SOFTWARE + TOOLS</h2>
         <p>Python, PyTorch, NumPy, Open3D, Blender, PowerShell, Matplotlib</p>
@@ -107,7 +103,7 @@
       </div>
       </section>
 
-      <br><br>
+      <br><br><Br>
        <!-- PIPELINE -->
       <div class="content-container">
         <center>
@@ -127,7 +123,10 @@
           </figure>
         </div>
 
-        <img src="../Images/PhantomPartner/diagram of machine learning-01.png" alt="Side by Side"/>
+       <img src="../Images/PhantomPartner/diagram of machine learning-01.png" 
+     alt="Side by Side"
+     style="width:900px; height:auto; display:block; margin:0 auto;"/>
+
 
         <p>
           <b>1) Ingest.</b> FBX/C3D clips from Mixamo, CMU, and HDM05 are converted to <code>.npy</code> arrays
@@ -191,6 +190,10 @@
         </figure>
       </div>
 
+      <img src="../Images/PhantomPartner/diagram of machine learning-02.png" 
+     alt="Side by Side"
+     style="width:900px; height:auto; display:block; margin:0 auto;"/>
+
       <p>
         Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s
         <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the
@@ -200,37 +203,37 @@
 
      
     </section>
+    <br><Br>
 
+        <section class="black-section">
     <!-- RESULTS PER STYLE -->
     <section class="content-container" style="padding-top:40px;">
       <center><h1 class="project-title">RESULTS</h1>
       <p class="project-subtitle">Five styles, many duets</p></center>
 
 
-      <div class="image-row-three">
+      <div class="image-row">
+        
         <figure>
           <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/samba_duet.mp4" type="video/mp4"/>
+            <source src="../Images/PhantomPartner/cha1_duet.mp4" type="video/mp4"/>
           </video>
-          <figcaption>Samba — bounce action emerges in follower</figcaption>
+          <figcaption>Chacha — syncopated hip action & side breaks</figcaption>
         </figure>
         <figure>
           <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/swing_duet.mp4" type="video/mp4"/>
+            <source src="../Images/PhantomPartner/salsa1_duet.mp4" type="video/mp4"/>
           </video>
-          <figcaption>Swing — elastic stretch & compression</figcaption>
-        </figure>
-        <figure>
-          <img src="../Images/PhantomPartner/blender_export.jpg" alt="Blender export"/>
-          <figcaption>Exported curves and meshes in Blender</figcaption>
+          <figcaption>Salsa — slot timing & cross-body lead</figcaption>
         </figure>
       </div>
 
-
+</section>
     </section>
+    <br><br>
 
     <!-- PROCESS / EXPORT -->
-    <section class="black-section">
+
       <div class="content-container">
         <center>
           <h1 class="project-title">EXPORT FOR BLENDER</h1>
@@ -242,41 +245,13 @@
           into sculptural forms suitable for print or animation.
         </p>
 
-        <img src="../Images/PhantomPartner/diagram of machine learning-02.png" alt="Side by Side"/>
-        <div class="image-row">
-          <figure>
-            <img src="../Images/PhantomPartner/curve_export.png" alt="Curve export"/>
-            <figcaption>OBJ curve export</figcaption>
-          </figure>
-          <figure>
-            <img src="../Images/PhantomPartner/mesh_ribbon.png" alt="Mesh ribbon"/>
-            <figcaption>Ribbon meshes for quick visualization</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="image-row-three">
-        <figure>
-          <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/Charleston_2_2_norm.png" type="video/mp4"/>
-          </video>
-          <figcaption>Waltz — rise & fall preserved in follower</figcaption>
-        </figure>
-        <figure>
-          <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/Charleston_3_2_norm.png" type="video/mp4"/>
-          </video>
-          <figcaption>Chacha — syncopated hip action & side breaks</figcaption>
-        </figure>
-        <figure>
-          <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/HDM_mm_03-01_01_120_waltz_0-2800_norm.png" type="video/mp4"/>
-          </video>
-          <figcaption>Salsa — slot timing & cross-body lead</figcaption>
-        </figure>
-      </div>
-    </section>
     <img src="../Images/PhantomPartner/salsa2.jpg" alt="Side by Side"/>
+    <figcaption>Salsa — slot timing & cross-body lead</figcaption>
+<br><br>
+    <img src="../Images/PhantomPartner/chacha1.jpg" alt="Side by Side"/>
+    <figcaption>Salsa — slot timing & cross-body lead</figcaption>
+    <br><br>
+    <img src="../Images/PhantomPartner/waltz1.jpg" alt="Side by Side"/>
     <figcaption>Salsa — slot timing & cross-body lead</figcaption>
   </main>
 

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripix | Tatiana Estrina</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projectPage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+          <nav class="breadcrumb">
+            <a href="index.html">
+              <img src="..\Images\Navigation\house.jpg" alt="Home">
+            </a>
+            <span>/</span>
+            <a href="#">tripix</a>
+          </nav>
+      
+          <div class="header-buttons">
+            <a href="work.html" class="header-icon">
+              <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
+            </a>
+            <a href="work.html" class="header-icon">
+              <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
+            </a>
+            <a href="about.html" class="header-icon">
+              <img src="..\Images\Navigation\girlIcon.png" alt="About">
+            </a>
+          </div>
+        </div>
+      </header>
+      
+      
+
+      <main class="main">
+        <div class="project-header">
+          <p class="project-year">2019</p>
+          <h1 class="project-title">TRIPIX</h1>
+          <p class="project-subtitle">Icebreakers Festival</p>
+          <div class="project-description">
+            <p>
+              This design brings the idea of the ocularcentric experience of architecture to light
+              through the faceted reflective interior condition. The viewer experiences the space as a
+              reflection back on themselves, in many different lights and angles while also being
+              intertwined with the reflections of the exterior conditions. It encourages people to
+              interact with it by taking images and looking through the funnel-like apertures to view
+              notable Torontonian landmarks such as the CN Tower, Wave Deck, Lake Ontario, and Rogers
+              Center.
+            </p>
+          </div>
+        </div>
+      
+        <div class="content-wrapper">
+          <div class="project-details">
+            <div class="detail-column">
+              <h2 class="detail-title">CONTEXT</h2>
+              <p>Icebreakers Festival 2019</p>
+            </div>
+            <div class="detail-column">
+              <h2 class="detail-title">LOCATION</h2>
+              <p>HTO Park + Nathan Phillips Square, Toronto</p>
+            </div>
+            <div class="detail-column">
+              <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+              <p>
+                Rhinoceros3D, Grasshopper, Illustrator, RhinoCam, CNC Mill, Drill Press, Bandsaw
+              </p>
+            </div>
+            <div class="detail-column">
+              <h2 class="detail-title">COLLABORATORS</h2>
+              <p>
+                Gloria Zhou, Vivian Kinuthia, Florencio IV Tameta, Thomas Gomez
+              </p>
+            </div>
+            <div class="detail-column">
+              <h2 class="detail-title">ROLES</h2>
+              <p>
+                Design iterations, testing materials, parametric modeling with Grasshopper, fabrication
+                files, fabrication, installation, project coordination and management
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-images">
+          <div class="project-images">
+            <div class="button-container"><a href="https://www.archdaily.com/910013/ice-breakers-public-art-winter-wonderland-returns-to-toronto" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="button">
+                Read about it on Archdaily
+                </a></div>
+
+                <img src="../Images/Tripix/MIT Portoflio19cropped.png" alt="Tripix Project Image 2" class="thin-image">
+
+                <div class="gallery-wrapper">
+                    <button class="gallery-button left" onclick="scrollGallery(-1)">‹</button>
+                    <div class="gallery" id="gallery">
+                      <div class="gallery-item"><img src="../Images/Tripix/DSC_0486.jpg" alt="Vela Interior 1"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/TR_036.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/DSC_0511.jpg" alt="Vela Exterior"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/TR_041.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/DSC_0537.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/TR_032.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/DSC_0538.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/DSC_0543.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Tripix/TR_042.jpg" alt="Vela Interior 2"></div>
+                    </div>
+                    <button class="gallery-button right" onclick="scrollGallery(1)">›</button>
+                  </div>
+                  
+                  <div class="modal" id="zoomModal">
+                    <img id="zoomedImg" src="" alt="Zoomed image">
+                  </div>
+        
+            
+            <img src="../Images/Tripix/MIT Portoflio19_edited.jpg" alt="Tripix Project Image 3">
+            <img src="../Images/Tripix/Parts Isometric.jpg" alt="Tripix Project Image 4">
+            <img src="../Images/Tripix/MIT Portoflio20.png" alt="Tripix Project Image 4">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 by Tatiana Estrina</p>
+    </footer>
+
+    <script src="galleryscroll.js"></script>
+</body>
+</html>
+
+

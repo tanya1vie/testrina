@@ -1,0 +1,76 @@
+:root{
+  --book-w: min(92vw, 1000px);
+  --ratio: 0.68;      /* will be updated from first image (H / (2*W)) */
+  --page-gap: 1px;
+  --page-radius: 12px;
+  --paper:#fffdf7;
+}
+
+.wrap {
+  position: relative;
+  width: var(--book-w);
+  margin: 0 auto;
+}
+.wrap::before { content:""; display:block; padding-top: calc(var(--ratio) * 100%); }
+
+.book{
+  position:absolute; inset:0;
+  perspective: 2000px;
+}
+
+.left-stack, .right-stack{
+  position:absolute; top:0; bottom:0; width:50%; border-radius: var(--page-radius);
+  background: linear-gradient(180deg, #fefefe 0%, #f9f7f2 100%);
+  box-shadow: 0 10px 25px rgba(0,0,0,.18), inset 0 0 0 1px rgba(0,0,0,.06);
+  overflow:hidden; z-index:1;
+}
+.left-stack{ left:0 }
+.right-stack{ right:0 }
+
+.spine{
+  position:absolute; top:0; bottom:0; left:calc(50% - var(--page-gap));
+  width: calc(2*var(--page-gap));
+  background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(255,255,255,.15), rgba(0,0,0,.35));
+  border-radius:3px; z-index:3;
+}
+
+/* Sheets (each has a front and back face) */
+.sheet{
+  position:absolute; inset:0; right:0; width:50%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(.2,.7,.1,1), filter .9s ease;
+  z-index: 10;
+}
+.sheet.flipping{ filter: drop-shadow(0 20px 40px rgba(0,0,0,.28)); }
+.sheet.flipped{ transform: rotateY(-180deg); z-index: 2; }
+
+.face{
+  position:absolute; inset:0; border-radius: var(--page-radius);
+  backface-visibility: hidden; overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 10px 28px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.05);
+}
+.face.back{ transform: rotateY(180deg); }
+
+.img{
+  position:absolute; inset:0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;   /* keep full image visible */
+}
+
+/* Only controls: black arrows outside the book */
+.arrow{
+  position:absolute; top:50%; transform: translateY(-50%);
+  background: transparent; border: none; padding: 0; margin: 0;
+  font-size: clamp(28px, 4.5vw, 40px);
+  line-height: 1; color: #000; cursor: pointer;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.arrow.left{  left:  -3.2rem; }
+.arrow.right{ right: -3.2rem; }
+@media (max-width: 860px){
+  .arrow.left{  left: .25rem; }
+  .arrow.right{ right: .25rem; }
+}

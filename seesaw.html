@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See x Saw | Tatiana Estrina</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="projectPage.css">
+  <style>
+    /* Core variables */
+    :root {
+      --primary-color: #000;
+      --accent-color: #F2914B;
+      --bg-color: #fff;
+      --header-height: 63px;
+      --max-content-width: 1200px;
+      --section-spacing: 74px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+		<div class="header-inner">
+		  <nav class="breadcrumb">
+			<a href="index.html">
+			  <img src="..\Images\Navigation\house.jpg" alt="Home">
+			</a>
+			<span>/</span>
+			<a href="#">see x saw</a>
+		  </nav>
+	  
+		  <div class="header-buttons">
+        <a href="ceramics-gallery.html" class="header-icon">
+          <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
+        </a>
+			<a href="work.html" class="header-icon">
+			  <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
+			</a>
+			<a href="about.html" class="header-icon">
+			  <img src="..\Images\Navigation\girlIcon.png" alt="About">
+			</a>
+		  </div>
+		</div>
+	  </header>
+
+
+
+  <main class="main">
+    <div class="project-header">
+      <p class="project-year">2023</p>
+      <h1 class="project-title">SEE x SAW</h1>
+      <p class="project-subtitle">a 1D game of balancing</p>
+      <p class="project-description">
+        Two players work together on one controller to maintain equilibrium as they slide along the rail and progress
+        through increasingly challenging levels. The players appear as colored bars on the line, and move along it based
+        on the angle of their controller. The weight fluctuates as they play, indicated by the width of their bar. If
+        the blue and red touch or hit the end of the gray bar they bounce in the opposite direction, and disturb the
+        balance.
+      </p>
+    </div>
+
+    <div class="project-details">
+      <div class="detail-column">
+        <h2 class="detail-title">CONTEXT</h2>
+        <p>Interaction Intelligence Studio <br> MIT SA+P</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+        <p>JavaScript, P5js, Arduino, 3D Printing, Illustrator, 3D modeling, Rhino3D</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">COLLABORATORS</h2>
+        <p>Kai Zhang</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">SUPERVISORS</h2>
+        <p>Marcelo Cohelo</p>
+      </div>
+    </div>
+
+    <div class="project-images">
+      <div class="image-row">
+        <img src="..\Images\See x Saw\Untitled-2-01.jpg" alt="See x Saw Project Image 1">
+        <img src="..\Images\See x Saw\players.jpg" alt="See x Saw Project Image 2">
+      </div>
+      <div class="image-row">
+        <img src="..\Images\See x Saw\Untitled-2-02.jpg" alt="See x Saw Project Image 1">
+        <img src="..\Images\See x Saw\Untitled-2-03.jpg" alt="See x Saw Project Image 2">
+      </div>
+
+      <div class="two-columns">
+        <div class="column">
+          <p class="h4">Game Objective</p>
+          <p>The goal of this 1D game is to balance the weight for as long as possible. The longer the players maintain
+            the equilibrium, the more challenging the game becomes.</p>
+        </div>
+        <div class="column">
+          <p class="h4">Game Mechanics</p>
+          <p>The two players appear as colored bars on the line, and move along it based on the angle of their
+            controller. The weight fluctuates as they play, indicated by the width of their bar. If the blue and red
+            touch or hit the end of the gray bar they bounce in the opposite direction, and disturb the balance.</p>
+        </div>
+      </div>
+
+
+      <div class="image-row">
+        <img src="..\Images\See x Saw\ezgif-5-a5dfd981da.gif" alt="See x Saw Gameplay">
+        <img src="..\Images\See x Saw\ezgif-5-cbb9568460.gif" alt="See x Saw Gameplay 2">
+      </div>
+
+      <p class="h4">Drunk Third Player</p>
+      <p>When the two players reach forty seconds of play, a third colored bar is added to the line. However this 'third
+        player' is not controlled by any of the controllers, it instead randomly moves back and forth and fluctuates
+        around throwing a wrench into the game.</p>
+
+      <div class="image-row-three">
+        <img src="..\Images\See x Saw\Untitled-2-08.jpg" alt="See x Saw Project Image 3">
+        <img src="..\Images\See x Saw\Untitled-2-06.jpg" alt="See x Saw Project Image 4">
+        <img src="..\Images\See x Saw\Untitled-2-07.jpg" alt="See x Saw Project Image 5">
+      </div>
+
+      <div id="comp-lftufbgg" class="VideoPlayer2054936319__root">
+        <iframe width="1000px" height="100%" src="https://www.youtube.com/embed/kxqCKvFvQow?si=gTIQ9y96G0pMtNu3"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; min-height: 400px;">
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center;">
+          <div>
+            <p class="h4">Design of the Controller</p>
+            <p>Although initially each player was intended to have separate controllers, this design of the controller
+              emerged
+              from the idea of having both players operate on the same controller. One singular joystick Arduino
+              component
+              becomes the elegant solution to the design of the object.</p>
+            <p>In order to allow for smooth use of the handles, ball bearings were added to the handles of the
+              controller, and
+              all of the components 3D printed.</p>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+          <img src="..\Images\See x Saw\Kai+Tanya - SeeSaw - 1D Interface_Page_25_edited.jpg" alt="Controller Design"
+            style="width: 100%; height: auto;">
+        </div>
+      </div>
+
+
+
+      <img src="..\Images\See x Saw\Kai+Tanya - SeeSaw - 1D Interface_Page_32.jpg" alt="Controller Components">
+      <div class="image-row">
+        <img src="..\Images\See x Saw\Kai+Tanya - SeeSaw - 1D Interface_Page_24.jpg" alt="Controller in Use 1">
+        <img src="..\Images\See x Saw\Kai+Tanya - SeeSaw - 1D Interface_Page_26.jpg" alt="Controller in Use 2">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 by Tatiana Estrina</p>
+  </footer>
+
+</body>
+
+</html>

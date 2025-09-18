@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vela - Tatiana Estrina</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projectPage.css">
+</head>
+
+<body>
+    <header class="header">
+		<div class="header-inner">
+		  <nav class="breadcrumb">
+			<a href="index.html">
+			  <img src="..\Images\Navigation\house.jpg" alt="Home">
+			</a>
+			<span>/</span>
+			<a href="#">vela</a>
+		  </nav>
+	  
+		  <div class="header-buttons">
+        <a href="ceramics-gallery.html" class="header-icon">
+          <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
+        </a>
+			<a href="work.html" class="header-icon">
+			  <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
+			</a>
+			<a href="about.html" class="header-icon">
+			  <img src="..\Images\Navigation\girlIcon.png" alt="About">
+			</a>
+		  </div>
+		</div>
+	  </header>
+
+    <main class="main">
+        <div class="project-header">
+          <div class="project-year">2021</div>
+          <h1 class="project-title">VELA</h1>
+          <p class="project-subtitle">Restaurant Interior</p>
+        </div>
+      
+        <div class="project-description">
+          <p>
+            The Vela Restaurant and Bar space emerges from the interplay between stars, constellations,
+            and sky and boat-making techniques of the past. The ceiling form emanates a sky-like veil,
+            altering its lighting and appearance based on the time of day. The motion of 'carving' and
+            'shaping' guides the grounded elements such as the bars, inspired by the ships and voyageurs.
+            Such a space curves around its inhabitants and envelops the visitors in a warm and cave-like
+            interior.
+          </p>
+        </div>
+      
+        <section class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Internship at PARTISANS</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>King Street East, Unit 6, Toronto</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+            <p>Rhinoceros3D, Grasshopper, Revit</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">COLLABORATORS</h2>
+            <p>Ivan Vasliyv, Jonathan Friedman</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">ROLES</h2>
+            <p>
+              Design iterations, construction documentation (IFC, Revisions, Patio approvals), fabrication
+              rationalization
+            </p>
+          </div>
+        </section>
+      </main>
+      
+
+        <div class="project-images">
+            <div class="button-container"><a href="https://www.archdaily.com/910013/ice-breakers-public-art-winter-wonderland-returns-to-toronto" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="button">
+                Read about it on Archdaily
+                </a></div>
+            
+
+                <div class="gallery-wrapper">
+                    <button class="gallery-button left" onclick="scrollGallery(-1)">‹</button>
+                    <div class="gallery" id="gallery">
+                      <div class="gallery-item"><img src="../Images/Vela/2.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg" alt="Vela Interior 1"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/4-vela-photo-by-jonathan-friedman-partisans (1).jpg" alt="Vela Interior 2"></div>
+                      <!-- <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_8.jpg" alt="Vela Exterior"></div> -->
+                      <div class="gallery-item"><img src="../Images/Vela/sr_amandabradley_36.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/Aure_Partisans_Vela_restaurant_Lighting4.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/Vela_Website_Home_Detail_3.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/7.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_3.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_5.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/2X8A8763.jpg" alt="Vela Interior 2"></div>
+                    </div>
+                    <button class="gallery-button right" onclick="scrollGallery(1)">›</button>
+                  </div>
+                  
+                  <div class="modal" id="zoomModal">
+                    <img id="zoomedImg" src="" alt="Zoomed image">
+                  </div>
+        
+            
+            <img src="../Images/Vela/MIT Portoflio53.png" alt="Tripix Project Image 3">
+            <img src="../Images/Vela/MIT Portoflio55.png" alt="Tripix Project Image 4">
+            <img src="../Images/Vela/MIT Portoflio54.png" alt="Tripix Project Image 4">
+            <img src="../Images/Vela/MIT Portoflio57.png" alt="Tripix Project Image 4">
+            <img src="../Images/Vela/MIT Portoflio56.png" alt="Tripix Project Image 4">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 by Tatiana Estrina</p>
+    </footer>
+
+     <script src="galleryscroll.js"></script>
+</body>
+
+</html>

@@ -4,411 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatiana Estrina</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="base.css">
+	<link rel="stylesheet" href="falling.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: white;
-            padding: 20px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .home-icon, .nav-icons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-icons img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .header {
-            text-align: left;
-            padding: 50px 20px;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-style: italic;
-            color: #666;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .grid-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none; /* Added for <a> tags */
-            display: block; /* Added for <a> tags */
-        }
-
-        .grid-item:hover {
-            transform: scale(1.02);
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
-            color: white;
-            background: linear-gradient(transparent, rgba(0,0,0,0.5));
-        }
-
-        .number {
-            font-size: 72px;
-            font-weight: bold;
-        }
-
-        .design-type {
-            font-size: 24px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 50px;
-            color: #666;
-        }
-
-        /* New styles for navigation links */
-        .nav-icons a, .home-icon a {
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-        }
-
-        .nav-icons img:hover, .home-icon img:hover {
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-		
-
-		@keyframes fall-wobble {
-  0% {
-    transform: translateY(-30px) translateX(0);
-  }
-  25% {
-    transform: translateY(25vh) translateX(-5px);
-  }
-  50% {
-    transform: translateY(50vh) translateX(0);
-  }
-  75% {
-    transform: translateY(75vh) translateX(5px);
-  }
-  100% {
-    transform: translateY(100vh) translateX(0);
-  }
+        
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.falling-icon {
-    position: fixed;
-    top: -30px;
-    font-size: 28px;
-    pointer-events: auto;
-    z-index: 9999;
-	-webkit-user-select: none;
-    user-select: none;
-    animation-name: fall-wobble;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    height: 290px;
+	width: 230px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    display: block;
 }
 
+.grid-item:hover {
+    transform: scale(1.02);
+}
 
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center vertically */
+    align-items: center;     /* center horizontally */
+    text-align: center;      /* center multiline text */
+    padding: 20px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+}
 
-		/* Pop-up styles */
-		.popup {
-			position: fixed;
-			background: white;
-			border: 2px solid #ddd;
-			padding: 20px;
-			border-radius: 10px;
-			z-index: 10000;
-			box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-			animation: pop-in 0.3s ease-out;
-			max-width: 200px;
-			word-wrap: break-word;
-		}
-
-		.popup-content {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 20px;
-		}
-
-		.popup .close-btn {
-			background: none;
-			border: none;
-			font-size: 18px;
-			cursor: pointer;
-			color: #333;
-		}
-
-		@keyframes pop-in {
-			from {
-				opacity: 0;
-				transform: translate(-50%, -60%);
-			}
-			to {
-				opacity: 1;
-				transform: translate(-50%, -50%);
-			}
-		}
 
 
     </style>
 </head>
 <body>
-    <nav>
-        <div class="home-icon">
-            <a href="index.html">
-                <img src="https://placehold.co/24x24" alt="Home">
-            </a>
-        </div>
-        <div class="nav-icons">
-            <a href="coffee.html">
-                <img src="https://placehold.co/24x24" alt="Coffee">
-            </a>
-            <a href="gallery.html">
-                <img src="https://placehold.co/24x24" alt="Gallery">
-            </a>
-            <a href="profile.html">
-                <img src="https://placehold.co/24x24" alt="Profile">
-            </a>
-        </div>
-    </nav>
-
     <header class="header">
-        <h1>tatiana estrina.</h1>
-        <div class="subtitle">multi-disciplinary designer // creative coder // ballroom dancer</div>
-    </header>
-
-    <div class="grid-container">
-        <a href="spatial-design.html" class="grid-item">
-            <img src="https://placehold.co/400x400" alt="Spatial Design">
-            <div class="overlay">
-                <div class="number">01</div>
-                <div class="design-type">Spatial<br>Design</div>
-            </div>
+		<div class="header-inner">
+		  <nav class="breadcrumb">
+			<a href="index.html">
+			  <img src="..\Images\Navigation\house.jpg" alt="Home">
+			</a>
+			<span>/</span>
+			<a href="#">tatiana estrina</a>
+		  </nav>
+	  
+		  <div class="header-buttons">
+        <a href="ceramics-gallery.html" class="header-icon">
+          <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
         </a>
-        <a href="industrial-design.html" class="grid-item">
-            <img src="https://placehold.co/400x400" alt="Industrial Design">
-            <div class="overlay">
-                <div class="number">02</div>
-                <div class="design-type">Industrial<br>Design</div>
-            </div>
-        </a>
-        <a href="interaction-design.html" class="grid-item">
-            <img src="https://placehold.co/400x400" alt="Interaction Design">
-            <div class="overlay">
-                <div class="number">03</div>
-                <div class="design-type">Interaction<br>Design</div>
-            </div>
-        </a>
-    </div>
+			<a href="work.html" class="header-icon">
+			  <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
+			</a>
+			<a href="about.html" class="header-icon">
+			  <img src="..\Images\Navigation\girlIcon.png" alt="About">
+			</a>
+		  </div>
+		</div>
+	  </header>
+	
+	<div class=titleSection>
+		<h1>tatiana estrina.</h1>
+		<div class="subtitle">multi-disciplinary designer // creative coder // ballroom dancer</div>
+	</div>
 
-    <footer>
-        © 2023 by Tatiana Estrina
-    </footer>
+		<div class="grid-container">
+			<a href="spatial-design.html" class="grid-item">
+				<img src="..\Images\Vela\DL_WEB_Vela_3_edited.jpg" alt="Spatial Design">
+				<div class="overlay">
+					<div class="number">01</div>
+					<div class="design-type">Spatial<br>Design</div>
+				</div>
+			</a>
+			<a href="industrial-design.html" class="grid-item">
+				<img src="..\Images\See x Saw\Kai+Tanya - SeeSaw - 1D Interface_Page_16_edited.jpg" alt="Industrial Design">
+				<div class="overlay">
+					<div class="number">02</div>
+					<div class="design-type">Industrial<br>Design</div>
+				</div>
+			</a>
+			<a href="interaction-design.html" class="grid-item">
+				<img src="..\Images\Janus\Untitled-3_edited.jpg" alt="Interaction Design">
+				<div class="overlay">
+					<div class="number">03</div>
+					<div class="design-type">Interaction<br>Design</div>
+				</div>
+			</a>
+		</div>
 
-    <script>
-        // Optional: Add click event listeners for analytics or additional functionality
-        document.querySelectorAll('.grid-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                console.log('Clicked:', item.querySelector('.design-type').textContent);
-            });
-        });
+		<footer>
+			© 2025 by Tatiana Estrina
+		</footer>
 
-        document.querySelectorAll('.nav-icons a').forEach(icon => {
-            icon.addEventListener('click', (e) => {
-  e.stopPropagation();
-  icon.style.animationPlayState = 'paused';
-
-  const iconRect = icon.getBoundingClientRect();
-  const popup = document.createElement('div');
-  popup.className = 'popup';
-  popup.style.visibility = 'hidden';
-  popup.style.position = 'fixed';
-  popup.innerHTML = `
-    <div class="popup-content">
-      <p>${iconObj.message}</p>
-      <button class="close-btn">X</button>
-    </div>
-  `;
-
-  document.body.appendChild(popup);
-
-  // Measure popup size while hidden
-  const popupRect = popup.getBoundingClientRect();
-
-  // Position horizontally centered above the icon
-  let leftPos = iconRect.left + (iconRect.width / 2) - (popupRect.width / 2);
-  let topPos = iconRect.top - popupRect.height - 10; // 10px gap above icon
-
-  // Make sure popup doesn't go off left edge
-  if (leftPos < 10) leftPos = 10;
-
-  // Make sure popup doesn't go off right edge
-  if (leftPos + popupRect.width > window.innerWidth - 10) {
-    leftPos = window.innerWidth - popupRect.width - 10;
-  }
-
-  // If there's no room above, place it below the icon
-  if (topPos < 10) {
-    topPos = iconRect.bottom + 10;
-  }
-
-  popup.style.left = `${leftPos}px`;
-  popup.style.top = `${topPos}px`;
-
-  popup.style.visibility = 'visible';
-
-  popup.querySelector('.close-btn').addEventListener('click', () => {
-    icon.style.animationPlayState = 'running';
-    document.body.removeChild(popup);
-  });
-});
-
-
-        });
-    </script>
-	<script>
-		const iconData = [
-		  { icon: "🏺", message: "Ceramics inspiration 🏺" },      
-		  { icon: "💃", message: "Fun fact! I am a competitive ballroom dancer! Take a look at my dancing here:" },             
-		  { icon: "🎨", message: "I am an avid urban sketcher! Take a look at some of my sketches here:" },      
-		  { icon: "🦫", message: "Beaver at work 🦫" },           
-		  { icon: "🏙️", message: "I am originally from Toronto!" },      
-		  { icon: "👋", message: "Just dropped in to say hi 👋" }   
-		];
-	  
-		const activeIcons = new Set();
-	  
-		function spawnIcon(iconObj) {
-		  if (activeIcons.has(iconObj.icon)) {
-			// This icon is already falling, skip spawning another
-			return;
-		  }
-	  
-		  activeIcons.add(iconObj.icon);
-	  
-		  const icon = document.createElement('div');
-		  icon.className = 'falling-icon';
-		  icon.textContent = iconObj.icon;
-	  
-		  // Random horizontal position (0 - 90 vw to avoid overflow)
-		  icon.style.left = `${Math.random() * 90}vw`;
-	  
-		  // Random fall duration between 8 and 15 seconds
-		  const fallDuration = 8 + Math.random() * 7;
-		  icon.style.animation = `fall-wobble ${fallDuration}s linear forwards`;
-	  
-		  // Append icon to body
-		  document.body.appendChild(icon);
-	  
-		  // When animation ends, remove icon and mark it inactive
-		  icon.addEventListener('animationend', () => {
-			if (icon.parentNode) {
-			  icon.parentNode.removeChild(icon);
-			}
-			activeIcons.delete(iconObj.icon);
-		  });
-	  
-		  // Show popup on click
-		  icon.addEventListener('click', (e) => {
-			e.stopPropagation();
-			icon.style.animationPlayState = 'paused';
-	  
-			// Create popup
-			const popup = document.createElement('div');
-			popup.className = 'popup';
-			popup.innerHTML = `
-			  <div class="popup-content">
-				<p>${iconObj.message}</p>
-				<button class="close-btn">X</button>
-			  </div>
-			`;
-	  
-			document.body.appendChild(popup);
-	  
-			const iconRect = icon.getBoundingClientRect();
-			const popupRect = popup.getBoundingClientRect();
-	  
-			// Position popup to the right if fits, else to the left
-			let leftPos = iconRect.right + 10;
-			if (leftPos + popupRect.width > window.innerWidth) {
-			  leftPos = iconRect.left - popupRect.width - 10;
-			}
-	  
-			// Vertically align with icon top, adjust if overflow bottom
-			let topPos = iconRect.top;
-			if (topPos + popupRect.height > window.innerHeight) {
-			  topPos = window.innerHeight - popupRect.height - 10;
-			}
-	  
-			popup.style.left = `${leftPos}px`;
-			popup.style.top = `${topPos}px`;
-	  
-			// Close popup and resume animation on button click
-			popup.querySelector('.close-btn').addEventListener('click', () => {
-			  icon.style.animationPlayState = 'running';
-			  if (popup.parentNode) popup.parentNode.removeChild(popup);
-			});
-		  });
-		}
-	  
-		// Drop a new icon every 1.5 seconds, max 3 icons on screen
-		setInterval(() => {
-		  const currentIconsCount = document.querySelectorAll('.falling-icon').length;
-		  if (currentIconsCount >= 3) return;
-	  
-		  // Choose a random icon from iconData
-		  const randomIcon = iconData[Math.floor(Math.random() * iconData.length)];
-		  spawnIcon(randomIcon);
-		}, 1500);
-	  </script>
-	  
+		<script src="falling.js"></script>
+		<script src="popUp.js"></script>
 </body>
 </html>
 

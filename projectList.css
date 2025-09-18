@@ -1,0 +1,41 @@
+.project {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-info {
+    width: 50%;
+}
+
+.project-image {
+    width: 250px;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+}
+
+.project-title {
+    font-family: 'Proxima Nova Semibold' , sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+.project-description {
+    margin-bottom: 10px;
+    font-family: 'Helvetica Light' , sans-serif;
+    font-size: 14px;
+    justify-content: left;
+}
+
+.project-tags {
+    font-size: 16px;
+    font-family: 'Helvetica Bold' , sans-serif;
+    letter-spacing: -0.0em;
+    justify-content: left;
+}

@@ -1,0 +1,563 @@
+
+@supports (text-align-last: justify) {
+  .your-class {
+    text-align-last: justify;
+  }
+}
+  
+  /* Project Components */
+  .project-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  
+  .project-year {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    margin-bottom: 1px;
+    font-family: 'Proxima Nova SemiBold', sans-serif;
+  }
+  
+  .project-title {
+    font-size: 20px;
+    letter-spacing: 0.25em;
+    margin: 6px 0;
+    font-family: 'Helvetica Bold', sans-serif;
+  }
+  
+  .project-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: 'Proxima Nova SemiBold', sans-serif;
+  }
+
+  :root {
+    --primary-color: #000; 
+    --accent-color: #F2914B;
+    --bg-color: #fff;
+    --header-height: 63px;
+    --max-content-width: 1000px;
+    --section-spacing: 74px;
+}
+
+.multi-column-text {
+  column-count: 4;
+  column-gap: 20px;
+  font-size: 11px;
+  font-family: 'Helvetica Light', sans-serif;
+}
+  
+  
+.project-details {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(196px, 1fr));
+  gap: 20px;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 20px 0;
+  justify-content: center;
+  text-align: center;
+}
+  
+  .detail-column {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .detail-title {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-bottom: 11px;
+  }
+
+  .content-wrapper {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px; /* Optional: adds side spacing for smaller screens */
+    text-align: left; /* You can also use center if needed */
+  }
+
+  .project-description {
+    font-size: 12.3px;
+    letter-spacing: 0em;
+    flex-wrap: wrap; 
+    margin-bottom: 11px;
+    line-height: 1.2;
+    text-align: justify;
+    text-align-last: center;
+  }
+  
+  
+  /* Gallery */
+  .gallery-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0;
+    max-width: 1200px;
+    align-content: center;
+    position: relative;
+    overflow:scroll;
+    padding: 60px 0;
+    margin: 0 auto;
+  }
+  
+  .gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+    height: auto;
+    -ms-overflow-style: none;  /* IE */
+   /* scrollbar-width: none;     Firefox */
+  }
+  
+  .gallery::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  
+  .gallery-item {
+    flex: 0 0 auto;
+    width: 250px;
+    position: relative;
+    transform: translateY(var(--offset, 0px));
+    transition: transform 0.3s ease;
+    
+  height: 100%;
+  
+    
+  }
+  
+  /* Staggered effect */
+  .gallery-item:nth-child(odd) {
+    --offset: 10px;
+  }
+  .gallery-item:nth-child(even) {
+    --offset: -10px;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    
+  }
+  
+  /* Vertical vs Horizontal */
+  .gallery-item img[height], 
+  .gallery-item img[width] {
+    height: auto;
+  }
+  
+  .gallery-item img.portrait {
+    height: 100%;
+    max-height: 300px;
+  }
+  .gallery-item img.landscape {
+    height: 100%;
+    max-height: 600px;
+  }
+  
+  /* Arrows */
+  .gallery-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 02);
+    padding: 0 10px;
+    -webkit-user-select: none; 
+    user-select: none;
+}
+  
+  .gallery-button.left {
+    left: 0;
+  }
+  
+  .gallery-button.right {
+    right: 0;
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.thin-image {
+    width: 800px;
+  }
+  
+  /* Zoom Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
+  .modal.show {
+    display: flex;
+  }
+  
+  /* Button Styles */
+
+  .button-container {
+    max-width: 1200px;
+    margin: 0 auto;              /* Center the 1200px area */
+    display: flex;
+    justify-content: flex-end;   /* Align to the right within the container */
+    padding: 1rem;
+  }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid currentColor;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 12px;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+  }
+  
+  /* Gallery layout styles */
+.gallery-grid {
+    display: grid;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: var(--site-width);
+}
+
+.gallery-pair {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gallery-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.wide-image {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+}
+
+.paired-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.technical-drawings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.full-width {
+    width: 100%;
+    height: auto;
+}
+
+.project-images {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.final-renderings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rendering-pair {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 20px;
+}
+
+.final-image {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-pair,
+    .paired-images,
+    .grid-gallery,
+    .rendering-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .project-description,
+    .journey-description {
+        padding: 0 20px;
+    }
+}
+@media (max-width: 768px) {
+  .masonry-gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-gallery {
+    column-count: 1;
+  }
+}
+.masonry-gallery {
+  column-count: 3;
+  column-gap: 10px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.masonry-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  break-inside: avoid;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.image-stack {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  background: #f0f0f0;
+  border: 2px dashed #ccc;
+  overflow: hidden;
+}
+
+.draggable-image {
+  position: absolute;
+  width: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  transition: transform 0.1s ease;
+  -webkit-user-select: none; 
+  user-select: none;
+}
+
+.image-row {
+  display: flex;
+  gap: 30px; /* wider gap */
+  max-width: 1000px;
+  margin: 30px auto 0;
+}
+
+.image-row img {
+  width: calc((100% - 30px) / 2); /* subtract gap from 100% and split */
+  height: auto;
+  object-fit: cover;
+}
+
+
+.image-row-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.image-row-three figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.image-row-three img {
+  width: 100%;
+  height: 200px;   /* adjust as needed */
+  object-fit: contain;  /* ensures no cropping */
+}
+
+.image-row-three figcaption {
+  margin-top: 6px;
+  font-size: 0.6rem;
+  color: #000000;
+  text-align: center;
+}
+.bold-line {
+  font-weight: bold;
+}
+
+.centered-video {
+  width: 100%;          /* make it narrower */
+  max-width: 1000px;    /* optional max size */
+  display: block;      /* ensures margin works */
+  margin: 0 auto;      /* centers horizontally */
+  border-radius: 6px;  /* optional, matches your image style */
+}
+
+.image-row-four {
+  display: flex;
+  gap: 40px; /* increase space between images */
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px 0; /* space above and below row */
+  padding: 0 20px; /* horizontal padding around the row */
+}
+
+.image-row-four img {
+  width: 100%;
+  max-width: 18%; /* smaller image width */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px; /* optional: rounded corners for aesthetics */
+ 
+}
+
+
+
+.two-columns {
+  display: flex;
+  gap: 40px; /* space between columns */
+  margin-bottom: 20px;
+}
+
+.column {
+  flex: 1; /* makes each column take equal space */
+}
+
+.column h4 {
+  margin-bottom: 10px;
+}
+
+.column p {
+  line-height: 1.4;
+}
+
+.black-section {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  isolation: isolate; /* keeps pseudo-element behind content */
+}
+.black-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  background: #000;         /* full-bleed background */
+  z-index: -1;
+}
+.black-section .content-container {
+  max-width: 1100px;        /* match your layout limit */
+  margin: 0 auto;
+}
+
+
+
+
+
+.black-section video {
+  border: 2px solid white;
+}
+
+.black-section pre {
+  background-color: #111;
+  color: #0f0;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 10px;
+}
+
+.bold-text {
+  font-weight: 900;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* equal split */
+  gap: 2rem;                      /* space between text and video */
+  align-items: center;             /* vertical centering */
+}
+
+.col-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  align-content: left;
+}
+
+.col-video video {
+  width: 100%; 
+  height: auto;
+  border-radius: 8px;  /* optional styling */
+  display: block;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 768px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .col-video {
+    margin-top: 1.5rem;
+  }
+}
+.small-video {
+  width: 300px;       /* or any fixed width, or 100% for responsive */
+  height: auto;       /* keep aspect ratio */
+  background: #000;   /* black background frame instead of white */
+  border-radius: 8px; /* optional rounded corners */
+  display: block;
+  margin: 0 auto;     /* centers the video */
+}
+
+
+
+
+

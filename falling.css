@@ -1,0 +1,72 @@
+.falling-icon {
+    position: fixed;
+    top: -30px;
+    font-size: 20px;
+    pointer-events: auto;
+    z-index: 9999;
+	-webkit-user-select: none;
+    user-select: none;
+    animation-name: fall-wobble;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+	font-family: "Segoe UI Symbol", "Apple Symbols", "Noto Emoji", sans-serif;
+	font-variant-emoji: text; /* forces text-style, b/w */
+}
+
+
+		/* Pop-up styles */
+		.popup {
+			position: fixed;
+			background: white;
+			border: 2px solid #ddd;
+			padding: 20px;
+			border-radius: 10px;
+			z-index: 10000;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+			animation: pop-in 0.3s ease-out;
+			max-width: 200px;
+			word-wrap: break-word;
+		}
+
+		.popup-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+		}
+
+		.popup .close-btn {
+			background: none;
+			border: none;
+			font-size: 18px;
+			cursor: pointer;
+			color: #333;
+		}
+
+		@keyframes pop-in {
+			from {
+				opacity: 0;
+				transform: translate(-50%, -60%);
+			}
+			to {
+				opacity: 1;
+				transform: translate(-50%, -50%);
+			}
+		}
+        @keyframes fall-wobble {
+            0% {
+              transform: translateY(-30px) translateX(0);
+            }
+            25% {
+              transform: translateY(25vh) translateX(-5px);
+            }
+            50% {
+              transform: translateY(50vh) translateX(0);
+            }
+            75% {
+              transform: translateY(75vh) translateX(5px);
+            }
+            100% {
+              transform: translateY(100vh) translateX(0);
+            }
+          }

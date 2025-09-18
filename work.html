@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Gallery</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="gallery.css">
+  <style>
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: space-between; /* pushes left nav and right icons apart */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.breadcrumb {
+  margin: 0; /* remove extra margins that can push it off-center */
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+
+    .sort-dropdown {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .sort-button {
+      padding: 10px 20px;
+      background: white;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 200px;
+      font-family: 'Helvetica Bold', sans-serif;
+    }
+
+    .project-link {
+      display: block;
+      /* make the link fill the project card */
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      /* keep the text color */
+      text-decoration: none;
+      /* remove underline */
+      cursor: pointer;
+      /* change cursor to pointer */
+    }
+
+    .project-link:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-link:hover .project-info {
+      bottom: 0;
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: white;
+      width: 200px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      color: black;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      /* height: 100%; */
+      margin: 0;
+      padding: 0;
+      /* overflow-y: auto; */
+      max-width: 100%;
+    }
+
+
+
+    .gallery-section {
+      max-width: 800px;
+      /* full width */
+      margin: 0 auto;
+      padding-bottom: 50px;
+      /* some space at bottom for clarity */
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+
+    .project-card {
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+    }
+
+    .project-card:hover .project-info {
+      bottom: 0;
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-title {
+      font-size: 22px;
+      margin-bottom: 5px;
+      font-family: 'Helvetica Bold', sans-serif;
+    }
+
+    .project-type {
+      font-family: 'Helvetica Light', sans-serif;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .project-year {
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="header">
+		<div class="header-inner">
+		  <nav class="breadcrumb">
+			<a href="index.html">
+			  <img src="..\Images\Navigation\house.jpg" alt="Home">
+			</a>
+			<span>/</span>
+			<a href="#">gallery</a>
+		  </nav>
+	  
+		  <div class="header-buttons">
+        <a href="ceramics-gallery.html" class="header-icon">
+          <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
+        </a>
+			<a href="work.html" class="header-icon">
+			  <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
+			</a>
+			<a href="about.html" class="header-icon">
+			  <img src="..\Images\Navigation\girlIcon.png" alt="About">
+			</a>
+		  </div>
+		</div>
+	  </header>
+
+  <div class="gallery-section">
+    <div class="sort-dropdown">
+      <button class="sort-button">Sort Projects <i class="fas fa-chevron-down"></i></button>
+      <div class="dropdown-content">
+        <a href="#" data-category="all">All Projects</a>
+        <a href="#" data-category="architecture">Architecture</a>
+        <a href="#" data-category="interactive">Interactive Design</a>
+        <a href="#" data-category="industrial">Industrial Design</a>
+        <a href="#" data-category="installation">Installation Art</a>
+        <a href="#" data-category="research">Research</a>
+        <a href="#" data-category="professional">Professional</a>
+        <a href="#" data-category="academic">Academic</a>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-grid">
+        <div class="project-card" data-category="architecture, professional">
+          <a href="vela.html" class="project-link">
+            <img src="../Images/Vela/DL_WEB_Vela_3_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Vela</div>
+              <div class="project-type">Internship at PARTISANS</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, computation, games, writing, graphic, architecture, research">
+          <a href="thesis.html" class="project-link">
+            <img src="../Images/Thesis/Estrina_3848 (1).jpg" alt="Thesis">
+            <div class="project-info">
+              <div class="project-title">Architecture as Prosthesis</div>
+              <div class="project-type">Thesis</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="architecture, competition">
+          <a href="uproot.html" class="project-link">
+            <img src="../Images/Uproot/Aerial Render.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Uproot</div>
+              <div class="project-type">ACSA / AISC Steel Design Competition</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="computational, interactive, industrial, fabrication, academic">
+          <a href="janus.html" class="project-link">
+            <img src="../Images/Janus/Untitled-2_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Janus</div>
+              <div class="project-type">Interaction Intelligence + Intelligent Multi-Modal User Interfaces</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="interior">
+          <a href="bruce.html" class="project-link">
+            <img src="..\Images\Bruce\Bruce 1_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Bruce & Wendy</div>
+              <div class="project-type">Geometric Disciplines and Architectural Skills</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="interior">
+          <a href="tripix.html" class="project-link">
+          <img src="..\Images\Tripix\MIT Portoflio18_edited.jpg" alt="Restaurant Interior">
+          <div class="project-info">
+            <div class="project-title">Tripix</div>
+            <div class="project-type">Icebreakers Festival</div>
+          </div>
+        </a>
+        </div>
+
+        <div class="project-card" data-category="interior">
+          <a href="figure.html" class="project-link">
+          <img src="..\Images\FigureAlphabet\Estrina_Tatiana_Victorovna_8388_edited.jpg" alt="Restaurant Interior">
+          <div class="project-info">
+            <div class="project-title">Figure Taxonomy</div>
+            <div class="project-type">Drawing ++ Course</div>
+          </div>
+        </a>
+        </div>
+
+        <div class="project-card" data-category="bookmaking, fabulation, academic">
+          <a href="polysapien.html" class="project-link">
+            <img src="../Images/Polysapien/Book Layout Large Format39_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">The Metamorphosis of the Polysapien</div>
+              <div class="project-type">Core I Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="interactive, industrial, computation, fabrication, academic, games">
+          <a href="seesaw.html" class="project-link">
+            <img src="../Images/See x Saw/Kai+Tanya - SeeSaw - 1D Interface (4)_edited_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">See x Saw</div>
+              <div class="project-type">Interaction Intelligence Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, architecture">
+          <a href="matter.html" class="project-link">
+            <img src="../Images/Matter/Webp.net-gifmaker (2).gif" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">A Subsequent Matter of Substance</div>
+              <div class="project-type">Core II Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="fabulation, academic">
+          <a href="yamal.html" class="project-link">
+            <img src="..\Images\Yamal\Yamal Peninsula - Perspectives_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">The Yamal Conspiracy </div>
+              <div class="project-type">Geo Design Workshop</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, interactive, computation">
+          <a href="projections.html" class="project-link">
+            <img src="..\Images\Projections\MIT Portoflio34_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Distorted Projections </div>
+              <div class="project-type">Independent Study</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="architecture, academic">
+          <a href="bach.html" class="project-link">
+            <img src="..\Images\Bach\Sunrise Approach Render.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">House for J.S. Bach </div>
+              <div class="project-type">Advanced Architecture Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, computation, fabrication, interactive">
+          <a href="hostilesalad.html" class="project-link">
+            <img src="..\Images\Hostile Salad\final layout2_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Hostile Salad </div>
+              <div class="project-type">Creative Computiation Class</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="fabulation, fabrication, academic">
+          <a href="prosthesis.html" class="project-link">
+            <img src="..\Images\Prosthesis\MESSINGER_031323-DeepTimeProject_0O1A2389.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Language as Prosthesis </div>
+              <div class="project-type">Deep Time Workshop</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="compeititon, architecture">
+          <a href="marche.html" class="project-link">
+            <img src="..\Images\Marche\186634585_1125922204571225_82523339383687862_n (3)_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Marche du Pont </div>
+              <div class="project-type">ACSA / AISC Steel Design Competition</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="fabulation, graphic, academic">
+          <a href="crab.html" class="project-link">
+            <img src="..\Images\Crab\page 1_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">California Duct Carb </div>
+              <div class="project-type">Advanced Architecture Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, architecture">
+          <a href="conservatory.html" class="project-link">
+            <img src="..\Images\Conservatory\Models6.gif" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Strand Conservatory </div>
+              <div class="project-type">Core II Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="compeititon, architecture">
+          <a href="ossurary.html" class="project-link">
+            <img src="..\Images\Ossurary\Render from Below.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Hart Island Ossurary </div>
+              <div class="project-type">ACSA / AISC Steel Design Competition</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, architecture">
+          <a href="seaweed.html" class="project-link">
+            <img src="..\Images\Seaweed\module 33.png" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Compass Harbor Seaweed Processing Facility</div>
+              <div class="project-type">Core III Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="competition, architecture">
+          <a href="cave.html" class="project-link">
+            <img src="..\Images\Cave House\Interior Render.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Cave House</div>
+              <div class="project-type">Here and Now: House for the 21st Century Competition</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="fabrication, installation">
+          <a href="stratum.html" class="project-link">
+            <img src="..\Images\Stratum\Full Photo.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Stratum</div>
+              <div class="project-type">Grow Op Exhibit at the Gladstone Hotel</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="compeititon, architecture">
+          <a href="transpier.html" class="project-link">
+            <img src="..\Images\Transpeir\Exterior Render.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">Trans-Pier</div>
+              <div class="project-type">ACSA / AISC Steel Design Competition</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="academic, architecture">
+          <a href="ocad.html" class="project-link">
+            <img src="..\Images\OCAD2\Interior Render.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">OCAD U Design Campus</div>
+              <div class="project-type">Integration Design Studio</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card" data-category="Professional, fabulation, graphic, architecture">
+          <a href="swarm.html" class="project-link">
+            <img src="..\Images\SWRM\PDF Layout_edited.jpg" alt="Restaurant Interior">
+            <div class="project-info">
+              <div class="project-title">SWRM.exe</div>
+              <div class="project-type">Tesla Design Challange</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+      <script src="dropdown.js"></script>
+</body>
+
+</html>

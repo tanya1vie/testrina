@@ -14,24 +14,19 @@
       --max-content-width: 1200px;
       --section-spacing: 74px;
     }
-    .project-details {
-      display: flex; justify-content: center; gap: 40px;
-      max-width: var(--max-content-width); margin: 0 auto;
-      padding-top: 40px; text-align: center;
-    }
-    .detail-column { flex: 1; min-width: 200px; }
+    .project-details { display:flex; justify-content:center; gap:40px; max-width:var(--max-content-width); margin:0 auto; padding-top:40px; text-align:center; }
+    .detail-column { flex:1; min-width:200px; }
     .black-section { background:#000; color:#fff; padding:48px 0; }
-    .content-container { max-width: var(--max-content-width); margin:0 auto; padding:0 20px; }
-    .image-row, .image-row-three, .image-row-four {
-      display:grid; gap:16px; margin:24px auto; max-width:var(--max-content-width);
-    }
+    .content-container { max-width:var(--max-content-width); margin:0 auto; padding:0 20px; }
+    .image-row, .image-row-three, .image-row-four { display:grid; gap:16px; margin:24px auto; max-width:var(--max-content-width); }
     .image-row { grid-template-columns: repeat(2, 1fr); }
     .image-row-three { grid-template-columns: repeat(3, 1fr); }
     .image-row-four { grid-template-columns: repeat(4, 1fr); }
-    .centered-video { display:block; margin:0 auto; max-width:900px; width:100%; }
+    .centered-video { display:block; margin:0 auto; max-width:900px; width:100%; border:none; outline:none; box-shadow:none; background:#000; }
     figure { margin:0; }
-    figcaption { font-size: 12px; opacity:.7; margin-top:6px; }
-    .callout { font-style: italic; opacity:.8; }
+    figcaption { font-size:12px; opacity:.7; margin-top:6px; }
+    .callout { font-style:italic; opacity:.8; }
+    .black-section video { border:none !important; outline:none !important; box-shadow:none !important; }
   </style>
 </head>
 
@@ -39,14 +34,14 @@
   <header class="header">
     <div class="header-inner">
       <nav class="breadcrumb">
-        <a href="index.html"><img src="../Images/Navigation/house.jpg" alt="Home" /></a>
+        <a href="index.html"><img src="Images/Navigation/house.jpg" alt="Home" /></a>
         <span>/</span>
         <a href="#">phantom partner</a>
       </nav>
       <div class="header-buttons">
-        <a href="work.html" class="header-icon"><img src="../Images/Navigation/ceramics.png" alt="Work" /></a>
-        <a href="work.html" class="header-icon"><img src="../Images/Navigation/gallery.jpg" alt="Gallery" /></a>
-        <a href="about.html" class="header-icon"><img src="../Images/Navigation/girlIcon.png" alt="About" /></a>
+        <a href="work.html" class="header-icon"><img src="Images/Navigation/ceramics.png" alt="Work" /></a>
+        <a href="work.html" class="header-icon"><img src="Images/Navigation/gallery.jpg" alt="Gallery" /></a>
+        <a href="about.html" class="header-icon"><img src="Images/Navigation/girlIcon.png" alt="About" /></a>
       </div>
     </div>
   </header>
@@ -67,10 +62,10 @@
 
     <!-- META -->
     <div class="project-details">
-        <div class="detail-column">
-            <h2 class="detail-title">CONTEXT</h2>
-            <p>Drawing ++<br>MIT Media Lab</p>
-          </div>
+      <div class="detail-column">
+        <h2 class="detail-title">CONTEXT</h2>
+        <p>Drawing ++<br>MIT Media Lab</p>
+      </div>
       <div class="detail-column">
         <h2 class="detail-title">SOFTWARE + TOOLS</h2>
         <p>Python, PyTorch, NumPy, Open3D, Blender, PowerShell, Matplotlib</p>
@@ -79,98 +74,89 @@
     <br><br>
 
     <section class="black-section">
-        <div class="content-container">
-    <div class="two-col">
-        <div class="col-text">
-          <p>
-            As someone who practices ballroom dancing, I often encounter a persistent challenge: 
-            not having a partner to dance with. This is a common issue in ballroom, since it is a 
-            progressive dance form with no fixed choreography. Instead, the person in the "leader" role 
-            uses their body to guide the "follower" through steps improvised in the moment. As a result, 
-            dancing alone in ballroom styles is not truly possible. This project addresses that problem 
-            by using machine learning to predict the motions of the "follower" based on the steps 
-            performed by the leader.
-          </p>
-        </div>
-      
-        <div class="col-video">
+      <div class="content-container">
+        <div class="two-col">
+          <div class="col-text">
+            <p>
+              As someone who practices ballroom dancing, I often encounter a persistent challenge:
+              not having a partner to dance with. This is a common issue in ballroom, since it is a
+              progressive dance form with no fixed choreography. Instead, the person in the "leader" role
+              uses their body to guide the "follower" through steps improvised in the moment. As a result,
+              dancing alone in ballroom styles is not truly possible. This project addresses that problem
+              by using machine learning to predict the motions of the "follower" based on the steps
+              performed by the leader.
+            </p>
+          </div>
+          <div class="col-video">
             <video autoplay muted loop playsinline class="small-video">
-              <source src="../Images/FigureAlphabet/18 - The Gigolo's Tango.mp4" type="video/mp4">
+              <source src="Images/FigureAlphabet/18%20-%20The%20Gigolo%27s%20Tango.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
-      </div>
-      </div>
-      </section>
-
-      <br><br><Br>
-       <!-- PIPELINE -->
-      <div class="content-container">
-        <center>
-          <h1 class="project-title">DATA → MODEL → PARTNER</h1>
-          <p class="project-subtitle">End-to-end pipeline</p>
-        </center>
-
-        <div class="image-row">
-          <figure>
-            <!-- replace with your pipeline image if desired -->
-            <img src="../Images/PhantomPartner/pipeline.png" alt="Pipeline diagram" />
-            <figcaption>Acquisition & preprocessing</figcaption>
-          </figure>
-          <figure>
-            <img src="../Images/PhantomPartner/duet_render.jpg" alt="Duet render" />
-            <figcaption>Predicted duet exported to Blender</figcaption>
-          </figure>
         </div>
+      </div>
+    </section>
 
-       <img src="../Images/PhantomPartner/diagram of machine learning-01.png" 
-     alt="Side by Side"
-     style="width:900px; height:auto; display:block; margin:0 auto;"/>
+    <br><br><br>
+    <!-- PIPELINE -->
+    <div class="content-container">
+      <center>
+        <h1 class="project-title">DATA → MODEL → PARTNER</h1>
+        <p class="project-subtitle">End-to-end pipeline</p>
+      </center>
 
-
-        <p>
-          <b>1) Ingest.</b> FBX/C3D clips from Mixamo, CMU, and HDM05 are converted to <code>.npy</code> arrays
-          (shape: <code>[frames, markers, 3]</code>).<br/>
-          <b>2) Normalize.</b> Clips are recentered on the root, scaled, and saved as <code>_norm.npy</code> for consistency.<br/>
-          <b>3) Relabel to 5 styles.</b> “Rumba” → chacha; “Charleston”/“Lindy Hop” → swing; final set: chacha, salsa, samba, swing, waltz.<br/>
-          <b>4) Classify & curate.</b> A small PointNet-style classifier filters clean exemplars (confidence ≥ 0.80).<br/>
-          <b>5) Partner model.</b> A 2-layer GRU takes leader positions + velocities (and style one-hot) over K frames and emits the
-          follower positions frame-by-frame.<br/>
-          <b>6) Export & visualize.</b> Predicted partner sequences are turned into curves/meshes and brought into Blender for lighting and renders.
-        </p>
+      <div class="image-row">
+        <figure>
+          <img src="Images/PhantomPartner/pipeline.png" alt="Pipeline diagram" loading="lazy" decoding="async"/>
+          <figcaption>Acquisition & preprocessing</figcaption>
+        </figure>
+        <figure>
+          <img src="Images/PhantomPartner/duet_render.jpg" alt="Duet render" loading="lazy" decoding="async"/>
+          <figcaption>Predicted duet exported to Blender</figcaption>
+        </figure>
       </div>
 
-      <div class="image-row-three">
-        <figure>
-          <img class="centered-media" src="../Images/PhantomPartner/Charleston_2_2_norm.png" alt="Charleston 2.2 visualization">
-          <figcaption>Samba — bounce action emerges in follower</figcaption>
-        </figure>
-        <figure>
-          <img class="centered-media" src="../Images/PhantomPartner/Charleston_3_2_norm.png" alt="Charleston 3.2 visualization">
-          <figcaption>Swing — elastic stretch &amp; compression</figcaption>
-        </figure>
-        <figure>
-          <img class="centered-media" src="../Images/PhantomPartner/HDM_mm_03-01_01_120_waltz_0-2800_norm.png" alt="Blender export">
-          <figcaption>Exported curves and meshes in Blender</figcaption>
-        </figure>
-      </div>
-      
-      <div class="image-row-three">
-        <figure>
-          <img class="centered-media" src="../Images/PhantomPartner/Salsa Dancing (2)_norm.png" alt="Salsa Dancing 2 visualization">
-          <figcaption>Samba — bounce action emerges in follower</figcaption>
-        </figure>
-        <figure>
-          <img class="centered-media" src="../Images/PhantomPartner/Salsa Dancing (9)_norm.png" alt="Salsa Dancing 9 visualization">
-          <figcaption>Swing — elastic stretch &amp; compression</figcaption>
-        </figure>
-        <figure>
-          <img class="centered-media" src="../Images/PhantomPartner/Salsa_Dancing_1_norm.png" alt="Cha cha - Cuban breaks">
-          <figcaption>Cha cha — Cuban breaks</figcaption>
-        </figure>
-      </div>
-      
+      <img src="Images/PhantomPartner/diagram%20of%20machine%20learning-01.png" alt="Side by Side" style="width:900px; height:auto; display:block; margin:0 auto;" loading="lazy" decoding="async"/>
 
+      <p>
+        <b>1) Ingest.</b> FBX/C3D clips from Mixamo, CMU, and HDM05 are converted to <code>.npy</code> arrays (shape: <code>[frames, markers, 3]</code>).<br/>
+        <b>2) Normalize.</b> Clips are recentered on the root, scaled, and saved as <code>_norm.npy</code> for consistency.<br/>
+        <b>3) Relabel to 5 styles.</b> “Rumba” → chacha; “Charleston”/“Lindy Hop” → swing; final set: chacha, salsa, samba, swing, waltz.<br/>
+        <b>4) Classify & curate.</b> A small PointNet-style classifier filters clean exemplars (confidence ≥ 0.80).<br/>
+        <b>5) Partner model.</b> A 2-layer GRU takes leader positions + velocities (and style one-hot) over K frames and emits the follower positions frame-by-frame.<br/>
+        <b>6) Export & visualize.</b> Predicted partner sequences are turned into curves/meshes and brought into Blender for lighting and renders.
+      </p>
+    </div>
+
+    <div class="image-row-three">
+      <figure>
+        <img class="centered-media" src="Images/PhantomPartner/Charleston_2_2_norm.png" alt="Charleston 2.2 visualization" loading="lazy" decoding="async">
+        <figcaption>Samba — bounce action emerges in follower</figcaption>
+      </figure>
+      <figure>
+        <img class="centered-media" src="Images/PhantomPartner/Charleston_3_2_norm.png" alt="Charleston 3.2 visualization" loading="lazy" decoding="async">
+        <figcaption>Swing — elastic stretch &amp; compression</figcaption>
+      </figure>
+      <figure>
+        <img class="centered-media" src="Images/PhantomPartner/HDM_mm_03-01_01_120_waltz_0-2800_norm.png" alt="Blender export" loading="lazy" decoding="async">
+        <figcaption>Exported curves and meshes in Blender</figcaption>
+      </figure>
+    </div>
+
+    <div class="image-row-three">
+      <figure>
+        <img class="centered-media" src="Images/PhantomPartner/Salsa%20Dancing%20(2)_norm.png" alt="Salsa Dancing 2 visualization" loading="lazy" decoding="async">
+        <figcaption>Samba — bounce action emerges in follower</figcaption>
+      </figure>
+      <figure>
+        <img class="centered-media" src="Images/PhantomPartner/Salsa%20Dancing%20(9)_norm.png" alt="Salsa Dancing 9 visualization" loading="lazy" decoding="async">
+        <figcaption>Swing — elastic stretch &amp; compression</figcaption>
+      </figure>
+      <figure>
+        <img class="centered-media" src="Images/PhantomPartner/Salsa_Dancing_1_norm.png" alt="Cha cha - Cuban breaks" loading="lazy" decoding="async">
+        <figcaption>Cha cha — Cuban breaks</figcaption>
+      </figure>
+    </div>
 
     <!-- MODEL DETAILS -->
     <section class="content-container" style="padding-top:40px;">
@@ -181,78 +167,70 @@
 
       <div class="image-row">
         <figure>
-          <img src="../Images/PhantomPartner/gru_block.png" alt="GRU block" />
+          <img src="Images/PhantomPartner/gru_block.png" alt="GRU block" loading="lazy" decoding="async"/>
           <figcaption>TinyGRU: positions + velocities → follower positions</figcaption>
         </figure>
         <figure>
-          <img src="../Images/PhantomPartner/style_embeddings.png" alt="Style embeddings" />
+          <img src="Images/PhantomPartner/style_embeddings.png" alt="Style embeddings" loading="lazy" decoding="async"/>
           <figcaption>Style one-hot conditions the motion pattern</figcaption>
         </figure>
       </div>
 
-      <img src="../Images/PhantomPartner/diagram of machine learning-02.png" 
-     alt="Side by Side"
-     style="width:900px; height:auto; display:block; margin:0 auto;"/>
+      <img src="Images/PhantomPartner/diagram%20of%20machine%20learning-02.png" alt="Side by Side" style="width:900px; height:auto; display:block; margin:0 auto;" loading="lazy" decoding="async"/>
 
       <p>
-        Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s
-        <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the
-        follower’s <code>[x,y,z]</code>. Overlapping windows are averaged to produce the full sequence.
+        Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the follower’s <code>[x,y,z]</code>. Overlapping windows are averaged to produce the full sequence.
       </p>
       <p class="callout">Validation loss on 44-marker set reached ~0.07 (normalized units), producing smooth, style-aware partners.</p>
-
-     
     </section>
-    <br><Br>
 
-        <section class="black-section">
-    <!-- RESULTS PER STYLE -->
-    <section class="content-container" style="padding-top:40px;">
-      <center><h1 class="project-title">RESULTS</h1>
-      <p class="project-subtitle">Five styles, many duets</p></center>
+    <br><br>
 
+    <section class="black-section">
+      <section class="content-container" style="padding-top:40px;">
+        <center>
+          <h1 class="project-title">RESULTS</h1>
+          <p class="project-subtitle">Five styles, many duets</p>
+        </center>
 
-      <div class="image-row">
-        
-        <figure>
-          <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/cha1_duet.mp4" type="video/mp4"/>
-          </video>
-          <figcaption>Chacha — syncopated hip action & side breaks</figcaption>
-        </figure>
-        <figure>
-          <video class="centered-video" autoplay muted loop playsinline>
-            <source src="../Images/PhantomPartner/salsa1_duet.mp4" type="video/mp4"/>
-          </video>
-          <figcaption>Salsa — slot timing & cross-body lead</figcaption>
-        </figure>
-      </div>
-
-</section>
+        <div class="image-row">
+          <figure>
+            <video class="centered-video" autoplay muted loop playsinline>
+              <source src="Images/PhantomPartner/cha1_duet.mp4" type="video/mp4"/>
+            </video>
+            <figcaption>Chacha — syncopated hip action & side breaks</figcaption>
+          </figure>
+          <figure>
+            <video class="centered-video" autoplay muted loop playsinline>
+              <source src="Images/PhantomPartner/salsa1_duet.mp4" type="video/mp4"/>
+            </video>
+            <figcaption>Salsa — slot timing & cross-body lead</figcaption>
+          </figure>
+        </div>
+      </section>
     </section>
+
     <br><br>
 
     <!-- PROCESS / EXPORT -->
+    <div class="content-container">
+      <center>
+        <h1 class="project-title">EXPORT FOR BLENDER</h1>
+        <p class="project-subtitle">Curves → extrusion → lighting</p>
+      </center>
+      <p>
+        Leader and predicted follower are saved as <code>.obj</code> curve-like polylines and as mesh “ribbons” for immediate rendering. Blender’s modifiers (Solidify, Subdivision, Array) are used to stylize traces into sculptural forms suitable for print or animation.
+      </p>
 
-      <div class="content-container">
-        <center>
-          <h1 class="project-title">EXPORT FOR BLENDER</h1>
-          <p class="project-subtitle">Curves → extrusion → lighting</p>
-        </center>
-        <p>
-          Leader and predicted follower are saved as <code>.obj</code> curve-like polylines and as mesh “ribbons”
-          for immediate rendering. Blender’s modifiers (Solidify, Subdivision, Array) are used to stylize traces
-          into sculptural forms suitable for print or animation.
-        </p>
-
-    <img src="../Images/PhantomPartner/salsa2.jpg" alt="Side by Side"/>
-    <figcaption>Salsa — slot timing & cross-body lead</figcaption>
-<br><br>
-    <img src="../Images/PhantomPartner/chacha1.jpg" alt="Side by Side"/>
-    <figcaption>Salsa — slot timing & cross-body lead</figcaption>
-    <br><br>
-    <img src="../Images/PhantomPartner/waltz1.jpg" alt="Side by Side"/>
-    <figcaption>Salsa — slot timing & cross-body lead</figcaption>
+      <img src="Images/PhantomPartner/salsa2.jpg" alt="Salsa render" loading="lazy" decoding="async"/>
+      <figcaption>Salsa — slot timing & cross-body lead</figcaption>
+      <br><br>
+      <img src="Images/PhantomPartner/chacha1.jpg" alt="Chacha render" loading="lazy" decoding="async"/>
+      <figcaption>Chacha — syncopation & breaks</figcaption>
+      <br><br>
+      <img src="Images/PhantomPartner/waltz1.jpg" alt="Waltz render" loading="lazy" decoding="async"/>
+      <figcaption>Waltz — rise & fall</figcaption>
+    </div>
   </main>
 
   <footer>

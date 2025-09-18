@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Phantom Partner | Tatiana Estrina</title>
+  <!-- If this is a GitHub Pages project site, the base path is /testrina/ -->
+  <!-- <base href="/testrina/">  Uncomment if you want all relative URLs to resolve from /testrina/ -->
   <link rel="stylesheet" href="base.css" />
   <link rel="stylesheet" href="projectPage.css" />
   <style>
@@ -16,12 +18,17 @@
     }
     .project-details { display:flex; justify-content:center; gap:40px; max-width:var(--max-content-width); margin:0 auto; padding-top:40px; text-align:center; }
     .detail-column { flex:1; min-width:200px; }
+    .project-details { display:flex; justify-content:center; gap:40px; max-width:var(--max-content-width); margin:0 auto; padding-top:40px; text-align:center; }
+    .detail-column { flex:1; min-width:200px; }
     .black-section { background:#000; color:#fff; padding:48px 0; }
+    .content-container { max-width:var(--max-content-width); margin:0 auto; padding:0 20px; }
+    .image-row, .image-row-three, .image-row-four { display:grid; gap:16px; margin:24px auto; max-width:var(--max-content-width); }
     .content-container { max-width:var(--max-content-width); margin:0 auto; padding:0 20px; }
     .image-row, .image-row-three, .image-row-four { display:grid; gap:16px; margin:24px auto; max-width:var(--max-content-width); }
     .image-row { grid-template-columns: repeat(2, 1fr); }
     .image-row-three { grid-template-columns: repeat(3, 1fr); }
     .image-row-four { grid-template-columns: repeat(4, 1fr); }
+    .centered-video { display:block; margin:0 auto; max-width:900px; width:100%; border:none; outline:none; box-shadow:none; background:#000; }
     .centered-video { display:block; margin:0 auto; max-width:900px; width:100%; border:none; outline:none; box-shadow:none; background:#000; }
     figure { margin:0; }
     figcaption { font-size:12px; opacity:.7; margin-top:6px; }
@@ -94,9 +101,18 @@
             </video>
           </div>
         </div>
+        </div>
       </div>
     </section>
+    </section>
 
+    <br><br><br>
+    <!-- PIPELINE -->
+    <div class="content-container">
+      <center>
+        <h1 class="project-title">DATA → MODEL → PARTNER</h1>
+        <p class="project-subtitle">End-to-end pipeline</p>
+      </center>
     <br><br><br>
     <!-- PIPELINE -->
     <div class="content-container">
@@ -127,36 +143,47 @@
         <b>6) Export & visualize.</b> Predicted partner sequences are turned into curves/meshes and brought into Blender for lighting and renders.
       </p>
     </div>
-
-    <div class="image-row-three">
-      <figure>
-        <img class="centered-media" src="Images/PhantomPartner/Charleston_2_2_norm.png" alt="Charleston 2.2 visualization" loading="lazy" decoding="async">
-        <figcaption>Samba — bounce action emerges in follower</figcaption>
-      </figure>
-      <figure>
-        <img class="centered-media" src="Images/PhantomPartner/Charleston_3_2_norm.png" alt="Charleston 3.2 visualization" loading="lazy" decoding="async">
-        <figcaption>Swing — elastic stretch &amp; compression</figcaption>
-      </figure>
-      <figure>
-        <img class="centered-media" src="Images/PhantomPartner/HDM_mm_03-01_01_120_waltz_0-2800_norm.png" alt="Blender export" loading="lazy" decoding="async">
-        <figcaption>Exported curves and meshes in Blender</figcaption>
-      </figure>
+      <p>
+        <b>1) Ingest.</b> FBX/C3D clips from Mixamo, CMU, and HDM05 are converted to <code>.npy</code> arrays (shape: <code>[frames, markers, 3]</code>).<br/>
+        <b>2) Normalize.</b> Clips are recentered on the root, scaled, and saved as <code>_norm.npy</code> for consistency.<br/>
+        <b>3) Relabel to 5 styles.</b> “Rumba” → chacha; “Charleston”/“Lindy Hop” → swing; final set: chacha, salsa, samba, swing, waltz.<br/>
+        <b>4) Classify & curate.</b> A small PointNet-style classifier filters clean exemplars (confidence ≥ 0.80).<br/>
+        <b>5) Partner model.</b> A 2-layer GRU takes leader positions + velocities (and style one-hot) over K frames and emits the follower positions frame-by-frame.<br/>
+        <b>6) Export & visualize.</b> Predicted partner sequences are turned into curves/meshes and brought into Blender for lighting and renders.
+      </p>
     </div>
 
-    <div class="image-row-three">
-      <figure>
-        <img class="centered-media" src="Images/PhantomPartner/Salsa%20Dancing%20(2)_norm.png" alt="Salsa Dancing 2 visualization" loading="lazy" decoding="async">
-        <figcaption>Samba — bounce action emerges in follower</figcaption>
-      </figure>
-      <figure>
-        <img class="centered-media" src="Images/PhantomPartner/Salsa%20Dancing%20(9)_norm.png" alt="Salsa Dancing 9 visualization" loading="lazy" decoding="async">
-        <figcaption>Swing — elastic stretch &amp; compression</figcaption>
-      </figure>
-      <figure>
-        <img class="centered-media" src="Images/PhantomPartner/Salsa_Dancing_1_norm.png" alt="Cha cha - Cuban breaks" loading="lazy" decoding="async">
-        <figcaption>Cha cha — Cuban breaks</figcaption>
-      </figure>
-    </div>
+      <div class="image-row-three">
+        <figure>
+          <img class="centered-media" src="../Images/PhantomPartner/Charleston_2_2_norm.png" alt="Charleston 2.2 visualization">
+          <figcaption>Samba — bounce action emerges in follower</figcaption>
+        </figure>
+        <figure>
+          <img class="centered-media" src="../Images/PhantomPartner/Charleston_3_2_norm.png" alt="Charleston 3.2 visualization">
+          <figcaption>Swing — elastic stretch &amp; compression</figcaption>
+        </figure>
+        <figure>
+          <img class="centered-media" src="../Images/PhantomPartner/HDM_mm_03-01_01_120_waltz_0-2800_norm.png" alt="Blender export">
+          <figcaption>Exported curves and meshes in Blender</figcaption>
+        </figure>
+      </div>
+      
+      <div class="image-row-three">
+        <figure>
+          <img class="centered-media" src="../Images/PhantomPartner/Salsa Dancing (2)_norm.png" alt="Salsa Dancing 2 visualization">
+          <figcaption>Samba — bounce action emerges in follower</figcaption>
+        </figure>
+        <figure>
+          <img class="centered-media" src="../Images/PhantomPartner/Salsa Dancing (9)_norm.png" alt="Salsa Dancing 9 visualization">
+          <figcaption>Swing — elastic stretch &amp; compression</figcaption>
+        </figure>
+        <figure>
+          <img class="centered-media" src="../Images/PhantomPartner/Salsa_Dancing_1_norm.png" alt="Cha cha - Cuban breaks">
+          <figcaption>Cha cha — Cuban breaks</figcaption>
+        </figure>
+      </div>
+      
+
 
     <!-- MODEL DETAILS -->
     <section class="content-container" style="padding-top:40px;">
@@ -180,12 +207,21 @@
 
       <p>
         Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the follower’s <code>[x,y,z]</code>. Overlapping windows are averaged to produce the full sequence.
+        Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the follower’s <code>[x,y,z]</code>. Overlapping windows are averaged to produce the full sequence.
       </p>
       <p class="callout">Validation loss on 44-marker set reached ~0.07 (normalized units), producing smooth, style-aware partners.</p>
     </section>
 
     <br><br>
 
+    <br><br>
+
+    <section class="black-section">
+      <section class="content-container" style="padding-top:40px;">
+        <center>
+          <h1 class="project-title">RESULTS</h1>
+          <p class="project-subtitle">Five styles, many duets</p>
+        </center>
     <section class="black-section">
       <section class="content-container" style="padding-top:40px;">
         <center>
@@ -210,9 +246,18 @@
       </section>
     </section>
 
+
     <br><br>
 
     <!-- PROCESS / EXPORT -->
+    <div class="content-container">
+      <center>
+        <h1 class="project-title">EXPORT FOR BLENDER</h1>
+        <p class="project-subtitle">Curves → extrusion → lighting</p>
+      </center>
+      <p>
+        Leader and predicted follower are saved as <code>.obj</code> curve-like polylines and as mesh “ribbons” for immediate rendering. Blender’s modifiers (Solidify, Subdivision, Array) are used to stylize traces into sculptural forms suitable for print or animation.
+      </p>
     <div class="content-container">
       <center>
         <h1 class="project-title">EXPORT FOR BLENDER</h1>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scatterplot with Pop-Up Panel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .popup {
+            position: absolute;
+            background: white;
+            border: 1px solid black;
+            padding: 10px;
+            display: none; /* Hidden by default */
+            transition: all 0.3s; /* Smooth transition for appearance and disappearance */
+            z-index: 1000; /* Ensure the pop-up appears above other elements */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for SVG -->
+    <div id="chart-container" style="position: relative;"></div>
+
+    <!-- Pop-Up Panel -->
+    <div class="popup" id="popup-panel"></div>
+
+    <!-- D3 Code -->
+    <script>
+        // Chart dimensions
+        const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+        const width = 1200 - margin.left - margin.right;
+        const height = 900 - margin.top - margin.bottom;
+
+        // Create SVG element
+        const svg = d3.select("#chart-container")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom);
+
+        // Create the pop-up div
+        const popup = d3.select("#popup-panel");
+
+        // Scatterplot group
+        const svgScatterplot = svg.append("g")
+            .attr("class", "scatterplot")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Load data from CSV
+        d3.csv("test_data_fp4_small.csv").then(data => {
+            data.forEach(d => {
+                d.price = +d.Price;
+                d.address = d.Address;
+                d.x = +d.Lat;
+                d.y = +d.Lon;
+            });
+
+            // Set up scales
+            const xScale = d3.scaleLinear()
+                .domain([d3.min(data, d => d.x), d3.max(data, d => d.x)])
+                .range([0, width]);
+
+            const yScale = d3.scaleLinear()
+                .domain([d3.min(data, d => d.y), d3.max(data, d => d.y)])
+                .range([height, 0]);
+
+            const radiusScale = d3.scaleLinear()
+                .domain([d3.min(data, d => d.price), d3.max(data, d => d.price)])
+                .range([3, 35]);
+
+            const xAxis = d3.axisBottom(xScale);
+            const yAxis = d3.axisLeft(yScale);
+
+            // Draw axes
+            svgScatterplot.append("g")
+                .attr("transform", `translate(0,${height})`)
+                .call(xAxis);
+
+            svgScatterplot.append("g")
+                .call(yAxis);
+
+            // Draw circles and implement pop-up behavior
+            svgScatterplot.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", d => xScale(d.x))
+                .attr("cy", d => yScale(d.y))
+                .attr("r", d => radiusScale(d.price))
+                .style("fill", "steelblue")
+                .style("opacity", 0.7)
+                .on("mouseover", (event, d) => {
+                    // Position the pop-up based on mouse coordinates
+                    popup.html(`
+                        <div style="color: red;">Address: ${d.address}</div>
+                        <div style="color: blue;">Price: $${d.price}</div>
+                        <div style="color: green;">Coordinates: [${d.x}, ${d.y}]</div>
+                    `)
+                    .style("display", "block")
+                    .style("left", `${event.pageX + 10}px`)
+                    .style("top", `${event.pageY - 10}px`);
+                })
+                .on("mouseout", () => {
+                    popup.style("display", "none");
+                });
+        });
+    </script>
+</body>
+</html>

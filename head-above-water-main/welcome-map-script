@@ -1,0 +1,70 @@
+//OBSOLETE
+// FOR TANYA'S PART
+    //  var selectedZone = 0;
+    //   var zones = ["No selection","Waterfront", "scale"];
+    //   var grades = ["", "A", "B"];
+
+    //   function updateHeading() {
+    //         var heading = document.getElementById("zone-heading"); // Get the h2 by its ID
+    //         heading.innerText = zones[selectedZone]; // Set the text to the selected zone
+    //     }
+
+    //     function updateGrade() {
+    //         var heading = document.getElementById("zone-grade"); // Get the h2 by its ID
+    //         heading.innerText = grades[selectedZone]; // Set the text to the selected zone
+    //     }
+
+    //     // Run the function when the DOM is fully loaded
+    //     document.addEventListener("DOMContentLoaded", updateHeading);
+
+    //     // Run the function when the DOM is fully loaded
+    //     document.addEventListener("DOMContentLoaded", updateHeading);
+
+    //     // Function to open the modal
+    //     function openModal() {
+    //         document.querySelector('.modal-overlay').style.display = 'flex';
+    //     }
+
+    //     // Function to close the modal
+    //     function closeModal() {
+    //         document.querySelector('.modal-overlay').style.display = 'none';
+    //     }
+    //     function createGrid() {
+    //         var width = 800;
+    //         var height = 700;
+
+    //         var svg = d3.select("#map")
+    //             .append("svg")
+    //             .attr("width", width)
+    //             .attr("height", height);
+
+    //         var rows = 10;
+    //         var cols = 10;
+
+    //         var cellWidth = width / cols;
+    //         var cellHeight = height / rows;
+
+    //         for (var row = 0; row < rows; row++) {
+    //             for (var col = 0; col < cols; col++) {
+    //                 var x = col * cellWidth;
+    //                 var y = row * cellHeight;
+
+    //                 svg.append("rect")
+    //                     .attr("x", x)
+    //                     .attr("y", y)
+    //                     .attr("width", cellWidth)
+    //                     .attr("height", cellHeight)
+    //                     .attr("class", "grid-cell")
+    //                     .on("click", function(){
+    //                       var index = parseInt(d3.select(this).attr("x")) / cellWidth +
+    //                             (parseInt(d3.select(this).attr("y")) / cellHeight) * cols;
+    //                       selectedZone = 1;
+    //                       updateHeading();
+    //                       updateGrade();
+    //                       openModal();
+    //                     });
+    //             }
+    //         }
+    //     }
+
+    //     document.addEventListener("DOMContentLoaded", createGrid);

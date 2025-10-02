@@ -34,8 +34,26 @@
 }
 
 .project-tags {
-    font-size: 16px;
-    font-family: 'Helvetica Bold' , sans-serif;
-    letter-spacing: -0.0em;
-    justify-content: left;
+  font-size: 14px;
+  font-family: 'Helvetica', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 0em; /* adjusted for clarity */
+  justify-content: left;
+}
+
+
+.square-container {
+  width: 250px;          /* choose your square size */
+  height: 250px;         /* same as width */
+  background: rgb(2, 2, 4);     /* black bars above/below */
+  display: flex;
+  align-items: center;   /* center vertically */
+  justify-content: center; /* center horizontally */
+  overflow: hidden;
+}
+
+.square-container img {
+  max-width: 100%;
+  max-height: 100%;
 }

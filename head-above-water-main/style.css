@@ -1,0 +1,522 @@
+.playfair-display-title {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* <font-weight>: Use a value from 400 to 900 */
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, h7, p {
+  font-family: 'Playfair Display', serif; /* Set the font family */
+  max-width: 600px;
+}
+
+
+h1 {
+  font-size: 30pt;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 16pt; /* Example of larger size for h1 */
+  color: rgb(0, 0, 0); /* Example of specific color */
+  font-style: bold;
+}
+
+h3 {
+  font-size: 12pt; /* Adjust font size for h3 */
+  color:  rgb(72, 90, 125); /* Example of specific color */
+  font-style:italic;
+}
+
+h4 {
+  font-size: 14pt; /* Example of larger size for h1 */
+  color: rgb(0, 0, 0); /* Example of specific color */
+  font-style:normal;
+}
+
+h5 {
+  font-size: 12pt; /* Adjust font size for h2 */
+  color: rgb(212, 116, 86); /* Example of specific color */
+  font-style:normal;
+}
+
+h6 {
+  font-size: 12pt; /* Adjust font size for h3 */
+  color: rgb(255, 255, 255); /* Example of specific color */
+  font-style:normal;
+}
+
+h7 {
+  font-size: 12pt; /* Adjust font size for h3 */
+  color: rgb(0, 0, 0); /* Example of specific color */
+  font-style:normal;
+  max-width: 500px;
+}
+
+h8 {
+  font-size: 12pt; /* Adjust font size for h2 */
+  color: rgb(72, 90, 125); /* Example of specific color */
+  font-style:normal;
+}
+
+
+h9 {
+  font-size: 15pt; /* Adjust font size for h3 */
+  color:  rgb(212, 116, 86); /* Example of specific color */
+  font-style:normal;
+}
+h10 {
+  font-size: 12pt; /* Adjust font size for h3 */
+  color:  rgb(255, 255, 255); /* Example of specific color */
+  font-style:italic;
+}
+
+p {
+  max-width: 500px;
+}
+
+html {
+  height: 1.618;
+}
+  
+body {
+  margin: auto;
+  height: 100%;
+  width: 95%;
+  font-size: 1.5vmin;
+  font-family: 'Playfair Display', serif;
+  background-color: #ffffff;
+}
+
+nav {
+  position: relative; /* If not already set */
+  z-index: 10; /* Keeps it above map */
+  height: 50px; /* Adjust based on actual height */
+  margin-bottom: 20px; /* Adds space below the navigation */
+}
+
+.title-box {
+  position: relative;
+  z-index: 10;
+  height: 20%;
+  top: 0;
+  padding-bottom: 5px;
+}
+
+.title-box-text {
+  display: grid;
+  align-content: end;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-transform: uppercase;
+}
+
+.content-container {
+  margin-bottom: 500px;
+}
+
+.text-container-smaller {
+  margin-bottom: 0px;
+}
+
+/* Tanya */
+
+
+
+.svg-center-container {
+  display: flex;
+  justify-content: center;  /* Centers horizontally */
+}
+
+.navy-box {
+  background-color: rgba(72, 90, 125,0.9);  /* Navy background color */
+  padding: 20px;  /* Padding around the content */
+  border-radius: 10px;  /* Optional: rounded corners */
+  color: white;  /* Text color for contrast */
+  text-align: center;  /* Center text within the box */
+}
+
+.content-container {
+  /* Additional styling if needed for content-container */
+}
+
+.map-wrapper {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+}
+.grid-cell {
+fill: rgba(255, 255, 255, 0.1); /* Mostly transparent */
+cursor: pointer;
+transition: fill 0.2s;
+position: absolute;
+}
+/* Hover effect */
+.grid-cell:hover {
+fill: rgba(244, 202, 124, 0.5); /* Light blue with some transparency */
+}
+.map-bg {
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1; /* Ensure the map background is behind the grid */
+}
+/* Modal overlay to darken the background and center the modal */
+.modal-overlay {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  justify-content: center;
+  align-items: center; /* Centering the modal */
+  z-index: 1000; /* Above other elements */
+}
+
+/* Modal content styles */
+.modal-content {
+  background: rgba(72, 90, 125, 0.9);
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  text-align: center; /* Center the text */
+  position: relative; /* For positioning the close button */
+  width: 300px; /* Fixed width */
+}
+
+/* 'X' close button style */
+.close-modal {
+  position: absolute; /* Position relative to the modal content */
+  top: 10px;
+  right: 10px;
+  font-size: 20px; /* Large 'X' */
+  color: rgb(255, 149, 0); /* Red color */
+  background: none; /* No background */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor change on hover */
+}
+
+/* Haidar */
+
+#boston-historical {
+  position: relative; /* Establishes a new positioning context for its children */
+  padding-top: 70px; /* Adjust based on nav and title box height */
+  margin-top: 10px; /* Space from the top of the document or previous content */
+  z-index: 5;
+}
+
+#map-container-historical {
+  position: absolute;
+  min-height: 600px;
+  top: 0; /* Aligns to the top of #boston-historical, adjust if needed */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+#map-historical {
+  height: 100%;
+  width: 100%;
+  background-color: #000; /* Optional: if you want a default background color for the map area */
+  border: none; /* Removes any border if previously set, since the container now handles the frame */
+}
+
+.toggle-btn { 
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#toggleLayer1 {
+  bottom: 10px;
+  right: 10px;
+}
+
+#toggleLayer2 {
+  bottom: 40px;
+  right: 10px;
+}
+.slider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+  background: #f0f0f0;
+  outline: none;
+  -webkit-appearance: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  width: 20%;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 149, 0);
+  cursor: pointer;
+}
+
+#layerText {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity as needed */
+  padding: 0px;
+  border-radius: 5px;
+  font-size: 30px;
+  width: fit-content; /* Ensures the width is as wide as the content inside */
+}
+
+#toggleGeoJSON {
+  bottom: 60px; /* Adjust distance from bottom */
+  right: 60px; /* Keep consistent with other toggles */
+}
+/* Habin */
+
+.bg {
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100vh;
+  z-index: 1;
+} 
+.section {
+  display: flex; 
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+.section > * {
+  width: 50%; 
+}
+.section-img {
+  position: relative;
+  display: flex;
+}
+.section-img-inner {
+  height: 100vh;
+  position: fixed;
+  left: 5%;
+  width: 40%;
+  top: 0;
+  mix-blend-mode: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  filter: none;
+  opacity: 0;
+  background-position: 50% 40%;
+}
+.section-body {
+  display: flex;
+  align-items: center;
+}
+.section-text {
+  padding: 5vw;
+}
+.section.active .section-img-inner {
+  opacity: 1;
+  background-position: 50% 50%;
+  filter: blur(0);
+}
+
+
+
+/* Danny, bar chart */
+
+#property-chart {
+  text-align: center; /* Centers the text within the container */
+  width: auto; /* Adjusts width to the content size, change as needed */
+  padding: 20px; /* Provides padding around the content */
+}
+
+#chart, #slider {
+  width: 100%; /* Ensures the chart and slider take full width of their container */
+  margin-top: 20px; /* Provides spacing between the elements */
+}
+/* Danny, map */
+
+#boston-flood {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center-align items horizontally */
+  justify-content: center; /* Center-align items vertically */
+  height: 100vh; /* Take full viewport height */
+  text-align: center; /* Center-align the text */
+}
+
+/* Style for the image */
+#boston-flood img {
+  width: 90%; /* Adjust the width as needed */
+  max-width: 900px; /* Set a maximum width to prevent it from becoming too large */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 20px; 
+}
+
+/* Style for the selector list */
+#imageSelector2 {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0; /* Space before and after the list */
+}
+
+/* Style for each list item */
+#imageSelector2 li {
+  cursor: pointer;
+  display: inline-block; /* Display list items inline */
+  margin: 0 10px; /* Horizontal space between items */
+  padding: 5px 10px; /* Padding inside each item */
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+#imageSelector2 li:hover {
+  background-color: #ccc; /* Change background on hover */
+}
+
+/* Style for the selector list */
+#imageSelector1 {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0; /* Space before and after the list */
+}
+
+/* Style for each list item */
+#imageSelector1 li {
+  cursor: pointer;
+  display: inline-block; /* Display list items inline */
+  margin: 0 10px; /* Horizontal space between items */
+  padding: 5px 10px; /* Padding inside each item */
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+#imageSelector li:hover {
+  background-color: #ccc; /* Change background on hover */
+}
+
+/* .section-img-inner-danny {
+  height: 100vh;
+  position: fixed;
+  left: 5%;
+  width: 40%;
+  top: 0;
+  mix-blend-mode: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  filter: none;
+  opacity: 0;
+  background-position: 50% 40%;
+} */
+
+/* For Interactive Map */
+.popup {
+  position: absolute;
+  background:  rgba(72, 90, 125, 0.9);
+  border: 0px solid black;
+  padding: 10px;
+  display: none; /* Hidden by default */
+  transition: all 0.3s; /* Smooth transition for appearance and disappearance */
+  z-index: 1000; /* Ensure the pop-up appears above other elements */
+  border-radius: 10px; 
+  font-family: sans-serif;
+}
+
+.slider-container {
+  display: flex;  /* Enables flexbox layout */
+  justify-content: center;  /* Center horizontally */
+  align-items: center;  /* Center vertically */
+  height: 100vh;  /* Full viewport height */
+}
+
+/* Styling for the slider track */
+#display-slider {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: #f0f0f0;
+  outline: none;
+  -webkit-appearance: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  width: 20%;
+}
+
+#display-slider:hover {
+  opacity: 1; /* Fully opaque on hover */
+}
+
+/* Styling for the slider thumb */
+#display-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Square shape width */
+  height: 20px; /* Square shape height */
+  background: rgb(255, 149, 0); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 0%; /* Square shape */
+}
+
+#display-slider::-moz-range-thumb {
+  width: 20px; /* Square shape width */
+  height: 20px; /* Square shape height */
+  background: rgb(255, 149, 0); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 0%; /* Square shape */
+}
+
+
+  /* For slideshow */
+  .slideshow-container { 
+    max-width: 800px; position: relative; margin: auto; 
+  }
+  .slide { 
+    display: none; text-align: center;
+  }
+  .prev, .next { 
+    cursor: pointer; position: absolute; top: 50%; width: auto; margin-top: -22px; padding: 16px; color: black; font-weight: bold; font-size: 18px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; 
+  }
+  .next { 
+    right: 0; border-radius: 3px 0 0 3px;
+   }
+  .prev:hover, .next:hover { 
+    background-color: rgba(0,0,0,0.8);
+   }
+  .img-slidey {
+    max-width: 100%; /* Limit the width to the container size */
+    max-height: 500px; /* Maximum height */
+    object-fit: contain; /* Preserve aspect ratio without cropping */
+  }
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Scatterplot and Map</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    .popup {
+        position: absolute;
+        background:  rgb(72, 90, 175);
+        border: 0px solid black;
+        padding: 10px;
+        display: none; /* Hidden by default */
+        transition: all 0.3s; /* Smooth transition for appearance and disappearance */
+        z-index: 1000; /* Ensure the pop-up appears above other elements */
+        border-radius: 10px; 
+        font-family: sans-serif;
+    }
+</style>
+</head>
+<body>
+  
+   
+  <!-- SVG container for the visualizations -->
+  <svg id="visualization" width="1200" height="900"></svg>
+
+   <div class="popup" id="popup-panel"></div>
+  <script src="interactivemap;.js"></script> <!-- Replace "your_script.js" with the filename of your JavaScript code -->
+
+   <!-- Slider for switching displays -->
+   <label for="display-slider">Time:</label>
+<input type="range" id="display-slider" name="display-slider" min="0" max="3" step="1" value="0"> 
+<span id="slider-value">Today</span>
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Head Above Water</title>
+
+  <!-- Libraries -->
+  <script src="https://d3js.org/d3.v7.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+
+  <!-- Base site styles (live one level up) -->
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../projectPage.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Scoped demo styles: import local style.css into its own cascade layer so it won't override header/intro -->
+  <style>
+    @layer demo;
+    @import url("./style.css") layer(demo);
+
+    /* Keep the top sections loyal to base.css/projectPage.css */
+    .header,
+    .project-header,
+    .project-description,
+    .project-details { all: revert-layer; }
+
+    /* Browser window frame */
+    .demo-browser {
+      position: relative;
+      margin: 60px auto 120px;
+      max-width: 1100px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+      background: #fff;
+      overflow: hidden;
+    }
+    .demo-chrome {
+      height: 44px;
+      background: linear-gradient(#f5f5f7, #eaeaec);
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+    }
+    .demo-dots { display:flex; gap:8px; margin-right:10px; }
+    .demo-dot { width:12px; height:12px; border-radius:50%; background:#e55; }
+    .demo-dot:nth-child(2){ background:#ebc64c; }
+    .demo-dot:nth-child(3){ background:#63c25b; }
+    .demo-url {
+      flex: 1; height: 26px; border-radius: 8px; background: #fff; border: 1px solid #dcdcdc;
+      display:flex; align-items:center; padding:0 10px; font-size:12px; color:#666; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+
+    /* Sticky device viewport */
+    .demo-viewport {
+      position: sticky; top: 80px; /* clear site header */
+      background: #111; padding: 30px 0; display: flex; justify-content: center; align-items: flex-start;
+      min-height: 70vh; z-index: 1;
+    }
+    .demo-canvas {
+      width: 1080px; transform: scale(.9); transform-origin: top center; background: #fff; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.15);
+    }
+    .demo-scroll { max-height: 70vh; overflow: auto; }
+
+    /* Ensure imported demo styles apply inside the demo only */
+    .demo-canvas, .demo-canvas * { all: revert; }
+
+    /* Cursor container - pointer-events none so it doesn't block clicks */
+    .custom-cursor { pointer-events: none; }
+
+    /* Small utility fixes for this page */
+    .project-subtitle { text-align:center; }
+    .detail-column p { margin-top: 4px; }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html" aria-label="Home">
+          <img src="../Images/Navigation/house.jpg" alt="Home">
+        </a>
+        <span>/</span>
+        <a href="#">Head Above Water</a>
+      </nav>
+
+      <div class="header-buttons">
+        <a href="../ceramics-gallery.html" class="header-icon" aria-label="Ceramics">
+          <img src="../Images/Navigation/ceramics.png" alt="Ceramics">
+        </a>
+        <a href="../work.html" class="header-icon" aria-label="Work">
+          <img src="../Images/Navigation/gallery.jpg" alt="Work">
+        </a>
+        <a href="../about.html" class="header-icon" aria-label="About">
+          <img src="../Images/Navigation/girlIcon.png" alt="About">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Top section: uses base.css + projectPage.css only -->
+    <div class="project-header">
+      <div class="project-year">2024</div>
+      <center><h1 class="project-title">Head Above Water</h1></center>
+      <p class="project-subtitle">Interactive Data Visualization</p>
+    </div>
+
+    <div class="project-description">
+      <p>
+        Head Above Water is an interactive exploration of Boston’s historical land‑making and contemporary flood risk.
+        Users pick a neighborhood, scrub through shoreline change, and compare sales trends against risk layers.
+      </p>
+    </div>
+
+    <section class="project-details">
+      <div class="detail-column">
+        <h2 class="detail-title">CONTEXT</h2>
+        <p>Interactive Data Visualization</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">LOCATION</h2>
+        <p>City of Boston</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+        <p>D3.js, Mapbox GL JS, HTML, CSS, JavaScript</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">COLLABORATORS</h2>
+        <p>Danny Griffin, Habin Park, Haidar El Haq</p>
+      </div>
+    </section>
+
+    <!-- Sticky browser window demo wrapper -->
+    <div class="demo-browser">
+      <div class="demo-chrome">
+        <div class="demo-dots"><span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-dot"></span></div>
+        <div class="demo-url">https://head-above-water.local/demo</div>
+      </div>
+
+      <div class="demo-viewport">
+        <div class="demo-canvas">
+          <div class="demo-scroll">
+
+            <!-- ================= DEMO CONTENT (scoped to style.css) ================= -->
+
+            <!-- Content 01: Choose where to live (map) -->
+            <div class="content-container" id="welcome-map">
+              <center>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <h1 style="font-size: 60px; font-weight: 500;"> Welcome to Boston. </h1>
+                <h3 style="font-size: 20px; font-weight: 100;"> We are glad you have decided to settle down here!</h3>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div id="map-container" style="position:relative; width: 100px; height: 100px;">
+                  <img src="./images/arrow.PNG" alt="Arrow" class="map-bg" style="width: 100%; height: 100%;">
+                </div>
+                <br><br><br><br><br>
+                <h1 style="font-size: 30px; font-weight: 300;"> Where would you like to live?</h1>
+                <h3 style="color: rgb(212, 116, 86);">Please select an area on the map below.</h3>
+                <div class="map-wrapper">
+                  <div id="map-container" style="position:relative; width: 800px; height: 700px;">
+                    <img src="./images/boston-map.png" alt="Boston Map" class="map-bg" style="width: 100%; height: 100%;">
+                    <div id="map"></div>
+                  </div>
+                  <div class="modal-overlay">
+                    <div class="modal-content">
+                      <button class="close-modal" onclick="closeModal()">×</button>
+                      <h9>Your selection has been locked in.</h9>
+                      <h6>Find out your result at the end!</h6>
+                    </div>
+                  </div>
+                </div>
+              </center>
+            </div>
+
+            <!-- Text; Land Reclamation Intro -->
+            <div class="text-container-smaller" style="position: relative;">
+              <center>
+                <div style="margin-bottom: 500px;">
+                  <h1 style="font-size: 30px;font-weight: 300;"> Boston wasn't always this way.</h1>
+                  <h3 style="font-size: 18px; color: black; font-style: normal; font-weight: 100;">In fact, the shoreline of Boston experienced continuous change over the past three centuries.</h3>
+                </div>
+                <h4 style="font-size: 25px; font-weight: 300; margin-bottom: 500px;"> Let's take look at how Boston has transformed in such short amount of time!</h4>
+                <div id="map-container" style="position:relative; width: 100px; height: 100px;">
+                  <img src="./images/arrow.PNG" alt="Arrow" class="map-bg" style="width: 100%; height: 100%;">
+                </div>
+              </center>
+            </div>
+
+            <!-- Content 03: New construction / historical sections -->
+            <div class="content-container" id="boston-reclamation">
+              <div class="bg"></div>
+
+              <div class="section">
+                <div class="section-img"><div class="section-img-inner" style="background-image: url(./images/1.png);"></div></div>
+                <div class="section-body"><div class="section-text">
+                  <h2>1790s Boston: Early Roots</h2>
+                  <h3> Population: 18,000 </h3>
+                  <p>In the 1790s, Boston, then a growing town on the Shawmut Peninsula, began its early land-making efforts to expand its limited area. Initial projects like filling Mill Pond were modest but laid the foundation for future expansions that would dramatically change the city's landscape.</p>
+                </div></div>
+              </div>
+
+              <div class="section">
+                <div class="section-img"><div class="section-img-inner" style="background-image: url(./images/2.png);"></div></div>
+                <div class="section-body"><div class="section-text">
+                  <h2>1830s Boston: Expanding Boundaries</h2>
+                  <h3>Population: 61,000</h3>
+                  <p>By the 1830s, Boston's population had increased to about 61,000. The city's physical expansion continued as land-making projects progressed, transforming the city's geography. Notably, the Mill Pond area was completely filled by 1828, and attention turned to the South Cove, which was filled to create new land for the burgeoning city. This period witnessed the transformation of Boston's coastline, with the filled lands soon hosting residential buildings and commercial enterprises, aiding in the city's economic growth.</p>
+                </div></div>
+              </div>
+
+              <div class="section">
+                <div class="section-img"><div class="section-img-inner" style="background-image: url(./images/3.png);"></div></div>
+                <div class="section-body"><div class="section-text">
+                  <h2>1860s Boston: The Industrial Push</h2>
+                  <h3>Population: 180,000</h3>
+                  <p>The population soared to 180,000 by the 1860s, driven by industrialization and the influx of immigrants. The land-making efforts kept pace, with major projects like the filling of the Back Bay starting in 1857. This massive undertaking was critical in creating the now prestigious Back Bay neighborhood, drastically increasing Boston's land mass and property value. By the end of this period, Boston had not only expanded its land but had also laid down the infrastructural foundation for modern urban development.</p>
+                </div></div>
+              </div>
+
+              <div class="section">
+                <div class="section-img"><div class="section-img-inner" style="background-image: url(./images/4.png);"></div></div>
+                <div class="section-body"><div class="section-text">
+                  <h2>1910s Boston: A City Transformed</h2>
+                  <h3>Population: 670,000</h3>
+                  <p>By the 1910s, Boston's population had reached 670,000, and the city's skyline began to take on a more contemporary form. The completion of the Back Bay and Fenway land-making projects had created significant new residential and commercial areas. This era marked the culmination of Boston's most intensive period of land filling, which saw the city's geography and real estate market transformed. The development of these new areas helped accommodate the growing population and facilitated economic activities that leveraged the newly available space.</p>
+                </div></div>
+              </div>
+
+              <div class="section">
+                <div class="section-img"><div class="section-img-inner" style="background-image: url(./images/5.png);"></div></div>
+                <div class="section-body"><div class="section-text">
+                  <h2>2020s Boston: The Present</h2>
+                  <h3>Population 670,000</h3>
+                  <p>Today Boston's thriving city life serves as a testament to the city's sustained appeal and economic stability. The land-making has long been completed, but the city continues to face challenges related to its historic growth. However, environmental and infrastructural issues persist, the consequences of the long-term impacts of altering natural landscapes. Modern Boston, with its mix of historic sites and modern infrastructure, continues to navigate the complexities of urban development while maintaining its status as a major metropolitan hub.</p>
+                </div></div>
+              </div>
+            </div>
+
+            <br><br><br>
+            <div class="slideshow-container" style="margin-bottom: 500px;">
+              <div class="slide">
+                <center>
+                  <h3 style="font-size: 25px; color: black;">What was Boston like?</h3>
+                  <img class="img-slidey" src="./images/Boston_1640.jpg" alt="Boston 1640">
+                  <p style="text-align: justify;">Let's explore a map of Boston from the year 1640. At that time, much of Boston coastline consisted of marshland. These tidal areas were naturally prone to flooding. The marshy conditions were ideal for oysters, which is why Boston became famous for them.</p>
+                </center>
+              </div>
+
+              <div class="slide">
+                <center>
+                  <h3 style="font-size: 20px;">What is the impact of this land-making on Boston?</h3>
+                  <img class="img-slidey" src="./images/Boston_1770_Drawing.jpg" alt="Boston 1770 Drawing">
+                  <p style="text-align: justify;">The "View of Boston Harbor" drawing by Haberman from 1770 highlights muddy areas as darker patches, indicating mud lands. This terrain made it challenging for boats to approach the shoreline, and houses were not built there due to frequent flooding and instability.</p>
+                </center>
+              </div>
+
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <div class="text-container-smaller" style="position: relative;">
+              <center>
+                <br>
+                <h3 style="font-size: 25px; color: black;">How does land-making relate to flooding problem?</h3>
+                <h4 style="font-size: 15px; color: rgb(212, 116, 86);"><i>Slide to check out the history of land-making in connection with the 2050 projected flooding area.</i></h4>
+              </center>
+            </div>
+
+            <!-- Historical map and slider -->
+            <div class="content-container" id="boston-historical">
+              <div id="map-container-historical">
+                <div id="map-historical"></div>
+                <div id="yearslider" class="slidecontainer">
+                  <input type="range" min="0" max="3" value="0" class="slider" id="layerSlider">
+                </div>
+                <button id="toggleGeoJSON" class="toggle-btn">Show 2050 Flooding Projection</button>
+                <div id="layerText"></div>
+              </div>
+            </div>
+
+            <br><br><br><br><br>
+            <div class="text-container-smaller" style="position: relative;">
+              <center>
+                <p style="text-align: justify;"><br><br>This is a problem because unlike marshland where there were no properties, there are <strong>many properties on these made land</strong>. And in the future, coastal floods will only be more frequent. The chart below shows the number of properties in the projected flooding area. Click to see the projected numbers.</p>
+                <div class="content-container" id="flood-chart">
+                  <img id="selectedImage2" src="./images/Graph0.png" alt="Selected Image" width="500">
+                  <ul id="imageSelector2">
+                    <li data-image="./images/Graph1.png">2030</li>
+                    <li data-image="./images/Graph2.png">2050</li>
+                    <li data-image="./images/Graph3.png">2070</li>
+                  </ul>
+                </div>
+              </center>
+            </div>
+
+            <div class="content-container-smaller" id="boston-flood">
+              <img id="selectedImage1" src="./images/boston-analysis-map/6.png" alt="Selected Image" width="500">
+              <ul id="imageSelector1">
+                <li data-image="./images/boston-analysis-map/7.png">On made lands</li>
+                <li data-image="./images/boston-analysis-map/11.png">2070 projection</li>
+              </ul>
+              <br>
+            </div>
+
+            <center>
+              <h4 style="font-size: 25px;font-weight: 300; margin-bottom: 500px;">As a Boston home‑seeker, if you're going to live on made land, <strong><i>you will be flooded soon.</i></strong></h4>
+              <h4 style="font-size: 25px; font-weight: 300; margin-bottom: 500px;"><i>What can you do?
+                <br><strong>Should you avoid living on made land?</strong></i></h4>
+              <div style="margin-bottom: 500px;">
+                <h4 style="font-size: 25px; font-weight: 300;">Probably this is not available, because</h4>
+                <h2 style="font-size: 50px; color: rgb(72, 90, 125);">18% (14,887)</h2>
+                <h4 style="font-size: 25px; font-weight: 300;">of properties are built on made land.</h4>
+              </div>
+            </center>
+
+            <div class="content-container" style="position: relative;">
+              <center>
+                <br><br><br><br>
+                <h4 style="font-weight: 100; font-size: 25px;">The <strong><i>least</i></strong> you can do to protect yourself is to see if you have <strong>flood insurance.</strong></h4><br>
+                <h3 style="font-size: 30px;">What about flood insurance?</h3>
+                <p style="text-align: justify;">In 1968, Congress created the National Flood Insurance Program (NFIP). This program offered homeowners affordable flood insurance because private companies were unwilling to take on the risk of damage caused by floods. The program is administered by the Federal Emergency Management Agency (FEMA).</p><br>
+                <h4 style="font-size: 15px; font-weight: 300; text-align: left; margin-left: 250pt;">Rates vary depending on:
+                  <li>The flood zone your property is located in</li>
+                  <li>Its height above sea level</li>
+                  <li>Your building’s characteristics</li>
+                </h4>
+              </center>
+            </div>
+
+            <div>
+              <div class="svg-center-container">
+                <svg id="interactivemap" width="800" height="900"></svg>
+              </div>
+              <div class="popup" id="popup-panel"></div>
+              <script src="interactivemap.js"></script>
+            </div>
+
+            <div class="text-container-smaller" style="position: relative;">
+              <center>
+                <h3>Check out the flood insurance and year 2070 flood projection map.</h3>
+                <br>
+              </center>
+            </div>
+
+            <div class="text-container-smaller" style="position: relative;">
+              <center>
+                <h2> What does this mean for home‑seekers?</h2>
+                <br>
+                <h3>To better understand the risks faced by prospective renters and homeowners in the Boston market, we compiled geospatial data from third‑party sources to overlay onto residential sales data characterizing the Boston Market between 2000 and 2023.</h3>
+              </center>
+            </div>
+
+            <div>
+              <div class="section-img">
+                <img src="./images/property_trends.png" alt="property trends" width="900">
+                <h7>
+                  <br><br><br><br>
+                  <h8>With the prospect of looming sea level rise and heightened flood risk throughout Boston, we expect that the buying and selling of properties would account for this near term risk.</h8>
+                  <br><br>
+                  However, despite overall property sales remaining consistent, we note that two categories <u>Special Flood Hazard Area</u> and <u>9" Sea Level Rise</u> are actually increasing in the last four years.
+                  <br><br>
+                  Similarly, we see that these zones are where more new properties are being built.
+                </h7>
+              </div>
+            </div>
+
+            <div>
+              <div class="section-img">
+                <img src="./images/trading_frequency.png" alt="trading frequency" width="900" >
+                <h7>
+                  <br><br><br><br>
+                  <h8>Has property speculation not been accounting for sea‑level rise?</h8>
+                  <br><br>
+                  It's well known that buying and selling property is a lucrative practice, but increasingly, flipping means shorter timespans between sales.
+                  <br><br>
+                  By counting which unique addresses are most frequently sold, we can analyze the impact of this property speculation within different spatial risk zones.
+                  <br><br>
+                  Surprisingly, we find that across categories, spatial risk has little to no correlation with how frequently a property is sold. Flood risk has not been driving market behavior.
+                </h7>
+              </div>
+            </div>
+
+            <div>
+              <div class="section-img">
+                <img src="./images/property_value.png" alt="property value" width="900">
+                <h7>
+                  <br><br><br>
+                  The properties most prone to near‑term flood risk are those we associate with waterfront communities such as North End, East Boston, and Seaport.
+                  <br><br>
+                  As these properties are highly sought for their locations, their prices are higher on average. A diagonal clustering appears between the $1–5M range. A smaller cluster appears among properties sold 6+ times priced below $1M—potentially dangerous for new buyers.
+                </h7>
+              </div>
+            </div>
+
+            <div>
+              <div class="section-img">
+                <img src="./images/risk_exposure.png" alt="risk exposure" width="900">
+                <h7>
+                  <br><br><br><br>
+                  All property types face some exposure to flood risk in the coming century, but condominiums and apartments in particular face heightened risk. By 2070 (36" SLR), more than 20% of condos and 15% of apartments will coincide with the 100‑year flood zone.
+                </h7>
+              </div>
+            </div>
+
+            <div class="content-container" style="position: relative;">
+              <center>
+                <h3 style="font-size: 25px;">Now, let's go back to the start. Check if your property choice is a good start to your Boston journey.</h3>
+              </center>
+            </div>
+
+            <div class="navy-box content-container" id="grade-statement">
+              <center>
+                <h10>The address you selected is...</h10>
+                <h2 id="zone-heading"></h2>
+                <br><br>
+                <h10>This property has an</h10>
+                <br><br>
+                <h1 id="zone-grade"></h1> <h1> Grade Risk</h1><br><br>
+                <p>* Grading criteria: whether the property is on made land, proximity to flood‑prone area, and whether it has flood insurance.</p>
+              </center>
+            </div>
+
+            <h4>Sources</h4>
+            <ul>
+              <li>Dataset: Residential Sales data in the City of Boston, 2000–2023. The Warren Group.</li>
+              <li>Dataset: FEMA Special Flood Hazard Area (SFHA).</li>
+              <li>Dataset: <a href="https://data.boston.gov/dataset/?q=sea+level&organization=boston-maps&res_format=ArcGIS+GeoServices+REST+API&res_format=CSV&res_format=HTML&res_format=ZIP&sort=score+desc%2C+metadata_modified+desc" target="_blank" rel="noopener">Climate Ready Boston, Sea‑Level Rise</a></li>
+              <li>Maps: Norman B. Leventhal Map & Education Center at the Boston Public Library.</li>
+            </ul>
+
+            <h4>Methodology</h4>
+            <p>Spatial intersections performed using <a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas</a> in Python.</p>
+
+            <!-- ================= END DEMO CONTENT ================= -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cursor (subfolder path) -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <script src="../cursor.js"></script>
+
+  <!-- Page scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="./global.js"></script>
+  <script>
+    // Any small glue code for the demo can live here
+    const scroll1 = document.getElementById('boston-reclamation');
+    const scroll2 = document.getElementById('boston-reclamation');
+  </script>
+</body>
+</html>

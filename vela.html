@@ -77,27 +77,33 @@
             </p>
           </div>
         </section>
-      </main>
-      
 
+         <div class="button-row">
+  <a href="https://www.architecturalrecord.com/articles/15385-vela-by-partisans" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="button">
+    Read about it on Architectural Record
+  </a>
+  <a href="https://www.designlinesmagazine.com/spaces/partisans-vela-toronto-next-rising-star/" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="button">
+    Read about it on Designlines
+  </a>
+</div>
+<br><Br>
+       
         <div class="project-images">
-            <div class="button-container"><a href="https://www.archdaily.com/910013/ice-breakers-public-art-winter-wonderland-returns-to-toronto" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="button">
-                Read about it on Archdaily
-                </a></div>
-            
 
                 <div class="gallery-wrapper">
                     <button class="gallery-button left" onclick="scrollGallery(-1)">‹</button>
                     <div class="gallery" id="gallery">
                       <div class="gallery-item"><img src="../Images/Vela/2.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg" alt="Vela Interior 1"></div>
                       <div class="gallery-item"><img src="../Images/Vela/4-vela-photo-by-jonathan-friedman-partisans (1).jpg" alt="Vela Interior 2"></div>
-                      <!-- <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_8.jpg" alt="Vela Exterior"></div> -->
                       <div class="gallery-item"><img src="../Images/Vela/sr_amandabradley_36.jpg" alt="Vela Interior 2"></div>
                       <div class="gallery-item"><img src="../Images/Vela/Aure_Partisans_Vela_restaurant_Lighting4.jpg" alt="Vela Interior 2"></div>
-                      <div class="gallery-item"><img src="../Images/Vela/Vela_Website_Home_Detail_3.jpg" alt="Vela Interior 2"></div>
+                      <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_8.jpg" alt="Vela Interior 2"></div>
                       <div class="gallery-item"><img src="../Images/Vela/7.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg" alt="Vela Interior 2"></div>
                       <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_3.jpg" alt="Vela Interior 2"></div>
                       <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_5.jpg" alt="Vela Interior 2"></div>
@@ -105,6 +111,7 @@
                     </div>
                     <button class="gallery-button right" onclick="scrollGallery(1)">›</button>
                   </div>
+                  <br><br>
                   
                   <div class="modal" id="zoomModal">
                     <img id="zoomedImg" src="" alt="Zoomed image">
@@ -120,10 +127,20 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 by Tatiana Estrina</p>
+        <p>&copy; 2025 by Tatiana Estrina</p>
     </footer>
 
-     <script src="galleryscroll.js"></script>
+   <div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img id="lightboxImg" src="" alt="Zoomed image">
+  </div>
+</div>
+
+     <div class="custom-cursor" id="customCursor"></div>
+     <script src="cursor.js"></script>
+<script src="galleryscroll.js"></script>
+
 </body>
 
 </html>

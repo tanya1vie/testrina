@@ -2,53 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ceramics Gallery</title>
-  <!-- If hosted on GitHub Pages project site, update base to /testrina/ (optional) -->
-  <!-- <base href="/testrina/"> -->
-  <link rel="stylesheet" href="/testrina/base.css" />
-  <link rel="stylesheet" href="/testrina/gallery.css" />
-  <!-- Replace with your own kit or remove if unused -->
-  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-  <style>
-    /* === POPUP (modal) === */
-    .popup-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,.65); z-index: 1000; }
-    .popup-content { background: #fff; max-width: min(1100px, 92vw); max-height: 90vh; width: 100%; display: grid; grid-template-columns: 1fr 320px; gap: 16px; border-radius: 12px; position: relative; overflow: hidden; }
-    .popup-gallery { overflow-y: auto; max-height: 90vh; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-    .popup-gallery img { width: 100%; height: auto; object-fit: contain; border-radius: 6px; }
-    .popup-info { overflow-y: auto; max-height: 90vh; padding: 24px 20px; }
-    .close-popup { position: absolute; top: 10px; right: 12px; font-size: 28px; line-height: 1; border: none; background: transparent; cursor: pointer; }
-    @media (max-width: 720px) { .popup-content { grid-template-columns: 1fr; max-height: 92vh; } }
 
-    /* Grid */
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+  <!-- Local styles (relative paths) -->
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="gallery.css" />
+
+  <style>
+    /* ===== Popup (modal) ===== */
+    .popup-overlay {
+      position: fixed; inset: 0;
+      display: none;                 /* shown via JS */
+      align-items: center; justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,.65);
+      z-index: 1000;
+    }
+    .popup-content {
+      background: #fff;
+      max-width: min(1100px, 92vw);
+      max-height: 90vh;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 16px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .popup-gallery {
+      overflow-y: auto; max-height: 90vh;
+      padding: 16px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .popup-gallery img {
+      width: 100%; height: auto; object-fit: contain; border-radius: 6px;
+    }
+    .popup-info { overflow-y: auto; max-height: 90vh; padding: 24px 20px; }
+    .close-popup {
+      position: absolute; top: 10px; right: 12px;
+      font-size: 28px; line-height: 1;
+      border: none; background: transparent; cursor: pointer;
+    }
+    @media (max-width: 720px) {
+      .popup-content { grid-template-columns: 1fr; max-height: 92vh; }
+    }
+
+    /* ===== Grid ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
     .project-card { aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: #f3f3f3; }
     .project-link { display: block; width: 100%; height: 100%; cursor: pointer; }
     .project-link img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .project-link.is-empty { display: grid; place-items: center; color: #888; font-size: .9rem; background: repeating-linear-gradient(45deg,#fafafa,#fafafa 10px,#f0f0f0 10px,#f0f0f0 20px); }
+    .project-link.is-empty {
+      display: grid; place-items: center; color: #888; font-size: .9rem;
+      background: repeating-linear-gradient(45deg,#fafafa,#fafafa 10px,#f0f0f0 10px,#f0f0f0 20px);
+    }
 
     header .breadcrumb img { display:block; }
+
+    /* ===== Custom cursor (tiny black dot, bigger on clickables) ===== */
+    html, body, a, button, img { cursor: none !important; }
+    body { isolation: isolate; } /* helps mix-blend-mode behave predictably */
+
+    .custom-cursor{
+      position: fixed; top: 0; left: 0;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: #000;                 /* black dot */
+      transform: translate(-50%, -50%) scale(1);
+      transition: transform .2s ease, opacity .2s ease;
+      opacity: 1;
+      z-index: 2147483647;              /* above everything including overlays */
+      mix-blend-mode: difference;       /* inverts background under the dot */
+    }
+    .custom-cursor.is-clickable{
+      transform: translate(-50%, -50%) scale(3.2); /* larger on clickables */
+    }
+    .custom-cursor.is-hidden{ opacity: 0; }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
       <nav class="breadcrumb">
-        <a href="/testrina/index.html"><img src="/testrina/Images/Navigation/house.jpg" alt="Home" /></a>
+        <a href="index.html"><img src="Images/Navigation/house.jpg" alt="Home"/></a>
         <span>/</span>
         <a href="#">Ceramics</a>
       </nav>
       <div class="header-buttons">
-        <a href="/testrina/ceramics-gallery.html" class="header-icon"><img src="/testrina/Images/Navigation/ceramics.png" alt="Ceramics" /></a>
-        <a href="/testrina/work.html" class="header-icon"><img src="/testrina/Images/Navigation/gallery.jpg" alt="Gallery" /></a>
-        <a href="/testrina/about.html" class="header-icon"><img src="/testrina/Images/Navigation/girlIcon.png" alt="About" /></a>
+        <a href="ceramics-gallery.html" class="header-icon"><img src="Images/Navigation/ceramics.png" alt="Ceramics"/></a>
+        <a href="work.html" class="header-icon"><img src="Images/Navigation/gallery.jpg" alt="Gallery"/></a>
+        <a href="about.html" class="header-icon"><img src="Images/Navigation/girlIcon.png" alt="About"/></a>
       </div>
     </div>
   </header>
 
   <div class="gallery-grid">
-    <div class="project-card"><div class="project-link" data-project="1"><img src="/testrina/Images/Ceramics/animalgroup1.png" alt="Animal Bowl Collection" /></div></div>
-    <div class="project-card"><div class="project-link" data-project="2"><img src="/testrina/Images/Ceramics/IMG_1881.JPG" alt="Bee Tea Set" /></div></div>
+    <div class="project-card"><div class="project-link" data-project="1"><img src="Images/Ceramics/animalgroup1.png" alt="Animal Bowl Collection"/></div></div>
+    <div class="project-card"><div class="project-link" data-project="2"><img src="Images/Ceramics/IMG_1881.JPG" alt="Bee Tea Set"/></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="3"><span>Flower Bowl Collection</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="4"><span>Faceted Vase Duet</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="5"><span>Carved Bowl Duet</span></div></div>
@@ -56,10 +116,10 @@
     <div class="project-card"><div class="project-link is-empty" data-project="7"><span>Wave Series</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="8"><span>Doughnut Teapot</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="9"><span>Bubble Teapot</span></div></div>
-    <div class="project-card"><div class="project-link" data-project="10"><img src="/testrina/Images/Ceramics/mouth1.png" alt="Mouth Plate" /></div></div>
+    <div class="project-card"><div class="project-link" data-project="10"><img src="Images/Ceramics/mouth1.png" alt="Mouth Plate"/></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="11"><span>Cheerio Bowl</span></div></div>
-    <div class="project-card"><div class="project-link" data-project="12"><img src="/testrina/Images/Ceramics/IMG_1368.JPG" alt="Mouth Cup" /></div></div>
-    <div class="project-card"><div class="project-link" data-project="13"><img src="/testrina/Images/Ceramics/cow1.png" alt="Shetland Cow Duet" /></div></div>
+    <div class="project-card"><div class="project-link" data-project="12"><img src="Images/Ceramics/IMG_1368.JPG" alt="Mouth Cup"/></div></div>
+    <div class="project-card"><div class="project-link" data-project="13"><img src="Images/Ceramics/cow1.png" alt="Shetland Cow Duet"/></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="14"><span>Bubble Bath</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="15"><span>Honey Bubble Tea Set</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="16"><span>Cake Stand</span></div></div>
@@ -68,9 +128,9 @@
     <div class="project-card"><div class="project-link is-empty" data-project="19"><span>Rabbit Jar (now with carrot!)</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="20"><span>Lover Mugs</span></div></div>
     <div class="project-card"><div class="project-link is-empty" data-project="21"><span>Vase for One Flower Duet</span></div></div>
-    <div class="project-card"><div class="project-link" data-project="22"><img src="/testrina/Images/Ceramics/house0.png" alt="House Jar" /></div></div>
-    <div class="project-card"><div class="project-link" data-project="23"><img src="/testrina/Images/Ceramics/toadstool3.png" alt="Toadstool Candle Holder" /></div></div>
-    <div class="project-card"><div class="project-link" data-project="24"><img src="/testrina/Images/Ceramics/cup2.png" alt="Flower Cup" /></div></div>
+    <div class="project-card"><div class="project-link" data-project="22"><img src="Images/Ceramics/house0.png" alt="House Jar"/></div></div>
+    <div class="project-card"><div class="project-link" data-project="23"><img src="Images/Ceramics/toadstool3.png" alt="Toadstool Candle Holder"/></div></div>
+    <div class="project-card"><div class="project-link" data-project="24"><img src="Images/Ceramics/cup2.png" alt="Flower Cup"/></div></div>
   </div>
 
   <!-- POPUP -->
@@ -88,52 +148,27 @@
 
   <footer><p>© 2025 by Tatiana Estrina</p></footer>
 
+  <!-- Cursor element last to guarantee top layer -->
+  <div class="custom-cursor" id="customCursor"></div>
+
   <script>
-    // Project data object (paths rewritten for deployment)
+    // ===== Data (relative image paths) =====
     const projectData = {
       1: { title: "Animal Bowl Collection", year: "2024", material: "white clay + underglaze + varied glazes", images: [
-        "/testrina/Images/Ceramics/animalgroup1.png",
-        "/testrina/Images/Ceramics/animalgroup2.png",
-        "/testrina/Images/Ceramics/racoon1.png",
-        "/testrina/Images/Ceramics/racoon2.png",
-        "/testrina/Images/Ceramics/racoon3.png",
-        "/testrina/Images/Ceramics/skunk1.png",
-        "/testrina/Images/Ceramics/skunk2.png",
-        "/testrina/Images/Ceramics/skunk3.png",
-        "/testrina/Images/Ceramics/hedgehog1.png",
-        "/testrina/Images/Ceramics/hedgehog2.png",
-        "/testrina/Images/Ceramics/hedgehog3.png",
-        "/testrina/Images/Ceramics/fox1.png",
-        "/testrina/Images/Ceramics/fox2.png",
-        "/testrina/Images/Ceramics/IMG_8872.JPG",
-        "/testrina/Images/Ceramics/IMG_9536.JPG",
-        "/testrina/Images/Ceramics/IMG_9538.JPG",
-        "/testrina/Images/Ceramics/IMG_9539.JPG",
-        "/testrina/Images/Ceramics/IMG_9772.JPG",
-        "/testrina/Images/Ceramics/IMG_9780.JPG",
-        "/testrina/Images/Ceramics/IMG_9781.JPG",
-        "/testrina/Images/Ceramics/IMG_9782.JPG",
-        "/testrina/Images/Ceramics/IMG_9783(1).JPG",
-        "/testrina/Images/Ceramics/IMG_9955.JPG"
+        "Images/Ceramics/animalgroup1.png","Images/Ceramics/animalgroup2.png","Images/Ceramics/racoon1.png","Images/Ceramics/racoon2.png","Images/Ceramics/racoon3.png",
+        "Images/Ceramics/skunk1.png","Images/Ceramics/skunk2.png","Images/Ceramics/skunk3.png",
+        "Images/Ceramics/hedgehog1.png","Images/Ceramics/hedgehog2.png","Images/Ceramics/hedgehog3.png",
+        "Images/Ceramics/fox1.png","Images/Ceramics/fox2.png",
+        "Images/Ceramics/IMG_8872.JPG","Images/Ceramics/IMG_9536.JPG","Images/Ceramics/IMG_9538.JPG","Images/Ceramics/IMG_9539.JPG",
+        "Images/Ceramics/IMG_9772.JPG","Images/Ceramics/IMG_9780.JPG","Images/Ceramics/IMG_9781.JPG","Images/Ceramics/IMG_9782.JPG","Images/Ceramics/IMG_9783(1).JPG","Images/Ceramics/IMG_9955.JPG"
       ]},
       2: { title: "Bee Tea Set", year: "2025", material: "white clay + underglaze pencil + golden celadon glaze", images: [
-        "/testrina/Images/Ceramics/IMG_1716.JPG",
-        "/testrina/Images/Ceramics/IMG_1717.JPG",
-        "/testrina/Images/Ceramics/IMG_1520.JPG",
-        "/testrina/Images/Ceramics/IMG_1449.JPG",
-        "/testrina/Images/Ceramics/IMG_1548.JPG",
-        "/testrina/Images/Ceramics/IMG_1839.JPG",
-        "/testrina/Images/Ceramics/IMG_1840.JPG",
-        "/testrina/Images/Ceramics/IMG_1841.JPG",
-        "/testrina/Images/Ceramics/IMG_1842.JPG",
-        "/testrina/Images/Ceramics/IMG_1843.JPG",
-        "/testrina/Images/Ceramics/IMG_1706.JPG",
-        "/testrina/Images/Ceramics/IMG_1880.JPG",
-        "/testrina/Images/Ceramics/IMG_1881.JPG"
+        "Images/Ceramics/IMG_1716.JPG","Images/Ceramics/IMG_1717.JPG","Images/Ceramics/IMG_1520.JPG","Images/Ceramics/IMG_1449.JPG","Images/Ceramics/IMG_1548.JPG",
+        "Images/Ceramics/IMG_1839.JPG","Images/Ceramics/IMG_1840.JPG","Images/Ceramics/IMG_1841.JPG","Images/Ceramics/IMG_1842.JPG","Images/Ceramics/IMG_1843.JPG",
+        "Images/Ceramics/IMG_1706.JPG","Images/Ceramics/IMG_1880.JPG","Images/Ceramics/IMG_1881.JPG"
       ]},
       3: { title: "Flower Bowl Collection", year: "2024", material: "white clay + underglaze + transparent glaze", images: [
-        "/testrina/Images/Ceramics/blueflowerbowl3.png",
-        "/testrina/Images/Ceramics/blueflowerbowl1.png"
+        "Images/Ceramics/blueflowerbowl3.png","Images/Ceramics/blueflowerbowl1.png"
       ]},
       4: { title: "Faceted Vase Duet", year: "2025", material: "brown clay + shino glaze  //  white clay + blue celadon glaze", images: [] },
       5: { title: "Carved Bowl Duet", year: "2025", material: "", images: [] },
@@ -142,22 +177,14 @@
       8: { title: "Doughnut Teapot", year: "2025", material: "", images: [] },
       9: { title: "Bubble Teapot", year: "2025", material: "", images: [] },
       10:{ title: "Mouth Plate", year: "2024", material: "brown clay + bird's matte orange glaze", images: [
-        "/testrina/Images/Ceramics/mouth1.png",
-        "/testrina/Images/Ceramics/mouth2.png",
-        "/testrina/Images/Ceramics/mouth3.png",
-        "/testrina/Images/Ceramics/mouth2.png"
+        "Images/Ceramics/mouth1.png","Images/Ceramics/mouth2.png","Images/Ceramics/mouth3.png","Images/Ceramics/mouth2.png"
       ]},
       11:{ title: "Cheerio Bowl", year: "2025", material: "", images: [] },
       12:{ title: "Mouth Cup", year: "2025", material: "", images: [
-        "/testrina/Images/Ceramics/IMG_1368.JPG",
-        "/testrina/Images/Ceramics/IMG_1369.JPG"
+        "Images/Ceramics/IMG_1368.JPG","Images/Ceramics/IMG_1369.JPG"
       ]},
       13:{ title: "Shetland Cow Duet", year: "2024 + 2025", material: "brown clay + shino glaze", images: [
-        "/testrina/Images/Ceramics/cow1.png",
-        "/testrina/Images/Ceramics/cow2.png",
-        "/testrina/Images/Ceramics/cow3.png",
-        "/testrina/Images/Ceramics/cow4.png",
-        "/testrina/Images/Ceramics/cow1.png"
+        "Images/Ceramics/cow1.png","Images/Ceramics/cow2.png","Images/Ceramics/cow3.png","Images/Ceramics/cow4.png","Images/Ceramics/cow1.png"
       ]},
       14:{ title: "Bubble Bath", year: "2025", material: "", images: [] },
       15:{ title: "Honey Bubble Tea Set", year: "2025", material: "", images: [] },
@@ -168,46 +195,27 @@
       20:{ title: "Lover Mugs", year: "2025", material: "", images: [] },
       21:{ title: "Vase for One Flower Duet", year: "2025", material: "", images: [] },
       22:{ title: "House Jar", year: "2025", material: "white clay + underglaze + transparent glaze", images: [
-        "/testrina/Images/Ceramics/house0.png",
-        "/testrina/Images/Ceramics/house1.png",
-        "/testrina/Images/Ceramics/house2.png",
-        "/testrina/Images/Ceramics/house3.png",
-        "/testrina/Images/Ceramics/house4.png",
-        "/testrina/Images/Ceramics/IMG_9961.JPG",
-        "/testrina/Images/Ceramics/IMG_9963.JPG",
-        "/testrina/Images/Ceramics/IMG_9964.JPG",
-        "/testrina/Images/Ceramics/IMG_0286.JPG",
-        "/testrina/Images/Ceramics/IMG_0285.JPG"
+        "Images/Ceramics/house0.png","Images/Ceramics/house1.png","Images/Ceramics/house2.png","Images/Ceramics/house3.png","Images/Ceramics/house4.png",
+        "Images/Ceramics/IMG_9961.JPG","Images/Ceramics/IMG_9963.JPG","Images/Ceramics/IMG_9964.JPG","Images/Ceramics/IMG_0286.JPG","Images/Ceramics/IMG_0285.JPG"
       ]},
       23:{ title: "Toadstool Candle Holder", year: "2025", material: "white clay + underglaze + transparent glaze", images: [
-        "/testrina/Images/Ceramics/toadstool3.png",
-        "/testrina/Images/Ceramics/toadstools2.png",
-        "/testrina/Images/Ceramics/toalstool1.png",
-        "/testrina/Images/Ceramics/IMG_0121.JPG",
-        "/testrina/Images/Ceramics/IMG_0122.JPG",
-        "/testrina/Images/Ceramics/IMG_0123.JPG",
-        "/testrina/Images/Ceramics/IMG_0124.JPG",
-        "/testrina/Images/Ceramics/IMG_0287.JPG"
+        "Images/Ceramics/toadstool3.png","Images/Ceramics/toadstools2.png","Images/Ceramics/toalstool1.png","Images/Ceramics/IMG_0121.JPG","Images/Ceramics/IMG_0122.JPG",
+        "Images/Ceramics/IMG_0123.JPG","Images/Ceramics/IMG_0124.JPG","Images/Ceramics/IMG_0287.JPG"
       ]},
       24:{ title: "Flower Cup", year: "2024", material: "white clay + underglaze + transparent glaze", images: [
-        "/testrina/Images/Ceramics/house0.png",
-        "/testrina/Images/Ceramics/cup1.png",
-        "/testrina/Images/Ceramics/cup2.png",
-        "/testrina/Images/Ceramics/cup3.png",
-        "/testrina/Images/Ceramics/IMG_9956.JPG",
-        "/testrina/Images/Ceramics/IMG_9957.JPG",
-        "/testrina/Images/Ceramics/IMG_9958.JPG",
-        "/testrina/Images/Ceramics/IMG_9959.JPG"
+        "Images/Ceramics/house0.png","Images/Ceramics/cup1.png","Images/Ceramics/cup2.png","Images/Ceramics/cup3.png","Images/Ceramics/IMG_9956.JPG",
+        "Images/Ceramics/IMG_9957.JPG","Images/Ceramics/IMG_9958.JPG","Images/Ceramics/IMG_9959.JPG"
       ]}
     };
 
-    const overlay = document.getElementById('popupOverlay');
-    const gallery = document.getElementById('popupGallery');
-    const titleEl = document.getElementById('popupTitle');
-    const yearEl = document.getElementById('popupYear');
-    const typeEl = document.getElementById('popupType');
+    // ===== Popup wiring =====
+    const overlay   = document.getElementById('popupOverlay');
+    const gallery   = document.getElementById('popupGallery');
+    const titleEl   = document.getElementById('popupTitle');
+    const yearEl    = document.getElementById('popupYear');
+    const typeEl    = document.getElementById('popupType');
+    const closeBtn  = document.getElementById('closePopup');
 
-    // Open
     document.querySelectorAll('.project-link').forEach(link => {
       link.addEventListener('click', () => {
         const id = link.dataset.project;
@@ -227,18 +235,53 @@
           gallery.appendChild(img);
         });
 
-        // Lock body scroll
         document.body.style.overflow = 'hidden';
         overlay.style.display = 'flex';
         overlay.focus();
       });
     });
 
-    // Close (button, overlay click, ESC)
-    function closePopup(){ overlay.style.display = 'none'; document.body.style.overflow = ''; }
-    document.getElementById('closePopup').addEventListener('click', closePopup);
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
+    function closePopup(){
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closePopup(); });
     document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closePopup(); });
+
+    // ===== Custom cursor (robust) =====
+    (function(){
+      const cursor = document.getElementById('customCursor');
+      if (!cursor) return;
+
+      // Ensure it's last in body to avoid being covered
+      document.body.appendChild(cursor);
+
+      const CLICKABLE = [
+        'a','button','[role="button"]','input','select','textarea','label',
+        '.project-link','[data-clickable="true"]'
+      ].join(',');
+
+      function isClickable(el){
+        while (el && el !== document.body){
+          if (el.matches?.(CLICKABLE)) return true;
+          el = el.parentElement;
+        }
+        return false;
+      }
+
+      document.addEventListener('mousemove', (e)=>{
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top  = e.clientY + 'px';
+        cursor.classList.remove('is-hidden');
+
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        cursor.classList.toggle('is-clickable', isClickable(el));
+      });
+
+      document.addEventListener('mouseleave', ()=>cursor.classList.add('is-hidden'));
+      document.addEventListener('mouseenter', ()=>cursor.classList.remove('is-hidden'));
+    })();
   </script>
 </body>
 </html>

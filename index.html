@@ -4,20 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tatiana Estrina</title>
-  <!-- If hosted on GitHub Pages under /testrina/, use absolute project-root paths -->
-  <!-- <base href="/testrina/"> -->
-  <link rel="stylesheet" href="/testrina/base.css" />
-  <link rel="stylesheet" href="/testrina/falling.css" />
+
+  <!-- Use relative paths so it works in any folder (incl. GitHub Pages project sites) -->
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="falling.css" />
+
   <style>
-    .grid-container { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:20px; max-width:800px; margin:0 auto; }
-    .grid-item { position:relative; overflow:hidden; aspect-ratio: 230 / 290; /* keeps 230x290 box */ cursor:pointer; transition:transform .3s ease; text-decoration:none; display:block; border-radius:8px; }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 230 / 290; /* keeps 230x290 box */
+      cursor: pointer;
+      transition: transform .3s ease;
+      text-decoration: none;
+      display: block;
+      border-radius: 8px;
+    }
     .grid-item:hover { transform: scale(1.02); }
-    .grid-item img { width:100%; height:100%; object-fit:cover; display:block; }
-    .overlay { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px; color:#fff; background: linear-gradient(transparent, rgba(0,0,0,.5)); }
-    .titleSection{ text-align:center; padding:2rem 1rem; }
-    .titleSection h1{ margin:0; font-size:2rem; }
-    .subtitle{ opacity:.8; }
-    header .breadcrumb img { display:block; }
+    .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; padding: 20px; color: #fff;
+      background: linear-gradient(transparent, rgba(0,0,0,.5));
+    }
+    .titleSection{ text-align: center; padding: 2rem 1rem; }
+    .titleSection h1{ margin: 0; font-size: 2rem; }
+    .subtitle{ opacity: .8; }
+    header .breadcrumb img { display: block; }
+
     @media (max-width: 820px) { .grid-container { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 520px) { .grid-container { grid-template-columns: 1fr; } }
   </style>
@@ -26,21 +50,21 @@
   <header class="header">
     <div class="header-inner">
       <nav class="breadcrumb">
-        <a href="/testrina/index.html">
-          <img src="/testrina/Images/Navigation/house.jpg" alt="Home" />
+        <a href="index.html">
+          <img src="Images/Navigation/house.jpg" alt="Home" />
         </a>
         <span>/</span>
         <a href="#">tatiana estrina</a>
       </nav>
       <div class="header-buttons">
-        <a href="/testrina/ceramics-gallery.html" class="header-icon">
-          <img src="/testrina/Images/Navigation/ceramics.png" alt="Ceramics" />
+        <a href="ceramics-gallery.html" class="header-icon">
+          <img src="Images/Navigation/ceramics.png" alt="Ceramics" />
         </a>
-        <a href="/testrina/work.html" class="header-icon">
-          <img src="/testrina/Images/Navigation/gallery.jpg" alt="Gallery" />
+        <a href="work.html" class="header-icon">
+          <img src="Images/Navigation/gallery.jpg" alt="Gallery" />
         </a>
-        <a href="/testrina/about.html" class="header-icon">
-          <img src="/testrina/Images/Navigation/girlIcon.png" alt="About" />
+        <a href="about.html" class="header-icon">
+          <img src="Images/Navigation/girlIcon.png" alt="About" />
         </a>
       </div>
     </div>
@@ -52,32 +76,38 @@
   </div>
 
   <div class="grid-container">
-    <a href="/testrina/spatial-design.html" class="grid-item">
-      <img src="/testrina/Images/Vela/DL_WEB_Vela_3_edited.jpg" alt="Spatial Design" />
+    <a href="spatial-design.html" class="grid-item">
+      <img src="Images/Vela/DL_WEB_Vela_3_edited.jpg" alt="Spatial Design" />
       <div class="overlay">
         <div class="number">01</div>
         <div class="design-type">Spatial<br/>Design</div>
       </div>
     </a>
-    <a href="/testrina/industrial-design.html" class="grid-item">
-      <img src="/testrina/Images/See%20x%20Saw/Kai+Tanya%20-%20SeeSaw%20-%201D%20Interface_Page_16_edited.jpg" alt="Industrial Design" />
+
+    <a href="industrial-design.html" class="grid-item">
+      <!-- keep URL-encoded spaces for web paths -->
+      <img src="Images/See%20x%20Saw/Kai+Tanya%20-%20SeeSaw%20-%201D%20Interface_Page_16_edited.jpg" alt="Industrial Design" />
       <div class="overlay">
         <div class="number">02</div>
         <div class="design-type">Industrial<br/>Design</div>
       </div>
     </a>
-    <a href="/testrina/interaction-design.html" class="grid-item">
-      <img src="/testrina/Images/Janus/Untitled-3_edited.jpg" alt="Interaction Design" />
+
+    <a href="interaction-design.html" class="grid-item">
+      <img src="Images/Janus/Untitled-3_edited.jpg" alt="Interaction Design" />
       <div class="overlay">
         <div class="number">03</div>
         <div class="design-type">Interaction<br/>Design</div>
       </div>
     </a>
+    
   </div>
 
   <footer>© 2025 by Tatiana Estrina</footer>
-
-  <script src="/testrina/falling.js"></script>
-  <script src="/testrina/popUp.js"></script>
+<div class="custom-cursor" id="customCursor"></div>
+     <script src="cursor.js"></script>
+  <!-- Scripts last; relative paths -->
+  <script src="falling.js"></script>
+  <script src="popUp.js"></script>
 </body>
 </html>

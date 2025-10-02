@@ -344,47 +344,30 @@ footer {
     max-width: 200px;
   }
 
-/* Hide default cursor everywhere (adjust if you want text inputs to keep I-beam) */
+/* hide native cursor (adjust for inputs if you want I-beam there) */
 html, body, a, button { cursor: none !important; }
 
-body { isolation: isolate; } /* Required for blend mode */
-
-/* Base cursor: tiny black dot */
-.custom-cursor {
+/* the dot */
+.custom-cursor{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
   border-radius: 50%;
   pointer-events: none;
-  background: #000;                /* black dot */
+  background: #000;                 /* black when NOT clickable */
+  mix-blend-mode: normal;           /* no blending in normal state */
   transform: translate(-50%, -50%) scale(1);
-  transition: transform .15s ease, opacity .2s ease;
-  opacity: 1;
-  z-index: 2147483647; /* maximum possible stacking */
+  transition: transform .18s ease, background-color .1s ease, mix-blend-mode .1s ease, opacity .2s ease;
+  z-index: 2147483647;              /* above everything */
 }
 
-/* On clickable: grows + switches to white for invert effect */
-.custom-cursor.is-clickable {
-  background: #fff;                  /* white spotlight */
-  mix-blend-mode: difference;        /* invert background */
-  transform: translate(-50%, -50%) scale(3.5);
-  z-index: 2147483647; 
+/* when the thing under the pointer is clickable */
+.custom-cursor.is-clickable{
+  transform: translate(-50%, -50%) scale(3);  /* bigger */
+  background: #fff;                            /* WHITE makes difference invert */
+  mix-blend-mode: difference;                  /* invert what’s behind it */
 }
 
-/* Optional: fade when mouse leaves window */
-.custom-cursor.is-hidden { 
-  opacity: 0; 
-}
-
-/* Keep header above content but FAR below the cursor */
-.header { position: relative; z-index: 10; overflow: visible; }
-
-/* Don’t give header children huge z-indexes */
-.header * { z-index: auto; }
-
-/* If any header icon/img had z-index set, reset it */
-.header img { position: relative; z-index: auto; }
+.custom-cursor.is-hidden{ opacity: 0; }
 
 

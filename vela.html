@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="CSS Files/base.css">
   <link rel="stylesheet" href="CSS Files/projectPage.css">
   <link rel="stylesheet" href="CSS Files/cursor.css">
-
 </head>
 
 <body>
@@ -20,7 +19,7 @@
       .then(html => {
         document.getElementById("header").innerHTML = html;
 
-        // ✅ IMPORTANT: load header JS AFTER header exists
+        // load header JS AFTER header exists
         const s = document.createElement("script");
         s.src = "JavaScript Files/headerBubbles.js";
         document.body.appendChild(s);
@@ -81,41 +80,57 @@
         Read about it on Designlines
       </a>
     </div>
-    <br><Br>
+
+    <br><br>
 
     <div class="project-images">
-
       <div class="gallery-wrapper">
         <button class="gallery-button left" onclick="scrollGallery(-1)">‹</button>
         <div class="gallery" id="gallery">
-          <div class="gallery-item"><img src="Images/Vela/2.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg"
-              alt="Vela Interior 1"></div>
-          <div class="gallery-item"><img src="Images/Vela/4-vela-photo-by-jonathan-friedman-partisans (1).jpg"
-              alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="Images/Vela/sr_amandabradley_36.jpg" alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="/Images/Vela/Aure_Partisans_Vela_restaurant_Lighting4.jpg"
-              alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="Images/Vela/DL_WEB_Vela_8.jpg" alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="Images/Vela/7.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg"
-              alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="Images/Vela/DL_WEB_Vela_3.jpg" alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="Images/Vela/DL_WEB_Vela_5.jpg" alt="Vela Interior 2"></div>
-          <div class="gallery-item"><img src="Images/Vela/2X8A8763.jpg" alt="Vela Interior 2"></div>
+          <div class="gallery-item">
+            <img src="Images/Vela/2.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg" alt="Vela Interior 1">
+          </div>
+          <div class="gallery-item">
+            <!-- originally had a space before (1); after rename it is likely _(1) -->
+            <img src="Images/Vela/4-vela-photo-by-jonathan-friedman-partisans_(1).jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <img src="Images/Vela/sr_amandabradley_36.jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <!-- removed leading slash -->
+            <img src="Images/Vela/Aure_Partisans_Vela_restaurant_Lighting4.jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <img src="Images/Vela/DL_WEB_Vela_8.jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <img src="Images/Vela/7.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <img src="Images/Vela/DL_WEB_Vela_3.jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <img src="Images/Vela/DL_WEB_Vela_5.jpg" alt="Vela Interior 2">
+          </div>
+          <div class="gallery-item">
+            <img src="Images/Vela/2X8A8763.jpg" alt="Vela Interior 2">
+          </div>
         </div>
         <button class="gallery-button right" onclick="scrollGallery(1)">›</button>
       </div>
+
       <br><br>
 
       <div class="modal" id="zoomModal">
         <img id="zoomedImg" src="" alt="Zoomed image">
       </div>
 
-
-      <img src="Images/Vela/MIT_Portoflio53.png" alt="Tripix Project Image 3">
-      <img src="Images/Vela/MIT_Portoflio55.png" alt="Tripix Project Image 4">
-      <img src="Images/Vela/MIT_Portoflio54.png" alt="Tripix Project Image 4">
-      <img src="Images/Vela/MIT_Portoflio57.png" alt="Tripix Project Image 4">
-      <img src="Images/Vela/MIT_Portoflio56.png" alt="Tripix Project Image 4">
+      <img src="Images/Vela/MIT_Portoflio53.png" alt="Vela drawing 1">
+      <img src="Images/Vela/MIT_Portoflio55.png" alt="Vela drawing 2">
+      <img src="Images/Vela/MIT_Portoflio54.png" alt="Vela drawing 3">
+      <img src="Images/Vela/MIT_Portoflio57.png" alt="Vela drawing 4">
+      <img src="Images/Vela/MIT_Portoflio56.png" alt="Vela drawing 5">
     </div>
   </main>
 
@@ -127,6 +142,7 @@
         document.getElementById("footer").innerHTML = html;
       });
   </script>
+
   <div class="lightbox" id="lightbox">
     <div class="lightbox-inner">
       <button class="lightbox-close" id="lightboxClose">&times;</button>
@@ -139,5 +155,4 @@
   <script src="JavaScript Files/galleryscroll.js"></script>
 
 </body>
-
 </html>

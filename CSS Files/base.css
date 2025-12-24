@@ -545,43 +545,40 @@ button {
         background: #FF642F;
     }
 }
+/* ===============================
+   FORCE-CENTER PROJECT DETAILS
+   =============================== */
 
-/* Center the whole details GROUP no matter how many columns */
-.content-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 50px !important;
+/* Works whether or not you use .content-wrapper */
+.main .project-details {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 28px;
 
+  text-align: center;
+
+  /* center the whole block inside main */
+  max-width: var(--max-content-width);
+  width: 100%;
+  margin: 40px auto 30px !important;
+  padding-top: 40px;
 }
 
-/* Make the row shrink to its content, then center that row */
-.project-details {
-    display: inline-flex !important;
-    /* inline-flex shrink-wraps */
-    justify-content: center !important;
-    align-items: flex-start;
-    gap: 28px;
-    text-align: center;
-    margin-bottom: 30px !important;
-    width: fit-content !important;
-    max-width: 100%;
-    padding-top: 40px;
-    flex-wrap: wrap;
-    /* wraps while staying centered */
+/* Undo global paragraph constraints inside details */
+.main .project-details p {
+  max-width: none !important;
+  margin: 0 !important;
 }
 
-/* Undo your global p rules ONLY inside details */
-.project-details p {
-    max-width: none !important;
-    margin: 0 !important;
+/* Nice, flexible column sizing */
+.main .project-details .detail-column {
+  flex: 0 1 180px;      /* preferred width ~180px */
+  max-width: 220px;
 }
 
-/* Optional: consistent column sizing */
-.project-details .detail-column {
-    flex: 0 1 auto;
-    max-width: 100px;
-}
+
 
 /* GLOBAL LINK STYLE */
 a{
@@ -638,4 +635,19 @@ a:hover{
   margin-right: 4px;
   position: relative;
   top: -1px;
+}
+
+.video-wrapper {
+  max-width: 1000px;
+  margin: 40px auto;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  cursor: pointer;
 }

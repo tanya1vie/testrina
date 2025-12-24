@@ -7,23 +7,22 @@
   <link rel="stylesheet" href="CSS Files/base.css"/>
   <link rel="stylesheet" href="CSS Files/projectList.css"/>
   <link rel="stylesheet" href="CSS Files/cursor.css">
-
 </head>
 <body>
-   <div id="header"></div>
+  <div id="header"></div>
 
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header").innerHTML = html;
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
 
-      // ✅ IMPORTANT: load header JS AFTER header exists
-      const s = document.createElement("script");
-      s.src = "JavaScript Files/headerBubbles.js";
-      document.body.appendChild(s);
-    });
-</script>
+        // ✅ IMPORTANT: load header JS AFTER header exists
+        const s = document.createElement("script");
+        s.src = "JavaScript Files/headerBubbles.js";
+        document.body.appendChild(s);
+      });
+  </script>
 
   <div class="titleSection">
     <h1>industrial design.</h1>
@@ -36,8 +35,12 @@
       <div class="project-info">
         <div class="project-title">Janus</div>
         <h2>What if doorways decided who walks through them?</h2>
-        <p class="project-description">Interaction Intelligence Studio + Intelligent Multimodal User Interfaces Course</p>
-        <p class="project-tags">Academic // Interaction Design // 3D Printing // Fabrication // Coding</p>
+        <p class="project-description">
+          Interaction Intelligence Studio + Intelligent Multimodal User Interfaces Course
+        </p>
+        <p class="project-tags">
+          Academic // Interaction Design // 3D Printing // Fabrication // Coding
+        </p>
       </div>
       <div class="project-image">
         <img src="Images/Janus/Untitled-3_edited.jpg" alt="Janus project">
@@ -53,7 +56,8 @@
         <p class="project-tags">Academic // Fabrication // Laser cutting</p>
       </div>
       <div class="project-image">
-        <img src="Images/Bruce/Bruce%Zoom%in_edited.jpg" alt="Bruce & Wendy meta-material">
+        <!-- spaces → underscores in filename -->
+        <img src="Images/Bruce/Bruce_Zoom_in_edited.jpg" alt="Bruce & Wendy meta-material">
       </div>
     </a>
 
@@ -63,10 +67,15 @@
         <div class="project-title">See x Saw</div>
         <h2>How can a single controller and a single line become a game for two?</h2>
         <p class="project-description">Interaction Intelligence Studio</p>
-        <p class="project-tags">Academic // Fabrication // Interaction Design // Game Design // Coding</p>
+        <p class="project-tags">
+          Academic // Fabrication // Interaction Design // Game Design // Coding
+        </p>
       </div>
       <div class="project-image">
-        <img src="Images/See%20x%20Saw/Kai+Tanya%20-%20SeeSaw%20-%201D%20Interface_Page_16_edited.jpg" alt="See x Saw">
+        <!-- folder 'See x Saw' → 'See_x_Saw', spaces → underscores in filename -->
+        <img
+          src="Images/See_x_Saw/Kai+Tanya_-_SeeSaw_-_1D_Interface_Page_16_edited.jpg"
+          alt="See x Saw">
       </div>
     </a>
 
@@ -76,10 +85,15 @@
         <div class="project-title">Hostile Caesar Salad</div>
         <h2>How can gastronomic plating become interactive?</h2>
         <p class="project-description">Creative Computation Course</p>
-        <p class="project-tags">Academic // Fabrication // Responsive Environments // Arduino</p>
+        <p class="project-tags">
+          Academic // Fabrication // Responsive Environments // Arduino
+        </p>
       </div>
       <div class="project-image">
-        <img src="Images/Hostile%Salad/final%layout2_edited.jpg" alt="Hostile Caesar Salad interactive plate">
+        <!-- folder 'Hostile Salad' → 'Hostile_Salad', spaces → underscores -->
+        <img
+          src="Images/Hostile_Salad/final_layout2_edited.jpg"
+          alt="Hostile Caesar Salad interactive plate">
       </div>
     </a>
 
@@ -92,13 +106,12 @@
         <p class="project-tags">Fabrication // Material Exploration</p>
       </div>
       <div class="project-image">
-        <img src="Images/Stratum/placeholder.jpg" alt="Stratum installation">
+        <img src="Images/Stratum/Full_Photo.jpg" alt="Stratum installation">
       </div>
     </a>
   </div>
 
   <div class="custom-cursor" id="customCursor"></div>
   <script src="JavaScript Files/cursor.js"></script>
-
 </body>
 </html>

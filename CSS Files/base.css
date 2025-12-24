@@ -582,3 +582,52 @@ button {
     flex: 0 1 auto;
     max-width: 240px;
 }
+
+/* GLOBAL LINK STYLE */
+a{
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 400;
+  transition: font-weight 0.15s ease;
+}
+
+a:hover{
+  -webkit-text-stroke: 0.8px black;
+  font-synthesis: weight;
+}
+
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.two-col-images{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.two-col-images img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.two-col-text{
+  max-width: 520px;   /* keeps text readable */
+}
+
+@media (max-width: 820px){
+  .two-col{
+    grid-template-columns: 1fr;
+  }
+
+  .two-col-text{
+    max-width: none;
+  }
+}

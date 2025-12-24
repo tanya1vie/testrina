@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tripix | Tatiana Estrina</title>
+  <title>Cave House</title>
+
   <link rel="stylesheet" href="CSS Files/base.css">
   <link rel="stylesheet" href="CSS Files/projectPage.css">
   <link rel="stylesheet" href="CSS Files/cursor.css">
-
 </head>
 
 <body>
@@ -19,6 +18,7 @@
       <p class="project-year">2020</p>
       <h1 class="project-title">CAVE HOUSE</h1>
       <p class="project-subtitle">House for the 21st Century</p>
+
       <div class="project-description">
         <p>
           Frequently overshadowed by the primitive hut, the cave typology has been largely unexplored in architectural
@@ -42,57 +42,69 @@
         </div>
         <div class="detail-column">
           <h2 class="detail-title">SOFTWARE + TOOLS</h2>
-          <p>
-            Rhinoceros3D, V-Ray, Photoshop, Illustrator
-          </p>
+          <p>Rhinoceros3D, V-Ray, Photoshop, Illustrator</p>
         </div>
       </div>
     </div>
 
     <div class="project-images">
-      <div class="project-images">
 
-        <img src="../Images/CaveHouse/interior Render.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br><br>
-        <img src="../Images/CaveHouse/History Bubbles.jpg" alt="Tripix Project Image 2" class="thin-image"><br>
+      <img src="../Images/CaveHouse/interior%20Render.jpg" class="thin-image" alt="">
+      <br><br><br>
 
-        <div class="image-row">
-          <img src="..\Images\CaveHouse/Hut vs Cave.jpg" alt="Thesis Image 2">
-          <img src="..\Images\CaveHouse/Site Plan.jpg" alt="Thesis Image 2">
-        </div>
-        <br><br>
-        <img src="../Images/CaveHouse/Process Diagrams.jpg" alt="Tripix Project Image 2" class="thin-image">
-        <img src="../Images/CaveHouse/Exterior Render.jpg" alt="Tripix Project Image 2" class="thin-image"><br>
-        <img src="../Images/CaveHouse/ACSA Boards3_edited.jpg" alt="Tripix Project Image 2" class="thin-image"><br>
-        <img src="../Images/CaveHouse/Rendered Section.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br>
-        <img src="../Images/CaveHouse/Plans.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br>
-        <img src="../Images/CaveHouse/Section.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br><br>
-        <img src="../Images/CaveHouse/Exploded Axon.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br><br>
-        <img src="../Images/CaveHouse/Room Breakdown.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br>
-        <img src="../Images/CaveHouse/ACSA Boards4_edited.jpg" alt="Tripix Project Image 2" class="thin-image"><br><br>
-        <img src="../Images/CaveHouse/Detail Sections.jpg" alt="Tripix Project Image 2" class="thin-image">
+      <img src="../Images/CaveHouse/History%20Bubbles.jpg" class="thin-image" alt="">
+      <br>
+
+      <div class="image-row">
+        <img src="../Images/CaveHouse/Hut%20vs%20Cave.jpg" alt="">
+        <img src="../Images/CaveHouse/Site%20Plan.jpg" alt="">
       </div>
+
+      <br><br>
+
+      <img src="../Images/CaveHouse/Process%20Diagrams.jpg" class="thin-image" alt="">
+      <img src="../Images/CaveHouse/Exterior%20Render.jpg" class="thin-image" alt="">
+      <br>
+
+      <img src="../Images/CaveHouse/ACSA%20Boards3_edited.jpg" class="thin-image" alt="">
+      <br>
+
+      <img src="../Images/CaveHouse/Rendered%20Section.jpg" class="thin-image" alt="">
+      <br><br>
+
+      <img src="../Images/CaveHouse/Plans.jpg" class="thin-image" alt="">
+      <br><br>
+
+      <img src="../Images/CaveHouse/Section.jpg" class="thin-image" alt="">
+      <br><br><br>
+
+      <img src="../Images/CaveHouse/Exploded%20Axon.jpg" class="thin-image" alt="">
+      <br><br><br>
+
+      <img src="../Images/CaveHouse/Room%20Breakdown.jpg" class="thin-image" alt="">
+      <br><br>
+
+      <img src="../Images/CaveHouse/ACSA%20Boards4_edited.jpg" class="thin-image" alt="">
+      <br><br>
+
+      <img src="../Images/CaveHouse/Detail%20Sections.jpg" class="thin-image" alt="">
     </div>
   </main>
 
   <div id="footer"></div>
+
   <script>
     fetch("footer.html")
       .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
-  <script>
+      .then(html => document.getElementById("footer").innerHTML = html);
+
     fetch("header.html")
       .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
-      });
+      .then(html => document.getElementById("header").innerHTML = html);
   </script>
+
   <div class="custom-cursor" id="customCursor"></div>
   <script src="JavaScript Files/cursor.js"></script>
   <script src="JavaScript Files/galleryscroll.js"></script>
-
 </body>
-
 </html>

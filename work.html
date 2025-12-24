@@ -49,6 +49,7 @@
       justify-content: space-between;
       width: 200px;
       font-family: 'Helvetica Bold', sans-serif;
+      border-radius: 999px; /* rounded pill button */
     }
 
     .dropdown-content {
@@ -58,6 +59,8 @@
       width: 200px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
       z-index: 1;
+      border-radius: 10px;   /* rounded menu */
+      overflow: hidden;      /* round the edges of the items too */
     }
 
     .dropdown-content a {
@@ -91,6 +94,7 @@
       overflow: hidden;
       aspect-ratio: 1 / 1;
       cursor: pointer;
+      border-radius: 18px; /* rounded corners on all tiles */
     }
 
     .project-link {
@@ -107,12 +111,13 @@
       height: 100%;
       object-fit: cover;
       transition: transform .3s ease;
+      display: block;
     }
 
     .project-info {
       position: absolute;
       inset: 0 0 -100% 0;
-      background: rgba(0, 0, 0, .6);
+      background: rgba(0, 0, 0, .5);
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -150,6 +155,24 @@
     .project-year {
       font-size: 14px;
       color: #ccc;
+    }
+
+    /* ==== FIX TEXT OUTLINE ON OVERLAY ==== */
+    .project-info .project-title,
+    .project-info .project-type,
+    .project-info .project-year {
+      color: #fff;
+      -webkit-text-stroke: 0.8px #fff;         /* white outline */
+      paint-order: normal;
+      stroke: none;
+      text-shadow: none;
+    }
+
+    /* Ensure global link hover rules don't override this */
+    .project-card:hover .project-info .project-title,
+    .project-card:hover .project-info .project-type,
+    .project-card:hover .project-info .project-year {
+      -webkit-text-stroke: 0.8px #fff;
     }
   </style>
 
@@ -347,10 +370,10 @@
         </a>
       </div>
 
-       <!-- PHANTOM PARTNER -->
+      <!-- HART ISLAND OSSUARY -->
       <div class="project-card" data-category="Competition, architecture">
         <a href="ossurary.html" class="project-link">
-          <img src="Images/Ossurary/Side_Render_cropped.jpg" alt="Phantom Partner" loading="lazy" decoding="async">
+          <img src="Images/Ossurary/Side_Render_cropped.jpg" alt="Hart Island Ossurary" loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">Hart Island Ossurary</div>
             <div class="project-type">ACSA / AISC Steel Design Competition</div>
@@ -358,10 +381,11 @@
         </a>
       </div>
 
-      <!-- PHANTOM PARTNER -->
+      <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="Academic, fabrication, computation">
         <a href="bruce.html" class="project-link">
-          <img src="Images/Bruce/Bruce_2_b&w_edited_edited_edited_edited.png" alt="Phantom Partner" loading="lazy" decoding="async">
+          <img src="Images/Bruce/Bruce_2_b&w_edited_edited_edited_edited.png" alt="Bruce and Wendy" loading="lazy"
+            decoding="async">
           <div class="project-info">
             <div class="project-title">Bruce and Wendy</div>
             <div class="project-type">Geometric Disciplines</div>

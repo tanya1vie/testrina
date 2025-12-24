@@ -580,8 +580,8 @@ button {
 
 
 
-/* GLOBAL LINK STYLE */
-a{
+/* TEXT LINKS ONLY */
+a.text-link{
   color: #000;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -589,10 +589,11 @@ a{
   transition: font-weight 0.15s ease;
 }
 
-a:hover{
+a.text-link:hover{
   -webkit-text-stroke: 0.8px black;
   font-synthesis: weight;
 }
+
 
 .two-col{
   display: grid;

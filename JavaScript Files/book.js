@@ -3,109 +3,130 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
 
-  // >>> Replace with your images (page order)
-  const images = [
-    'images/page01.jpg',
-    'images/page02.jpg',
-    'images/page03.jpg',
-    'images/page04.jpg',
-    // ...
-  ];
+  // read all <img> inside hidden container
+  const imagePaths = Array.from(
+    document.querySelectorAll('#flipbookImages img')
+  ).map(img => img.getAttribute('src'));
+
+  // if nothing found, abort
+  if (!imagePaths.length || !bookEl || !prevBtn || !nextBtn) return;
 
   let sheets = [];
-  let totalPages = 0;
-  let currentPage = 0; // 1-based for humans
-
-  function clearBook(){
-    bookEl.querySelectorAll('.sheet').forEach(n => n.remove());
-    sheets = []; totalPages = 0; currentPage = 0;
-  }
+  let currentIndex = 0; // 0 = cover sheet
 
   function setRatioFromFirst(imgURL){
     return new Promise((resolve) => {
       const im = new Image();
       im.onload = () => {
-        // ratio for the whole book frame (two pages side-by-side)
-        const r = im.naturalHeight / (im.naturalWidth * 2);
+        const r = im.naturalHeight / im.naturalWidth; // height / width
         document.documentElement.style.setProperty('--ratio', r.toString());
         resolve();
       };
-      im.onerror = () => resolve(); // keep default if it fails
+      im.onerror = () => resolve();
       im.src = imgURL;
     });
   }
 
-  function buildSheetsFromImages(imgs){
-    const pages = imgs.slice();
-    if (pages.length % 2 !== 0) pages.push(null); // pad for even count
-    const pairCount = Math.ceil(pages.length / 2);
-    const builtSheets = [];
+  function clearSheets() {
+    bookEl.querySelectorAll('.sheet').forEach(el => el.remove());
+    sheets = [];
+    currentIndex = 0;
+  }
 
-    for (let p = 0; p < pairCount; p++){
-      const frontSrc = pages[p*2];
-      const backSrc  = pages[p*2 + 1];
+  function makeSheet(frontHTML, backHTML, zIndexOrder) {
+    const sheet = document.createElement('div');
+    sheet.className = 'sheet';
+    sheet.style.zIndex = String(100 - zIndexOrder);
 
-      const sheet = document.createElement('div');
-      sheet.className = 'sheet';
-      sheet.style.zIndex = String(100 - p);
+    const front = document.createElement('div');
+    front.className = 'face front';
+    front.innerHTML = frontHTML;
 
-      const front = document.createElement('div');
-      front.className = 'face front';
-      const fimg = document.createElement('div');
-      fimg.className = 'img';
-      if (frontSrc) fimg.style.backgroundImage = `url("${frontSrc}")`;
-      front.appendChild(fimg);
+    const back = document.createElement('div');
+    back.className = 'face back';
+    back.innerHTML = backHTML;
 
-      const back = document.createElement('div');
-      back.className = 'face back';
-      const bimg = document.createElement('div');
-      bimg.className = 'img';
-      if (backSrc) bimg.style.backgroundImage = `url("${backSrc}")`;
-      back.appendChild(bimg);
+    sheet.appendChild(front);
+    sheet.appendChild(back);
 
-      sheet.appendChild(front);
-      sheet.appendChild(back);
+    sheet.addEventListener('transitionstart', () => {
+      sheet.classList.add('flipping');
+    });
+    sheet.addEventListener('transitionend', () => {
+      sheet.classList.remove('flipping');
+    });
 
-      sheet.addEventListener('transitionstart', () => sheet.classList.add('flipping'));
-      sheet.addEventListener('transitionend',   () => sheet.classList.remove('flipping'));
+    bookEl.appendChild(sheet);
+    sheets.push(sheet);
+  }
 
-      bookEl.appendChild(sheet);
-      builtSheets.push(sheet);
+  function buildBook() {
+    clearSheets();
+
+    const coverSrc = imagePaths[0];
+
+    // group remaining images into [left, right] spreads
+    const spreads = [];
+    for (let i = 1; i < imagePaths.length; i += 2) {
+      spreads.push([
+        imagePaths[i],
+        imagePaths[i + 1] || null
+      ]);
     }
 
-    sheets = builtSheets;
-    totalPages = pages.length;
-    currentPage = 1; // open on first page
+    // Sheet 0: cover front, blank back
+    makeSheet(
+      `<div class="cover-image" style="background-image:url('${coverSrc}')"></div>`,
+      `<div class="spread">
+         <div class="spread-page"></div>
+         <div class="spread-page"></div>
+       </div>`,
+      0
+    );
+
+    // Remaining sheets: 2-image spreads
+    spreads.forEach((pair, idx) => {
+      const [left, right] = pair;
+      makeSheet(
+        `<div class="spread">
+           <div class="spread-page" style="${left ? `background-image:url('${left}')` : ''}"></div>
+           <div class="spread-page" style="${right ? `background-image:url('${right}')` : ''}"></div>
+         </div>`,
+        `<div class="spread"></div>`,
+        idx + 1
+      );
+    });
+
+    currentIndex = 0;
     syncArrows();
   }
 
   function syncArrows(){
-    prevBtn.disabled = (currentPage <= 1);
-    nextBtn.disabled = (currentPage >= totalPages);
+    prevBtn.disabled = (currentIndex === 0);
+    nextBtn.disabled = (currentIndex >= sheets.length - 1);
   }
 
   function goNext(){
-    if (currentPage >= totalPages) return;
-    const sheetIndex = Math.floor((currentPage - 1) / 2);
-    if (currentPage % 2 === 1) sheets[sheetIndex].classList.add('flipped');
-    currentPage += 1; syncArrows();
+    if (currentIndex >= sheets.length - 1) return;
+    const sheet = sheets[currentIndex];
+    sheet.classList.add('flipped');
+    currentIndex++;
+    syncArrows();
   }
 
   function goPrev(){
-    if (currentPage <= 1) return;
-    const goingTo = currentPage - 1;
-    const sheetIndex = Math.floor((goingTo - 1) / 2);
-    if (goingTo % 2 === 1) sheets[sheetIndex].classList.remove('flipped');
-    currentPage = goingTo; syncArrows();
+    if (currentIndex <= 0) return;
+    currentIndex--;
+    const sheet = sheets[currentIndex];
+    sheet.classList.remove('flipped');
+    syncArrows();
   }
 
   prevBtn.addEventListener('click', goPrev);
   nextBtn.addEventListener('click', goNext);
 
-  // Build the book
   (async function init(){
-    clearBook();
-    if (images.length) await setRatioFromFirst(images[0]);
-    buildSheetsFromImages(images);
+    await setRatioFromFirst(imagePaths[0]);
+    buildBook();
   })();
 });

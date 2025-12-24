@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>See x Saw | Tatiana Estrina</title>
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="projectPage.css">
-  <link rel="stylesheet" href="cursor.css">
+  <link rel="stylesheet" href="CSS Files/base.css">
+  <link rel="stylesheet" href="CSS Files/projectPage.css">
+  <link rel="stylesheet" href="CSS Files/cursor.css">
 
   <style>
     /* Core variables */
@@ -23,30 +23,20 @@
 </head>
 
 <body>
-  <header class="header">
-		<div class="header-inner">
-		  <nav class="breadcrumb">
-			<a href="index.html">
-			  <img src="..\Images\Navigation\house.jpg" alt="Home">
-			</a>
-			<span>/</span>
-			<a href="#">see x saw</a>
-		  </nav>
-	  
-		  <div class="header-buttons">
-        <a href="ceramics-gallery.html" class="header-icon">
-          <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
-        </a>
-			<a href="work.html" class="header-icon">
-			  <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
-			</a>
-			<a href="about.html" class="header-icon">
-			  <img src="..\Images\Navigation\girlIcon.png" alt="About">
-			</a>
-		  </div>
-		</div>
-	  </header>
+  <div id="header"></div>
 
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
+
+        // ✅ IMPORTANT: load header JS AFTER header exists
+        const s = document.createElement("script");
+        s.src = "JavaScript Files/headerBubbles.js";
+        document.body.appendChild(s);
+      });
+  </script>
 
 
   <main class="main">
@@ -162,10 +152,16 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 by Tatiana Estrina</p>
-  </footer>
-<script src="cursor.js"></script>
+  <div id="footer"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer").innerHTML = html;
+      });
+  </script>
+  <div class="custom-cursor" id="customCursor"></div>
+  <script src="JavaScript Files/cursor.js"></script>
 
 </body>
 

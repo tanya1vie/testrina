@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Figure Alphabet | Tatiana Estrina</title>
-  <!-- If hosted on GitHub Pages project site, update base to /testrina/ -->
-  <!-- <base href="/testrina/"> -->
   <link rel="stylesheet" href="CSS Files/base.css">
   <link rel="stylesheet" href="CSS Files/projectPage.css">
   <link rel="stylesheet" href="CSS Files/cursor.css">
@@ -22,13 +20,13 @@
     .black-section {
       background: #000;
       color: #fff;
-      padding: 48px 0
+      padding: 48px 0;
     }
 
     .content-container {
       max-width: var(--max-content-width);
       margin: 0 auto;
-      padding: 0 20px
+      padding: 0 20px;
     }
 
     .image-row-three {
@@ -36,7 +34,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin: 24px auto;
-      max-width: var(--max-content-width)
+      max-width: var(--max-content-width);
     }
 
     .image-row-four {
@@ -44,7 +42,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin: 24px auto;
-      max-width: var(--max-content-width)
+      max-width: var(--max-content-width);
     }
 
     .image-row {
@@ -52,7 +50,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin: 24px auto;
-      max-width: var(--max-content-width)
+      max-width: var(--max-content-width);
     }
 
     .centered-video {
@@ -64,23 +62,23 @@
       border: none;
       outline: none;
       box-shadow: none;
-      background: #000
+      background: #000;
     }
 
     figure {
-      margin: 0
+      margin: 0;
     }
 
     figcaption {
       font-size: 12px;
       opacity: .7;
-      margin-top: 6px
+      margin-top: 6px;
     }
 
     video {
       max-width: 100%;
       height: auto;
-      display: block
+      display: block;
     }
   </style>
 </head>
@@ -94,7 +92,6 @@
       .then(html => {
         document.getElementById("header").innerHTML = html;
 
-        // ✅ IMPORTANT: load header JS AFTER header exists
         const s = document.createElement("script");
         s.src = "JavaScript Files/headerBubbles.js";
         document.body.appendChild(s);
@@ -106,9 +103,11 @@
       <p class="project-year">2022</p>
       <h1 class="project-title">FIGURE TAXONOMY</h1>
       <p class="project-subtitle">an alphabet of ballroom dance steps</p>
-      <p class="project-description">The notation of movements of the body has been a topic actively explored since the
+      <p class="project-description">
+        The notation of movements of the body has been a topic actively explored since the
         17th century. The project explores the opportunities in representing figures of smooth ballroom dance styles —
-        the waltz, the tango, and the foxtrot — in three dimensions.</p>
+        the waltz, the tango, and the foxtrot — in three dimensions.
+      </p>
     </div>
 
     <div class="project-details">
@@ -131,27 +130,30 @@
       <center>
         <h1 class="project-title">DANCE NOTATION</h1>
         <p class="project-subtitle">a history</p><br>
-        <p style="text-align:justify;">In the 1680s Pierre Beauchamp developed a dance notation, the Beauchamp-Feuillet
-          notation, which was used to record Baroque dance styles.</p>
+        <p style="text-align:justify;">
+          In the 1680s Pierre Beauchamp developed a dance notation, the Beauchamp-Feuillet
+          notation, which was used to record Baroque dance styles.
+        </p>
       </center>
 
       <div class="image-row-four">
-        <img src="/Images/FigureAlphabet/louvre-weaver-1722-bne-4.webp" alt="Notation 1" />
-        <img src="/Images/FigureAlphabet/louvre-weaver-1722-bne-6.webp" alt="Notation 2" />
-        <img src="/Images/FigureAlphabet/isaac-rondeau-1-opening.webp" alt="Notation 3" />
-        <img src="/Images/FigureAlphabet/louvre-weaver-1722-bne-1.webp" alt="Notation 4" />
+        <img src="Images/FigureAlphabet/louvre-weaver-1722-bne-4.webp" alt="Notation 1" />
+        <img src="Images/FigureAlphabet/louvre-weaver-1722-bne-6.webp" alt="Notation 2" />
+        <img src="Images/FigureAlphabet/isaac-rondeau-1-opening.webp" alt="Notation 3" />
+        <img src="Images/FigureAlphabet/louvre-weaver-1722-bne-1.webp" alt="Notation 4" />
       </div>
 
       <div class="image-row-four">
-        <img src="/Images/FigureAlphabet/dance-notation-system-page-Choregraphie-examples-de.webp"
-          alt="Notation 5" />
-        <img src="/Images/FigureAlphabet/isaac-richmond-1-opening.webp" alt="Notation 6" />
-        <img src="/Images/FigureAlphabet/canaries-delagarde-dupre-42.webp" alt="Notation 7" />
-        <img src="/Images/FigureAlphabet/canaries-delagarde-dupre-40.webp" alt="Notation 8" />
+        <img src="Images/FigureAlphabet/dance-notation-system-page-Choregraphie-examples-de.webp" alt="Notation 5" />
+        <img src="Images/FigureAlphabet/isaac-richmond-1-opening.webp" alt="Notation 6" />
+        <img src="Images/FigureAlphabet/canaries-delagarde-dupre-42.webp" alt="Notation 7" />
+        <img src="Images/FigureAlphabet/canaries-delagarde-dupre-40.webp" alt="Notation 8" />
       </div>
 
-      <p style="text-align:justify;">The Smooth dance styles explored in this project are similarly progressive dances —
-        directionally moving and composed of specific collections of steps.</p>
+      <p style="text-align:justify;">
+        The Smooth dance styles explored in this project are similarly progressive dances —
+        directionally moving and composed of specific collections of steps.
+      </p>
       <p class="h4">How might one approach drawing ballroom dance in three-dimensions?</p>
 
       <br><br>
@@ -162,20 +164,21 @@
             <p class="project-subtitle">a process</p><br>
 
             <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-              <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
-                <video width="300" height="300" autoplay muted loop playsinline
-                  style="object-fit:cover;transform:scale(1.2);">
-                  <source src="/Images/FigureAlphabet/13%20-%20Foxtrot_BaseStep_Follower.mp4"
-                    type="video/mp4" />
-                </video>
-              </div>
-              <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
-                <video width="300" height="300" autoplay muted loop playsinline
-                  style="object-fit:cover;transform:scale(1.2);">
-                  <source src="/Images/FigureAlphabet/12%20-%20Foxtrot_BaseStep_Leader.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
+  <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+    <img
+      src="Images/FigureAlphabet/13_-_Foxtrot_BaseStep_Follower.gif"
+      alt="Foxtrot Base Step Follower"
+      style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+
+  <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+    <img
+      src="Images/FigureAlphabet/12_-_Foxtrot_BaseStep_Leader.gif"
+      alt="Foxtrot Base Step Leader"
+      style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+</div>
+
 
             <br>
             <p class="h4">video isolation of leader and follower</p>
@@ -183,36 +186,41 @@
             <br><br>
 
             <pre
-              style="white-space:pre-wrap;font-size:7px;padding:1rem;color:white;text-align:left;columns:4;column-gap:1rem;word-break:break-word;overflow-wrap:break-word;background:none;background-color:transparent;border:none;"><code>/* code omitted for brevity */</code></pre>
+              style="white-space:pre-wrap;font-size:7px;padding:1rem;color:white;text-align:left;columns:4;column-gap:1rem;word-break:break-word;overflow-wrap:break-word;background:none;background-color:transparent;border:none;">
+<code>/* code omitted for brevity */</code>
+            </pre>
           </center>
         </div>
       </div>
 
       <br><br><br>
       <video class="centered-video start-at-20"
-        src="/Images/FigureAlphabet/11%20-%202022-11-25%2012-06-50_Trim.mp4" autoplay muted loop
-        playsinline></video>
+        src="Images/FigureAlphabet/11_-_2022-11-25_12-06-50_Trim.mp4"
+        autoplay muted loop playsinline></video>
 
       <br>
       <p class="h4">videos are run through the code</p>
       <p>after the video is played, four spreadsheets, one for each limb, are exported</p>
 
       <br>
-      <video class="centered-video start-at-20" src="/Images/FigureAlphabet/07%20-%202022-12-06%2023-58-28.mkv"
+      <video class="centered-video start-at-20"
+        src="Images/FigureAlphabet/07_-_2022-12-06_23-58-28.mkv"
         autoplay muted loop playsinline></video>
 
       <br>
       <p class="h4">spreadsheets input into grasshopper script to generate geometry</p>
-      <p>the spreadsheets are parsed and a curve is drawn from the points in the first three columns, the speeds in the
-        fourth column are used as the radii for the pipe</p>
+      <p>
+        the spreadsheets are parsed and a curve is drawn from the points in the first three columns,
+        the speeds in the fourth column are used as the radii for the pipe
+      </p>
 
       <div class="image-row">
-        <img src="/Images/FigureAlphabet/ViewCapture20221206_233408.jpg" alt="Underarm Turn" />
-        <img src="/Images/FigureAlphabet/ViewCapture20221206_233408%202.jpg" alt="Underarm Turn" />
+        <img src="Images/FigureAlphabet/ViewCapture20221206_233408.jpg" alt="Underarm Turn" />
+        <img src="Images/FigureAlphabet/ViewCapture20221206_233408_2.jpg" alt="Underarm Turn" />
       </div>
-
     </div>
 
+    <!-- WALTZ -->
     <section id="waltz">
       <center>
         <h1 class="project-title">THE WALTZ</h1>
@@ -222,13 +230,13 @@
           <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
             <video autoplay muted loop playsinline
               style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
-              <source src="/Images/FigureAlphabet/16%20-%20Waltx%20Reference.mp4" type="video/mp4" />
+              <source src="Images/FigureAlphabet/16_-_Waltx_Reference.mp4" type="video/mp4" />
             </video>
           </div>
           <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
             <video autoplay muted loop playsinline
               style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
-              <source src="/Images/FigureAlphabet/19%20-%20Original%20Footage%20French%20Waltz%201909-1915.mp4"
+              <source src="Images/FigureAlphabet/19_-_Original_Footage_French_Waltz_1909-1915.mp4"
                 type="video/mp4" />
             </video>
           </div>
@@ -240,49 +248,50 @@
 
       <div class="image-row-three">
         <figure>
-          <img src="/Images/FigureAlphabet/Underarm%20turn_Arms%20and%20Legs.png" alt="Underarm Turn" />
+          <img src="Images/FigureAlphabet/Underarm_turn_Arms_and_Legs.png" alt="Underarm Turn" />
           <p class="imageSubtitle">Underarm Turn</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/side%20by%20side_Arms%20and%20Legs.png" alt="Side by Side" />
+          <img src="Images/FigureAlphabet/side_by_side_Arms_and_Legs.png" alt="Side by Side" />
           <p class="imageSubtitle">Side by Side</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/reverse%20turn_Arms%20and%20Legs.png" alt="Reverse Turn" />
+          <img src="Images/FigureAlphabet/reverse_turn_Arms_and_Legs.png" alt="Reverse Turn" />
           <p class="imageSubtitle">Reverse Turn</p>
         </figure>
       </div>
 
       <div class="image-row-three">
         <figure>
-          <img src="/Images/FigureAlphabet/Hesitation%20with%20turn_Arms%20and%20Legs.png"
-            alt="Hesitation with Turn" />
+          <img src="Images/FigureAlphabet/Hesitation_with_turn_Arms_and_Legs.png" alt="Hesitation with Turn" />
           <p class="imageSubtitle">Hesitation with Turn</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/Grapevine_Arms%20and%20Legs.png" alt="Grapevine" />
+          <img src="Images/FigureAlphabet/Grapevine_Arms_and_Legs.png" alt="Grapevine" />
           <p class="imageSubtitle">Grapevine</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/right%20box%20turn_Arms%20and%20Legs.png" alt="Right Box Turn" />
+          <img src="Images/FigureAlphabet/right_box_turn_Arms_and_Legs.png" alt="Right Box Turn" />
           <p class="imageSubtitle">Right Box Turn</p>
         </figure>
       </div>
 
       <br><br>
       <figure>
-        <img src="/Images/FigureAlphabet/Waltz%20Mashup.png" alt="Waltz Mashup" />
+        <img src="Images/FigureAlphabet/Waltz_Mashup.png" alt="Waltz Mashup" />
         <p class="imageSubtitle">Waltz Mashup</p>
       </figure>
 
       <br><br>
       <figure>
         <video class="centered-video start-at-20"
-          src="/Images/FigureAlphabet/11%20-%202022-11-25%2012-06-50_Trim.mp4" controls></video>
+          src="Images/FigureAlphabet/11_-_2022-11-25_12-06-50_Trim.mp4"
+          controls></video>
         <p class="imageSubtitle">Waltz 3D Model</p>
       </figure>
     </section>
 
+    <!-- TANGO -->
     <section id="tango">
       <center>
         <h1 class="project-title">THE TANGO</h1>
@@ -292,13 +301,13 @@
           <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
             <video autoplay muted loop playsinline
               style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
-              <source src="/Images/FigureAlphabet/18%20-%20The%20Gigolo%27s%20Tango.mp4" type="video/mp4" />
+              <source src="Images/FigureAlphabet/18_-_The_Gigolo's_Tango.mp4" type="video/mp4" />
             </video>
           </div>
           <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
             <video autoplay muted loop playsinline
               style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
-              <source src="/Images/FigureAlphabet/15%20-%20Tango%20Reference.mp4" type="video/mp4" />
+              <source src="Images/FigureAlphabet/15_-_Tango_Reference.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -309,62 +318,66 @@
 
       <div class="image-row-three">
         <figure>
-          <img src="/Images/FigureAlphabet/Tango%20Walk_Arms%20and%20Legs.png" alt="Tango walk" />
+          <img src="Images/FigureAlphabet/Tango_Walk_Arms_and_Legs.png" alt="Tango walk" />
           <p class="imageSubtitle">Tango Walk</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/Rock%20Step_Arms%20and%20Legs.png" alt="Rock step" />
+          <img src="Images/FigureAlphabet/Rock_Step_Arms_and_Legs.png" alt="Rock step" />
           <p class="imageSubtitle">Rock Step</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/Medis%20Corto_Arms%20and%20Legs.png" alt="Medis Corto" />
+          <img src="Images/FigureAlphabet/Medis_Corto_Arms_and_Legs.png" alt="Medis Corto" />
           <p class="imageSubtitle">Medis Corto</p>
         </figure>
       </div>
 
       <div class="image-row-three">
         <figure>
-          <img src="/Images/FigureAlphabet/Left%20Rock%20Step_Arms%20and%20Legs.png"
-            alt="Left rock step" />
+          <img src="Images/FigureAlphabet/Left_Rock_Step_Arms_and_Legs.png" alt="Left rock step" />
           <p class="imageSubtitle">Left Rock Step</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/La%20Peurta_Arms%20and%20Legs.png" alt="La Puerta" />
+          <img src="Images/FigureAlphabet/La_Peurta_Arms_and_Legs.png" alt="La Puerta" />
           <p class="imageSubtitle">La Puerta</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/Flare%20Promenade_Arms%20and%20Legs.png"
-            alt="Flare promenade" />
+          <img src="Images/FigureAlphabet/Flare_Promenade_Arms_and_Legs.png" alt="Flare promenade" />
           <p class="imageSubtitle">Flare Promenade</p>
         </figure>
       </div>
 
       <br><br>
-      <img src="/Images/FigureAlphabet/Tango%20Mashup.png" alt="Tango mashup" />
+      <img src="Images/FigureAlphabet/Tango_Mashup.png" alt="Tango mashup" />
 
       <br><br>
       <div class="image-row-three">
-        <video width="500" height="300" autoplay muted loop playsinline style="object-fit:cover;transform:scale(1.2);">
-          <source src="/Images/FigureAlphabet/04%20-%20turntable%202.mp4" type="video/mp4" />
+        <video width="500" height="300" autoplay muted loop playsinline
+          style="object-fit:cover;transform:scale(1.2);">
+          <source src="Images/FigureAlphabet/04_-_turntable_2.mp4" type="video/mp4" />
         </video>
-        <video width="500" height="300" autoplay muted loop playsinline style="object-fit:cover;transform:scale(1.2);">
-          <source src="/Images/FigureAlphabet/05%20-%20turntable%203.mp4" type="video/mp4" />
+        <video width="500" height="300" autoplay muted loop playsinline
+          style="object-fit:cover;transform:scale(1.2);">
+          <source src="Images/FigureAlphabet/05_-_turntable_3.mp4" type="video/mp4" />
         </video>
-        <video width="500" height="300" autoplay muted loop playsinline style="object-fit:cover;transform:scale(1.2);">
-          <source src="/Images/FigureAlphabet/06%20-%20turntable.mp4" type="video/mp4" />
+        <video width="500" height="300" autoplay muted loop playsinline
+          style="object-fit:cover;transform:scale(1.2);">
+          <source src="Images/FigureAlphabet/06_-_turntable.mp4" type="video/mp4" />
         </video>
       </div>
 
       <figure>
         <video class="centered-video start-at-20"
-          src="/Images/FigureAlphabet/11%20-%202022-11-25%2012-06-50_Trim.mp4" controls></video>
+          src="Images/FigureAlphabet/11_-_2022-11-25_12-06-50_Trim.mp4"
+          controls></video>
         <p class="imageSubtitle">Tango 3D model</p>
       </figure>
 
-      <p class="meta">tango figure alphabet: tango walk, rock step, medis corto, left rock step, la puerta, flare
-        promenade</p>
+      <p class="meta">
+        tango figure alphabet: tango walk, rock step, medis corto, left rock step, la puerta, flare promenade
+      </p>
     </section>
 
+    <!-- FOXTROT -->
     <section id="foxtrot">
       <center>
         <h1 class="project-title">THE FOXTROT</h1>
@@ -373,16 +386,15 @@
         <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
           <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
             <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-              <source src="/Images/FigureAlphabet/17%20-%20Foxtrot%20Reference.mp4" type="video/mp4" />
+              <source src="Images/FigureAlphabet/17_-_Foxtrot_Reference.mp4" type="video/mp4" />
             </video>
           </div>
           <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
-  <img
-    src="/Images/FigureAlphabet/20%20-%20The%20Fox%20Trot%20in%20the%20Jazz%20Age.gif"
-    alt="The Fox Trot in the Jazz Age"
-    style="width:100%;height:100%;object-fit:cover;display:block;">
-</div>
-
+            <img
+              src="Images/FigureAlphabet/20_-_The_Fox_Trot_in_the_Jazz_Age.gif"
+              alt="The Fox Trot in the Jazz Age"
+              style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
         </div>
 
         <p class="h4">foxtrot figure alphabet</p>
@@ -390,43 +402,45 @@
 
       <div class="image-row-three">
         <figure>
-          <img src="/Images/FigureAlphabet/promenade_foxtrot.png" alt="Promenade" />
+          <img src="Images/FigureAlphabet/promenade_foxtrot.png" alt="Promenade" />
           <p class="imageSubtitle">Promenade</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/open%20impetus%20foxtrot.png" alt="Open Impetus" />
+          <img src="Images/FigureAlphabet/open_impetus_foxtrot.png" alt="Open Impetus" />
           <p class="imageSubtitle">Open Impetus</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/base%20step%20foxtrot.png" alt="Base step" />
+          <img src="Images/FigureAlphabet/base_step_foxtrot.png" alt="Base step" />
           <p class="imageSubtitle">Base Step</p>
         </figure>
       </div>
 
       <div class="image-row-three">
         <figure>
-          <img src="/Images/FigureAlphabet/inside%20promenade%20foxtrot.png" alt="Inside promenade" />
+          <img src="Images/FigureAlphabet/inside_promenade_foxtrot.png" alt="Inside promenade" />
           <p class="imageSubtitle">Inside Promenade</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/rock%20step%20foxtrot.png" alt="Rock step" />
+          <img src="Images/FigureAlphabet/rock_step_foxtrot.png" alt="Rock step" />
           <p class="imageSubtitle">Rock Step</p>
         </figure>
         <figure>
-          <img src="/Images/FigureAlphabet/twinkle%20foxtrot.png" alt="Twinkle" />
+          <img src="Images/FigureAlphabet/twinkle_foxtrot.png" alt="Twinkle" />
           <p class="imageSubtitle">Twinkle</p>
         </figure>
       </div>
 
-      <img src="/Images/FigureAlphabet/Foxtrot%20Mashup.png" alt="Foxtrot mashup" />
+      <img src="Images/FigureAlphabet/Foxtrot_Mashup.png" alt="Foxtrot mashup" />
 
       <figure>
         <video class="centered-video start-at-20"
-          src="/Images/FigureAlphabet/11%20-%202022-11-25%2012-06-50_Trim.mp4" controls></video>
+          src="Images/FigureAlphabet/11_-_2022-11-25_12-06-50_Trim.mp4"
+          controls></video>
         <p class="imageSubtitle">Foxtrot 3D model</p>
       </figure>
 
-      <p class="meta">foxtrot figure alphabet: promenade, open impetus, base step, inside promenade, rock step, twinkle
+      <p class="meta">
+        foxtrot figure alphabet: promenade, open impetus, base step, inside promenade, rock step, twinkle
       </p>
     </section>
   </main>
@@ -451,9 +465,9 @@
         document.getElementById("footer").innerHTML = html;
       });
   </script>
+
   <div class="custom-cursor" id="customCursor"></div>
   <script src="JavaScript Files/cursor.js"></script>
 
 </body>
-
 </html>

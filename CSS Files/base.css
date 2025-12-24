@@ -126,10 +126,10 @@ h1 {
     margin-bottom: 7px;
     font-family: 'Helvetica Bold', sans-serif;
     font-family: 'Helvetica Bold', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  font-size: clamp(22px, 4vw, 56px);
-  line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-size: clamp(22px, 4vw, 56px);
+    line-height: 1.05;
 }
 
 h2 {
@@ -162,7 +162,7 @@ h2 {
     text-align: center;
     margin-top: 0.25em;
     margin-bottom: 1.5em;
-  }
+}
 
 html,
 body {
@@ -170,16 +170,23 @@ body {
     margin: 0;
     padding: 0;
     scrollbar-gutter: stable both-edges;
-    overflow-y: auto;    /* ensure a normal vertical scrollbar */
-    overflow-x: hidden;  /* avoid accidental horizontal scrollbars */
-      
+    overflow-y: auto;
+    /* ensure a normal vertical scrollbar */
+    overflow-x: hidden;
+    /* avoid accidental horizontal scrollbars */
+
 }
 
-.header, .breadcrumb, .header-buttons {
-    font-size-adjust: 0.5;   /* tweak per your font (0.48–0.55 typical for neo-grotesques) */
-  }
+.header,
+.breadcrumb,
+.header-buttons {
+    font-size-adjust: 0.5;
+    /* tweak per your font (0.48–0.55 typical for neo-grotesques) */
+}
 
-html { scrollbar-gutter: stable both-edges; }
+html {
+    scrollbar-gutter: stable both-edges;
+}
 
 
 body {
@@ -188,7 +195,7 @@ body {
     color: var(--primary-color);
     background: var(--bg-color);
     min-height: 100vh;
-    padding-top: 20px; 
+    padding-top: 20px;
 }
 
 .titleSection {
@@ -230,12 +237,13 @@ p {
 /* Layout */
 
 .header {
-    position: sticky; /* your choice */
+    position: sticky;
+    /* your choice */
     z-index: 100;
     background: transparent;
-  }
-  
-  .header-inner {
+}
+
+.header-inner {
     max-width: 1200px;
     margin-inline: auto;
     padding: 0 40px;
@@ -243,7 +251,7 @@ p {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-  }
+}
 
 .main {
     padding: var(--section-spacing) 0;
@@ -311,188 +319,266 @@ footer {
 .project-details {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    max-width: var(--max-content-width);
-    margin: 0 auto;
-    padding-top: 40px;
+    /* centers the whole group */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* if not enough space, wraps nicely */
+    gap: 28px;
+    /* consistent spacing */
+    width: 100%;
     text-align: center;
-  }
-  
-  .detail-column {
-    flex: 0 0 auto;  /* don’t stretch full width */
-    min-width: 180px; /* optional, tweak as needed */
-    max-width: 200px;
-  }
+}
+
+.project-details p {
+    max-width: none;
+    /* undo global p max-width */
+    margin: 0;
+    /* undo global p centering/margins */
+}
+
+
+
+.detail-column {
+    flex: 0 1 auto;
+    /* don’t force equal widths */
+    max-width: 240px;
+    min-width: 180px;
+
+}
 
 /* hide native cursor (adjust for inputs if you want I-beam there) */
-html, body, a, button { cursor: none !important; }
+html,
+body,
+a,
+button {
+    cursor: none !important;
+}
 
 /* the dot */
-.custom-cursor{
-  position: fixed;
-  top: 0; left: 0;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: #000;                 /* black when NOT clickable */
-  mix-blend-mode: normal;           /* no blending in normal state */
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform .18s ease, background-color .1s ease, mix-blend-mode .1s ease, opacity .2s ease;
-  z-index: 2147483647;              /* above everything */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: #000;
+    /* black when NOT clickable */
+    mix-blend-mode: normal;
+    /* no blending in normal state */
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform .18s ease, background-color .1s ease, mix-blend-mode .1s ease, opacity .2s ease;
+    z-index: 2147483647;
+    /* above everything */
 }
 
 /* when the thing under the pointer is clickable */
-.custom-cursor.is-clickable{
-  transform: translate(-50%, -50%) scale(3);  /* bigger */
-  background: #fff;                            /* WHITE makes difference invert */
-  mix-blend-mode: difference;                  /* invert what’s behind it */
+.custom-cursor.is-clickable {
+    transform: translate(-50%, -50%) scale(3);
+    /* bigger */
+    background: #fff;
+    /* WHITE makes difference invert */
+    mix-blend-mode: difference;
+    /* invert what’s behind it */
 }
 
-.custom-cursor.is-hidden{ opacity: 0; }
+.custom-cursor.is-hidden {
+    opacity: 0;
+}
 
 
 /* ===== Header bubble nav: tight + no layout shift ===== */
-.header-buttons{
-  display: flex;
-  gap: 2px;                 /* VERY close together */
-  align-items: center;
-  position: relative;
+.header-buttons {
+    display: flex;
+    gap: 2px;
+    /* VERY close together */
+    align-items: center;
+    position: relative;
 }
 
 /* Each icon reserves a SMALL fixed slot (so page never shifts) */
-.header-buttons .header-icon{
-  width: 24px;              /* <-- controls how close they sit */
-  height: 24px;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  border-radius: 999px;
-  overflow: visible;        /* bubble can grow outside slot */
-  transform: translateX(var(--repel, 0px));
-  transition: transform .22s ease;
+.header-buttons .header-icon {
+    width: 24px;
+    /* <-- controls how close they sit */
+    height: 24px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 999px;
+    overflow: visible;
+    /* bubble can grow outside slot */
+    transform: translateX(var(--repel, 0px));
+    transition: transform .22s ease;
 }
 
 /* The bubble itself */
-.header-buttons .header-icon::before{
-  content: "";
-  width: 10px;              /* small dot */
-  height: 10px;
-  border-radius: 999px;
-  background: #000;
-  transition: transform .22s ease;
-  transform: scale(1);
+.header-buttons .header-icon::before {
+    content: "";
+    width: 10px;
+    /* small dot */
+    height: 10px;
+    border-radius: 999px;
+    background: #000;
+    transition: transform .22s ease;
+    transform: scale(1);
 }
 
 /* Icon (hidden until hover) */
-.header-buttons .header-icon img{
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity .14s ease, transform .22s ease;
-  pointer-events: none;
-  filter: invert(1);        /* white on black */
+.header-buttons .header-icon img {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity .14s ease, transform .22s ease;
+    pointer-events: none;
+    filter: invert(1);
+    /* white on black */
 }
 
 /* Hover: grow + show icon */
 .header-buttons .header-icon:hover::before,
-.header-buttons .header-icon:focus-visible::before{
-  transform: scale(3.8);    /* 10px * 3.8 ≈ 38px bubble */
+.header-buttons .header-icon:focus-visible::before {
+    transform: scale(3.8);
+    /* 10px * 3.8 ≈ 38px bubble */
 }
 
 .header-buttons .header-icon:hover img,
-.header-buttons .header-icon:focus-visible img{
-  opacity: 1;
-  transform: scale(1);
+.header-buttons .header-icon:focus-visible img {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* ===== Home bubble (color-cycling) ===== */
-.breadcrumb{
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* fixed slot so nothing shifts */
-.home-bubble{
-  width: 24px;
-  height: 24px;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  text-decoration: none;
-  overflow: visible;
+.home-bubble {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    text-decoration: none;
+    overflow: visible;
 }
 
 /* the bubble itself (animated outline + optional faint fill) */
-.home-bubble::before{
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
+.home-bubble::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
 
-  /* faint fill so you actually see the color cycling */
-  background: rgba(255,255,255,0.06);
+    /* faint fill so you actually see the color cycling */
+    background: rgba(255, 255, 255, 0.06);
 
-  border: 1px solid #fff; /* will be overridden by animation */
-  box-shadow: 0 0 0 0 rgba(0,0,0,0); /* stable */
+    border: 1px solid #fff;
+    /* will be overridden by animation */
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    /* stable */
 
-  transition: transform .22s ease;
-  animation: homeHue 6s linear infinite;
-  will-change: border-color, background-color;
+    transition: transform .22s ease;
+    animation: homeHue 6s linear infinite;
+    will-change: border-color, background-color;
 }
 
 /* icon hidden until hover */
-.home-bubble img{
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity .14s ease, transform .22s ease;
-  pointer-events: none;
+.home-bubble img {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity .14s ease, transform .22s ease;
+    pointer-events: none;
 
-  /* default (not inverted) */
-  filter: none;
+    /* default (not inverted) */
+    filter: none;
 }
 
 /* Pause the cycling on hover/focus — freezes on current frame */
 .home-bubble:hover::before,
-.home-bubble:focus-visible::before{
-  transform: scale(3.8);
-  animation-play-state: paused;
+.home-bubble:focus-visible::before {
+    transform: scale(3.8);
+    animation-play-state: paused;
 }
 
 
 .home-bubble:hover img,
-.home-bubble:focus-visible img{
-  opacity: 1;
-  transform: scale(1);
+.home-bubble:focus-visible img {
+    opacity: 1;
+    transform: scale(1);
 
-  /* invert on hover */
-  filter: invert(1);
+    /* invert on hover */
+    filter: invert(1);
 }
-   
+
 /* color cycle animation (outline + subtle fill) */
-@keyframes homeHue{
-  0%{
-    background: #f89344;
-  }
-  25%{
-    background: #d4e6f8ff;
-  }
-  50%{
-    background: #438dfbff;
-  }
-  75%{
-    background: #335b93ff;
-  }
-  100%{
-    background: #FF642F;
-  }
+@keyframes homeHue {
+    0% {
+        background: #f89344;
+    }
+
+    25% {
+        background: #d4e6f8ff;
+    }
+
+    50% {
+        background: #438dfbff;
+    }
+
+    75% {
+        background: #335b93ff;
+    }
+
+    100% {
+        background: #FF642F;
+    }
+}
+
+/* Center the whole details GROUP no matter how many columns */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px !important;
+
+}
+
+/* Make the row shrink to its content, then center that row */
+.project-details {
+    display: inline-flex !important;
+    /* inline-flex shrink-wraps */
+    justify-content: center !important;
+    align-items: flex-start;
+    gap: 28px;
+    text-align: center;
+    margin-bottom: 50px !important;
+    width: fit-content !important;
+    max-width: 100%;
+    padding-top: 40px;
+    flex-wrap: wrap;
+    /* wraps while staying centered */
+}
+
+/* Undo your global p rules ONLY inside details */
+.project-details p {
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+/* Optional: consistent column sizing */
+.project-details .detail-column {
+    flex: 0 1 auto;
+    max-width: 240px;
 }

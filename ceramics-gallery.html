@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ceramics Gallery</title>
@@ -68,27 +70,7 @@
     }
 
     header .breadcrumb img { display:block; }
-
-    /* ===== Custom cursor (tiny black dot, bigger on clickables) ===== */
-    html, body, a, button, img { cursor: none !important; }
-    body { isolation: isolate; } /* helps mix-blend-mode behave predictably */
-
-    .custom-cursor{
-      position: fixed; top: 0; left: 0;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: #000;                 /* black dot */
-      transform: translate(-50%, -50%) scale(1);
-      transition: transform .2s ease, opacity .2s ease;
-      opacity: 1;
-      z-index: 2147483647;              /* above everything including overlays */
-      mix-blend-mode: difference;       /* inverts background under the dot */
-    }
-    .custom-cursor.is-clickable{
-      transform: translate(-50%, -50%) scale(3.2); /* larger on clickables */
-    }
-    .custom-cursor.is-hidden{ opacity: 0; }
+  
   </style>
 </head>
 <body>

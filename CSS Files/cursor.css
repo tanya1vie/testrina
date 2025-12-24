@@ -7,26 +7,26 @@ body {
   isolation: isolate;
 }
 
-.custom-cursor {
+.custom-cursor{
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   pointer-events: none;
-  background: #000;
+  background: #ffffff;
+  mix-blend-mode: difference; /* always invert */
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  opacity: 1;
-  z-index: 2147483647;
-  mix-blend-mode: difference;
+  transition: transform .18s ease, opacity .2s ease;
+  z-index: 999999999;
+  isolation: isolate;          /* stay above stacking contexts */
 }
 
-.custom-cursor.is-clickable {
-  transform: translate(-50%, -50%) scale(3.2);
+.custom-cursor.is-clickable{
+  transform: translate(-50%, -50%) scale(3);
 }
 
-.custom-cursor.is-hidden {
+.custom-cursor.is-hidden{
   opacity: 0;
 }

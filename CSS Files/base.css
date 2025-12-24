@@ -330,7 +330,7 @@ footer {
 }
 
 .project-details p {
-    max-width: none;
+    /* max-width: none; */
     /* undo global p max-width */
     margin: 0;
     /* undo global p centering/margins */
@@ -341,7 +341,7 @@ footer {
 .detail-column {
     flex: 0 1 auto;
     /* don’t force equal widths */
-    max-width: 240px;
+    max-width: 100px;
     min-width: 180px;
 
 }
@@ -563,7 +563,7 @@ button {
     align-items: flex-start;
     gap: 28px;
     text-align: center;
-    margin-bottom: 50px !important;
+    margin-bottom: 30px !important;
     width: fit-content !important;
     max-width: 100%;
     padding-top: 40px;
@@ -580,7 +580,7 @@ button {
 /* Optional: consistent column sizing */
 .project-details .detail-column {
     flex: 0 1 auto;
-    max-width: 240px;
+    max-width: 100px;
 }
 
 /* GLOBAL LINK STYLE */
@@ -630,4 +630,12 @@ a:hover{
   .two-col-text{
     max-width: none;
   }
+}
+
+.trophy-icon{
+  filter: grayscale(1) brightness(0);
+  font-size: 0.95em;
+  margin-right: 4px;
+  position: relative;
+  top: -1px;
 }

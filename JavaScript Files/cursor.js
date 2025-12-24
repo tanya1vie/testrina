@@ -1,19 +1,26 @@
 (function () {
+  // ensure one cursor exists and is last in body
   let cursor = document.getElementById('customCursor');
-
   if (!cursor) {
     cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
     cursor.id = 'customCursor';
+    cursor.className = 'custom-cursor';
     document.body.appendChild(cursor);
   } else {
-    // keep it on top / last
     document.body.appendChild(cursor);
   }
 
+  // clickable selectors (for growth only)
   const CLICKABLE = [
-    'a','button','[role="button"]','input','select','textarea','label',
-    '.project-link','[data-clickable="true"]'
+    'a',
+    'button',
+    '[role="button"]',
+    'input',
+    'select',
+    'textarea',
+    'label',
+    '.project-link',
+    '[data-clickable="true"]'
   ].join(',');
 
   function isClickable(el) {
@@ -24,11 +31,10 @@
     return false;
   }
 
-  // Match your CSS sizes
-  const BASE_SIZE = 8;      // .custom-cursor width/height
-  const BASE_RADIUS = BASE_SIZE / 2;
+  // cursor sizing
+  const BASE_SIZE = 10;
   const SCALE_NORMAL = 1;
-  const SCALE_CLICKABLE = 3.2;
+  const SCALE_CLICKABLE = 3;
 
   function clamp(val, min, max) {
     return Math.max(min, Math.min(max, val));
@@ -39,17 +45,17 @@
 
     const el = document.elementFromPoint(e.clientX, e.clientY);
     const clickable = isClickable(el);
+
     cursor.classList.toggle('is-clickable', clickable);
 
     const scale = clickable ? SCALE_CLICKABLE : SCALE_NORMAL;
-    const r = BASE_RADIUS * scale;
+    const r = (BASE_SIZE / 2) * scale;
 
-    // Clamp so the dot never renders outside the viewport
     const x = clamp(e.clientX, r, window.innerWidth - r);
     const y = clamp(e.clientY, r, window.innerHeight - r);
 
     cursor.style.left = x + 'px';
-    cursor.style.top  = y + 'px';
+    cursor.style.top = y + 'px';
   });
 
   document.addEventListener('mouseleave', () =>

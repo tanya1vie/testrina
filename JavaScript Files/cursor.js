@@ -1,5 +1,4 @@
 (function () {
-  // ensure one cursor exists and is last in body
   let cursor = document.getElementById('customCursor');
   if (!cursor) {
     cursor = document.createElement('div');
@@ -10,18 +9,20 @@
     document.body.appendChild(cursor);
   }
 
-  // clickable selectors (for growth only)
   const CLICKABLE = [
-    'a',
-    'button',
-    '[role="button"]',
-    'input',
-    'select',
-    'textarea',
-    'label',
-    '.project-link',
-    '[data-clickable="true"]'
-  ].join(',');
+  'a',
+  'button',
+  '[role="button"]',
+  'input',
+  'select',
+  'textarea',
+  'label',
+  '.project-link',
+  '[data-clickable="true"]',
+  '.puzzle-bubble',   // 👈 SVG bubbles
+  '.puzzle-label'     // 👈 SVG labels (if you ever make them clickable)
+].join(',');
+
 
   function isClickable(el) {
     while (el && el !== document.body) {
@@ -31,13 +32,12 @@
     return false;
   }
 
-  // cursor sizing
   const BASE_SIZE = 10;
   const SCALE_NORMAL = 1;
   const SCALE_CLICKABLE = 3;
 
-  function clamp(val, min, max) {
-    return Math.max(min, Math.min(max, val));
+  function clamp(v, min, max){
+    return Math.max(min, Math.min(max, v));
   }
 
   document.addEventListener('mousemove', (e) => {
@@ -55,7 +55,7 @@
     const y = clamp(e.clientY, r, window.innerHeight - r);
 
     cursor.style.left = x + 'px';
-    cursor.style.top = y + 'px';
+    cursor.style.top  = y + 'px';
   });
 
   document.addEventListener('mouseleave', () =>

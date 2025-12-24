@@ -19,24 +19,6 @@
       --max-content-width: 1200px;
       --section-spacing: 74px;
     }
-
-    .project-details {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding-top: 40px;
-      text-align: center;
-    }
-
-    .detail-column {
-      flex: 0 0 auto;
-      /* don’t stretch full width */
-      min-width: 180px;
-      /* optional, tweak as needed */
-      max-width: 200px;
-    }
   </style>
 </head>
 
@@ -61,7 +43,7 @@
     <div class="project-header">
       <p class="project-year">2018</p>
       <h1 class="project-title">UPROOT</h1>
-      <h2 class="project-subtitle">a geo-engineered fabulation</h2>
+      <p class="project-subtitle">a geo-engineered fabulation</p>
       <p class="project-description">
       <p>In anticipation of the closure of several northern Ontario’s mines, UPROOT provides a structure with an
         alternative use for these areas. The intervention calls for the redevelopment of open-pit mines into stepping
@@ -85,8 +67,8 @@
         <div class="detail-column">
           <h2 class="detail-title">RECOGNITION</h2>
           <p><span class="trophy-icon">🏆</span>
-            <a href="https://www.aisc.org/modernsteel/news/2018/september/winners-announced-in-2018-steel-design-student-competition" target="_blank"
-              rel="noopener noreferrer">
+            <a href="https://www.aisc.org/modernsteel/news/2018/september/winners-announced-in-2018-steel-design-student-competition"
+              target="_blank" rel="noopener noreferrer">
 
               1st Place, Open Category (ACSA/AISC Competition)
             </a>
@@ -98,47 +80,41 @@
       </div>
     </div>
 
+
     <div class="project-images">
-      <div class="button-container"><a href="https://www.designlinesmagazine.com/uproot-mine-transformed-into-garden/"
-          target="_blank" rel="noopener noreferrer" class="button">
+      <div class="button-container">
+        <a href="https://www.designlinesmagazine.com/uproot-mine-transformed-into-garden/" target="_blank"
+          rel="noopener noreferrer" class="button">
           Read about it on Designlines
-        </a></div>
+        </a>
+      </div>
 
-
-      <img src="../Images/Uproot/Aerial Render.jpg" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/Aerial Render.jpg" alt="Aerial view of Uproot intervention">
+      <p class="imageSubtitle">Fig. 1. Aerial view of Uproot intervention</p>
       <br>
-      <imageSubtitle>Fig. 1. Aerial view of Uproot intervention</imageSubtitle>
-
-      <img src="../Images/Uproot/MIT Portoflio5_edited.jpg" alt="Yamal Peninsula - Exploded Axonometric">
-
-      <img src="../Images/Uproot/MIT Portoflio51.png" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/MIT Portoflio5_edited.jpg" alt="Uproot portfolio spread 1" style="width:80%; display:block; margin:0 auto;">
       <br>
-      <imageSubtitle>Fig. 2. Mining industry in Ontario, Canada</imageSubtitle>
-
-      <img src="../Images/Uproot/Site Plan.png" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/MIT Portoflio51.png" alt="Uproot portfolio spread 2"style="width:70%; display:block; margin:0 auto;">
+      <p class="imageSubtitle">Fig. 2. Mining industry in Ontario, Canada</p>
       <br>
-      <imageSubtitle>Fig. 3. Site Plan</imageSubtitle>
-
-      <img src="../Images/Uproot/approach.png" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/Site Plan.png" alt="Uproot site plan"style="width:70%; display:block; margin:0 auto;">
+      <p class="imageSubtitle">Fig. 3. Site Plan</p>
       <br>
-      <imageSubtitle>Fig. 3. View from within the mine</imageSubtitle>
-
-      <img src="../Images/Uproot/MIT Portoflio52.png" alt="Yamal Peninsula - Exploded Axonometric">
-
-      <img src="../Images/Uproot/section.jpg" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/approach.png" alt="View from within the mine">
+      <p class="imageSubtitle">Fig. 4. View from within the mine</p>
       <br>
-      <imageSubtitle>Fig. 4. Site Section</imageSubtitle>
-
-      <img src="../Images/Uproot/fireworks.png" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/MIT Portoflio52.png" alt="Uproot portfolio spread 3">
       <br>
-      <imageSubtitle>Fig. 5. Canada Day celebrations at the mine</imageSubtitle>
-
-      <img src="../Images/Uproot/Exploded Sectional Perspective.jpg" alt="Yamal Peninsula - Exploded Axonometric">
+      <img src="../Images/Uproot/section.jpg" alt="Site section through Uproot">
+      <p class="imageSubtitle">Fig. 5. Site Section</p>
       <br>
-      <imageSubtitle>Fig. 6. Exploded Axonometric + Sectional Perceptive</imageSubtitle>
-
-      </section>
-      </article>
+      <img src="../Images/Uproot/fireworks.png" alt="Canada Day celebrations at the mine">
+      <p class="imageSubtitle">Fig. 6. Canada Day celebrations at the mine</p>
+      <br>
+      <img src="../Images/Uproot/Exploded Sectional Perspective.jpg"
+        alt="Exploded axonometric and sectional perspective">
+      <p class="imageSubtitle">Fig. 7. Exploded Axonometric + Sectional Perspective</p>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -150,7 +126,7 @@
         document.getElementById("footer").innerHTML = html;
       });
   </script>
-    <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor" id="customCursor"></div>
   <script src="JavaScript Files/cursor.js"></script>
 
 </body>

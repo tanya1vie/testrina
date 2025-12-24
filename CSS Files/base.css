@@ -156,11 +156,11 @@ h2 {
 
 .imageSubtitle {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-style: italic;
     color: #444;
     text-align: center;
-    margin-top: 0.25em;
+    margin-top: 0.5em;
     margin-bottom: 1.5em;
 }
 

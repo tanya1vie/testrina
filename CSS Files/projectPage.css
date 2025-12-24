@@ -92,51 +92,75 @@
   /* Gallery */
   .gallery-wrapper{
   position: relative;
-  max-width: 1000px; /* adjust to your liking */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 24px 0;
 }
 
+/* remove the internal padding that was creating “arrow space” inside the gallery */
 .gallery{
   display: flex;
   gap: 20px;
   overflow: hidden;
-  padding: 0 60px; /* space for arrows */
-}
-
-.gallery-item{
-  flex: 0 0 80%;         /* ~1.2 items visible at a time */
-  aspect-ratio: 16/9;    /* cinematic format */
-  border-radius: 12px;
-  overflow: hidden;
-  background: #f3f3f3;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
-}
-
-.gallery-item img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  padding: 0;                 /* ✅ was 0 60px */
+  align-items: center;
 }
 
 .gallery-button{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px; height: 48px;
+  width: 34px;                /* ✅ smaller */
+  height: 34px;               /* ✅ smaller */
   border-radius: 50%;
   border: 0;
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.35);
   color: #fff;
-  font-size: 28px;
+  font-size: 18px;            /* ✅ smaller */
+  line-height: 34px;
+  text-align: center;
   cursor: pointer;
   z-index: 2;
   transition: background .2s ease;
 }
-.gallery-button:hover{ background: rgba(0,0,0,.7); }
-.gallery-button.left{  left: 10px; }
-.gallery-button.right{ right: 10px; }
+
+/* ✅ Put buttons OUTSIDE the content area */
+.gallery-button.left{
+  left: -44px;                /* outside */
+}
+.gallery-button.right{
+  right: -44px;               /* outside */
+}
+
+.gallery-button:hover{ background: rgba(0,0,0,.55); }
+
+/* ✅ On small screens, keep them inside so they don’t get cut off */
+@media (max-width: 740px){
+  .gallery-button.left{ left: 8px; }
+  .gallery-button.right{ right: 8px; }
+}
+
+
+
+.gallery-item{
+  flex: 0 0 auto;       /* let item size be based on its content */
+  border-radius: 12px;
+  overflow: visible;    /* stop clipping */
+  background: transparent;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+
+.gallery-item img{
+  height: auto;         /* critical */
+  width: auto;          /* allow natural ratio */
+  max-height: 70vh;     /* keeps tall images from taking over */
+  max-width: 80vw;      /* safe clamp */
+  object-fit: contain;  /* never crop */
+  display: block;
+  border-radius: 12px;
+}
+
 
 @media (max-width: 740px){
   .gallery-item{ flex: 0 0 95%; } /* show 1 item on mobile */

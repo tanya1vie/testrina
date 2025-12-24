@@ -123,9 +123,13 @@
 
 h1 {
     font-size: 38px;
-    margin-bottom: 0px;
+    margin-bottom: 7px;
     font-family: 'Helvetica Bold', sans-serif;
-    letter-spacing: 0.1em;
+    font-family: 'Helvetica Bold', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: clamp(22px, 4vw, 56px);
+  line-height: 1.05;
 }
 
 h2 {
@@ -224,10 +228,11 @@ p {
 }
 
 /* Layout */
+
 .header {
     position: sticky; /* your choice */
     z-index: 100;
-    background: var(--bg-color, #fff);
+    background: transparent;
   }
   
   .header-inner {
@@ -246,31 +251,6 @@ p {
     margin: 0 auto;
 }
 
-
-.breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-.breadcrumb img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-    margin-right: 10px;
-    margin-left: 10px;
-
-}
-
-.breadcrumb a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
-}
 
 .header-buttons {
     display: flex;
@@ -371,3 +351,148 @@ html, body, a, button { cursor: none !important; }
 .custom-cursor.is-hidden{ opacity: 0; }
 
 
+/* ===== Header bubble nav: tight + no layout shift ===== */
+.header-buttons{
+  display: flex;
+  gap: 2px;                 /* VERY close together */
+  align-items: center;
+  position: relative;
+}
+
+/* Each icon reserves a SMALL fixed slot (so page never shifts) */
+.header-buttons .header-icon{
+  width: 24px;              /* <-- controls how close they sit */
+  height: 24px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 999px;
+  overflow: visible;        /* bubble can grow outside slot */
+  transform: translateX(var(--repel, 0px));
+  transition: transform .22s ease;
+}
+
+/* The bubble itself */
+.header-buttons .header-icon::before{
+  content: "";
+  width: 10px;              /* small dot */
+  height: 10px;
+  border-radius: 999px;
+  background: #000;
+  transition: transform .22s ease;
+  transform: scale(1);
+}
+
+/* Icon (hidden until hover) */
+.header-buttons .header-icon img{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity .14s ease, transform .22s ease;
+  pointer-events: none;
+  filter: invert(1);        /* white on black */
+}
+
+/* Hover: grow + show icon */
+.header-buttons .header-icon:hover::before,
+.header-buttons .header-icon:focus-visible::before{
+  transform: scale(3.8);    /* 10px * 3.8 ≈ 38px bubble */
+}
+
+.header-buttons .header-icon:hover img,
+.header-buttons .header-icon:focus-visible img{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== Home bubble (color-cycling) ===== */
+.breadcrumb{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* fixed slot so nothing shifts */
+.home-bubble{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  text-decoration: none;
+  overflow: visible;
+}
+
+/* the bubble itself (animated outline + optional faint fill) */
+.home-bubble::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+
+  /* faint fill so you actually see the color cycling */
+  background: rgba(255,255,255,0.06);
+
+  border: 1px solid #fff; /* will be overridden by animation */
+  box-shadow: 0 0 0 0 rgba(0,0,0,0); /* stable */
+
+  transition: transform .22s ease;
+  animation: homeHue 6s linear infinite;
+  will-change: border-color, background-color;
+}
+
+/* icon hidden until hover */
+.home-bubble img{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity .14s ease, transform .22s ease;
+  pointer-events: none;
+
+  /* default (not inverted) */
+  filter: none;
+}
+
+/* Pause the cycling on hover/focus — freezes on current frame */
+.home-bubble:hover::before,
+.home-bubble:focus-visible::before{
+  transform: scale(3.8);
+  animation-play-state: paused;
+}
+
+
+.home-bubble:hover img,
+.home-bubble:focus-visible img{
+  opacity: 1;
+  transform: scale(1);
+
+  /* invert on hover */
+  filter: invert(1);
+}
+   
+/* color cycle animation (outline + subtle fill) */
+@keyframes homeHue{
+  0%{
+    background: #f89344;
+  }
+  25%{
+    background: #d4e6f8ff;
+  }
+  50%{
+    background: #438dfbff;
+  }
+  75%{
+    background: #335b93ff;
+  }
+  100%{
+    background: #FF642F;
+  }
+}

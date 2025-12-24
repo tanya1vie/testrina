@@ -1,0 +1,62 @@
+.puzzle-hero{
+  width: 100%;
+  max-width: 900px;
+  height: 320px;
+  margin-top: 18px;
+  position: relative;
+}
+
+.puzzle-hero svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* bubbles */
+.puzzle-bubble{
+  cursor: pointer;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.12));
+  transition: filter .18s ease;
+}
+
+.puzzle-bubble,
+.puzzle-transition{
+  opacity: 1 !important;
+  fill-opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.puzzle-bubble.dim{
+  opacity: 1;
+  filter: brightness(0.92);
+}
+
+
+.puzzle-bubble.dim{ opacity: .55; }
+
+.puzzle-bubble:hover{
+  filter: drop-shadow(0 16px 26px rgba(0,0,0,.18));
+}
+
+.puzzle-label{
+  font-size: 14px;
+  font-weight: 700;
+  fill: rgba(0,0,0,.9);
+  paint-order: stroke;
+  stroke: rgba(255,255,255,.95);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  opacity: 0;                  /* ✅ ALWAYS visible */
+}
+
+
+/* you can delete .puzzle-label.show if you want */
+
+
+.puzzle-label.show{ opacity: 0; }

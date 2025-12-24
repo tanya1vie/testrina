@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vela - Tatiana Estrina</title>
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="projectPage.css">
-    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="CSS Files/base.css">
+    <link rel="stylesheet" href="CSS Files/projectPage.css">
+    <link rel="stylesheet" href="CSS Files/cursor.css">
 
 </head>
 
@@ -121,12 +121,17 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2023 by Tatiana Estrina</p>
-    </footer>
+    div id="footer"></div>
+       <script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
+    });
+</script>
 <script src="cursor.js"></script>
 
-     <script src="galleryscroll.js"></script>
+     <script src="JavaScript Files/galleryscroll.js"></script>
 </body>
 
 </html>

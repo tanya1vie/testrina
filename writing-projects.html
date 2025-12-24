@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spatial Design</title>
+    <title>Writing</title>
     <link rel="stylesheet" href="CSS Files/base.css">
     <link rel="stylesheet" href="CSS Files/projectList.css">
-    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="CSS Files/cursor.css">
 
     <!-- Page-specific styles -->
 </head>
 <body>
-    <div id="header"></div>
-
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header").innerHTML = html;
-
-      // ✅ IMPORTANT: load header JS AFTER header exists
-      const s = document.createElement("script");
-      s.src = "JavaScript Files/headerBubbles.js";
-      document.body.appendChild(s);
-    });
-</script>
+    <header class="header">
+		<div class="header-inner">
+		  <nav class="breadcrumb">
+			<a href="index.html">
+			  <img src="..\Images\Navigation\house.jpg" alt="Home">
+			</a>
+			<span>/</span>
+			<a href="#">writing</a>
+		  </nav>
+	  
+		  <div class="header-buttons">
+        <a href="ceramics-gallery.html" class="header-icon">
+          <img src="..\Images\Navigation\ceramics.png" alt="Gallery">
+        </a>
+			<a href="work.html" class="header-icon">
+			  <img src="..\Images\Navigation\gallery.jpg" alt="Gallery">
+			</a>
+			<a href="about.html" class="header-icon">
+			  <img src="..\Images\Navigation\girlIcon.png" alt="About">
+			</a>
+		  </div>
+		</div>
+	  </header>
 
     <div class="titleSection">
-        <h1>spatial design.</h1>
-        <div class="subtitle">architecture // installations // conceptual proposals // built work</div>
+        <h1>writing.</h1>
+        <div class="subtitle">books // articles // papers // creative fiction</div>
     </div>
     <div class = project-list>
     <a href="vela.html" class="project">
         <div class="project-info">
-            <div class="project-title">Vela</div>
+            <div class="project-title">Architecture and Videogames</div>
             <h2>How can a restaurant become a spatial experience?</h2>
-            <p class="project-description">Internship at PARTISANS</p>
+            <p class="project-description">Co-Editor</p>
             <p class="project-tags">Professional // Architecture // Interior Design // Detailing</p>
         </div>
         <div class="project-image">

@@ -6,9 +6,9 @@
   <title>Ceramics Gallery</title>
 
   <!-- Local styles (relative paths) -->
-  <link rel="stylesheet" href="base.css" />
-  <link rel="stylesheet" href="gallery.css" />
-  <link rel="stylesheet" href="cursor.css">
+  <link rel="stylesheet" href="CSS Files/base.css" />
+  <link rel="stylesheet" href="CSS Files/gallery.css" />
+  <link rel="stylesheet" href="CSS Files/cursor.css">
 
   <style>
     /* ===== Popup (modal) ===== */
@@ -147,7 +147,8 @@
     </div>
   </div>
 
-  <footer><p>© 2025 by Tatiana Estrina</p></footer>
+  <div id="footer"></div>
+
 
   <!-- Cursor element last to guarantee top layer -->
   <div class="custom-cursor" id="customCursor"></div>
@@ -284,6 +285,14 @@
       document.addEventListener('mouseenter', ()=>cursor.classList.remove('is-hidden'));
     })();
   </script>
-  <script src="cursor.js"></script>
+  <script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
+    });
+</script>
+
+  <script src="JavaScript Files/cursor.js"></script>
 </body>
 </html>

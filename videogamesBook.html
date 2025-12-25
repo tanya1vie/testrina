@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture and Videogames - Tatiana Estrina</title>
+  <link rel="stylesheet" href="CSS Files/base.css">
+  <link rel="stylesheet" href="CSS Files/projectPage.css">
+  <link rel="stylesheet" href="CSS Files/cursor.css">
+
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
+
+        // ✅ IMPORTANT: load header JS AFTER header exists
+        const s = document.createElement("script");
+        s.src = "JavaScript Files/headerBubbles.js";
+        document.body.appendChild(s);
+      });
+  </script>
+
+  <main class="main">
+    <div class="project-header">
+      <div class="project-year">2025</div>
+      <h1 class="project-title">ARCHITECTURE AND VIDEOGAMES</h1>
+      <p class="project-subtitle">Intersecting Worlds</p>
+    </div>
+
+    <div class="project-description">
+      <p>
+        This book explores and affirms the emergent symbiosis between videogames and architecture, including insights
+        from a diverse range of disciplines. With contributions from authorities in both architecture and videogame
+        industries, it examines how videogames as
+        a medium have enlightened the public about the built environments of the past, offered heightened awareness of
+        our current urban context, and presented inspiration for the future directions of architecture. A relatively
+        nascent medium, videogames have rapidly transitioned from cultural novelty to architectural prophet over the
+        past 50 years. That videogames serve as an interactive proxy for the real world is merely a gateway into just
+        how pervasive and potent the medium is in architectural praxis. If architecture is a synthesis of cultural value
+        and videogames are a dominant cultural medium of today, how will they influence the architecture of tomorrow?
+
+      </p>
+    </div>
+
+    <section class="project-details">
+      <div class="detail-column">
+        <h2 class="detail-title">CONTEXT</h2>
+        <p>Book published with Routledge</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">COLLABORATORS</h2>
+        <p>Vincent Hui, Ryan Scavnicky</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">ROLE</h2>
+        <p>Co-Editor, Chapter Author, Interview conductor</p>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="project-images">
+    <div class="button-container"><a
+        href="https://www.amazon.ca/Architecture-Videogames-Intersecting-Vincent-Hui/dp/1032528877" target="_blank"
+        rel="noopener noreferrer" class="button">
+        Get your own copy here.
+      </a></div>
+
+
+    <div class="gallery-wrapper">
+      <button class="gallery-button left" onclick="scrollGallery(-1)">‹</button>
+      <div class="gallery" id="gallery">
+        <div class="gallery-item"><img src="../Images/Vela/2.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg"
+            alt="Vela Interior 1"></div>
+        <div class="gallery-item"><img src="../Images/Vela/4-vela-photo-by-jonathan-friedman-partisans (1).jpg"
+            alt="Vela Interior 2"></div>
+        <!-- <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_8.jpg" alt="Vela Exterior"></div> -->
+        <div class="gallery-item"><img src="../Images/Vela/Aure_Partisans_Vela_restaurant_Lighting4.jpg"
+            alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="../Images/Vela/Vela_Website_Home_Detail_3.jpg" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="../Images/Vela/7.-VELA_Photo-by-Jonathan-Friedman_PARTISANS.jpg"
+            alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_3.jpg" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="../Images/Vela/DL_WEB_Vela_5.jpg" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="../Images/Vela/2X8A8763.jpg" alt="Vela Interior 2"></div>
+      </div>
+      <button class="gallery-button right" onclick="scrollGallery(1)">›</button>
+    </div>
+
+    <div class="modal" id="zoomModal">
+      <img id="zoomedImg" src="" alt="Zoomed image">
+    </div>
+
+
+    <img src="../Images/Vela/MIT Portoflio53.png" alt="Tripix Project Image 3">
+    <img src="../Images/Vela/MIT Portoflio55.png" alt="Tripix Project Image 4">
+    <img src="../Images/Vela/MIT Portoflio54.png" alt="Tripix Project Image 4">
+    <img src="../Images/Vela/MIT Portoflio57.png" alt="Tripix Project Image 4">
+    <img src="../Images/Vela/MIT Portoflio56.png" alt="Tripix Project Image 4">
+  </div>
+  </main>
+
+  <div> id="footer"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer").innerHTML = html;
+      });
+  </script>
+  <script src="JavaScript Files/cursor.js"></script>
+
+  <script src="JavaScript Files/galleryscroll.js"></script>
+</body>
+
+</html>

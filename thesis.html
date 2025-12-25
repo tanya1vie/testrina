@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="CSS Files/base.css">
   <link rel="stylesheet" href="CSS Files/projectPage.css">
   <link rel="stylesheet" href="CSS Files/cursor.css">
+  <link rel="stylesheet" href="CSS Files/book.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
@@ -134,12 +135,10 @@
       </div>
 
       <div class="wrap" id="flipbookWrap" aria-label="Flipbook">
-        <div class="book" id="book">
-          <!-- Static stacks for visual book feel -->
-          <div class="left-stack" aria-hidden="true"></div>
-          <div class="right-stack" aria-hidden="true"></div>
-          <div class="spine" aria-hidden="true"></div>
-        </div>
+  <div class="book" id="book">
+    <div class="page left" id="pageLeft"></div>
+    <div class="page right" id="pageRight"></div>
+  </div>
 
         <!-- Hidden list of images that JS will read -->
         <div id="flipbookImages" style="display:none;">
@@ -194,8 +193,8 @@
 
         <!-- navigation arrows -->
         <button id="prevBtn" class="arrow left" aria-label="Previous page" title="Previous page">❮</button>
-        <button id="nextBtn" class="arrow right" aria-label="Next page" title="Next page">❯</button>
-      </div>
+  <button id="nextBtn" class="arrow right" aria-label="Next page" title="Next page">❯</button>
+</div>
 
 
       <img src="../Images/Vela/MIT_Portoflio53.png" alt="Tripix Project Image 3">

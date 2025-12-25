@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Guidebook - Tatiana Estrina</title>
+  <link rel="stylesheet" href="CSS Files/base.css">
+  <link rel="stylesheet" href="CSS Files/projectPage.css">
+  <link rel="stylesheet" href="CSS Files/cursor.css">
+
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
+
+        // ✅ IMPORTANT: load header JS AFTER header exists
+        const s = document.createElement("script");
+        s.src = "JavaScript Files/headerBubbles.js";
+        document.body.appendChild(s);
+      });
+  </script>
+
+  <main class="main">
+    <div class="project-header">
+      <div class="project-year">2019</div>
+      <h1 class="project-title">THE ARCHITECTURE PORTFOLIO GUIDEBOOK</h1>
+      <p class="project-subtitle">Book Design and Assembly</p>
+    </div>
+
+    <div class="project-description">
+      <p>
+        This book, written by Professor Vincent Hui, guides architecture students in assembling a portfolio, both for
+        applications to work and academic endevors. My role was to aid in the collection of imagery, assembly of said
+        imagery, and keeping track of permission from 50+ sources. In addition I created many images and diagrams,
+        created the cover design and copyediting design, helped transcribe and edit interviews, and wrote the
+        appendices.
+
+      </p>
+    </div>
+
+    <section class="project-details">
+      <div class="detail-column">
+        <h2 class="detail-title">CONTEXT</h2>
+        <p>Book published with Routledge</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">COLLABORATORS</h2>
+        <p>Vincent Hui (author)</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">ROLE</h2>
+        <p>Book + Cover Design, Creation + Assembly of Imagery, Interview Conduction + Editing</p>
+      </div>
+      <div class="detail-column">
+        <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+        <p>Illustrator, Photoshop, InDesign, Excel, Word</p>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="project-images">
+    <div class="button-container"><a
+        href="https://www.amazon.ca/Architecture-Portfolio-Guidebook-Essentials-Succeed-ebook/dp/B07Z6QWF59?ref_=ast_author_dp&th=1&psc=1"
+        target="_blank" rel="noopener noreferrer" class="button">
+        Get your own copy here.
+      </a></div>
+
+
+    Other Alternative Covers:
+    <div class="gallery-wrapper">
+      <button class="gallery-button left" onclick="scrollGallery(-1)">‹</button>
+      <div class="gallery" id="gallery">
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-01.png" alt="Vela Interior 1"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-02.png" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-03.png" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-04.png" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-05.png" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-06.png" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-07.png" alt="Vela Interior 2"></div>
+        <div class="gallery-item"><img src="Images/Portfolio/book_covers-08.png" alt="Vela Interior 2"></div>
+      </div>
+      <button class="gallery-button right" onclick="scrollGallery(1)">›</button>
+    </div>
+
+    <div class="modal" id="zoomModal">
+      <img id="zoomedImg" src="" alt="Zoomed image">
+    </div>
+
+
+    <img src="../Images/Vela/MIT Portoflio53.png" alt="Tripix Project Image 3">
+    <img src="../Images/Vela/MIT Portoflio55.png" alt="Tripix Project Image 4">
+    <img src="../Images/Vela/MIT Portoflio54.png" alt="Tripix Project Image 4">
+    <img src="../Images/Vela/MIT Portoflio57.png" alt="Tripix Project Image 4">
+    <img src="../Images/Vela/MIT Portoflio56.png" alt="Tripix Project Image 4">
+  </div>
+  </main>
+
+  <div> id="footer"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer").innerHTML = html;
+      });
+  </script>
+  <script src="JavaScript Files/cursor.js"></script>
+
+  <script src="JavaScript Files/galleryscroll.js"></script>
+</body>
+
+</html>

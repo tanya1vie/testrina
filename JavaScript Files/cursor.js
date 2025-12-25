@@ -1,4 +1,13 @@
 (function () {
+  // 🔴 Skip custom cursor on mobile / touch / coarse-pointer devices
+  if (
+    'ontouchstart' in window ||
+    (window.navigator && window.navigator.maxTouchPoints > 0) ||
+    (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+  ) {
+    return;
+  }
+
   let cursor = document.getElementById('customCursor');
   if (!cursor) {
     cursor = document.createElement('div');
@@ -10,19 +19,18 @@
   }
 
   const CLICKABLE = [
-  'a',
-  'button',
-  '[role="button"]',
-  'input',
-  'select',
-  'textarea',
-  'label',
-  '.project-link',
-  '[data-clickable="true"]',
-  '.puzzle-bubble',   // 👈 SVG bubbles
-  '.puzzle-label'     // 👈 SVG labels (if you ever make them clickable)
-].join(',');
-
+    'a',
+    'button',
+    '[role="button"]',
+    'input',
+    'select',
+    'textarea',
+    'label',
+    '.project-link',
+    '[data-clickable="true"]',
+    '.puzzle-bubble',   // SVG bubbles
+    '.puzzle-label'     // SVG labels
+  ].join(',');
 
   function isClickable(el) {
     while (el && el !== document.body) {

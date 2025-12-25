@@ -32,3 +32,12 @@ html, body, a, button, img, svg, .puzzle-bubble, .puzzle-label {
 .custom-cursor.is-hidden{
   opacity: 0;
 }
+
+@media (pointer: coarse) {
+  #customCursor {
+    display: none !important;
+  }
+  body {
+    cursor: auto !important;
+  }
+}

@@ -82,13 +82,32 @@
     }
 
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-    }
+  display: grid;
+  /* max 3 columns on desktop */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* much wider gaps */
+  gap: 100px;
+  margin: 0;
+  padding: 0;
+  max-width: 90%;
+}
+
+/* 2 per row on medium screens */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+  }
+}
+
+/* 1 per row on small screens */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
 
     .project-card {
       position: relative;
@@ -211,7 +230,7 @@
         <a href="#" data-category="writing">Writing</a>
       </div>
     </div>
-
+<br><Br>
     <div class="gallery-grid">
 
       <div class="project-card" data-category="professional, industrial, interactive, Game Design">
@@ -292,7 +311,7 @@
       </div>
 
       <!-- TRIPIX -->
-      <div class="project-card" data-category="fabrication, architecture">
+      <div class="project-card" data-category="fabrication, architecture, installation">
         <a href="tripix.html" class="project-link">
           <img src="Images/Tripix/MIT_Portoflio18_edited.jpg" alt="Tripix" loading="lazy" decoding="async">
           <div class="project-info">
@@ -329,7 +348,7 @@
       <!-- SEE X SAW -->
       <div class="project-card" data-category="interactive, industrial, computation, fabrication, academic, game">
         <a href="seesaw.html" class="project-link">
-          <img src="Images/See_x_Saw/Kai+Tanya - SeeSaw - 1D Interface (4)_edited_edited.jpg" alt="See x Saw"
+          <img src="Images/See_x_Saw/MainImage.jpg" alt="See x Saw"
             loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">See x Saw</div>
@@ -438,6 +457,18 @@
           <div class="project-info">
             <div class="project-title">The Yamal Conspiracy</div>
             <div class="project-type">Geo-Design Workshop</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- BRUCE AND WENDY (second tile) -->
+      <div class="project-card" data-category="installation, fabrication">
+        <a href="stratum.html" class="project-link">
+          <img src="Images/Stratum/Full_Photo.jpg" alt="Bruce and Wendy" loading="lazy"
+            decoding="async">
+          <div class="project-info">
+            <div class="project-title">Stratum</div>
+            <div class="project-type">Grow Op 2018 Exhibition</div>
           </div>
         </a>
       </div>

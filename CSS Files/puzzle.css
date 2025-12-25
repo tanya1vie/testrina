@@ -60,3 +60,11 @@
 
 
 .puzzle-label.show{ opacity: 0; }
+
+.puzzle-ring-text {
+  font-family: "Helvetica Neue", system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  transition: opacity 180ms ease-out;
+}

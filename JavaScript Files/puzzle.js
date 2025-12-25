@@ -3,15 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!mount) return;
 
   const slices = [
-    { name: "Spatial Design",     color: "#f89344", href: "spatial-design.html" },
-    { name: "Industrial Design",  color: "#335b93ff",   href: "industrial-design.html" },
-    { name: "Interaction Design",  color: "#438dfbff", href: "interaction-design.html" },
-    { name: "Writing",            color: "#FF642F", href: "writing-projects.html" },
-    { name: "Ceramics",           color: "#d4e6f8ff",   href: "ceramics-gallery.html" }
+    {
+      name: "Spatial Design",
+      color: "#f89344",
+      href: "spatial-design.html",
+      ringText: "architecture · systems · cities",
+      ringOffset: 0.9 // top-ish
+    },
+    {
+      name: "Industrial Design",
+      color: "#335b93ff",
+      href: "industrial-design.html",
+      ringText: "objects · fabrication · products · assemblies",
+      ringOffset: 0.25 // right
+    },
+    {
+      name: "Interaction Design",
+      color: "#438dfbff",
+      href: "interaction-design.html",
+      ringText: "interfaces · behaviors · flows",
+      ringOffset: 0.50 // bottom
+    },
+    {
+      name: "Writing",
+      color: "#FF642F",
+      href: "writing-projects.html",
+      ringText: "books · papers",
+      ringOffset: 0.75 // left
+    },
+    {
+      name: "Ceramics",
+      color: "#d4e6f8ff",
+      href: "ceramics-gallery.html",
+      ringText: "clay · glaze · fire",
+      ringOffset: 0.30 // slightly right of top
+    }
   ];
 
   // ============================================================
-  // ✅ HARD-CODE EVERY STATE HERE (UNCHANGED SHAPES/SIZES)
+  // HARD-CODED LAYOUTS
   // ============================================================
   const LAYOUTS = [
     {
@@ -20,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { cx: 400, cy: 140, w: 400, h: 400, rx: 200, ry: 200 },
         { cx: 600, cy: 100, w: 200, h: 200, rx: 100, ry: 100 },
         { cx: 150, cy: 300, w: 300, h: 300, rx: 150, ry: 150 },
-        { cx: 800, cy: 215, w: 120, h: 120, rx: 60,  ry: 60  },
-        { cx: 830, cy: 70,  w: 300, h: 300, rx: 150, ry: 150 }
+        { cx: 830, cy: 70,  w: 300, h: 300, rx: 150, ry: 150 },
+        { cx: 800, cy: 215, w: 120, h: 120, rx: 60,  ry: 60  }
       ]
     },
     {
@@ -37,11 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "pill-vertical",
       items: [
-        { cx: 500, cy: 300, w: 100, h: 300, rx: 50, ry: 50 },
+        { cx: 550, cy: 300, w: 100, h: 300, rx: 50, ry: 50 },
         { cx: 400, cy: 50,  w: 100, h: 100, rx: 50, ry: 50 },
         { cx: 400, cy: 220, w: 100, h: 200, rx: 50, ry: 50 },
-        { cx: 600, cy: 220, w: 100, h: 160, rx: 50, ry: 50 },
-        { cx: 300, cy: 150, w: 100, h: 300, rx: 50, ry: 50 }
+        { cx: 700, cy: 220, w: 100, h: 160, rx: 50, ry: 50 },
+        { cx: 250, cy: 150, w: 100, h: 300, rx: 50, ry: 50 }
       ]
     }
   ];
@@ -76,10 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function lerp(a,b,t){ return a + (b-a)*t; }
 
   // ----------------------------
-  // Color helpers (for stripe/text contrast)
+  // Color helpers
   // ----------------------------
   function parseHexToRgb(hex){
-    // supports #RRGGBB or #RRGGBBAA
     const h = hex.replace("#","");
     if (h.length !== 6 && h.length !== 8) return { r: 0, g: 0, b: 0 };
     const r = parseInt(h.slice(0,2),16);
@@ -88,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return { r, g, b };
   }
   function relLuma({r,g,b}){
-    // sRGB relative luminance
     const srgb = [r,g,b].map(v => {
       const c = v/255;
       return c <= 0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4);
@@ -97,12 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function bestBW(hexColor){
     const lum = relLuma(parseHexToRgb(hexColor));
-    // if background is bright -> choose black stripe/text; else white
     return lum > 0.52 ? "#000" : "#fff";
   }
 
   // ----------------------------
-  // ✅ Start completely offscreen (accounts for max size across layouts)
+  // Offscreen start
   // ----------------------------
   function startPos(i){
     const fromLeft = (i % 2 === 0);
@@ -116,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!maxDim) maxDim = 200;
 
     const half = maxDim / 2;
-    const safety = 1200; // very far offscreen
+    const safety = 1200;
     const x = fromLeft ? -(half + safety) : (VIEWBOX_W + half + safety);
     const y = 40 + Math.random() * (VIEWBOX_H - 80);
     return { x, y };
@@ -133,24 +160,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function getLayoutItem(layoutIdx, i){
     const L = LAYOUTS[layoutIdx];
-    return (L && L.items[i]) ? L.items[i] : { cx: 500, cy: 160, w: 140, h: 140, rx: 70, ry: 70 };
+    return (L && L.items[i])
+      ? L.items[i]
+      : { cx: 500, cy: 160, w: 140, h: 140, rx: 70, ry: 70 };
   }
 
   // ----------------------------
-  // Deterministic stripe angle + thickness per bubble (varied)
+  // Stripe helpers
   // ----------------------------
   function stripeAngleDeg(i){
-    // strong variation, not all same diagonal
     const angles = [-18, -33, -52, 18, 34, 57, -72, 72];
     return angles[i % angles.length];
   }
   function stripeWidthPx(i){
-    // MUCH thicker and varied
     const widths = [34, 56, 42, 70, 48, 62, 38, 80];
     return widths[i % widths.length];
   }
 
-  // Build bubbles as <rect> so morphing works
+  // ----------------------------
+  // Ring path helpers
+  // ----------------------------
+  const RING_MARGIN = 14;
+
+  function buildRingPathD(cx, cy, w, h, rx, ry) {
+    const hw = w / 2 + RING_MARGIN;
+    const hh = h / 2 + RING_MARGIN;
+
+    const r = Math.min(Math.max(rx + RING_MARGIN, 0), hw, hh);
+
+    const x0 = cx - hw; // left
+    const x1 = cx + hw; // right
+    const y0 = cy - hh; // top
+    const y1 = cy + hh; // bottom
+
+    // Path starts at top center and goes clockwise
+    return [
+      `M ${cx},${y0}`,                      // top center
+      `H ${x1 - r}`,                        // top right straight
+      `A ${r} ${r} 0 0 1 ${x1} ${y0 + r}`,  // top-right corner
+      `V ${y1 - r}`,                        // right side
+      `A ${r} ${r} 0 0 1 ${x1 - r} ${y1}`,  // bottom-right
+      `H ${x0 + r}`,                        // bottom
+      `A ${r} ${r} 0 0 1 ${x0} ${y1 - r}`,  // bottom-left
+      `V ${y0 + r}`,                        // left side
+      `A ${r} ${r} 0 0 1 ${x0 + r} ${y0}`,  // top-left
+      "Z"
+    ].join(" ");
+  }
+
+  // ----------------------------
+  // Build bubbles
+  // ----------------------------
   const bubbles = slices.map((s, i) => {
     const sp = startPos(i);
 
@@ -160,7 +220,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const clipId = `clipBubble_${i}`;
     const clipPath = createSVG("clipPath", { id: clipId });
-    const clipRect = createSVG("rect", { x: sp.x, y: sp.y, width: 120, height: 120, rx: 60, ry: 60 });
+    const clipRect = createSVG("rect", {
+      x: sp.x, y: sp.y,
+      width: 120, height: 120,
+      rx: 60, ry: 60
+    });
     clipPath.appendChild(clipRect);
     defs.appendChild(clipPath);
 
@@ -182,7 +246,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     t.textContent = s.name;
 
-    // Stripe is a line clipped to the bubble
     const stripe = createSVG("line", {
       x1: 0, y1: 0, x2: 0, y2: 0,
       "stroke-width": stripeWidthPx(i),
@@ -192,9 +255,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     stripe.style.opacity = "0";
 
+    // Ring path + ring text
+    const ringPathId = `ringPath_${i}`;
+    const ringPath = createSVG("path", { id: ringPathId });
+    defs.appendChild(ringPath);
+
+    const ringText = createSVG("text", {
+      class: "puzzle-ring-text",
+      "data-i": String(i)
+    });
+    const ringTextPath = createSVG("textPath", {
+      href: `#${ringPathId}`,
+      startOffset: `${(s.ringOffset ?? 0) * 100}%`,
+      "text-anchor": "middle"
+    });
+    ringTextPath.textContent = s.ringText || "";
+    ringText.appendChild(ringTextPath);
+    ringText.style.opacity = "0";
+    ringText.style.pointerEvents = "none";
+
     layer.appendChild(r);
     layer.appendChild(stripe);
     layer.appendChild(t);
+    layer.appendChild(ringText);
 
     return {
       i, ...s,
@@ -213,10 +296,13 @@ document.addEventListener("DOMContentLoaded", () => {
       stripe,
       clipRect,
 
-      // hover stripe params
       stripeAngle: stripeAngleDeg(i),
       stripeThickness: stripeWidthPx(i),
-      stripeColor: bestBW(s.color) // black/white based on bubble color
+      stripeColor: bestBW(s.color), // for logic if needed
+
+      ringPath,
+      ringText,
+      ringTextPath
     };
   });
 
@@ -244,10 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
     b.label.setAttribute("x", cx);
     b.label.setAttribute("y", cy);
 
-    // Stripe endpoints: draw a long line through center at varied angle.
-    // We'll compute endpoints by projecting a long vector.
     const theta = (b.stripeAngle * Math.PI) / 180;
-    const L = Math.max(b.w, b.h) * 2.2; // long enough to cover shape
+    const L = Math.max(b.w, b.h) * 2.2;
     const dx = Math.cos(theta) * L;
     const dy = Math.sin(theta) * L;
 
@@ -255,9 +339,21 @@ document.addEventListener("DOMContentLoaded", () => {
     b.stripe.setAttribute("y1", cy - dy);
     b.stripe.setAttribute("x2", cx + dx);
     b.stripe.setAttribute("y2", cy + dy);
-
-    // keep thickness updated (in case you want to tweak)
     b.stripe.setAttribute("stroke-width", b.stripeThickness);
+    b.stripe.setAttribute("stroke", "#ffffff"); // all SVG lines white
+
+    // Ring path follows current shape (circle / square / pill)
+    const d = buildRingPathD(cx, cy, b.w, b.h, b.rx, b.ry);
+    b.ringPath.setAttribute("d", d);
+
+    // Flip ring text 180° if it's on the bottom half of the path
+    const offset = b.ringOffset ?? 0;
+    const inBottomHalf = offset >= 0.25 && offset <= 0.75;
+    if (inBottomHalf) {
+      b.ringText.setAttribute("transform", `rotate(180 ${cx} ${cy})`);
+    } else {
+      b.ringText.removeAttribute("transform");
+    }
   }
 
   function updatePush(b){
@@ -266,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
     b.py += (b.pushToY - b.py) * ease;
   }
 
-  // Hover visuals: keep bubble color, show stripe in black/white, set label to stripe color for contrast
+  // Hover visuals
   function applyHoverVisuals(){
     bubbles.forEach((b) => {
       const isActive = (b.i === active);
@@ -274,20 +370,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isActive){
         b.el.setAttribute("fill", b.color);
         b.stripe.style.opacity = "0";
-        // default label color: your CSS can override; pick a readable default
-        b.label.style.fill = bestBW(b.color);
+        b.label.style.fill = "#ffffff";   // names always white
+        b.ringText.style.opacity = "0";
         return;
       }
 
-      // keep original bubble color
       b.el.setAttribute("fill", b.color);
-
-      // stripe contrast
-      b.stripe.setAttribute("stroke", b.stripeColor);
+      b.stripe.setAttribute("stroke", "#ffffff");
       b.stripe.style.opacity = "1";
 
-      // label readable against bubble
-      b.label.style.fill = b.stripeColor;
+      b.label.style.fill = "#ffffff";      // active name also white
+
+      const hasRing = (b.ringTextPath.textContent || "").trim().length > 0;
+      b.ringText.style.opacity = hasRing ? "1" : "0";
     });
   }
 
@@ -327,7 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   svg.addEventListener("pointerleave", () => setActive(-1));
 
-  // Click animation: keep your existing overlay, but now use bubble color background + stripeColor for line/text
+  // Click expansion
   function expandThenNavigate(bubble, href){
     if (transitioning) return;
     transitioning = true;
@@ -348,9 +443,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
-    const fill = bubble.color;                 // ✅ keep bubble color
-    const stripeColor = bubble.stripeColor;    // ✅ black/white contrast
-    const textColor = stripeColor;
+    const fill = bubble.color;
+    const stripeColor = "#ffffff";          // overlay line is white
+    const textColor = "#ffffff";            // title white
 
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
@@ -365,13 +460,13 @@ document.addEventListener("DOMContentLoaded", () => {
     stripe.style.position = "absolute";
     stripe.style.left = "50%";
     stripe.style.top = "50%";
-    stripe.style.width = "140vmax";
-    stripe.style.height = bubble.stripeThickness + "px"; // ✅ match thickness
+    stripe.style.width = "140vmax"; // big horizontal span
+    stripe.style.height = bubble.stripeThickness + "px";
     stripe.style.background = stripeColor;
     stripe.style.borderRadius = "999px";
     stripe.style.transform = `translate(-50%,-50%) rotate(${bubble.stripeAngle}deg)`;
     stripe.style.transformOrigin = "center center";
-    stripe.style.willChange = "transform, opacity";
+    stripe.style.willChange = "height";
 
     const title = document.createElement("div");
     title.textContent = bubble.name;
@@ -385,7 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
     title.style.letterSpacing = "0.06em";
     title.style.fontSize = "clamp(22px, 4vw, 56px)";
     title.style.opacity = "0";
-    title.style.willChange = "transform, opacity";
+    title.style.willChange = "opacity, transform";
 
     overlay.appendChild(stripe);
     overlay.appendChild(title);
@@ -395,6 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
       b.el.style.visibility = "hidden";
       b.label.style.visibility = "hidden";
       b.stripe.style.visibility = "hidden";
+      b.ringText.style.visibility = "hidden";
     });
 
     const scaleX = Math.max(0.001, screenW / vw);
@@ -404,9 +500,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     overlay.style.transform = `translate(${tx}px, ${ty}px) scale(${scaleX}, ${scaleY})`;
 
-    const expandMs = 650;
-    const morphMs = 420;
-    const popMs = 140;
+    const expandMs   = 650;
+    const shrinkMs   = 320;  // line shrinks thinner
+    const holdMs     = 280;  // baseline hold
+    const floodMs    = 700;  // line floods screen
 
     overlay.animate(
       [
@@ -415,44 +512,52 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       { duration: expandMs, easing: "cubic-bezier(.2,.9,.2,1)", fill: "forwards" }
     ).onfinish = () => {
-     stripe.animate(
-  [
-    {
-      transform: `translate(-50%,-50%) rotate(${bubble.stripeAngle}deg) scaleX(1)`,
-      opacity: 1,
-      height: (bubble.stripeThickness) + "px"
-    },
-    {
-      transform: "translate(-50%,-50%) rotate(0deg) scaleX(0.32)",
-      opacity: 1,
-      height: "4px"   // <<< VERY THIN (change to 2px if you want)
-    }
-  ],
-  { duration: morphMs, easing: "cubic-bezier(.2,.9,.2,1)", fill: "forwards" }
-);
+      const baseHeight = stripe.style.height || (bubble.stripeThickness + "px");
+      const thinHeight = "4px";
 
-
+      // Fade in title while the line is shrinking behind it
       title.animate(
         [
           { opacity: 0, transform: "translate(-50%,-50%) scale(0.98)" },
           { opacity: 1, transform: "translate(-50%,-50%) scale(1)" }
         ],
-        { duration: morphMs, easing: "ease-out", fill: "forwards" }
+        { duration: shrinkMs + holdMs, easing: "ease-out", fill: "forwards" }
+      );
+
+      // Phase 1: line shrinks to a thin baseline behind the text
+      stripe.animate(
+        [
+          { height: baseHeight },
+          { height: thinHeight }
+        ],
+        {
+          duration: shrinkMs,
+          easing: "cubic-bezier(.2,.9,.2,1)",
+          fill: "forwards"
+        }
       ).onfinish = () => {
-        overlay.animate(
-          [
-            { transform: "translate(0px,0px) scale(1.03,1.03)" },
-            { transform: "translate(0px,0px) scale(1,1)" }
-          ],
-          { duration: popMs, easing: "ease-out", fill: "forwards" }
-        ).onfinish = () => {
-          window.location.href = href;
-        };
+        // Phase 2: hold as thin baseline for a moment
+        setTimeout(() => {
+          // Phase 3: expand from thin baseline to flood the whole screen
+          stripe.animate(
+            [
+              { height: thinHeight },
+              { height: "250vh" }  // large enough to cover viewport
+            ],
+            {
+              duration: floodMs,
+              easing: "cubic-bezier(.2,.9,.2,1)",
+              fill: "forwards"
+            }
+          ).onfinish = () => {
+            window.location.href = href;
+          };
+        }, holdMs);
       };
     };
   }
 
-  // Wire interactions
+  // Interactions
   bubbles.forEach((b) => {
     const onEnter = () => setActive(b.i);
     const onLeave = () => setActive(-1);
@@ -566,8 +671,8 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   }
 
-  // Set default label colors based on bubble colors immediately
-  bubbles.forEach(b => { b.label.style.fill = bestBW(b.color); });
+  // Initial label colors – all white
+  bubbles.forEach(b => { b.label.style.fill = "#ffffff"; });
 
   requestAnimationFrame(tick);
 });

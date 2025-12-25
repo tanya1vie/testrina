@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,30 +10,31 @@
   <link rel="stylesheet" href="CSS Files/cursor.css">
 
 </head>
+
 <body>
-   <div id="header"></div>
+  <div id="header"></div>
 
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header").innerHTML = html;
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
 
-      // ✅ IMPORTANT: load header JS AFTER header exists
-      const s = document.createElement("script");
-      s.src = "JavaScript Files/headerBubbles.js";
-      document.body.appendChild(s);
-    });
-</script>
+        // ✅ IMPORTANT: load header JS AFTER header exists
+        const s = document.createElement("script");
+        s.src = "JavaScript Files/headerBubbles.js";
+        document.body.appendChild(s);
+      });
+  </script>
 
   <div class="titleSection">
     <h1>interaction design.</h1>
-    <div class="subtitle">hci  //  interfaces  //  game design  //  data vis</div>
+    <div class="subtitle">hci · interfaces · game design · data vis</div>
   </div>
 
   <div class="project-list">
 
-     <!--  <a href="rebin.html" class="project">
+    <!--  <a href="rebin.html" class="project">
       <div class="project-info">
         <div class="project-title">AugmenTote</div>
         <h2>What if warehouse tasks were improved with AR?</h2>
@@ -44,16 +46,16 @@
       </div>
     </a> -->
 
-     <!-- Janus -->
+    <!-- Janus -->
     <a href="thesis.html" class="project">
       <div class="project-info">
         <div class="project-title">Architecture as Prosthesis</div>
         <h2>What if games could predict human evolution in response to architecture?</h2>
         <p class="project-description">Master's Thesis</p>
-        <p class="project-tags">Academic // Game Design // Fabulation</p>
+        <p class="project-tags">Academic · Game Design · Fabulation</p>
       </div>
       <div class="project-image">
-        <img src="./Images/Thesis/Estrina_3858.jpg" alt="Janus interactive doorway" />
+        <img src="Images/Thesis/Estrina_3858.jpg" alt="Janus interactive doorway" />
       </div>
     </a>
 
@@ -63,11 +65,12 @@
       <div class="project-info">
         <div class="project-title">Janus</div>
         <h2>What if doorways decided who walks through them?</h2>
-        <p class="project-description">Interaction Intelligence Studio + Intelligent Multimodal User Interfaces Course</p>
-        <p class="project-tags">Academic // Interaction Design // 3D Printing // Fabrication // Coding</p>
+        <p class="project-description">Interaction Intelligence Studio + Intelligent Multimodal User Interfaces Course
+        </p>
+        <p class="project-tags">Academic · Interaction Design · 3D Printing · Fabrication · Coding</p>
       </div>
       <div class="project-image">
-        <img src="./Images/Janus/Untitled-2_edited.jpg" alt="Janus interactive doorway" />
+        <img src="Images/Janus/Untitled-2_edited.jpg" alt="Janus interactive doorway" />
       </div>
     </a>
 
@@ -77,10 +80,10 @@
         <div class="project-title">Figure Taxonomy</div>
         <h2>How does one turn dance into a three‑dimensional object?</h2>
         <p class="project-description">Drawing ++ Workshop</p>
-        <p class="project-tags">Academic // Fabrication // Digital Design // 3D Printing // Coding</p>
+        <p class="project-tags">Academic · Fabrication · Digital Design · 3D Printing · Coding</p>
       </div>
       <div class="project-image">
-        <img src="./Images/FigureAlphabet/Estrina_Tatiana_Victorovna_8388_edited.jpg" alt="3D printed dance ribbons" />
+        <img src="Images/FigureAlphabet/Estrina_Tatiana_Victorovna_8388_edited.jpg" alt="3D printed dance ribbons" />
       </div>
     </a>
 
@@ -90,10 +93,10 @@
         <div class="project-title">Head Above Water</div>
         <h2>What if a website could help renters determine which flood plains to avoid?</h2>
         <p class="project-description">Interactive Data Visualization Course</p>
-        <p class="project-tags">Academic // Interfaces // Coding // User Experience // Data Vis</p>
+        <p class="project-tags">Academic · Interfaces · Coding · User Experience · Data Vis</p>
       </div>
       <div class="project-image">
-        <img src="./Images/11.png" alt="3D printed dance ribbons" />
+        <img src="Images/11.png" alt="3D printed dance ribbons" />
       </div>
     </a>
 
@@ -103,10 +106,11 @@
         <div class="project-title">See x Saw</div>
         <h2>How can a single controller and a single line become a game for two?</h2>
         <p class="project-description">Interaction Intelligence Studio</p>
-        <p class="project-tags">Academic // Fabrication // Interaction Design // Game Design // Coding</p>
+        <p class="project-tags">Academic · Fabrication · Interaction Design · Game Design · Coding</p>
       </div>
       <div class="project-image">
-        <img src="./Images/See%x%Saw/Kai+Tanya%-%SeeSaw%-%1D%Interface%(4)_edited_edited.jpg" alt="Two‑player line game" />
+        <img src="Images/See%x%Saw/Kai+Tanya%-%SeeSaw%-%1D%Interface%(4)_edited_edited.jpg"
+          alt="Two‑player line game" />
       </div>
     </a>
 
@@ -116,10 +120,10 @@
         <div class="project-title">Distorted Projections</div>
         <h2>How can an installation bring people together?</h2>
         <p class="project-description">Independent Study</p>
-        <p class="project-tags">Fabrication // Academic // Responsive Environments // Coding</p>
+        <p class="project-tags">Fabrication · Academic · Responsive Environments · Coding</p>
       </div>
       <div class="project-image">
-        <img src="./Images/Projections/MIT%Portoflio34_edited.jpg" alt="Interactive projection installation" />
+        <img src="Images/Projections/MIT_Portoflio34_edited.jpg" alt="Interactive projection installation" />
       </div>
     </a>
 
@@ -129,10 +133,10 @@
         <div class="project-title">Hostile Caesar Salad</div>
         <h2>How can gastronomic plating become interactive?</h2>
         <p class="project-description">Creative Computation Course</p>
-        <p class="project-tags">Academic // Fabrication // Responsive Environments // Arduino</p>
+        <p class="project-tags">Academic · Fabrication · Responsive Environments · Arduino</p>
       </div>
       <div class="project-image">
-        <img src="./Images/Hostile%Salad/final%layout2_edited.jpg" alt="Interactive plating project" />
+        <img src="Images/Hostile_Salad/final layout2_edited.jpg" alt="Interactive plating project" />
       </div>
     </a>
 
@@ -142,21 +146,23 @@
         <div class="project-title">Phantom Partner</div>
         <h2>What if AI could predict your dance partner's steps?</h2>
         <p class="project-description">Independent R&D</p>
-        <p class="project-tags">Data Vis // Interaction // ML // XR</p>
+        <p class="project-tags">Data Vis · Interaction · Machine Learning · Extended Realities</p>
       </div>
       <div class="project-image">
-       <div class="square-container">
-  <img src="./Images/PhantomPartner/salsa1_duet.gif" alt="Phantom Partner visualization" />
-</div>
+        <div class="square-container">
+          <img src="Images/PhantomPartner/salsa1_duet.gif" alt="Phantom Partner visualization" />
+        </div>
 
       </div>
     </a>
 
-  
+
 
   </div>
+<script src="JavaScript Files/fadeIn.js" defer></script>
 
   <div class="custom-cursor" id="customCursor"></div>
   <script src="JavaScript Files/cursor.js"></script>
 </body>
+
 </html>

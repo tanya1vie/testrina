@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Spatial Design",
       color: "#f89344",
       href: "spatial-design.html",
-      ringText: "architecture · systems · cities",
+      ringText: "architecture · spaces · cities",
       ringOffset: 0.9 // top-ish
     },
     {
@@ -466,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stripe.style.borderRadius = "999px";
     stripe.style.transform = `translate(-50%,-50%) rotate(${bubble.stripeAngle}deg)`;
     stripe.style.transformOrigin = "center center";
-    stripe.style.willChange = "height";
+    stripe.style.willChange = "transform, height";
 
     const title = document.createElement("div");
     title.textContent = bubble.name;
@@ -501,9 +501,9 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.style.transform = `translate(${tx}px, ${ty}px) scale(${scaleX}, ${scaleY})`;
 
     const expandMs   = 650;
-    const shrinkMs   = 320;  // line shrinks thinner
-    const holdMs     = 280;  // baseline hold
-    const floodMs    = 700;  // line floods screen
+    const shrinkMs   = 320;  // line shrinks + rotates to horizontal
+    const holdMs     = 220;  // short hold as thin baseline
+    const floodMs    = 450;  // quick flood
 
     overlay.animate(
       [
@@ -514,8 +514,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ).onfinish = () => {
       const baseHeight = stripe.style.height || (bubble.stripeThickness + "px");
       const thinHeight = "4px";
+      const baseAngle  = bubble.stripeAngle;
 
-      // Fade in title while the line is shrinking behind it
+      // Fade in title over the shrink+hold time
       title.animate(
         [
           { opacity: 0, transform: "translate(-50%,-50%) scale(0.98)" },
@@ -524,11 +525,17 @@ document.addEventListener("DOMContentLoaded", () => {
         { duration: shrinkMs + holdMs, easing: "ease-out", fill: "forwards" }
       );
 
-      // Phase 1: line shrinks to a thin baseline behind the text
+      // Phase 1: diagonal -> horizontal + shrink height
       stripe.animate(
         [
-          { height: baseHeight },
-          { height: thinHeight }
+          {
+            transform: `translate(-50%,-50%) rotate(${baseAngle}deg)`,
+            height: baseHeight
+          },
+          {
+            transform: `translate(-50%,-50%) rotate(0deg)`,
+            height: thinHeight
+          }
         ],
         {
           duration: shrinkMs,
@@ -536,13 +543,19 @@ document.addEventListener("DOMContentLoaded", () => {
           fill: "forwards"
         }
       ).onfinish = () => {
-        // Phase 2: hold as thin baseline for a moment
+        // Phase 2: brief hold as horizontal thin line
         setTimeout(() => {
-          // Phase 3: expand from thin baseline to flood the whole screen
+          // Phase 3: horizontal -> diagonal + flood
           stripe.animate(
             [
-              { height: thinHeight },
-              { height: "250vh" }  // large enough to cover viewport
+              {
+                transform: `translate(-50%,-50%) rotate(0deg)`,
+                height: thinHeight
+              },
+              {
+                transform: `translate(-50%,-50%) rotate(${baseAngle}deg)`,
+                height: "250vh" // large enough to cover viewport
+              }
             ],
             {
               duration: floodMs,
@@ -550,6 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
               fill: "forwards"
             }
           ).onfinish = () => {
+            // As soon as flooded → go immediately
             window.location.href = href;
           };
         }, holdMs);

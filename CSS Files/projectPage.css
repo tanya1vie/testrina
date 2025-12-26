@@ -813,3 +813,47 @@ img {
   }
 }
 
+
+/* make single-image gallery 70% width and center it */
+.single-image-gallery{
+  width: 70%;
+  margin: 0 auto;           /* centers the gallery */
+  position: relative;        /* keeps arrows positioned properly */
+}
+
+/* ensure image scales inside */
+.single-image-gallery img{
+  width: 80%;
+  height: auto;
+  display: block;
+}
+
+
+.gallery-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 1);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.gallery-arrow.left{
+  left: -45px;
+}
+
+.gallery-arrow.right{
+  right: -45px;
+}
+
+/* keep arrows in view on mobile */
+@media(max-width: 740px){
+  .gallery-arrow.left{ left: 10px; }
+  .gallery-arrow.right{ right: 10px; }
+}
+

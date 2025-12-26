@@ -316,36 +316,6 @@ footer {
     margin: 0 auto;
 }
 
-.project-details {
-    display: flex;
-    justify-content: center;
-    /* centers the whole group */
-    align-items: flex-start;
-    flex-wrap: wrap;
-    /* if not enough space, wraps nicely */
-    gap: 28px;
-    /* consistent spacing */
-    width: 100%;
-    text-align: center;
-}
-
-.project-details p {
-    /* max-width: none; */
-    /* undo global p max-width */
-    margin: 0;
-    /* undo global p centering/margins */
-}
-
-
-
-.detail-column {
-    flex: 0 1 auto;
-    /* don’t force equal widths */
-    max-width: 100px;
-    min-width: 180px;
-
-}
-
 /* hide native cursor (adjust for inputs if you want I-beam there) */
 html,
 body,

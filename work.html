@@ -50,7 +50,8 @@
       justify-content: space-between;
       width: 200px;
       font-family: 'Helvetica Bold', sans-serif;
-      border-radius: 999px; /* rounded pill button */
+      border-radius: 999px;
+      /* rounded pill button */
     }
 
     .dropdown-content {
@@ -60,8 +61,10 @@
       width: 200px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
       z-index: 1;
-      border-radius: 10px;   /* rounded menu */
-      overflow: hidden;      /* round the edges of the items too */
+      border-radius: 10px;
+      /* rounded menu */
+      overflow: hidden;
+      /* round the edges of the items too */
     }
 
     .dropdown-content a {
@@ -82,31 +85,31 @@
     }
 
     .gallery-grid {
-  display: grid;
-  /* max 3 columns on desktop */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  /* much wider gaps */
-  gap: 100px;
-  margin: 0;
-  padding: 0;
-  max-width: 90%;
-}
+      display: grid;
+      /* max 3 columns on desktop */
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      /* much wider gaps */
+      gap: 100px;
+      margin: 0;
+      padding: 0;
+      max-width: 90%;
+    }
 
-/* 2 per row on medium screens */
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
-  }
-}
+    /* 2 per row on medium screens */
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px;
+      }
+    }
 
-/* 1 per row on small screens */
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
+    /* 1 per row on small screens */
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
 
 
     .project-card {
@@ -114,7 +117,8 @@
       overflow: hidden;
       aspect-ratio: 1 / 1;
       cursor: pointer;
-      border-radius: 18px; /* rounded corners on all tiles */
+      border-radius: 18px;
+      /* rounded corners on all tiles */
     }
 
     .project-link {
@@ -182,7 +186,8 @@
     .project-info .project-type,
     .project-info .project-year {
       color: #fff;
-      -webkit-text-stroke: 0.8px #fff;         /* white outline */
+      -webkit-text-stroke: 0.8px #fff;
+      /* white outline */
       paint-order: normal;
       stroke: none;
       text-shadow: none;
@@ -230,7 +235,7 @@
         <a href="#" data-category="writing">Writing</a>
       </div>
     </div>
-<br><Br>
+    <br><Br>
     <div class="gallery-grid">
 
       <div class="project-card" data-category="professional, industrial, interactive, Game Design">
@@ -257,7 +262,8 @@
       <!-- THESIS -->
       <div class="project-card" data-category="academic, computation, games, writing, graphic, architecture, research">
         <a href="thesis.html" class="project-link">
-          <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis" loading="lazy" decoding="async">
+          <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis" loading="lazy"
+            decoding="async">
           <div class="project-info">
             <div class="project-title">Architecture as Prosthesis</div>
             <div class="project-type">Thesis</div>
@@ -348,8 +354,7 @@
       <!-- SEE X SAW -->
       <div class="project-card" data-category="interactive, industrial, computation, fabrication, academic, game">
         <a href="seesaw.html" class="project-link">
-          <img src="Images/See_x_Saw/MainImage.jpg" alt="See x Saw"
-            loading="lazy" decoding="async">
+          <img src="Images/See_x_Saw/MainImage.jpg" alt="See x Saw" loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">See x Saw</div>
             <div class="project-type">Interaction Intelligence Studio</div>
@@ -360,8 +365,7 @@
       <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="academic, architecture">
         <a href="bach.html" class="project-link">
-          <img src="Images/Bach/Sunrise_Approach_Render.jpg" alt="Bruce and Wendy" loading="lazy"
-            decoding="async">
+          <img src="Images/Bach/Sunrise_Approach_Render.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">House for J.S. Bach</div>
             <div class="project-type">Advanced Architecture Studio</div>
@@ -406,8 +410,8 @@
       <!-- MARCHE DU PONT -->
       <div class="project-card" data-category="Professional, fabulation, graphic, architecture">
         <a href="marche.html" class="project-link">
-          <img src="Images/Marche/186634585_1125922204571225_82523339383687862_n_(3)_edited.jpg"
-            alt="Marche du Pont" loading="lazy" decoding="async">
+          <img src="Images/Marche/186634585_1125922204571225_82523339383687862_n_(3)_edited.jpg" alt="Marche du Pont"
+            loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">Marché du Pont</div>
             <div class="project-type">ACSA / AISC Steel Design Competition</div>
@@ -440,8 +444,7 @@
       <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="Academic, writing">
         <a href="portfolioBook.html" class="project-link">
-          <img src="Images/Portfolio/MIT_Portoflio59_edited.jpg" alt="Bruce and Wendy" loading="lazy"
-            decoding="async">
+          <img src="Images/Portfolio/MIT_Portoflio59_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">The Architecture Portfolio Guidebook</div>
             <div class="project-type">Book by Vincent Hui</div>
@@ -452,8 +455,8 @@
       <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="Academic, writing">
         <a href="yamal.html" class="project-link">
-          <img src="Images/Yamal/Yamal_Peninsula_-_Anthrax_Dispersion_02_edited_edited.jpg" alt="Bruce and Wendy" loading="lazy"
-            decoding="async">
+          <img src="Images/Yamal/Yamal_Peninsula_-_Anthrax_Dispersion_02_edited_edited.jpg" alt="Bruce and Wendy"
+            loading="lazy" decoding="async">
           <div class="project-info">
             <div class="project-title">The Yamal Conspiracy</div>
             <div class="project-type">Geo-Design Workshop</div>
@@ -463,19 +466,18 @@
 
       <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="installation, fabrication">
-        <a href="stratum.html" class="project-link">
-          <img src="Images/Stratum/Full_Photo.jpg" alt="Bruce and Wendy" loading="lazy"
-            decoding="async">
+        <a href="projections.html" class="project-link">
+          <img src="Images/Projections/MIT_Portoflio34_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
           <div class="project-info">
-            <div class="project-title">Stratum</div>
-            <div class="project-type">Grow Op 2018 Exhibition</div>
+            <div class="project-title">Distorted Projections</div>
+            <div class="project-type">Design TO Festival</div>
           </div>
         </a>
       </div>
 
 
-  <script src="JavaScript Files/dropdown.js" defer></script>
-  <script src="JavaScript Files/cursor.js"></script>
+      <script src="JavaScript Files/dropdown.js" defer></script>
+      <script src="JavaScript Files/cursor.js"></script>
 
 </body>
 

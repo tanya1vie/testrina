@@ -1,43 +1,42 @@
-
 @supports (text-align-last: justify) {
   .your-class {
     text-align-last: justify;
   }
 }
-  
-  /* Project Components */
-  .project-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-  
-  .project-year {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    margin-bottom: 1px;
-    font-family: 'Proxima Nova SemiBold', sans-serif;
-  }
-  
-  .project-title {
-    font-size: 20px;
-    letter-spacing: 0.25em;
-    margin: 6px 0;
-    font-family: 'Helvetica Bold', sans-serif;
-  }
-  
-  .project-subtitle {
-    font-size: 14px;
-    margin-bottom: 20px;
-    font-family: 'Proxima Nova SemiBold', sans-serif;
-  }
 
-  :root {
-    --primary-color: #000; 
-    --accent-color: #F2914B;
-    --bg-color: #fff;
-    --header-height: 63px;
-    --max-content-width: 1000px;
-    --section-spacing: 74px;
+/* Project Components */
+.project-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.project-year {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  margin-bottom: 1px;
+  font-family: 'Proxima Nova SemiBold', sans-serif;
+}
+
+.project-title {
+  font-size: 20px;
+  letter-spacing: 0.25em;
+  margin: 6px 0;
+  font-family: 'Helvetica Bold', sans-serif;
+}
+
+.project-subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: 'Proxima Nova SemiBold', sans-serif;
+}
+
+:root {
+  --primary-color: #000;
+  --accent-color: #F2914B;
+  --bg-color: #fff;
+  --header-height: 63px;
+  --max-content-width: 1000px;
+  --section-spacing: 74px;
 }
 
 .multi-column-text {
@@ -46,8 +45,8 @@
   font-size: 11px;
   font-family: 'Helvetica Light', sans-serif;
 }
-  
-  
+
+
 .project-details {
   display: grid;
   grid-template-columns: repeat(5, minmax(196px, 1fr));
@@ -58,39 +57,41 @@
   justify-content: center;
   text-align: center;
 }
-  
-  .detail-column {
-    text-align: center;
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  .detail-title {
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    margin-bottom: 11px;
-  }
 
-  .content-wrapper {
-    max-width: var(--max-content-width);
-    margin: 0 auto;
-    padding: 0 20px; /* Optional: adds side spacing for smaller screens */
-    text-align: left; /* You can also use center if needed */
-  }
+.detail-column {
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
 
-  .project-description {
-    font-size: 12.3px;
-    letter-spacing: 0em;
-    flex-wrap: wrap; 
-    margin-bottom: 11px;
-    line-height: 1.2;
-    text-align: justify;
-    text-align-last: center;
-  }
-  
-  
-  /* Gallery */
-  .gallery-wrapper{
+.detail-title {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  margin-bottom: 11px;
+}
+
+.content-wrapper {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  /* Optional: adds side spacing for smaller screens */
+  text-align: left;
+  /* You can also use center if needed */
+}
+
+.project-description {
+  font-size: 12.3px;
+  letter-spacing: 0em;
+  flex-wrap: wrap;
+  margin-bottom: 11px;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: center;
+}
+
+
+/* Gallery */
+.gallery-wrapper {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
@@ -98,25 +99,29 @@
 }
 
 /* remove the internal padding that was creating “arrow space” inside the gallery */
-.gallery{
+.gallery {
   display: flex;
   gap: 20px;
   overflow: hidden;
-  padding: 0;                 /* ✅ was 0 60px */
+  padding: 0;
+  /* ✅ was 0 60px */
   align-items: center;
 }
 
-.gallery-button{
+.gallery-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 34px;                /* ✅ smaller */
-  height: 34px;               /* ✅ smaller */
+  width: 34px;
+  /* ✅ smaller */
+  height: 34px;
+  /* ✅ smaller */
   border-radius: 50%;
   border: 0;
-  background: rgba(0,0,0,.35);
+  background: rgba(0, 0, 0, .35);
   color: #fff;
-  font-size: 18px;            /* ✅ smaller */
+  font-size: 18px;
+  /* ✅ smaller */
   line-height: 34px;
   text-align: center;
   cursor: pointer;
@@ -125,52 +130,74 @@
 }
 
 /* ✅ Put buttons OUTSIDE the content area */
-.gallery-button.left{
-  left: -44px;                /* outside */
-}
-.gallery-button.right{
-  right: -44px;               /* outside */
+.gallery-button.left {
+  left: -44px;
+  /* outside */
 }
 
-.gallery-button:hover{ background: rgba(0,0,0,.55); }
+.gallery-button.right {
+  right: -44px;
+  /* outside */
+}
+
+.gallery-button:hover {
+  background: rgba(0, 0, 0, .55);
+}
 
 /* ✅ On small screens, keep them inside so they don’t get cut off */
-@media (max-width: 740px){
-  .gallery-button.left{ left: 8px; }
-  .gallery-button.right{ right: 8px; }
+@media (max-width: 740px) {
+  .gallery-button.left {
+    left: 8px;
+  }
+
+  .gallery-button.right {
+    right: 8px;
+  }
 }
 
 
 
-.gallery-item{
-  flex: 0 0 auto;       /* let item size be based on its content */
+.gallery-item {
+  flex: 0 0 auto;
+  /* let item size be based on its content */
   border-radius: 12px;
-  overflow: visible;    /* stop clipping */
+  overflow: visible;
+  /* stop clipping */
   background: transparent;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
 }
 
 
-.gallery-item img{
-  height: auto;         /* critical */
-  width: auto;          /* allow natural ratio */
-  max-height: 70vh;     /* keeps tall images from taking over */
-  max-width: 80vw;      /* safe clamp */
-  object-fit: contain;  /* never crop */
+.gallery-item img {
+  height: auto;
+  /* critical */
+  width: auto;
+  /* allow natural ratio */
+  max-height: 70vh;
+  /* keeps tall images from taking over */
+  max-width: 80vw;
+  /* safe clamp */
+  object-fit: contain;
+  /* never crop */
   display: block;
   border-radius: 12px;
 }
 
 
-@media (max-width: 740px){
-  .gallery-item{ flex: 0 0 95%; } /* show 1 item on mobile */
+@media (max-width: 740px) {
+  .gallery-item {
+    flex: 0 0 95%;
+  }
+
+  /* show 1 item on mobile */
 }
 
 /* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(255,255,255,0.85); /* more transparent white */
+  background: rgba(255, 255, 255, 0.85);
+  /* more transparent white */
   display: none;
   align-items: center;
   justify-content: center;
@@ -179,7 +206,8 @@
 }
 
 .lightbox-inner {
-  position: relative;      /* container for image + close button */
+  position: relative;
+  /* container for image + close button */
   display: inline-block;
 }
 
@@ -189,17 +217,19 @@
   max-width: 95vw;
   max-height: 90vh;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
 }
 
 .lightbox-close {
   position: absolute;
-  top: -32px;    /* move above the image */
-  right: -32px;  /* align to right edge */
+  top: -32px;
+  /* move above the image */
+  right: -32px;
+  /* align to right edge */
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   color: #000;
   border: 0;
   cursor: pointer;
@@ -207,60 +237,69 @@
   line-height: 32px;
   text-align: center;
 }
+
 .lightbox-close:hover {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 
 
-  img {
-    max-width: 100%;
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+img {
+  max-width: 100%;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .thin-image {
-    width: 800px;
-  }
-  
-  /* Zoom Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0; top: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal img {
-    max-width: 90vw;
-    max-height: 90vh;
-  }
-  
-  .modal.show {
-    display: flex;
-  }
-  
-  /* Button Styles */
+  width: 800px;
+}
 
-  .button-container {
-    max-width: 1200px;
-    margin: 0 auto;              /* Center the 1200px area */
-    display: flex;
-    justify-content: flex-end;   /* Align to the right within the container */
-    padding: 1rem;
-  }
-  .button-row {
+/* Zoom Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modal.show {
   display: flex;
-  justify-content: right; /* center them in the row */
-  gap: 16px;               /* space between buttons */
-  margin: 1.5rem 0;        /* top/bottom spacing */
+}
+
+/* Button Styles */
+
+.button-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Center the 1200px area */
+  display: flex;
+  justify-content: flex-end;
+  /* Align to the right within the container */
+  padding: 1rem;
+}
+
+.button-row {
+  display: flex;
+  justify-content: right;
+  /* center them in the row */
+  gap: 16px;
+  /* space between buttons */
+  margin: 1.5rem 0;
+  /* top/bottom spacing */
 }
 
 .button {
@@ -279,62 +318,64 @@
   color: var(--bg-color);
 }
 
-.project-details + .button-row { margin-top: 0px !important; }
-  
-  /* Gallery layout styles */
+.project-details+.button-row {
+  margin-top: 0px !important;
+}
+
+/* Gallery layout styles */
 .gallery-grid {
-    display: grid;
-    gap: 40px;
-    margin: 0 auto;
-    max-width: var(--site-width);
+  display: grid;
+  gap: 40px;
+  margin: 0 auto;
+  max-width: var(--site-width);
 }
 
 .gallery-pair {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 20px;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .feature-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .gallery-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .wide-image {
-    grid-column: 1 / -1;
-    width: 100%;
-    height: auto;
+  grid-column: 1 / -1;
+  width: 100%;
+  height: auto;
 }
 
 .paired-images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .grid-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .technical-drawings {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .full-width {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .project-images {
@@ -344,36 +385,38 @@
 }
 
 .final-renderings {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .rendering-pair {
-    display: grid;
-    grid-template-columns: 1.7fr 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 20px;
 }
 
 .final-image {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .gallery-pair,
-    .paired-images,
-    .grid-gallery,
-    .rendering-pair {
-        grid-template-columns: 1fr;
-    }
 
-    .project-description,
-    .journey-description {
-        padding: 0 20px;
-    }
+  .gallery-pair,
+  .paired-images,
+  .grid-gallery,
+  .rendering-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .project-description,
+  .journey-description {
+    padding: 0 20px;
+  }
 }
+
 @media (max-width: 768px) {
   .masonry-gallery {
     column-count: 2;
@@ -385,6 +428,7 @@
     column-count: 1;
   }
 }
+
 .masonry-gallery {
   column-count: 3;
   column-gap: 10px;
@@ -420,19 +464,21 @@
   transform: translate(-50%, -50%);
   cursor: grab;
   transition: transform 0.1s ease;
-  -webkit-user-select: none; 
+  -webkit-user-select: none;
   user-select: none;
 }
 
 .image-row {
   display: flex;
-  gap: 30px; /* wider gap */
+  gap: 30px;
+  /* wider gap */
   max-width: 1000px;
   margin: 30px auto 0;
 }
 
 .image-row img {
-  width: calc((100% - 30px) / 2); /* subtract gap from 100% and split */
+  width: calc((100% - 30px) / 2);
+  /* subtract gap from 100% and split */
   height: auto;
   object-fit: cover;
 }
@@ -453,8 +499,10 @@
 
 .image-row-three img {
   width: 100%;
-  height: 200px;   /* adjust as needed */
-  object-fit: contain;  /* ensures no cropping */
+  height: 200px;
+  /* adjust as needed */
+  object-fit: contain;
+  /* ensures no cropping */
 }
 
 .image-row-three figcaption {
@@ -463,46 +511,59 @@
   text-align: center;
   color: #000;
 }
+
 .bold-line {
   font-weight: bold;
 }
 
 .centered-video {
-  width: 100%;          /* make it narrower */
-  max-width: 1000px;    /* optional max size */
-  display: block;      /* ensures margin works */
-  margin: 0 auto;      /* centers horizontally */
-  border-radius: 6px;  /* optional, matches your image style */
+  width: 100%;
+  /* make it narrower */
+  max-width: 1000px;
+  /* optional max size */
+  display: block;
+  /* ensures margin works */
+  margin: 0 auto;
+  /* centers horizontally */
+  border-radius: 6px;
+  /* optional, matches your image style */
 }
 
 .image-row-four {
   display: flex;
-  gap: 40px; /* increase space between images */
+  gap: 40px;
+  /* increase space between images */
   justify-content: center;
   flex-wrap: wrap;
-  margin: 40px 0; /* space above and below row */
-  padding: 0 20px; /* horizontal padding around the row */
+  margin: 40px 0;
+  /* space above and below row */
+  padding: 0 20px;
+  /* horizontal padding around the row */
 }
 
 .image-row-four img {
   width: 100%;
-  max-width: 18%; /* smaller image width */
+  max-width: 18%;
+  /* smaller image width */
   height: auto;
   object-fit: cover;
-  border-radius: 10px; /* optional: rounded corners for aesthetics */
- 
+  border-radius: 10px;
+  /* optional: rounded corners for aesthetics */
+
 }
 
 
 
 .two-columns {
   display: flex;
-  gap: 40px; /* space between columns */
+  gap: 40px;
+  /* space between columns */
   margin-bottom: 20px;
 }
 
 .column {
-  flex: 1; /* makes each column take equal space */
+  flex: 1;
+  /* makes each column take equal space */
 }
 
 .column h4 {
@@ -518,19 +579,24 @@
   color: #fff;
   text-align: center;
   padding: 60px 20px;
-  isolation: isolate; /* keeps pseudo-element behind content */
+  isolation: isolate;
+  /* keeps pseudo-element behind content */
 }
+
 .black-section::before {
   content: "";
   position: absolute;
   inset: 0;
   left: calc(50% - 50vw);
   right: calc(50% - 50vw);
-  background: #000;         /* full-bleed background */
+  background: #000;
+  /* full-bleed background */
   z-index: -1;
 }
+
 .black-section .content-container {
-  max-width: 1100px;        /* match your layout limit */
+  max-width: 1100px;
+  /* match your layout limit */
   margin: 0 auto;
 }
 
@@ -553,9 +619,12 @@
 
 .two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* equal split */
-  gap: 2rem;                      /* space between text and video */
-  align-items: center;             /* vertical centering */
+  grid-template-columns: 1fr 1fr;
+  /* equal split */
+  gap: 2rem;
+  /* space between text and video */
+  align-items: center;
+  /* vertical centering */
 }
 
 .col-text {
@@ -565,9 +634,10 @@
 }
 
 .col-video video {
-  width: 100%; 
+  width: 100%;
   height: auto;
-  border-radius: 8px;  /* optional styling */
+  border-radius: 8px;
+  /* optional styling */
   display: block;
 }
 
@@ -576,17 +646,24 @@
   .two-col {
     grid-template-columns: 1fr;
   }
+
   .col-video {
     margin-top: 1.5rem;
   }
 }
+
 .small-video {
-  width: 300px;       /* or any fixed width, or 100% for responsive */
-  height: auto;       /* keep aspect ratio */
-  background: #000;   /* black background frame instead of white */
-  border-radius: 8px; /* optional rounded corners */
+  width: 300px;
+  /* or any fixed width, or 100% for responsive */
+  height: auto;
+  /* keep aspect ratio */
+  background: #000;
+  /* black background frame instead of white */
+  border-radius: 8px;
+  /* optional rounded corners */
   display: block;
-  margin: 0 auto;     /* centers the video */
+  margin: 0 auto;
+  /* centers the video */
 }
 
 /* ===============================
@@ -610,19 +687,27 @@
   padding-top: 40px;
 }
 
-/* Undo global paragraph constraints inside details */
-.main .project-details p {
-  max-width: none !important;
-  margin: 0 !important;
+
+
+.project-details {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr)); /* was 196px */
+  gap: 20px;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 20px 0;
+  justify-content: center;
+  text-align: center;
 }
 
-/* Nice, flexible column sizing */
-.main .project-details .detail-column {
-  flex: 0 1 180px;      /* preferred width ~180px */
-  max-width: 220px;
+.detail-column {
+  text-align: center;
+  flex: 1;
+  min-width: 100px; /* was 200px */
 }
 
-.two-col{
+
+.two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
@@ -631,33 +716,34 @@
   margin: 0 auto 60px;
 }
 
-.two-col-images{
+.two-col-images {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.two-col-images img{
+.two-col-images img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.two-col-text{
-  max-width: 520px;   /* keeps text readable */
+.two-col-text {
+  max-width: 520px;
+  /* keeps text readable */
 }
 
-@media (max-width: 820px){
-  .two-col{
+@media (max-width: 820px) {
+  .two-col {
     grid-template-columns: 1fr;
   }
 
-  .two-col-text{
+  .two-col-text {
     max-width: none;
   }
 }
 
-.trophy-icon{
+.trophy-icon {
   filter: grayscale(1) brightness(0);
   font-size: 0.95em;
   margin-right: 4px;
@@ -681,6 +767,14 @@
 }
 
 
+.right-link-block {
+  display: flex;
+  justify-content: flex-end;
+  /* push content to the right side of the container */
+}
 
-
-
+.right-link-block p {
+  margin: 0;
+  text-align: right;
+  /* align text inside the paragraph to the right */
+}

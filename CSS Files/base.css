@@ -562,3 +562,7 @@ a.text-link:hover{
   font-synthesis: weight;
 }
 
+h1.name{
+  margin-top: 0.7rem !important;
+  margin-bottom: 0.7rem !important;
+}

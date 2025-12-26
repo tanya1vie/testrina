@@ -1,5 +1,21 @@
+:root {
+  --primary-color: #000;
+  --accent-color: #F2914B;
+  --bg-color: #fff;
+  --header-height: 63px;
+  --max-content-width: 900px;  /* you're already using this */
+  --section-spacing: 74px;
+  --padX: 24px;                 /* safe default if not defined elsewhere */
+}
+
 /* Page wrap */
-.wrap{max-width:var(--maxw);margin:0 auto;padding:36px var(--padX) 80px;}
+.wrap {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 36px var(--padX) 80px;
+  box-sizing: border-box;
+}
+
 
 /* Hero */
 .tagline{font-size:10px;letter-spacing:.02em;color:#111}
@@ -9,9 +25,15 @@
   text-align:center;font-weight:700;letter-spacing:.06em;
   font-size:15px;
 }
-.bio
-{
-    text-align: left; 
+.bio {
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.Iam{
+  margin: 0em;
 }
 
 /* Intro split */

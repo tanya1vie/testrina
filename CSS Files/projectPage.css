@@ -778,3 +778,38 @@ img {
   text-align: right;
   /* align text inside the paragraph to the right */
 }
+
+
+.two-col-e{
+  display: grid;
+  grid-template-columns: 65% 35%;   /* image / text ratio */
+  gap: 40px;                        /* increase gap between them */
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.two-col-f{
+  display: grid;
+  grid-template-columns:  35% 65%;   /* image / text ratio */
+  gap: 40px;                        /* increase gap between them */
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.two-col-text{
+  max-width: 220px;                 /* tighter readable line length */
+}
+
+@media (max-width: 820px){
+  .two-col{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .two-col-text{
+    max-width: none;
+  }
+}
+

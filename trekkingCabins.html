@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amber Trekking Cabins | Tatiana Estrina</title>
+  <link rel="stylesheet" href="CSS Files/base.css">
+  <link rel="stylesheet" href="CSS Files/projectPage.css">
+  <link rel="stylesheet" href="CSS Files/cursor.css">
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main class="main">
+    <div class="project-header">
+      <p class="project-year">2018</p>
+      <h1 class="project-title">AMBER ROAD CABINS</h1>
+      <p class="project-subtitle">raised trekking shelters</p>
+      <p class="project-description">
+      <p>The cabin design blurs the boundaries between interior and landscape through its use of fabric which serves as
+        the windows, doors and walls all at once, while suspended in the treetops.</p>
+    </div>
+    <div class="content-wrapper">
+      <div class="project-details">
+        <div class="detail-column">
+          <h2 class="detail-title">CONTEXT</h2>
+          <p>Amber Road Trekking Cabins Competition</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">LOCATION</h2>
+          <p>Amber Road, Latvia</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">SOFTWARE</h2>
+          <p>Rhinoceros3D, Photoshop, Illustrator</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">COLLABORATORS</h2>
+          <p>Shengnan Gao</p>
+        </div>
+      </div>
+
+      <div class="project-images">
+        <div class="right-link-block">
+          <p>
+            See it in the
+            <a class="text-link" href="https://issuu.com/mag325/docs/325_magazine_2017-2018_edition" target="_blank"
+              rel="noopener noreferrer">
+              325 Magazine
+            </a>.
+          </p>
+        </div>
+      </div>
+
+      <img src="Images/Amber_Cabins/AmberTrekking CabinsFinalBoards2_edited.jpg"
+        alt="Yamal Peninsula - Exploded Axonometric">
+
+      <br><Br><br>
+      <div class="two-col">
+        <img src="Images/Amber_Cabins/Capture.PNG"
+          alt="Drawing of the Marché du Pont proposal on the Expo Express bridge remnant" style="width:50%; height:auto;">
+
+        <div class="two-col-text">
+          <p>
+            The white nylon sheets use button-shaped extrusions on the wooden studs to attach to the structure and can
+            therefore be opened and closed at the visitor’s leisure allowing users to adjust the spaces of the cabin to
+            suit their needs. To minimize the ecological footprint, this building can be mounted on large trees located
+            anywhere along the amber road trekking route. The roof of the cabin is composed of polycarbonate panels
+            which creates a viewport to the sky, making it perfect for stargazing at night.
+          </p>
+        </div>
+      </div>
+      <br>
+      <img src="Images/Amber_Cabins/AmberTrekking CabinsFinalBoards3_edited.jpg"
+        alt="Yamal Peninsula - Anthrax Dispersion"><br><Br>
+      <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinalBoards2.jpg" alt="Yamal Peninsula - Perspectives"><br><Br>
+      <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinalBoards4_edited.jpg"
+        alt="Yamal Peninsula - Methane Extraction" style="width:50%; height:auto;"><br><Br>
+      <div class="image-row">
+        <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinalBoards.jpg" alt="Yamal Peninsula - Northern Sea Route">
+        <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinalBoards3.jpg" alt="Yamal Peninsula - Northern Sea Route">
+      </div>
+      <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinalBoards_edited.jpg"
+        alt="Yamal Peninsula - Northern Sea Route">
+
+
+
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
+
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header").innerHTML = html);
+  </script>
+  <script src="JavaScript Files/cursor.js"></script>
+
+</body>
+
+</html>

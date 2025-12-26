@@ -536,3 +536,26 @@ h1.name{
   margin-top: 0.7rem !important;
   margin-bottom: 0.7rem !important;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* flex column page layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* main content grows, footer sits at bottom */
+main {
+  flex: 1;
+}
+
+/* optional: full-width footer styling */
+.site-footer {
+  width: 100%;
+}
+

@@ -7,7 +7,6 @@
   <title>Project Gallery</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-
   <link rel="stylesheet" href="CSS Files/base.css">
   <link rel="stylesheet" href="CSS Files/cursor.css">
 
@@ -51,7 +50,6 @@
       width: 200px;
       font-family: 'Helvetica Bold', sans-serif;
       border-radius: 999px;
-      /* rounded pill button */
     }
 
     .dropdown-content {
@@ -62,9 +60,7 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
       z-index: 1;
       border-radius: 10px;
-      /* rounded menu */
       overflow: hidden;
-      /* round the edges of the items too */
     }
 
     .dropdown-content a {
@@ -86,16 +82,13 @@
 
     .gallery-grid {
       display: grid;
-      /* max 3 columns on desktop */
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      /* much wider gaps */
       gap: 100px;
       margin: 0;
       padding: 0;
       max-width: 90%;
     }
 
-    /* 2 per row on medium screens */
     @media (max-width: 900px) {
       .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -103,7 +96,6 @@
       }
     }
 
-    /* 1 per row on small screens */
     @media (max-width: 600px) {
       .gallery-grid {
         grid-template-columns: 1fr;
@@ -111,14 +103,12 @@
       }
     }
 
-
     .project-card {
       position: relative;
       overflow: hidden;
       aspect-ratio: 1 / 1;
       cursor: pointer;
       border-radius: 18px;
-      /* rounded corners on all tiles */
     }
 
     .project-link {
@@ -164,40 +154,16 @@
       pointer-events: auto;
     }
 
-    .project-title {
-      font-size: 22px;
-      margin-bottom: 5px;
-      font-family: 'Helvetica Bold', sans-serif;
+    h1.project-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
     .project-type {
-      font-family: 'Helvetica Light', sans-serif;
-      font-size: 16px;
+      font-family: 'Avenir Regular', sans-serif;
+      font-size: 12px;
       margin-bottom: 5px;
-    }
-
-    .project-year {
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    /* ==== FIX TEXT OUTLINE ON OVERLAY ==== */
-    .project-info .project-title,
-    .project-info .project-type,
-    .project-info .project-year {
-      color: #fff;
-      -webkit-text-stroke: 0.8px #fff;
-      /* white outline */
-      paint-order: normal;
-      stroke: none;
-      text-shadow: none;
-    }
-
-    /* Ensure global link hover rules don't override this */
-    .project-card:hover .project-info .project-title,
-    .project-card:hover .project-info .project-type,
-    .project-card:hover .project-info .project-year {
-      -webkit-text-stroke: 0.8px #fff;
     }
   </style>
 
@@ -235,241 +201,216 @@
         <a href="#" data-category="writing">Writing</a>
       </div>
     </div>
-    <br><Br>
+
+    <br><br>
+
     <div class="gallery-grid">
 
       <div class="project-card" data-category="professional, industrial, interactive, Game Design">
         <a href="augmenTote.html" class="project-link">
-          <img src="Images/AugmenTote/Screenshot 2025-12-25 at 10.40.48AM.png" alt="Bruce and Wendy" loading="lazy"
-            decoding="async">
+          <img src="Images/AugmenTote/Screenshot 2025-12-25 at 10.40.48AM.png" alt="AugmenTote">
           <div class="project-info">
-            <div class="project-title">AugmenTote</div>
+            <h1 class="project-title">AugmenTote</h1>
             <div class="project-type">Work at Amazon</div>
           </div>
         </a>
       </div>
-      <!-- VELA -->
+
       <div class="project-card" data-category="architecture, professional">
         <a href="vela.html" class="project-link">
-          <img src="Images/Vela/DL_WEB_Vela_3_edited.jpg" alt="Vela" loading="lazy" decoding="async">
+          <img src="Images/Vela/DL_WEB_Vela_3_edited.jpg" alt="Vela">
           <div class="project-info">
-            <div class="project-title">Vela</div>
+            <h1 class="project-title">Vela</h1>
             <div class="project-type">Internship at PARTISANS</div>
           </div>
         </a>
       </div>
 
-      <!-- THESIS -->
       <div class="project-card" data-category="academic, computation, games, writing, graphic, architecture, research">
         <a href="thesis.html" class="project-link">
-          <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis" loading="lazy"
-            decoding="async">
+          <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis">
           <div class="project-info">
-            <div class="project-title">Architecture as Prosthesis</div>
+            <h1 class="project-title">Architecture as Prosthesis</h1>
             <div class="project-type">Thesis</div>
           </div>
         </a>
       </div>
 
-      <!-- UPROOT -->
       <div class="project-card" data-category="architecture, competition">
         <a href="uproot.html" class="project-link">
-          <img src="Images/Uproot/Aerial_Render.jpg" alt="Uproot" loading="lazy" decoding="async">
+          <img src="Images/Uproot/Aerial_Render.jpg" alt="Uproot">
           <div class="project-info">
-            <div class="project-title">Uproot</div>
+            <h1 class="project-title">Uproot</h1>
             <div class="project-type">ACSA / AISC Steel Design Competition</div>
           </div>
         </a>
       </div>
 
-      <!-- JANUS -->
       <div class="project-card" data-category="computational, interactive, industrial, fabrication, academic">
         <a href="janus.html" class="project-link">
-          <img src="Images/Janus/Untitled-2_edited.jpg" alt="Janus" loading="lazy" decoding="async">
+          <img src="Images/Janus/Untitled-2_edited.jpg" alt="Janus">
           <div class="project-info">
-            <div class="project-title">Janus</div>
+            <h1 class="project-title">Janus</h1>
             <div class="project-type">Interaction Intelligence + Intelligent Multi-Modal User Interfaces</div>
           </div>
         </a>
       </div>
 
-      <!-- BRUCE & WENDY -->
       <div class="project-card" data-category="fabrication, computation, academic">
         <a href="bruce.html" class="project-link">
-          <img src="Images/Bruce/Bruce_1_edited.jpg" alt="Bruce & Wendy" loading="lazy" decoding="async">
+          <img src="Images/Bruce/Bruce_1_edited.jpg" alt="Bruce & Wendy">
           <div class="project-info">
-            <div class="project-title">Bruce & Wendy</div>
+            <h1 class="project-title">Bruce & Wendy</h1>
             <div class="project-type">Geometric Disciplines and Architectural Skills</div>
           </div>
         </a>
       </div>
 
-      <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="academic, research, writing">
         <a href="videogamesBook.html" class="project-link">
-          <img src="Images/VideogamesBook/Screenshot 2025-12-25 at 9.15.07AM.png" alt="Bruce and Wendy" loading="lazy"
-            decoding="async">
+          <img src="Images/VideogamesBook/Screenshot 2025-12-25 at 9.15.07AM.png" alt="Architecture and Videogames">
           <div class="project-info">
-            <div class="project-title">Architecture and Videogames</div>
+            <h1 class="project-title">Architecture and Videogames</h1>
             <div class="project-type">Book with Routledge</div>
           </div>
         </a>
       </div>
 
-      <!-- TRIPIX -->
       <div class="project-card" data-category="fabrication, architecture, installation">
         <a href="tripix.html" class="project-link">
-          <img src="Images/Tripix/MIT_Portoflio18_edited.jpg" alt="Tripix" loading="lazy" decoding="async">
+          <img src="Images/Tripix/MIT_Portoflio18_edited.jpg" alt="Tripix">
           <div class="project-info">
-            <div class="project-title">Tripix</div>
+            <h1 class="project-title">Tripix</h1>
             <div class="project-type">Icebreakers Festival</div>
           </div>
         </a>
       </div>
 
-      <!-- FIGURE TAXONOMY -->
       <div class="project-card" data-category="interactive, academic, computation">
         <a href="figure.html" class="project-link">
-          <img src="Images/FigureAlphabet/Estrina_Tatiana_Victorovna_8388_edited.jpg" alt="Figure Taxonomy"
-            loading="lazy" decoding="async">
+          <img src="Images/FigureAlphabet/Estrina_Tatiana_Victorovna_8388_edited.jpg" alt="Figure Taxonomy">
           <div class="project-info">
-            <div class="project-title">Figure Taxonomy</div>
+            <h1 class="project-title">Figure Taxonomy</h1>
             <div class="project-type">Drawing ++ Course</div>
           </div>
         </a>
       </div>
 
-      <!-- POLYSAPIEN -->
       <div class="project-card" data-category="bookmaking, fabulation, academic, writing">
         <a href="polysapien.html" class="project-link">
-          <img src="Images/Polysapien/Book_Layout_Large_Format39_edited.jpg" alt="Polysapien" loading="lazy"
-            decoding="async">
+          <img src="Images/Polysapien/Book_Layout_Large_Format39_edited.jpg" alt="Polysapien">
           <div class="project-info">
-            <div class="project-title">The Metamorphosis of the Polysapien</div>
+            <h1 class="project-title">The Metamorphosis of the Polysapien</h1>
             <div class="project-type">Core I Studio</div>
           </div>
         </a>
       </div>
 
-      <!-- SEE X SAW -->
       <div class="project-card" data-category="interactive, industrial, computation, fabrication, academic, game">
         <a href="seesaw.html" class="project-link">
-          <img src="Images/See_x_Saw/MainImage.jpg" alt="See x Saw" loading="lazy" decoding="async">
+          <img src="Images/See_x_Saw/MainImage.jpg" alt="See x Saw">
           <div class="project-info">
-            <div class="project-title">See x Saw</div>
+            <h1 class="project-title">See x Saw</h1>
             <div class="project-type">Interaction Intelligence Studio</div>
           </div>
         </a>
       </div>
 
-      <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="academic, architecture">
         <a href="bach.html" class="project-link">
-          <img src="Images/Bach/Sunrise_Approach_Render.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Bach/Sunrise_Approach_Render.jpg" alt="House for J.S. Bach">
           <div class="project-info">
-            <div class="project-title">House for J.S. Bach</div>
+            <h1 class="project-title">House for J.S. Bach</h1>
             <div class="project-type">Advanced Architecture Studio</div>
           </div>
         </a>
       </div>
 
-      <!-- MATTER -->
       <div class="project-card" data-category="academic, architecture">
         <a href="matter.html" class="project-link">
-          <img src="Images/Matter/Webp.net-gifmaker_(6).gif" alt="A Subsequent Matter of Substance" loading="lazy"
-            decoding="async">
+          <img src="Images/Matter/Webp.net-gifmaker_(6).gif" alt="A Subsequent Matter of Substance">
           <div class="project-info">
-            <div class="project-title">A Subsequent Matter of Substance</div>
+            <h1 class="project-title">A Subsequent Matter of Substance</h1>
             <div class="project-type">Core II Studio</div>
           </div>
         </a>
       </div>
 
-      <!-- CAVE HOUSE -->
       <div class="project-card" data-category="competition, architecture">
         <a href="cave.html" class="project-link">
-          <img src="Images/CaveHouse/Interior_Render.jpg" alt="Cave House" loading="lazy" decoding="async">
+          <img src="Images/CaveHouse/Interior_Render.jpg" alt="Cave House">
           <div class="project-info">
-            <div class="project-title">Cave House</div>
+            <h1 class="project-title">Cave House</h1>
             <div class="project-type">Here and Now: House for the 21st Century Competition</div>
           </div>
         </a>
       </div>
 
-      <!-- SWRM -->
-      <div class="project-card" data-category="Professional, fabulation, graphic, architecture">
+      <div class="project-card" data-category="professional, fabulation, graphic, architecture">
         <a href="swrm.html" class="project-link">
-          <img src="Images/SWRM/PDF_Layout_edited.jpg" alt="SWRM.exe" loading="lazy" decoding="async">
+          <img src="Images/SWRM/PDF_Layout_edited.jpg" alt="SWRM.exe">
           <div class="project-info">
-            <div class="project-title">SWRM.exe</div>
+            <h1 class="project-title">SWRM.exe</h1>
             <div class="project-type">Tesla Design Challenge</div>
           </div>
         </a>
       </div>
 
-      <!-- MARCHE DU PONT -->
-      <div class="project-card" data-category="Professional, fabulation, graphic, architecture">
+      <div class="project-card" data-category="professional, fabulation, graphic, architecture">
         <a href="marche.html" class="project-link">
-          <img src="Images/Marche/186634585_1125922204571225_82523339383687862_n_(3)_edited.jpg" alt="Marche du Pont"
-            loading="lazy" decoding="async">
+          <img src="Images/Marche/186634585_1125922204571225_82523339383687862_n_(3)_edited.jpg" alt="Marché du Pont">
           <div class="project-info">
-            <div class="project-title">Marché du Pont</div>
+            <h1 class="project-title">Marché du Pont</h1>
             <div class="project-type">ACSA / AISC Steel Design Competition</div>
           </div>
         </a>
       </div>
 
-      <!-- PHANTOM PARTNER -->
       <div class="project-card" data-category="graphic, interactive, computation">
         <a href="partner.html" class="project-link">
-          <img src="Images/PhantomPartner/salsa1.jpg" alt="Phantom Partner" loading="lazy" decoding="async">
+          <img src="Images/PhantomPartner/salsa1.jpg" alt="Phantom Partner">
           <div class="project-info">
-            <div class="project-title">Phantom Partner</div>
+            <h1 class="project-title">Phantom Partner</h1>
             <div class="project-type">Machine Learning Exploration</div>
           </div>
         </a>
       </div>
 
-      <!-- HART ISLAND OSSUARY -->
-      <div class="project-card" data-category="Competition, architecture">
+      <div class="project-card" data-category="competition, architecture">
         <a href="ossurary.html" class="project-link">
-          <img src="Images/Ossurary/Side_Render_cropped.jpg" alt="Hart Island Ossurary" loading="lazy" decoding="async">
+          <img src="Images/Ossurary/Side_Render_cropped.jpg" alt="Hart Island Ossuary">
           <div class="project-info">
-            <div class="project-title">Hart Island Ossurary</div>
+            <h1 class="project-title">Hart Island Ossuary</h1>
             <div class="project-type">ACSA / AISC Steel Design Competition</div>
           </div>
         </a>
       </div>
 
-      <!-- BRUCE AND WENDY (second tile) -->
-      <div class="project-card" data-category="Academic, writing">
+      <div class="project-card" data-category="academic, writing">
         <a href="portfolioBook.html" class="project-link">
-          <img src="Images/Portfolio/MIT_Portoflio59_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Portfolio/MIT_Portoflio59_edited.jpg" alt="Architecture Portfolio Guidebook">
           <div class="project-info">
-            <div class="project-title">The Architecture Portfolio Guidebook</div>
+            <h1 class="project-title">The Architecture Portfolio Guidebook</h1>
             <div class="project-type">Book by Vincent Hui</div>
           </div>
         </a>
       </div>
 
-      <!-- BRUCE AND WENDY (second tile) -->
-      <div class="project-card" data-category="Academic, writing">
+      <div class="project-card" data-category="academic, writing">
         <a href="yamal.html" class="project-link">
-          <img src="Images/Yamal/Yamal_Peninsula_-_Anthrax_Dispersion_02_edited_edited.jpg" alt="Bruce and Wendy"
-            loading="lazy" decoding="async">
+          <img src="Images/Yamal/Yamal_Peninsula_-_Anthrax_Dispersion_02_edited_edited.jpg" alt="The Yamal Conspiracy">
           <div class="project-info">
-            <div class="project-title">The Yamal Conspiracy</div>
+            <h1 class="project-title">The Yamal Conspiracy</h1>
             <div class="project-type">Geo-Design Workshop</div>
           </div>
         </a>
       </div>
 
-      <!-- BRUCE AND WENDY (second tile) -->
       <div class="project-card" data-category="installation, fabrication">
         <a href="projections.html" class="project-link">
-          <img src="Images/Projections/MIT_Portoflio34_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Projections/MIT_Portoflio34_edited.jpg" alt="Distorted Projections">
           <div class="project-info">
-            <div class="project-title">Distorted Projections</div>
+            <h1 class="project-title">Distorted Projections</h1>
             <div class="project-type">Design TO Festival</div>
           </div>
         </a>
@@ -477,9 +418,9 @@
 
       <div class="project-card" data-category="installation, fabrication">
         <a href="trekkingCabins.html" class="project-link">
-          <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinal Boards_edited_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Amber_Cabins/AmberTrekkingCabinsFinal Boards_edited_edited.jpg" alt="Amber Road Cabin">
           <div class="project-info">
-            <div class="project-title">Amber Road Cabin</div>
+            <h1 class="project-title">Amber Road Cabin</h1>
             <div class="project-type">Amber Road Trekking Cabins Competition</div>
           </div>
         </a>
@@ -487,9 +428,9 @@
 
       <div class="project-card" data-category="academic, fabrication, interactive, industrial">
         <a href="hostilesalad.html" class="project-link">
-          <img src="Images/Hostile_Salad/finallayout2_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Hostile_Salad/finallayout2_edited.jpg" alt="Hostile Salad">
           <div class="project-info">
-            <div class="project-title">Hostile Salad</div>
+            <h1 class="project-title">Hostile Salad</h1>
             <div class="project-type">Creative Computing Workshop</div>
           </div>
         </a>
@@ -497,9 +438,9 @@
 
       <div class="project-card" data-category="architecture, fabulation, graphic, competition">
         <a href="phenom.html" class="project-link">
-          <img src="Images/Phenom/9599_Phenomeneurology_Functional-01_edited.jpg" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Phenom/9599_Phenomeneurology_Functional-01_edited.jpg" alt="Phenomeneurology">
           <div class="project-info">
-            <div class="project-title">Phenomeneurology</div>
+            <h1 class="project-title">Phenomeneurology</h1>
             <div class="project-type">Non-Architecture Office Competition</div>
           </div>
         </a>
@@ -507,9 +448,9 @@
 
       <div class="project-card" data-category="academic, industrial, interactive, fabrication">
         <a href="blob.html" class="project-link">
-          <img src="Images/Blob/IMG_4786.JPG" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Blob/IMG_4786.JPG" alt="Blobignton">
           <div class="project-info">
-            <div class="project-title">Blobignton</div>
+            <h1 class="project-title">Blobignton</h1>
             <div class="project-type">How to Make (Almost) Anything</div>
           </div>
         </a>
@@ -517,9 +458,9 @@
 
       <div class="project-card" data-category="academic, industrial, fabrication">
         <a href="dailypaper.html" class="project-link">
-          <img src="Images/Daily_Paper/IMG_5105.JPG" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Daily_Paper/IMG_5105.JPG" alt="Daily Paper">
           <div class="project-info">
-            <div class="project-title">Daily Paper</div>
+            <h1 class="project-title">Daily Paper</h1>
             <div class="project-type">How to Make (Almost) Anything</div>
           </div>
         </a>
@@ -527,16 +468,29 @@
 
       <div class="project-card" data-category="academic, industrial, fabrication">
         <a href="seaweed.html" class="project-link">
-          <img src="Images/Seaweed/module_33.png" alt="Bruce and Wendy" loading="lazy" decoding="async">
+          <img src="Images/Seaweed/module_33.png" alt="Compass Harbor Seaweed Processing Facility">
           <div class="project-info">
-            <div class="project-title">Compass Harbor Seaaweed Processing Facility</div>
+            <h1 class="project-title">Compass Harbor Seaweed Processing Facility</h1>
             <div class="project-type">Core III Studio</div>
           </div>
         </a>
       </div>
 
-      <script src="JavaScript Files/dropdown.js" defer></script>
-      <script src="JavaScript Files/cursor.js"></script>
+      <div class="project-card" data-category="academic, industrial, fabrication">
+        <a href="woods.html" class="project-link">
+          <img src="Images/Into_the_Woods/Estrina_Image3.png" alt="Into the Woods">
+          <div class="project-info">
+            <h1 class="project-title">Into the Woods</h1>
+            <div class="project-type">Visual Computing</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="JavaScript Files/dropdown.js" defer></script>
+  <script src="JavaScript Files/cursor.js"></script>
 
 </body>
 

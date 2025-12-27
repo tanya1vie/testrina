@@ -31,16 +31,19 @@
         <div class="content-wrapper">
             <div class="project-details">
                 <div class="detail-column">
-                    <h2 class="detail-title">CONTEXT</h2>
-                    <p>4.s22 Geo-Design Seminar <br> MIT SA+P</p>
-                </div>
+          <h2 class="detail-title">CONTEXT</h2>
+          <p> <a class="text-link" href="https://fab.cba.mit.edu/classes/863.23/Architecture/people/Tatiana/index.html" target="_blank"
+            rel="noopener noreferrer">
+            How to Make Almost Anything
+          </a></p>
+        </div>
                 <div class="detail-column">
                     <h2 class="detail-title">SOFTWARE</h2>
                     <p>Illustrator, Photoshop</p>
                 </div>
                 <div class="detail-column">
                     <h2 class="detail-title">SUPERVISORS</h2>
-                    <p>Rania Ghosn</p>
+                    <p>Neil Gershenfeld</p>
                 </div>
             </div>
         </div>
@@ -57,7 +60,6 @@
   </iframe>
 </div>
 
-        <h3>////// update: design pivot //////</h3>
         <p>
             <br><br> After a second thought, It seems like working on just the 'phone' portion of the project is rather
             limiting, and nonsensical
@@ -97,7 +99,6 @@
             power source ideas for my project.
         </p>
         <br><br>
-        <h3>////// update: another design pivot //////</h3>
         <p>
             <br><br> Up until now I'm been esspeically interested in paper electronics, however
             after the assignment in Week 6 with casting,
@@ -218,13 +219,11 @@
             <img src="Images/Blob/l.jpg" width="800">
         </center>
         <br><br>
-        <h3> update: design revamp</h3>
-        <br><br>
         <center>
-            <img src="Images/Blob/400207025_1846442339128335_6539734190168272184_n.jpg" width="800" class="color">
+            <img src="Images/Blob/400207025_1846442339128335_6539734190168272184_n.jpg" class="color">
         </center>
         <center>
-            <img src="Images/Blob/387472132_313239948271738_6631508175613630389_n.jpg" width="800" class="color">
+            <img src="Images/Blob/387472132_313239948271738_6631508175613630389_n.jpg" class="color">
         </center>
 
         <h2> Hardware Electronics</h2>
@@ -235,62 +234,93 @@
         </div>
         <br><br>
         <table>
-            <tbody>
-                <tr>
-                    <th>Functionality</th>
-                    <th>Arm combination</th>
-                    <th>Functionality</th>
-                    <th>Required Hardware</th>
-                </tr>
-                <tr>
-                    <td>CLOCK</td>
-                    <td>1 + 4</td>
-                    <td>1</td>
-                    <td>+ 12 RGB Lights <br>+ GPS tracking to know the time
-                    </td>
-                </tr>
-                <tr>
-                    <td>TIMER</td>
-                    <td>2 + 3</td>
-                    <td>3</td>
-                    <td>+12 RGB lights to display countdown <br> +3 buttons
-                        (one is enter, one is + and one is -)</td>
-                </tr>
-                <tr>
-                    <td>DIGITAL PET</td>
-                    <td>Any</td>
-                    <td>3 + 4</td>
-                    <td>+12 lights <br>+3 buttons</td>
-                </tr>
-                <tr>
-                    <td>GAME</td>
-                    <td>Any</td>
-                    <td>5 + 6</td>
-                    <td>+10 lights <br> +2 buttons (catch and reset)</td>
-                </tr>
-                <tr>
-                    <td>MAGIC EIGHT BALL</td>
-                    <td>Any</td>
-                    <td>3 + 4</td>
-                    <td>+10 lights <br> +2 buttons (weekly and day weather)
-                    </td>
-                </tr>
-                <tr>
-                    <td>DECORATIVE PATTERN</td>
-                    <td>1 + 6</td>
-                    <td>2</td>
-                    <td>+12 lights <br>+button to switch modes</td>
-                </tr>
-                <tr>
-                    <td>WEATHER FORECAST</td>
-                    <td>Any</td>
-                    <td>2 + 5</td>
-                    <td>+LED light array to display the weather <br>+2
-                        buttons to switch from day to week display <br>+wifi
-                        module to figur eout the forecast</td>
-                </tr>
-            </tbody>
-        </table>
+  <tbody>
+    <tr>
+      <td><p><strong>Functionality</strong></p></td>
+      <td><p><strong>Posible Physical Position</strong></p></td>
+      <td><p><strong>Priority to Implement (on a 1-3 Scale)</strong></p></td>
+      <td><p><strong>Required Hardware Overview</strong></p></td>
+    </tr>
+    <tr>
+      <td><p>CLOCK</p></td>
+      <td><p>Wrist-sized object so it can potentially be worn as a watch?</p></td>
+      <td><p>1</p></td>
+      <td>
+        <p>
+          Array of 60 LED lights/embedded screen? <br>
+          alternitavly, 12 LEDs in a circle <br>
+          <a href="https://blog.arduino.cc/2016/09/20/pixie-is-an-arduino-based-neopixel-watch/" class="ex1">
+            such as here
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>TIMER</p></td>
+      <td><p>Any</p></td>
+      <td><p>3</p></td>
+      <td>
+        <p>
+          Lights of any number to show time drcreasing (at least 3)
+          and a vibration to indicate time has run out. Also touch
+          inputs to set the amount of time for timer.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>DIGITAL PET</p></td>
+      <td><p>Any</p></td>
+      <td><p>3</p></td>
+      <td>
+        <p>
+          Eyes and Smile with lights, feeding and playing with it,
+          haptic feedback.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>GAME</p></td>
+      <td><p>Any</p></td>
+      <td><p>3</p></td>
+      <td>
+        <p>
+          Could fit into the components of other functions if it
+          has some sort of inputs and outputs.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>MAGIC EIGHT BALL</p></td>
+      <td><p>Any</p></td>
+      <td><p>3</p></td>
+      <td>
+        <p>
+          LED light array to convay message, touch inputs of some sort
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>DECORATIVE PATTERN</p></td>
+      <td><p>Necklace organization</p></td>
+      <td><p>2</p></td>
+      <td>
+        <p>
+          LED light array to display digital decorative geometry,
+          music visualizer.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>WEATHER FORECAST</p></td>
+      <td><p>Any</p></td>
+      <td><p>2</p></td>
+      <td>
+        <p>LED light array to display the weather</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
         <br><br>
         <p>
 

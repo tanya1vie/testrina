@@ -1,43 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>interaction design</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/projectList.css" />
+    <link rel="stylesheet" href="assets/css/cursor.css" />
+  </head>
 
-<head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>interaction design</title>
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/projectList.css" />
-  <link rel="stylesheet" href="assets/css/cursor.css">
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div id="header"></div>
 
-</head>
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
 
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <div id="header"></div>
+          // ✅ IMPORTANT: load header JS AFTER header exists
+          const s = document.createElement("script");
+          s.src = "assets/js/headerBubbles.js";
+          document.body.appendChild(s);
+        });
+    </script>
 
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
+    <main id="main-content">
+      <div class="titleSection">
+        <h1>interaction design.</h1>
+        <div class="subtitle">hci · interfaces · game design · data vis</div>
+      </div>
 
-        // ✅ IMPORTANT: load header JS AFTER header exists
-        const s = document.createElement("script");
-        s.src = "assets/js/headerBubbles.js";
-        document.body.appendChild(s);
-      });
-  </script>
-
-  <main id="main-content">
-  <div class="titleSection">
-    <h1>interaction design.</h1>
-    <div class="subtitle">hci · interfaces · game design · data vis</div>
-  </div>
-
-  <div class="project-list">
-
-    <!--  <a href="rebin.html" class="project">
+      <div class="project-list">
+        <!--  <a href="rebin.html" class="project">
       <div class="project-info">
         <div class="project-title">AugmenTote</div>
         <h2>What if warehouse tasks were improved with AR?</h2>
@@ -49,124 +46,141 @@
       </div>
     </a> -->
 
-    <!-- Janus -->
-    <a href="thesis.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Architecture as Prosthesis</div>
-        <h2>What if games could predict human evolution in response to architecture?</h2>
-        <p class="project-description">Master's Thesis</p>
-        <p class="project-tags">Academic · Game Design · Fabulation</p>
-      </div>
-      <div class="project-image">
-        <img src="Images/Thesis/Estrina_3858.jpg" alt="Janus interactive doorway" />
-      </div>
-    </a>
+        <!-- Janus -->
+        <a href="thesis.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Architecture as Prosthesis</div>
+            <h2>What if games could predict human evolution in response to architecture?</h2>
+            <p class="project-description">Master's Thesis</p>
+            <p class="project-tags">Academic · Game Design · Fabulation</p>
+          </div>
+          <div class="project-image">
+            <img src="Images/Thesis/Estrina_3858.jpg" alt="Janus interactive doorway" />
+          </div>
+        </a>
 
+        <!-- Janus -->
+        <a href="janus.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Janus</div>
+            <h2>What if doorways decided who walks through them?</h2>
+            <p class="project-description">
+              Interaction Intelligence Studio + Intelligent Multimodal User Interfaces Course
+            </p>
+            <p class="project-tags">
+              Academic · Interaction Design · 3D Printing · Fabrication · Coding
+            </p>
+          </div>
+          <div class="project-image">
+            <img src="Images/Janus/Untitled-2_edited.jpg" alt="Janus interactive doorway" />
+          </div>
+        </a>
 
-    <!-- Janus -->
-    <a href="janus.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Janus</div>
-        <h2>What if doorways decided who walks through them?</h2>
-        <p class="project-description">Interaction Intelligence Studio + Intelligent Multimodal User Interfaces Course
-        </p>
-        <p class="project-tags">Academic · Interaction Design · 3D Printing · Fabrication · Coding</p>
-      </div>
-      <div class="project-image">
-        <img src="Images/Janus/Untitled-2_edited.jpg" alt="Janus interactive doorway" />
-      </div>
-    </a>
+        <!-- Figure Taxonomy -->
+        <a href="figure.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Figure Taxonomy</div>
+            <h2>How does one turn dance into a three‑dimensional object?</h2>
+            <p class="project-description">Drawing ++ Workshop</p>
+            <p class="project-tags">
+              Academic · Fabrication · Digital Design · 3D Printing · Coding
+            </p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/FigureAlphabet/Estrina_Tatiana_Victorovna_8388_edited.jpg"
+              alt="3D printed dance ribbons"
+            />
+          </div>
+        </a>
 
-    <!-- Figure Taxonomy -->
-    <a href="figure.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Figure Taxonomy</div>
-        <h2>How does one turn dance into a three‑dimensional object?</h2>
-        <p class="project-description">Drawing ++ Workshop</p>
-        <p class="project-tags">Academic · Fabrication · Digital Design · 3D Printing · Coding</p>
-      </div>
-      <div class="project-image">
-        <img src="Images/FigureAlphabet/Estrina_Tatiana_Victorovna_8388_edited.jpg" alt="3D printed dance ribbons" />
-      </div>
-    </a>
+        <!-- Figure Taxonomy -->
+        <a href="projects/head-above-water/index.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Head Above Water</div>
+            <h2>What if a website could help renters determine which flood plains to avoid?</h2>
+            <p class="project-description">Interactive Data Visualization Course</p>
+            <p class="project-tags">Academic · Interfaces · Coding · User Experience · Data Vis</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="projects/head-above-water/images/boston-flooding.jpeg"
+              alt="Boston coastal flooding"
+            />
+          </div>
+        </a>
 
-    <!-- Figure Taxonomy -->
-    <a href="projects/head-above-water/index.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Head Above Water</div>
-        <h2>What if a website could help renters determine which flood plains to avoid?</h2>
-        <p class="project-description">Interactive Data Visualization Course</p>
-        <p class="project-tags">Academic · Interfaces · Coding · User Experience · Data Vis</p>
-      </div>
-      <div class="project-image">
-        <img src="projects/head-above-water/images/boston-flooding.jpeg" alt="Boston coastal flooding" />
-      </div>
-    </a>
+        <!-- See x Saw -->
+        <a href="seesaw.html" class="project">
+          <div class="project-info">
+            <div class="project-title">See x Saw</div>
+            <h2>How can a single controller and a single line become a game for two?</h2>
+            <p class="project-description">Interaction Intelligence Studio</p>
+            <p class="project-tags">
+              Academic · Fabrication · Interaction Design · Game Design · Coding
+            </p>
+          </div>
+          <div class="project-image">
+            <img src="Images/See_x_Saw/MainImage.jpg" alt="Two‑player line game" />
+          </div>
+        </a>
 
-    <!-- See x Saw -->
-    <a href="seesaw.html" class="project">
-      <div class="project-info">
-        <div class="project-title">See x Saw</div>
-        <h2>How can a single controller and a single line become a game for two?</h2>
-        <p class="project-description">Interaction Intelligence Studio</p>
-        <p class="project-tags">Academic · Fabrication · Interaction Design · Game Design · Coding</p>
+        <!-- Distorted Projections -->
+        <a href="projections.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Distorted Projections</div>
+            <h2>How can an installation bring people together?</h2>
+            <p class="project-description">Independent Study</p>
+            <p class="project-tags">Fabrication · Academic · Responsive Environments · Coding</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Projections/MIT_Portoflio34_edited.jpg"
+              alt="Interactive projection installation"
+            />
+          </div>
+        </a>
+
+        <!-- Hostile Caesar Salad -->
+        <a href="hostilesalad.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Hostile Caesar Salad</div>
+            <h2>How can gastronomic plating become interactive?</h2>
+            <p class="project-description">Creative Computation Course</p>
+            <p class="project-tags">Academic · Fabrication · Responsive Environments · Arduino</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Hostile_Salad/hostile-salad-card.jpg"
+              alt="Interactive Hostile Caesar Salad plating installation"
+            />
+          </div>
+        </a>
+
+        <!-- (Added) Phantom Partner: Interaction/Data‑Vis angle of the ML project -->
+        <a href="partner.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Phantom Partner</div>
+            <h2>What if AI could predict your dance partner's steps?</h2>
+            <p class="project-description">Independent R&D</p>
+            <p class="project-tags">
+              Data Vis · Interaction · Machine Learning · Extended Realities
+            </p>
+          </div>
+          <div class="project-image">
+            <div class="square-container">
+              <img
+                src="Images/PhantomPartner/salsa1_duet.gif"
+                alt="Phantom Partner visualization"
+              />
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="project-image">
-        <img src="Images/See_x_Saw/MainImage.jpg"
-          alt="Two‑player line game" />
-      </div>
-    </a>
+    </main>
+    <script src="assets/js/fadeIn.js" defer></script>
 
-    <!-- Distorted Projections -->
-    <a href="projections.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Distorted Projections</div>
-        <h2>How can an installation bring people together?</h2>
-        <p class="project-description">Independent Study</p>
-        <p class="project-tags">Fabrication · Academic · Responsive Environments · Coding</p>
-      </div>
-      <div class="project-image">
-        <img src="Images/Projections/MIT_Portoflio34_edited.jpg" alt="Interactive projection installation" />
-      </div>
-    </a>
-
-    <!-- Hostile Caesar Salad -->
-    <a href="hostilesalad.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Hostile Caesar Salad</div>
-        <h2>How can gastronomic plating become interactive?</h2>
-        <p class="project-description">Creative Computation Course</p>
-        <p class="project-tags">Academic · Fabrication · Responsive Environments · Arduino</p>
-      </div>
-      <div class="project-image">
-        <img src="Images/Hostile_Salad/hostile-salad-card.jpg" alt="Interactive Hostile Caesar Salad plating installation" />
-      </div>
-    </a>
-
-    <!-- (Added) Phantom Partner: Interaction/Data‑Vis angle of the ML project -->
-    <a href="partner.html" class="project">
-      <div class="project-info">
-        <div class="project-title">Phantom Partner</div>
-        <h2>What if AI could predict your dance partner's steps?</h2>
-        <p class="project-description">Independent R&D</p>
-        <p class="project-tags">Data Vis · Interaction · Machine Learning · Extended Realities</p>
-      </div>
-      <div class="project-image">
-        <div class="square-container">
-          <img src="Images/PhantomPartner/salsa1_duet.gif" alt="Phantom Partner visualization" />
-        </div>
-
-      </div>
-    </a>
-
-
-
-  </div>
-  </main>
-<script src="assets/js/fadeIn.js" defer></script>
-
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="assets/js/cursor.js"></script>
-</body>
-
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="assets/js/cursor.js"></script>
+  </body>
 </html>

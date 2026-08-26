@@ -8,11 +8,17 @@ body {
   font-family: sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, h7, p {
-  font-family: 'Playfair Display', serif; /* Set the font family */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+p {
+  font-family: "Playfair Display", serif; /* Set the font family */
   max-width: 600px;
 }
-
 
 h1 {
   font-size: 30pt;
@@ -28,51 +34,50 @@ h2 {
 
 h3 {
   font-size: 12pt; /* Adjust font size for h3 */
-  color:  rgb(72, 90, 125); /* Example of specific color */
-  font-style:italic;
+  color: rgb(72, 90, 125); /* Example of specific color */
+  font-style: italic;
 }
 
 h4 {
   font-size: 14pt; /* Example of larger size for h1 */
   color: rgb(0, 0, 0); /* Example of specific color */
-  font-style:normal;
+  font-style: normal;
 }
 
 h5 {
   font-size: 12pt; /* Adjust font size for h2 */
   color: rgb(212, 116, 86); /* Example of specific color */
-  font-style:normal;
+  font-style: normal;
 }
 
 h6 {
   font-size: 12pt; /* Adjust font size for h3 */
   color: rgb(255, 255, 255); /* Example of specific color */
-  font-style:normal;
+  font-style: normal;
 }
 
 h7 {
   font-size: 12pt; /* Adjust font size for h3 */
   color: rgb(0, 0, 0); /* Example of specific color */
-  font-style:normal;
+  font-style: normal;
   max-width: 500px;
 }
 
 h8 {
   font-size: 12pt; /* Adjust font size for h2 */
   color: rgb(72, 90, 125); /* Example of specific color */
-  font-style:normal;
+  font-style: normal;
 }
-
 
 h9 {
   font-size: 15pt; /* Adjust font size for h3 */
-  color:  rgb(212, 116, 86); /* Example of specific color */
-  font-style:normal;
+  color: rgb(212, 116, 86); /* Example of specific color */
+  font-style: normal;
 }
 h10 {
   font-size: 12pt; /* Adjust font size for h3 */
-  color:  rgb(255, 255, 255); /* Example of specific color */
-  font-style:italic;
+  color: rgb(255, 255, 255); /* Example of specific color */
+  font-style: italic;
 }
 
 p {
@@ -82,13 +87,13 @@ p {
 html {
   height: 1.618;
 }
-  
+
 body {
   margin: auto;
   height: 100%;
   width: 95%;
   font-size: 1.5vmin;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   background-color: #ffffff;
 }
 
@@ -130,19 +135,17 @@ nav {
 
 /* Tanya */
 
-
-
 .svg-center-container {
   display: flex;
-  justify-content: center;  /* Centers horizontally */
+  justify-content: center; /* Centers horizontally */
 }
 
 .navy-box {
-  background-color: rgba(72, 90, 125,0.9);  /* Navy background color */
-  padding: 20px;  /* Padding around the content */
-  border-radius: 10px;  /* Optional: rounded corners */
-  color: white;  /* Text color for contrast */
-  text-align: center;  /* Center text within the box */
+  background-color: rgba(72, 90, 125, 0.9); /* Navy background color */
+  padding: 20px; /* Padding around the content */
+  border-radius: 10px; /* Optional: rounded corners */
+  color: white; /* Text color for contrast */
+  text-align: center; /* Center text within the box */
 }
 
 .content-container {
@@ -157,20 +160,20 @@ nav {
   width: 100vw; /* Full viewport width */
 }
 .grid-cell {
-fill: rgba(255, 255, 255, 0.1); /* Mostly transparent */
-cursor: pointer;
-transition: fill 0.2s;
-position: absolute;
+  fill: rgba(255, 255, 255, 0.1); /* Mostly transparent */
+  cursor: pointer;
+  transition: fill 0.2s;
+  position: absolute;
 }
 /* Hover effect */
 .grid-cell:hover {
-fill: rgba(244, 202, 124, 0.5); /* Light blue with some transparency */
+  fill: rgba(244, 202, 124, 0.5); /* Light blue with some transparency */
 }
 .map-bg {
-position: absolute;
-top: 0;
-left: 0;
-z-index: -1; /* Ensure the map background is behind the grid */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the map background is behind the grid */
 }
 /* Modal overlay to darken the background and center the modal */
 .modal-overlay {
@@ -237,7 +240,7 @@ z-index: -1; /* Ensure the map background is behind the grid */
   border: none; /* Removes any border if previously set, since the container now handles the frame */
 }
 
-.toggle-btn { 
+.toggle-btn {
   position: absolute;
   z-index: 1;
   background-color: #ffffff;
@@ -267,8 +270,8 @@ z-index: -1; /* Ensure the map background is behind the grid */
   outline: none;
   -webkit-appearance: none;
   opacity: 1;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
   width: 20%;
 }
 
@@ -308,15 +311,15 @@ z-index: -1; /* Ensure the map background is behind the grid */
   width: 0%;
   height: 100vh;
   z-index: 1;
-} 
+}
 .section {
-  display: flex; 
+  display: flex;
   min-height: 100vh;
   position: relative;
   z-index: 2;
 }
 .section > * {
-  width: 50%; 
+  width: 50%;
 }
 .section-img {
   position: relative;
@@ -349,8 +352,6 @@ z-index: -1; /* Ensure the map background is behind the grid */
   filter: blur(0);
 }
 
-
-
 /* Danny, bar chart */
 
 #property-chart {
@@ -359,7 +360,8 @@ z-index: -1; /* Ensure the map background is behind the grid */
   padding: 20px; /* Provides padding around the content */
 }
 
-#chart, #slider {
+#chart,
+#slider {
   width: 100%; /* Ensures the chart and slider take full width of their container */
   margin-top: 20px; /* Provides spacing between the elements */
 }
@@ -379,7 +381,7 @@ z-index: -1; /* Ensure the map background is behind the grid */
   width: 90%; /* Adjust the width as needed */
   max-width: 900px; /* Set a maximum width to prevent it from becoming too large */
   height: auto; /* Maintain aspect ratio */
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 /* Style for the selector list */
@@ -442,21 +444,21 @@ z-index: -1; /* Ensure the map background is behind the grid */
 /* For Interactive Map */
 .popup {
   position: absolute;
-  background:  rgba(72, 90, 125, 0.9);
+  background: rgba(72, 90, 125, 0.9);
   border: 0px solid black;
   padding: 10px;
   display: none; /* Hidden by default */
   transition: all 0.3s; /* Smooth transition for appearance and disappearance */
   z-index: 1000; /* Ensure the pop-up appears above other elements */
-  border-radius: 10px; 
+  border-radius: 10px;
   font-family: sans-serif;
 }
 
 .slider-container {
-  display: flex;  /* Enables flexbox layout */
-  justify-content: center;  /* Center horizontally */
-  align-items: center;  /* Center vertically */
-  height: 100vh;  /* Full viewport height */
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
 }
 
 /* Styling for the slider track */
@@ -469,8 +471,8 @@ z-index: -1; /* Ensure the map background is behind the grid */
   outline: none;
   -webkit-appearance: none;
   opacity: 1;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
   width: 20%;
 }
 
@@ -497,26 +499,41 @@ z-index: -1; /* Ensure the map background is behind the grid */
   border-radius: 0%; /* Square shape */
 }
 
-
-  /* For slideshow */
-  .slideshow-container { 
-    max-width: 800px; position: relative; margin: auto; 
-  }
-  .slide { 
-    display: none; text-align: center;
-  }
-  .prev, .next { 
-    cursor: pointer; position: absolute; top: 50%; width: auto; margin-top: -22px; padding: 16px; color: black; font-weight: bold; font-size: 18px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; 
-  }
-  .next { 
-    right: 0; border-radius: 3px 0 0 3px;
-   }
-  .prev:hover, .next:hover { 
-    background-color: rgba(0,0,0,0.8);
-   }
-  .img-slidey {
-    max-width: 100%; /* Limit the width to the container size */
-    max-height: 500px; /* Maximum height */
-    object-fit: contain; /* Preserve aspect ratio without cropping */
-  }
-
+/* For slideshow */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+}
+.slide {
+  display: none;
+  text-align: center;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.img-slidey {
+  max-width: 100%; /* Limit the width to the container size */
+  max-height: 500px; /* Maximum height */
+  object-fit: contain; /* Preserve aspect ratio without cropping */
+}

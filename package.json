@@ -5,7 +5,12 @@
   "scripts": {
     "test": "npm run validate",
     "validate": "node tools/validate-site.mjs",
+    "format": "prettier --write \"**/*.{html,css,js,mjs,json,yml,yaml,md}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,mjs,json,yml,yaml,md}\"",
     "sync:instagram": "node tools/sync-instagram.mjs"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6"
   },
   "engines": {
     "node": ">=18"

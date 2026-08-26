@@ -1,0 +1,2 @@
+# Keep source files consistent across macOS, Windows, and CI.
+* text=auto eol=lf

@@ -1,16 +1,16 @@
-(function(){
+(function () {
   const buttons = document.querySelector(".header-buttons");
   if (!buttons) return;
 
   const items = Array.from(buttons.querySelectorAll(".header-icon"));
 
-  function clearRepel(){
-    items.forEach(el => el.style.setProperty("--repel", "0px"));
+  function clearRepel() {
+    items.forEach((el) => el.style.setProperty("--repel", "0px"));
   }
 
-  function applyRepel(activeIndex){
-    const maxPush1 = 10;  // immediate neighbor
-    const maxPush2 = 5;   // second neighbor
+  function applyRepel(activeIndex) {
+    const maxPush1 = 10; // immediate neighbor
+    const maxPush2 = 5; // second neighbor
 
     items.forEach((el, i) => {
       const d = i - activeIndex;

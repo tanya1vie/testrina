@@ -12,7 +12,9 @@
 
   function mediaItems(post) {
     if (Array.isArray(post.children) && post.children.length) return post.children;
-    return [{ media_type: post.media_type, media_url: post.media_url, thumbnail_url: post.thumbnail_url }];
+    return [
+      { media_type: post.media_type, media_url: post.media_url, thumbnail_url: post.thumbnail_url },
+    ];
   }
 
   function previewUrl(post) {
@@ -22,7 +24,7 @@
 
   function closePopup() {
     clearInterval(timer);
-    gallery.querySelectorAll("video").forEach(video => video.pause());
+    gallery.querySelectorAll("video").forEach((video) => video.pause());
     overlay.hidden = true;
     overlay.style.display = "none";
     document.body.style.overflow = "";
@@ -35,7 +37,11 @@
 
     title.textContent = "Instagram post";
     date.textContent = post.timestamp
-      ? new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date(post.timestamp))
+      ? new Intl.DateTimeFormat(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }).format(new Date(post.timestamp))
       : "";
     description.textContent = post.caption || "";
     postLink.href = post.permalink;
@@ -60,7 +66,11 @@
       dot.type = "button";
       dot.setAttribute("aria-label", `Show media ${itemIndex + 1}`);
       if (itemIndex === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => { index = itemIndex; showSlide(); restartTimer(); });
+      dot.addEventListener("click", () => {
+        index = itemIndex;
+        showSlide();
+        restartTimer();
+      });
       dotsContainer.appendChild(dot);
     });
 
@@ -73,7 +83,10 @@
       });
       dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
     }
-    function nextSlide() { index = (index + 1) % slides.length; showSlide(); }
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide();
+    }
     function restartTimer() {
       clearInterval(timer);
       if (slides.length > 1) timer = setInterval(nextSlide, 4000);
@@ -92,7 +105,7 @@
       grid.innerHTML = '<p class="gallery-status">No Instagram posts are available yet.</p>';
       return;
     }
-    posts.forEach(post => {
+    posts.forEach((post) => {
       const imageUrl = previewUrl(post);
       if (!imageUrl || !post.permalink) return;
       const card = document.createElement("article");
@@ -100,7 +113,10 @@
       const button = document.createElement("button");
       button.className = "project-link";
       button.type = "button";
-      button.setAttribute("aria-label", post.caption ? `Open: ${post.caption.slice(0, 100)}` : "Open Instagram post");
+      button.setAttribute(
+        "aria-label",
+        post.caption ? `Open: ${post.caption.slice(0, 100)}` : "Open Instagram post",
+      );
       const image = document.createElement("img");
       image.src = imageUrl;
       image.alt = post.caption ? post.caption.slice(0, 140) : "Nail art from Instagram";
@@ -113,17 +129,22 @@
   }
 
   closeButton.addEventListener("click", closePopup);
-  overlay.addEventListener("click", event => { if (event.target === overlay) closePopup(); });
-  document.addEventListener("keydown", event => { if (event.key === "Escape" && !overlay.hidden) closePopup(); });
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) closePopup();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !overlay.hidden) closePopup();
+  });
 
   fetch("assets/data/instagram-posts.json", { cache: "no-cache" })
-    .then(response => {
+    .then((response) => {
       if (!response.ok) throw new Error(`Feed request failed (${response.status})`);
       return response.json();
     })
-    .then(data => render(Array.isArray(data.posts) ? data.posts : []))
-    .catch(error => {
+    .then((data) => render(Array.isArray(data.posts) ? data.posts : []))
+    .catch((error) => {
       console.error(error);
-      grid.innerHTML = '<p class="gallery-status">The Instagram gallery is temporarily unavailable.</p>';
+      grid.innerHTML =
+        '<p class="gallery-status">The Instagram gallery is temporarily unavailable.</p>';
     });
 })();

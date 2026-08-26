@@ -1,225 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swrm.exe | Tatiana Estrina</title>
 
     <style>
-        /* True black background */
-        html,
-        body {
-            background: #000000 !important;
-        }
+      /* True black background */
+      html,
+      body {
+        background: #000000 !important;
+      }
 
-        /* force text in inverted sections to be white */
-        .two-col-text2,
-        .two-col-text2 h3,
-        .two-col-text2 p {
-            color: #ffffff !important;
-        }
+      /* force text in inverted sections to be white */
+      .two-col-text2,
+      .two-col-text2 h3,
+      .two-col-text2 p {
+        color: #ffffff !important;
+      }
 
-        /* also fix links if present */
-        .two-col-text a {
-            color: #ffffff !important;
-        }
+      /* also fix links if present */
+      .two-col-text a {
+        color: #ffffff !important;
+      }
 
+      /* Invert ONLY text/content sections, not the image gallery */
+      #header,
+      #footer,
+      .project-header,
+      .content-wrapper {
+        filter: invert(1) hue-rotate(180deg);
+      }
 
-        /* Invert ONLY text/content sections, not the image gallery */
-        #header,
-        #footer,
-        .project-header,
-        .content-wrapper {
-            filter: invert(1) hue-rotate(180deg);
-        }
+      /* Make sure project images are NOT filtered at all */
+      .project-images,
+      .project-images img,
+      .project-images .image-row img {
+        filter: none !important;
+      }
 
-        /* Make sure project images are NOT filtered at all */
-        .project-images,
-        .project-images img,
-        .project-images .image-row img {
-            filter: none !important;
-        }
+      /* Cursor: keep global white/difference behavior */
+      .custom-cursor {
+        background: #ffffff;
+        mix-blend-mode: difference;
+      }
 
-        /* Cursor: keep global white/difference behavior */
-        .custom-cursor {
-            background: #ffffff;
-            mix-blend-mode: difference;
-        }
+      /* invert gallery arrows so they stay white against black */
+      .gallery-arrow {
+        filter: invert(1) hue-rotate(180deg);
+      }
 
-        /* invert gallery arrows so they stay white against black */
-.gallery-arrow{
-  filter: invert(1) hue-rotate(180deg);
-}
-
-/* optional: make them a bit bolder/clearer if desired */
-.gallery-arrow{
-  font-weight: 900;
-}
-
+      /* optional: make them a bit bolder/clearer if desired */
+      .gallery-arrow {
+        font-weight: 900;
+      }
     </style>
 
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/projectPage.css" />
+    <link rel="stylesheet" href="assets/css/cursor.css" />
+  </head>
 
-
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/projectPage.css">
-    <link rel="stylesheet" href="assets/css/cursor.css">
-
-</head>
-
-<body>
+  <body>
     <div id="header"></div>
 
     <main class="main">
-        <div class="project-header">
-            <p class="project-year">2022</p>
-            <h1 class="project-title">SWRM.EXE</h1>
-            <p class="project-subtitle">an autonomous mobile architecture</p>
-            <p class="project-description">
-            <p>In the not-so-distant future, where autonomous transportation has become widespread, the technology
-                extends beyond the automotive industry into the architectural realm. Here, buildings have become
-                divorced from land.</p>
+      <div class="project-header">
+        <p class="project-year">2022</p>
+        <h1 class="project-title">SWRM.EXE</h1>
+        <p class="project-subtitle">an autonomous mobile architecture</p>
+        <p class="project-description"></p>
+        <p>
+          In the not-so-distant future, where autonomous transportation has become widespread, the
+          technology extends beyond the automotive industry into the architectural realm. Here,
+          buildings have become divorced from land.
+        </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Tesla Design Challenge for Internship</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>Somewhere on Earth</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>Rhinoceros3D, Photoshop, Illustrator</p>
+          </div>
         </div>
-        <div class="content-wrapper">
-            <div class="project-details">
-                <div class="detail-column">
-                    <h2 class="detail-title">CONTEXT</h2>
-                    <p>Tesla Design Challenge for Internship</p>
-                </div>
-                <div class="detail-column">
-                    <h2 class="detail-title">LOCATION</h2>
-                    <p>Somewhere on Earth</p>
-                </div>
-                <div class="detail-column">
-                    <h2 class="detail-title">SOFTWARE</h2>
-                    <p>Rhinoceros3D, Photoshop, Illustrator</p>
-                </div>
-            </div>
+      </div>
+
+      <div class="project-images">
+        <div class="single-image-gallery">
+          <button class="gallery-arrow left" aria-label="Previous image">❮</button>
+
+          <img
+            id="galleryImage"
+            src="Images/SWRM/PDF_Layout4.jpg"
+            alt="SWRM project gallery image"
+          />
+
+          <button class="gallery-arrow right" aria-label="Next image">❯</button>
         </div>
+        <br /><br />
 
-        <div class="project-images">
+        <div class="two-col">
+          <div class="two-col-text2">
+            <center>
+              <h3>CITY.OBJ</h3>
+            </center>
+            <br />
+            <p>
+              Urban space has transitioned into a malleable environment, permanently in flux.
+              Buildings and spaces associated with the built environment are raised onto
+              autonomously-controlled hovering contraptions. They are thus able to maneuver and
+              reconfigure. Instead, the city, no longer a fixed locale, emerges in the form of a
+              gathering of buildings. These swarms are rendered mobile by the hover magnets on their
+              faces and are connected to powerful SWRM AI technologies. The algorithms are able to
+              optimize configurations of the city based on desired destinations of the user base,
+              constantly reconfiguring the positioning of the buildings in relation to one
+              another.<br /><br />
 
-            <div class="single-image-gallery">
-                <button class="gallery-arrow left" aria-label="Previous image">❮</button>
+              Such a city brings about many advantages. In the early 2020s, Americans on average
+              spent upwards of an hour a day commuting to work alone, not to mention other daily
+              chores and tasks. By removing transportation time altogether, the valuable time is
+              preserved and can be spent for enjoyment instead. In addition, changing climate and
+              increasing natural disasters have placed many fixed urban centers in danger. A mobile
+              urbanism allows for the city to shift locations based on weather patterns, avoiding
+              major disturbances and preserving infrastructure. Additionally, the flexibility of
+              unfixed housing allows residents to travel efficiently, and place their house wherever
+              they desire at any given moment. Such a capability increases inhabitant’s access to
+              both the city center and natural areas further away, positively impacting the quality
+              of life.
+            </p>
+          </div>
+          <div class="two-col-text2">
+            <center>
+              <h3>HOME.OBJ</h3>
+            </center>
+            <br />
+            <p>
+              Within an autonomously mobile city, residents do not possess fixed houses or land.
+              Instead, they inhabit SWRMpods, a new mobile and autonomous model for housing. With a
+              number of model options available for families of various sizes, SWRMpods serve as
+              both residence and transportation, allowing owners to participate in the constant flux
+              of urban swarm. If a resident desires to eat breakfast at a particular restaurant, the
+              SWRM AI technologies are able to include their demands in their optimization of the
+              city configuration, placing a branch of their favorite brunch shop next to their
+              home.<br /><br />
 
-                <img id="galleryImage" src="Images/SWRM/PDF_Layout4.jpg" alt="SWRM project gallery image">
-
-                <button class="gallery-arrow right" aria-label="Next image">❯</button>
-            </div>
-<br><Br>
-
-            <div class="two-col">
-                <div class="two-col-text2">
-                    <center>
-                        <h3> CITY.OBJ</h3>
-                    </center>
-                    <br>
-                    <p>Urban space has transitioned into a malleable environment, permanently in flux. Buildings and
-                        spaces associated with the built environment are raised onto autonomously-controlled hovering
-                        contraptions. They are thus able to maneuver and reconfigure. Instead, the city, no longer a
-                        fixed locale, emerges in the form of a gathering of buildings. These swarms are rendered mobile
-                        by the hover magnets on their faces and are connected to powerful SWRM AI technologies. The
-                        algorithms are able to optimize configurations of the city based on desired destinations of the
-                        user base, constantly reconfiguring the positioning of the buildings in relation to one
-                        another.<br><Br>
-
-                        Such a city brings about many advantages. In the early 2020s, Americans on average spent upwards
-                        of an hour a day commuting to work alone, not to mention other daily chores and tasks. By
-                        removing transportation time altogether, the valuable time is preserved and can be spent for
-                        enjoyment instead. In addition, changing climate and increasing natural disasters have placed
-                        many fixed urban centers in danger. A mobile urbanism allows for the city to shift locations
-                        based on weather patterns, avoiding major disturbances and preserving infrastructure.
-                        Additionally, the flexibility of unfixed housing allows residents to travel efficiently, and
-                        place their house wherever they desire at any given moment. Such a capability increases
-                        inhabitant’s access to both the city center and natural areas further away, positively impacting
-                        the quality of life.</p>
-                </div>
-                <div class="two-col-text2">
-                    <center>
-                        <h3> HOME.OBJ</h3>
-                    </center>
-                    <br>
-                    <p>Within an autonomously mobile city, residents do not possess fixed houses or land. Instead, they
-                        inhabit SWRMpods, a new mobile and autonomous model for housing. With a number of model options
-                        available for families of various sizes, SWRMpods serve as both residence and transportation,
-                        allowing
-                        owners to participate in the constant flux of urban swarm. If a resident desires to eat
-                        breakfast at a
-                        particular restaurant, the SWRM AI technologies are able to include their demands in their
-                        optimization
-                        of the city configuration, placing a branch of their favorite brunch shop next to their
-                        home.<br><br>
-
-                        Due to their hovering and mobile nature, a traditional multi-bedroom sprawling house
-                        configuration was
-                        not suitable for such a residence. Instead, the interior spaces of these houses are configured
-                        around a
-                        central void on every side of a polyhydric geometry. Rather than having a traditional
-                        orientation as a
-                        typical fixed house possesses, these spaces capitalize on the autonomy of the controls, and
-                        rotate the
-                        house to suit the desired orientation of the user. While the resident may feel they are simply
-                        walking
-                        up a flight of stairs, the house itself rotates to accommodate their shifting orientation. The
-                        rotating
-                        mechanism revolutionizes the traditional housing model of the 21st century. In such a way, the
-                        SWRMpods
-                        have been able to ideally integrate themselves into the modern, autonomous city, both inside and
-                        out.
-                    </p>
-                </div>
-            </div>
-
+              Due to their hovering and mobile nature, a traditional multi-bedroom sprawling house
+              configuration was not suitable for such a residence. Instead, the interior spaces of
+              these houses are configured around a central void on every side of a polyhydric
+              geometry. Rather than having a traditional orientation as a typical fixed house
+              possesses, these spaces capitalize on the autonomy of the controls, and rotate the
+              house to suit the desired orientation of the user. While the resident may feel they
+              are simply walking up a flight of stairs, the house itself rotates to accommodate
+              their shifting orientation. The rotating mechanism revolutionizes the traditional
+              housing model of the 21st century. In such a way, the SWRMpods have been able to
+              ideally integrate themselves into the modern, autonomous city, both inside and out.
+            </p>
+          </div>
         </div>
-
-        </div>
-
+      </div>
     </main>
 
     <div id="footer"></div>
 
     <script>
-        fetch("footer.html")
-            .then(res => res.text())
-            .then(html => document.getElementById("footer").innerHTML = html);
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
 
-        fetch("header.html")
-            .then(res => res.text())
-            .then(html => document.getElementById("header").innerHTML = html);
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
     </script>
     <script src="assets/js/cursor.js"></script>
     <script>
-        const images = [
-            "Images/SWRM/PDF_Layout4.jpg",
-            "Images/SWRM/PDF_Layout5.jpg",
-            "Images/SWRM/PDF_Layout6.jpg",
-            "Images/SWRM/PDF_Layout7.jpg",
-            "Images/SWRM/PDF_Layout8.jpg",
-            "Images/SWRM/PDF_Layout9.jpg",
-            "Images/SWRM/PDF_Layout10.jpg",
-            "Images/SWRM/PDF_Layout11.jpg",
-            "Images/SWRM/PDF_Layout12.jpg",
-            "Images/SWRM/PDF_Layout13.jpg",
-            "Images/SWRM/PDF_Layout14.jpg"
-        ];
+      const images = [
+        "Images/SWRM/PDF_Layout4.jpg",
+        "Images/SWRM/PDF_Layout5.jpg",
+        "Images/SWRM/PDF_Layout6.jpg",
+        "Images/SWRM/PDF_Layout7.jpg",
+        "Images/SWRM/PDF_Layout8.jpg",
+        "Images/SWRM/PDF_Layout9.jpg",
+        "Images/SWRM/PDF_Layout10.jpg",
+        "Images/SWRM/PDF_Layout11.jpg",
+        "Images/SWRM/PDF_Layout12.jpg",
+        "Images/SWRM/PDF_Layout13.jpg",
+        "Images/SWRM/PDF_Layout14.jpg",
+      ];
 
-        let index = 0;
+      let index = 0;
 
-        const img = document.getElementById("galleryImage");
-        const left = document.querySelector(".gallery-arrow.left");
-        const right = document.querySelector(".gallery-arrow.right");
+      const img = document.getElementById("galleryImage");
+      const left = document.querySelector(".gallery-arrow.left");
+      const right = document.querySelector(".gallery-arrow.right");
 
-        function showImage(i) {
-            index = (i + images.length) % images.length; // wrap around
-            img.src = images[index];
-        }
+      function showImage(i) {
+        index = (i + images.length) % images.length; // wrap around
+        img.src = images[index];
+      }
 
-        left.addEventListener("click", () => showImage(index - 1));
-        right.addEventListener("click", () => showImage(index + 1));
+      left.addEventListener("click", () => showImage(index - 1));
+      right.addEventListener("click", () => showImage(index + 1));
     </script>
-
-
-</body>
-
+  </body>
 </html>

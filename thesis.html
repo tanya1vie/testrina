@@ -1,193 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thesis - Tatiana Estrina</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/projectPage.css" />
+    <link rel="stylesheet" href="assets/css/cursor.css" />
+    <link rel="stylesheet" href="assets/css/book.css" />
 
-<head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thesis - Tatiana Estrina</title>
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/projectPage.css">
-  <link rel="stylesheet" href="assets/css/cursor.css">
-  <link rel="stylesheet" href="assets/css/book.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  </head>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-</head>
+  <body>
+    <div id="header"></div>
 
-<body>
-  <div id="header"></div>
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
 
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
+          // ✅ IMPORTANT: load header JS AFTER header exists
+          const s = document.createElement("script");
+          s.src = "assets/js/headerBubbles.js";
+          document.body.appendChild(s);
+        });
+    </script>
 
-        // ✅ IMPORTANT: load header JS AFTER header exists
-        const s = document.createElement("script");
-        s.src = "assets/js/headerBubbles.js";
-        document.body.appendChild(s);
-      });
-  </script>
-
-  <main class="main">
-    <div class="project-header">
-      <div class="project-year">2024</div>
-      <h1 class="project-title">ARCHITECTURE AS PROSTHESIS</h1>
-      <p class="project-subtitle">Master of Architecture Thesis</p>
-    </div>
-
-    <div class="project-description">
-      <p>
-        The thesis unfolds from the tension between human comfort and planetary fragility. Interior environments, once
-        simple shelters, now envelop us in cocoon-like atmospheres where we spend ninety percent of our lives. These
-        spaces, engineered for ease and control, insulate us from the natural world while accelerating its degradation.
-        Through simulation, the research transforms design into an experimental field where human responses—social,
-        physical, and psychological—are observed across generations. Architectural conditions become scenarios, testing
-        grounds that reveal the long-term consequences of the comforts we craft today. Out of this interplay emerges a
-        speculative practice that merges computation, gaming, and narrative fabulation, offering strategies to redirect
-        architecture toward foresight. The resulting vision is not only a critique of comfort, but an invitation for
-        designers to imagine the architectures of tomorrow with intention, attuned to both planetary limits and human
-        evolution.
-      </p>
-    </div>
-
-    <section class="project-details">
-      <div class="detail-column">
-        <h2 class="detail-title">CONTEXT</h2>
-        <p>MArch + MS EECS Thesis</p>
-      </div>
-      <div class="detail-column">
-        <h2 class="detail-title">SOFTWARE + TOOLS</h2>
-        <p>Python, C#, Sims 4, Unity, Illustrator, Photoshop, Rhino</p>
-      </div>
-      <div class="detail-column">
-        <h2 class="detail-title">SUPERVISORS</h2>
-        <p>Skylar Tibbits, Stefanie Mueller</p>
-      </div>
-    </section>
-
-
-
-    <div class="project-images">
-      <div class="button-container"><a href="#flipbookWrap"
-          class="button">
-          Read the full book here
-        </a></div>
-
-
-      <img src="Images/Thesis/Estrina_3846.jpg" alt="Architecture as Prosthesis thesis installation">
-      <p>
-        Our lives have become exceedingly comfortable. In fact, we are cheerfully inside of comfortable bubbles, while
-        the
-        world around us burns. Today, 90% of our time is spent indoors, transforming interior spaces from mere shelters
-        into comfort cocoons.
-        Daniel Barber’s “After Comfort” questions the necessity of such intensive comfort in buildings, citing their
-        environmental impacts. However, the conversation must go further. Designers must critically examine the comforts
-        we create—not only for their environmental consequences but also for their effects on the evolution of the human
-        species.
-        This thesis posits that architects must consciously consider the long-term impacts of their designs on future
-        generations. It is imperative for designers to intentionally decide what to advocate for as we build for the
-        deep
-        future—not only addressing today’s environmental effects but anticipating those of tomorrow. How can we predict
-        the repercussions of our current lifestyles on future generations? How might we design with these possibilities
-        in
-        mind?
-        To explore these questions, this thesis employs simulation as a design tool, to observe humans’ social,
-        physical,
-        and psychological responses to architectural conditions over generations. The research concludes with strategies
-        derived from simulations to mitigate undesirable outcomes and proposes revised existing building designs to
-        implement them.
-        By merging design, gaming, and narrative fabulation, this research explores how the spaces we inhabit today
-        could
-        transform humanity’s future, urging architects to approach design with greater intention and foresight, and how
-        computation can play a role in the simulation and prediction of such design.
-      </p>
-
-
-
-      <div class="image-row">
-        <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis thesis exhibition">
-        <img src="Images/Thesis/Estrina_3858.jpg" alt="Architecture as Prosthesis game installation">
+    <main class="main">
+      <div class="project-header">
+        <div class="project-year">2024</div>
+        <h1 class="project-title">ARCHITECTURE AS PROSTHESIS</h1>
+        <p class="project-subtitle">Master of Architecture Thesis</p>
       </div>
 
-      <div class="wrap" id="flipbookWrap" aria-label="Flipbook">
-  <div class="book" id="book">
-    <div class="page left" id="pageLeft"></div>
-    <div class="page right" id="pageRight"></div>
-  </div>
+      <div class="project-description">
+        <p>
+          The thesis unfolds from the tension between human comfort and planetary fragility.
+          Interior environments, once simple shelters, now envelop us in cocoon-like atmospheres
+          where we spend ninety percent of our lives. These spaces, engineered for ease and control,
+          insulate us from the natural world while accelerating its degradation. Through simulation,
+          the research transforms design into an experimental field where human responses—social,
+          physical, and psychological—are observed across generations. Architectural conditions
+          become scenarios, testing grounds that reveal the long-term consequences of the comforts
+          we craft today. Out of this interplay emerges a speculative practice that merges
+          computation, gaming, and narrative fabulation, offering strategies to redirect
+          architecture toward foresight. The resulting vision is not only a critique of comfort, but
+          an invitation for designers to imagine the architectures of tomorrow with intention,
+          attuned to both planetary limits and human evolution.
+        </p>
+      </div>
 
-        <!-- Hidden list of images that JS will read -->
-        <div id="flipbookImages" style="display:none;">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-0.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-1.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-2.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-3.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-4.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-5.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-6.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-7.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-8.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-9.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-10.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-11.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-12.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-13.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-14.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-15.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-16.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-17.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-18.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-19.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-20.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-21.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-22.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-23.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-24.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-25.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-26.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-27.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-28.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-29.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-30.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-31.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-32.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-33.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-34.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-35.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-36.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-37.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-38.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-39.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-40.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-41.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-42.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-43.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-44.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-45.jpg">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-46.jpg">
+      <section class="project-details">
+        <div class="detail-column">
+          <h2 class="detail-title">CONTEXT</h2>
+          <p>MArch + MS EECS Thesis</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+          <p>Python, C#, Sims 4, Unity, Illustrator, Photoshop, Rhino</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">SUPERVISORS</h2>
+          <p>Skylar Tibbits, Stefanie Mueller</p>
+        </div>
+      </section>
+
+      <div class="project-images">
+        <div class="button-container">
+          <a href="#flipbookWrap" class="button"> Read the full book here </a>
         </div>
 
-        <!-- navigation arrows -->
-        <button id="prevBtn" class="arrow left" aria-label="Previous page" title="Previous page">❮</button>
-  <button id="nextBtn" class="arrow right" aria-label="Next page" title="Next page">❯</button>
-</div>
+        <img
+          src="Images/Thesis/Estrina_3846.jpg"
+          alt="Architecture as Prosthesis thesis installation"
+        />
+        <p>
+          Our lives have become exceedingly comfortable. In fact, we are cheerfully inside of
+          comfortable bubbles, while the world around us burns. Today, 90% of our time is spent
+          indoors, transforming interior spaces from mere shelters into comfort cocoons. Daniel
+          Barber’s “After Comfort” questions the necessity of such intensive comfort in buildings,
+          citing their environmental impacts. However, the conversation must go further. Designers
+          must critically examine the comforts we create—not only for their environmental
+          consequences but also for their effects on the evolution of the human species. This thesis
+          posits that architects must consciously consider the long-term impacts of their designs on
+          future generations. It is imperative for designers to intentionally decide what to
+          advocate for as we build for the deep future—not only addressing today’s environmental
+          effects but anticipating those of tomorrow. How can we predict the repercussions of our
+          current lifestyles on future generations? How might we design with these possibilities in
+          mind? To explore these questions, this thesis employs simulation as a design tool, to
+          observe humans’ social, physical, and psychological responses to architectural conditions
+          over generations. The research concludes with strategies derived from simulations to
+          mitigate undesirable outcomes and proposes revised existing building designs to implement
+          them. By merging design, gaming, and narrative fabulation, this research explores how the
+          spaces we inhabit today could transform humanity’s future, urging architects to approach
+          design with greater intention and foresight, and how computation can play a role in the
+          simulation and prediction of such design.
+        </p>
 
-    </div>
-  </main>
+        <div class="image-row">
+          <img
+            src="Images/Thesis/Estrina_3848_(1).jpg"
+            alt="Architecture as Prosthesis thesis exhibition"
+          />
+          <img
+            src="Images/Thesis/Estrina_3858.jpg"
+            alt="Architecture as Prosthesis game installation"
+          />
+        </div>
 
-  <div id="footer"></div>
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/galleryscroll.js"></script>
-  <script src="assets/js/book.js"></script>
-</body>
+        <div class="wrap" id="flipbookWrap" aria-label="Flipbook">
+          <div class="book" id="book">
+            <div class="page left" id="pageLeft"></div>
+            <div class="page right" id="pageRight"></div>
+          </div>
 
+          <!-- Hidden list of images that JS will read -->
+          <div id="flipbookImages" style="display: none">
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-0.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-1.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-2.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-3.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-4.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-5.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-6.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-7.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-8.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-9.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-10.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-11.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-12.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-13.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-14.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-15.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-16.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-17.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-18.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-19.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-20.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-21.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-22.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-23.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-24.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-25.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-26.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-27.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-28.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-29.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-30.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-31.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-32.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-33.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-34.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-35.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-36.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-37.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-38.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-39.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-40.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-41.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-42.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-43.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-44.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-45.jpg" />
+            <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-46.jpg" />
+          </div>
+
+          <!-- navigation arrows -->
+          <button id="prevBtn" class="arrow left" aria-label="Previous page" title="Previous page">
+            ❮
+          </button>
+          <button id="nextBtn" class="arrow right" aria-label="Next page" title="Next page">
+            ❯
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
+    </script>
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/galleryscroll.js"></script>
+    <script src="assets/js/book.js"></script>
+  </body>
 </html>

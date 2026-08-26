@@ -35,7 +35,15 @@ Run the repository checks before committing:
 npm test
 ```
 
-The checks use Node.js only and install no third-party packages. They verify the reorganized directory contract and shared references, JavaScript syntax, and JSON validity.
+The checks verify the reorganized directory contract and shared references, JavaScript syntax, and JSON validity.
+
+Install the development tools once, then format or check every maintained source file with:
+
+```sh
+npm install
+npm run format
+npm run format:check
+```
 
 ## Instagram gallery
 

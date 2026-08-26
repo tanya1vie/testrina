@@ -2,7 +2,6 @@
 const SECRET_PASSWORD = "tree";
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // Lock page
   document.body.classList.add("locked");
 
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button.addEventListener("click", tryUnlock);
 
-  input.addEventListener("keydown", e => {
+  input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") tryUnlock();
   });
 });

@@ -8,8 +8,14 @@ const limit = Math.min(Number(process.env.INSTAGRAM_POST_LIMIT || 50), 100);
 if (!token) throw new Error("Missing INSTAGRAM_ACCESS_TOKEN");
 
 const fields = [
-  "id", "caption", "media_type", "media_url", "thumbnail_url", "permalink", "timestamp",
-  "children{media_type,media_url,thumbnail_url}"
+  "id",
+  "caption",
+  "media_type",
+  "media_url",
+  "thumbnail_url",
+  "permalink",
+  "timestamp",
+  "children{media_type,media_url,thumbnail_url}",
 ].join(",");
 const url = new URL("https://graph.instagram.com/me/media");
 url.searchParams.set("fields", fields);
@@ -23,7 +29,7 @@ if (!response.ok) {
 }
 
 const payload = await response.json();
-const posts = (payload.data || []).map(post => ({
+const posts = (payload.data || []).map((post) => ({
   id: post.id,
   caption: post.caption || "",
   media_type: post.media_type,
@@ -31,13 +37,16 @@ const posts = (payload.data || []).map(post => ({
   thumbnail_url: post.thumbnail_url || "",
   permalink: post.permalink,
   timestamp: post.timestamp,
-  children: (post.children?.data || []).map(child => ({
+  children: (post.children?.data || []).map((child) => ({
     media_type: child.media_type,
     media_url: child.media_url || "",
-    thumbnail_url: child.thumbnail_url || ""
-  }))
+    thumbnail_url: child.thumbnail_url || "",
+  })),
 }));
 
 await mkdir(dirname(output), { recursive: true });
-await writeFile(output, `${JSON.stringify({ updated_at: new Date().toISOString(), posts }, null, 2)}\n`);
+await writeFile(
+  output,
+  `${JSON.stringify({ updated_at: new Date().toISOString(), posts }, null, 2)}\n`,
+);
 console.log(`Saved ${posts.length} Instagram posts to ${output}`);

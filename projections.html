@@ -1,109 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distorted Projections | Tatiana Estrina</title>
 
-<head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Distorted Projections | Tatiana Estrina</title>
+    <style>
+      html,
+      body {
+        background: #000000 !important;
+      }
 
-  <style>
-    html,
-    body {
-      background: #000000 !important;
-    }
+      #header,
+      #footer,
+      .project-header,
+      .content-wrapper {
+        filter: invert(1) hue-rotate(180deg);
+      }
 
-    #header,
-    #footer,
-    .project-header,
-    .content-wrapper {
-      filter: invert(1) hue-rotate(180deg);
-    }
+      /* Make sure project images are NOT filtered at all */
+      .project-images,
+      .project-images img,
+      .project-images .image-row img {
+        filter: none !important;
+      }
 
-    /* Make sure project images are NOT filtered at all */
-    .project-images,
-    .project-images img,
-    .project-images .image-row img {
-      filter: none !important;
-    }
+      /* Cursor: keep global white/difference behavior */
+      .custom-cursor {
+        background: #ffffff;
+        mix-blend-mode: difference;
+      }
+    </style>
 
-    /* Cursor: keep global white/difference behavior */
-    .custom-cursor {
-      background: #ffffff;
-      mix-blend-mode: difference;
-    }
-  </style>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/projectPage.css" />
+    <link rel="stylesheet" href="assets/css/cursor.css" />
+  </head>
 
+  <body>
+    <div id="header"></div>
 
-
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/projectPage.css">
-  <link rel="stylesheet" href="assets/css/cursor.css">
-
-</head>
-
-<body>
-  <div id="header"></div>
-
-  <main class="main">
-    <div class="project-header">
-      <p class="project-year">2020</p>
-      <h1 class="project-title">DISTORTED PROJECTIONS</h1>
-      <p class="project-subtitle">responsive projection mapping installation</p>
-      <p class="project-description">
-      <p>As physical and social distancing becomes the ‘new normal’, people are becoming less connected to spaces they
-        previously occupied. This project aims to builds connections between the digital and the physical using
-        projection mapping and motion tracking,. The installation ungulates and morphs based on the movements of
-        passersby. </p>
-    </div>
-    <div class="content-wrapper">
-      <div class="project-details">
-        <div class="detail-column">
-          <h2 class="detail-title">CONTEXT</h2>
-          <p>Independent Study, Ryerson University</p>
-        </div>
-        <div class="detail-column">
-          <h2 class="detail-title">LOCATION</h2>
-          <p>325 Church Street, Toronto</p>
-        </div>
-        <div class="detail-column">
-          <h2 class="detail-title">SOFTWARE</h2>
-          <p>TouchDesigner, GLSL, Rhinoceros3D, Illustrator, RhinoCam, CNC Mill</p>
-        </div>
-        <div class="detail-column">
-          <h2 class="detail-title">SUPERVISOR</h2>
-          <p>Vincent Hui</p>
-        </div>
-        <div class="detail-column">
-          <h2 class="detail-title">EXHIBITED AT</h2>
-          <p>DesignTO Festival 2020</p>
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2020</p>
+        <h1 class="project-title">DISTORTED PROJECTIONS</h1>
+        <p class="project-subtitle">responsive projection mapping installation</p>
+        <p class="project-description"></p>
+        <p>
+          As physical and social distancing becomes the ‘new normal’, people are becoming less
+          connected to spaces they previously occupied. This project aims to builds connections
+          between the digital and the physical using projection mapping and motion tracking,. The
+          installation ungulates and morphs based on the movements of passersby. 
+        </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Independent Study, Ryerson University</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>325 Church Street, Toronto</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>TouchDesigner, GLSL, Rhinoceros3D, Illustrator, RhinoCam, CNC Mill</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SUPERVISOR</h2>
+            <p>Vincent Hui</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">EXHIBITED AT</h2>
+            <p>DesignTO Festival 2020</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="project-images">
+      <div class="project-images">
+        <img
+          src="Images/Projections/MIT_Portoflio34_edited.jpg"
+          alt="Yamal Peninsula - Exploded Axonometric"
+        /><br /><br />
+        <img
+          src="Images/Projections/MIT_Portoflio35.png"
+          alt="Yamal Peninsula - Exploded Axonometric"
+        /><br /><br />
+        <img
+          src="Images/Projections/MIT_Portoflio36.png"
+          alt="Yamal Peninsula - Exploded Axonometric"
+        /><br /><br />
+        <img
+          src="Images/Projections/MIT_Portoflio37.png"
+          alt="Yamal Peninsula - Exploded Axonometric"
+        />
+      </div>
+    </main>
 
-      <img src="Images/Projections/MIT_Portoflio34_edited.jpg" alt="Yamal Peninsula - Exploded Axonometric"><br><Br>
-      <img src="Images/Projections/MIT_Portoflio35.png" alt="Yamal Peninsula - Exploded Axonometric"><br><Br>
-      <img src="Images/Projections/MIT_Portoflio36.png" alt="Yamal Peninsula - Exploded Axonometric"><br><Br>
-      <img src="Images/Projections/MIT_Portoflio37.png" alt="Yamal Peninsula - Exploded Axonometric">
-    </div>
+    <div id="footer"></div>
 
-  </main>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
 
-  <div id="footer"></div>
-
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("footer").innerHTML = html);
-
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("header").innerHTML = html);
-  </script>
-  <script src="assets/js/cursor.js"></script>
-
-</body>
-
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+    <script src="assets/js/cursor.js"></script>
+  </body>
 </html>

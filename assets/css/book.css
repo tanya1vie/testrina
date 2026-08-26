@@ -26,11 +26,11 @@
 /* The book itself: two pages side by side */
 .book {
   width: 100%;
-  aspect-ratio: 3 / 2;   /* width : height */
+  aspect-ratio: 3 / 2; /* width : height */
   display: flex;
   border-radius: var(--page-radius);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   background: #f5f3eb;
 }
 
@@ -46,15 +46,19 @@
 
 /* Optional “gutter” between pages */
 .page.left {
-  border-right: 1px solid rgba(0,0,0,0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 .page.right {
-  border-left: 1px solid rgba(0,0,0,0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 @keyframes pageFlip {
-  0%   { transform: rotateY(0deg); }
-  100% { transform: rotateY(-180deg); }
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
 }
 
 .page.right.turning {
@@ -62,15 +66,13 @@
   transform-origin: left center;
 }
 
-
-
 /* ---------------------------
    Navigation arrows
 ---------------------------- */
 
 .arrow {
-  position:absolute;
-  top:50%;
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
@@ -83,10 +85,14 @@
   user-select: none;
 }
 
-.arrow.left  { left:  -1.5rem; }
-.arrow.right { right: -1.5rem; }
+.arrow.left {
+  left: -1.5rem;
+}
+.arrow.right {
+  right: -1.5rem;
+}
 
 .arrow:disabled {
-  opacity:0.2;
+  opacity: 0.2;
   cursor: default;
 }

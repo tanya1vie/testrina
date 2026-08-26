@@ -1,60 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Head Above Water | Tatiana Estrina</title>
-  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/projectPage.css">
-  <link rel="stylesheet" href="../../assets/css/cursor.css">
-</head>
-<body>
-  <header class="header">
-    <div class="header-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../../index.html" aria-label="Home"><img src="../../Images/Navigation/house.png" alt="Home"></a>
-        <span>/</span><span>Head Above Water</span>
-      </nav>
-      <div class="header-buttons">
-        <a href="../../nail-gallery.html" class="header-icon"><img src="../../Images/Navigation/nails.png" alt="Nail art"></a>
-        <a href="../../ceramics-gallery.html" class="header-icon"><img src="../../Images/Navigation/ceramics.png" alt="Ceramics"></a>
-        <a href="../../work.html" class="header-icon"><img src="../../Images/Navigation/gallery.jpg" alt="Gallery"></a>
-        <a href="../../about.html" class="header-icon"><img src="../../Images/Navigation/girlIcon.png" alt="About"></a>
-      </div>
-    </div>
-  </header>
-
-  <main class="main" id="main-content">
-    <header class="project-header">
-      <p class="project-year">2024</p>
-      <h1 class="project-title">HEAD ABOVE WATER</h1>
-      <p class="project-subtitle">Interactive Data Visualization</p>
-      <div class="project-copy">
-        <p>Head Above Water is an interactive exploration of Boston’s historical land-making and contemporary flood risk. The project helps prospective residents compare shoreline change, property activity, and exposure to future flooding.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Head Above Water | Tatiana Estrina</title>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/projectPage.css" />
+    <link rel="stylesheet" href="../../assets/css/cursor.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html" aria-label="Home"
+            ><img src="../../Images/Navigation/house.png" alt="Home"
+          /></a>
+          <span>/</span><span>Head Above Water</span>
+        </nav>
+        <div class="header-buttons">
+          <a href="../../nail-gallery.html" class="header-icon"
+            ><img src="../../Images/Navigation/nails.png" alt="Nail art"
+          /></a>
+          <a href="../../ceramics-gallery.html" class="header-icon"
+            ><img src="../../Images/Navigation/ceramics.png" alt="Ceramics"
+          /></a>
+          <a href="../../work.html" class="header-icon"
+            ><img src="../../Images/Navigation/gallery.jpg" alt="Gallery"
+          /></a>
+          <a href="../../about.html" class="header-icon"
+            ><img src="../../Images/Navigation/girlIcon.png" alt="About"
+          /></a>
+        </div>
       </div>
     </header>
 
-    <section class="project-details" aria-label="Project details">
-      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>Interactive Data Visualization</p></div>
-      <div class="detail-column"><h2 class="detail-title">LOCATION</h2><p>Boston, Massachusetts</p></div>
-      <div class="detail-column"><h2 class="detail-title">SOFTWARE + TOOLS</h2><p>D3.js, Mapbox GL JS, HTML, CSS, JavaScript</p></div>
-      <div class="detail-column"><h2 class="detail-title">COLLABORATORS</h2><p>Danny Griffin, Habin Park, Haidar El Haq</p></div>
-    </section>
+    <main class="main" id="main-content">
+      <header class="project-header">
+        <p class="project-year">2024</p>
+        <h1 class="project-title">HEAD ABOVE WATER</h1>
+        <p class="project-subtitle">Interactive Data Visualization</p>
+        <div class="project-copy">
+          <p>
+            Head Above Water is an interactive exploration of Boston’s historical land-making and
+            contemporary flood risk. The project helps prospective residents compare shoreline
+            change, property activity, and exposure to future flooding.
+          </p>
+        </div>
+      </header>
 
-    <section class="project-section">
-      <figure><img src="images/boston-flooding.jpeg" alt="Flood water surrounding buildings in Boston"></figure>
-    </section>
+      <section class="project-details" aria-label="Project details">
+        <div class="detail-column">
+          <h2 class="detail-title">CONTEXT</h2>
+          <p>Interactive Data Visualization</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">LOCATION</h2>
+          <p>Boston, Massachusetts</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+          <p>D3.js, Mapbox GL JS, HTML, CSS, JavaScript</p>
+        </div>
+        <div class="detail-column">
+          <h2 class="detail-title">COLLABORATORS</h2>
+          <p>Danny Griffin, Habin Park, Haidar El Haq</p>
+        </div>
+      </section>
 
-    <section class="project-copy">
-      <h2>Understanding a city made from water</h2>
-      <p>Boston’s shoreline has shifted continuously over the past three centuries. Neighborhoods created through land reclamation now face a changing climate and uneven exposure to coastal flooding.</p>
-      <p>The original interactive prototype combined historical maps with real-estate and flood-risk datasets. Its migration now preserves the project as a stable case study without relying on missing third-party map assets or private access tokens.</p>
-    </section>
-    <a class="text-link project-back-link" href="../../interaction-design.html">Back to Interaction Design</a>
-  </main>
+      <section class="project-section">
+        <figure>
+          <img
+            src="images/boston-flooding.jpeg"
+            alt="Flood water surrounding buildings in Boston"
+          />
+        </figure>
+      </section>
 
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="../../assets/js/cursor.js"></script>
-</body>
+      <section class="project-copy">
+        <h2>Understanding a city made from water</h2>
+        <p>
+          Boston’s shoreline has shifted continuously over the past three centuries. Neighborhoods
+          created through land reclamation now face a changing climate and uneven exposure to
+          coastal flooding.
+        </p>
+        <p>
+          The original interactive prototype combined historical maps with real-estate and
+          flood-risk datasets. Its migration now preserves the project as a stable case study
+          without relying on missing third-party map assets or private access tokens.
+        </p>
+      </section>
+      <a class="text-link project-back-link" href="../../interaction-design.html"
+        >Back to Interaction Design</a
+      >
+    </main>
+
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="../../assets/js/cursor.js"></script>
+  </body>
 </html>

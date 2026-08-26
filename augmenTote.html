@@ -1,114 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-<head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AugmenTote | Tatiana Estrina</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/projectPage.css" />
+    <link rel="stylesheet" href="assets/css/cursor.css" />
+    <link rel="stylesheet" href="assets/css/password.css" />
+  </head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AugmenTote | Tatiana Estrina</title>
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/projectPage.css">
-  <link rel="stylesheet" href="assets/css/cursor.css">
-  <link rel="stylesheet" href="assets/css/password.css">
-</head>
+  <body>
+    <div id="header"></div>
 
-<body>
-  <div id="header"></div>
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
 
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
+          // ✅ IMPORTANT: load header JS AFTER header exists
+          const s = document.createElement("script");
+          s.src = "assets/js/headerBubbles.js";
+          document.body.appendChild(s);
+        });
+    </script>
 
-        // ✅ IMPORTANT: load header JS AFTER header exists
-        const s = document.createElement("script");
-        s.src = "assets/js/headerBubbles.js";
-        document.body.appendChild(s);
-      });
-  </script>
-
-
-  <main class="main">
-    <div class="project-header">
-      <p class="project-year">2025</p>
-      <h1 class="project-title">AugmenTote</h1>
-      <p class="project-subtitle">a geo-engineered fabulation</p>
-      <p class="project-description">
-      <p>In anticipation of the closure of several northern Ontario’s mines, UPROOT provides a structure with an
-        alternative use for these areas. The intervention calls for the redevelopment of open-pit mines into stepping
-        community farmland, offering new possibilities for its use after closure as a suspended hub for agricultural and
-        social activities.</p>
-    </div>
-    <div class="content-wrapper">
-      <div class="project-details">
-        <div class="detail-column">
-          <h2 class="detail-title">CONTEXT</h2>
-          <p>Work at Amazon Robotics</p>
-        </div>
-        <div class="detail-column">
-          <h2 class="detail-title">LOCATION</h2>
-          <p>Across Amazon Fullfillment Centers</p>
-        </div>
-        <div class="detail-column">
-          <h2 class="detail-title">SOFTWARE</h2>
-          <p> Unity3D, Magic Leap 2, Rhinoceros3D, Grasshopper (+Pufferfish), V-Ray, Photoshop, Illustrator</p>
-        </div>
-
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2025</p>
+        <h1 class="project-title">AugmenTote</h1>
+        <p class="project-subtitle">a geo-engineered fabulation</p>
+        <p class="project-description"></p>
+        <p>
+          In anticipation of the closure of several northern Ontario’s mines, UPROOT provides a
+          structure with an alternative use for these areas. The intervention calls for the
+          redevelopment of open-pit mines into stepping community farmland, offering new
+          possibilities for its use after closure as a suspended hub for agricultural and social
+          activities.
+        </p>
       </div>
-    </div>
-
-
-    <div class="project-images">
-      <div class="button-container">
-        <a href="https://www.designlinesmagazine.com/uproot-mine-transformed-into-garden/" target="_blank"
-          rel="noopener noreferrer" class="button">
-          Read about it on Designlines
-        </a>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Work at Amazon Robotics</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>Across Amazon Fullfillment Centers</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>
+              Unity3D, Magic Leap 2, Rhinoceros3D, Grasshopper (+Pufferfish), V-Ray, Photoshop,
+              Illustrator
+            </p>
+          </div>
+        </div>
       </div>
 
-      <img src="Images/Uproot/Aerial_Render.jpg" alt="Aerial view of Uproot intervention">
-      <p class="imageSubtitle">Fig. 1. Aerial view of Uproot intervention</p>
-      <br>
-      <img src="Images/Uproot/MIT_Portoflio5_edited.jpg" alt="Uproot portfolio spread 1" style="width:80%; display:block; margin:0 auto;">
-      <br>
-      <img src="Images/Uproot/MIT_Portoflio51.png" alt="Uproot portfolio spread 2"style="width:70%; display:block; margin:0 auto;">
-      <p class="imageSubtitle">Fig. 2. Mining industry in Ontario, Canada</p>
-      <br>
-      <img src="Images/Uproot/Site_Plan.png" alt="Uproot site plan"style="width:70%; display:block; margin:0 auto;">
-      <p class="imageSubtitle">Fig. 3. Site Plan</p>
-      <br>
-      <img src="Images/Uproot/approach.png" alt="View from within the mine">
-      <p class="imageSubtitle">Fig. 4. View from within the mine</p>
-      <br>
-      <img src="Images/Uproot/MIT_Portoflio52.png" alt="Uproot portfolio spread 3">
-      <br>
-      <img src="Images/Uproot/Section.jpg" alt="Site section through Uproot">
-      <p class="imageSubtitle">Fig. 5. Site Section</p>
-      <br>
-      <img src="Images/Uproot/fireworks.png" alt="Canada Day celebrations at the mine">
-      <p class="imageSubtitle">Fig. 6. Canada Day celebrations at the mine</p>
-      <br>
-      <img src="Images/Uproot/Exploded_Sectional_Perspective.jpg"
-        alt="Exploded axonometric and sectional perspective">
-      <p class="imageSubtitle">Fig. 7. Exploded Axonometric + Sectional Perspective</p>
-    </div>
-  </main>
+      <div class="project-images">
+        <div class="button-container">
+          <a
+            href="https://www.designlinesmagazine.com/uproot-mine-transformed-into-garden/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button"
+          >
+            Read about it on Designlines
+          </a>
+        </div>
 
-  <!-- Footer -->
-  <div id="footer"></div>
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/password.js"></script>
+        <img src="Images/Uproot/Aerial_Render.jpg" alt="Aerial view of Uproot intervention" />
+        <p class="imageSubtitle">Fig. 1. Aerial view of Uproot intervention</p>
+        <br />
+        <img
+          src="Images/Uproot/MIT_Portoflio5_edited.jpg"
+          alt="Uproot portfolio spread 1"
+          style="width: 80%; display: block; margin: 0 auto"
+        />
+        <br />
+        <img
+          src="Images/Uproot/MIT_Portoflio51.png"
+          alt="Uproot portfolio spread 2"
+          style="width: 70%; display: block; margin: 0 auto"
+        />
+        <p class="imageSubtitle">Fig. 2. Mining industry in Ontario, Canada</p>
+        <br />
+        <img
+          src="Images/Uproot/Site_Plan.png"
+          alt="Uproot site plan"
+          style="width: 70%; display: block; margin: 0 auto"
+        />
+        <p class="imageSubtitle">Fig. 3. Site Plan</p>
+        <br />
+        <img src="Images/Uproot/approach.png" alt="View from within the mine" />
+        <p class="imageSubtitle">Fig. 4. View from within the mine</p>
+        <br />
+        <img src="Images/Uproot/MIT_Portoflio52.png" alt="Uproot portfolio spread 3" />
+        <br />
+        <img src="Images/Uproot/Section.jpg" alt="Site section through Uproot" />
+        <p class="imageSubtitle">Fig. 5. Site Section</p>
+        <br />
+        <img src="Images/Uproot/fireworks.png" alt="Canada Day celebrations at the mine" />
+        <p class="imageSubtitle">Fig. 6. Canada Day celebrations at the mine</p>
+        <br />
+        <img
+          src="Images/Uproot/Exploded_Sectional_Perspective.jpg"
+          alt="Exploded axonometric and sectional perspective"
+        />
+        <p class="imageSubtitle">Fig. 7. Exploded Axonometric + Sectional Perspective</p>
+      </div>
+    </main>
 
-</body>
-
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
+    </script>
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/password.js"></script>
+  </body>
 </html>

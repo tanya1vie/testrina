@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!container || words.length === 0) return;
 
   // Find initial active word (fallback to first)
-  let index = words.findIndex(w => w.classList.contains("active"));
+  let index = words.findIndex((w) => w.classList.contains("active"));
   if (index < 0) index = 0;
 
   // Helper: set container width to match a given word

@@ -1,98 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Tatiana Estrina</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+    <link rel="stylesheet" href="assets/css/cursor.css" />
+    <link rel="stylesheet" href="assets/css/flipWord.css" />
+  </head>
 
-<head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Tatiana Estrina</title>
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/about.css">
-  <link rel="stylesheet" href="assets/css/cursor.css">
-  <link rel="stylesheet" href="assets/css/flipWord.css">
+  <body>
+    <div id="header"></div>
 
-</head>
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
 
-<body>
-  <div id="header"></div>
+          // ✅ IMPORTANT: load header JS AFTER header exists
+          const s = document.createElement("script");
+          s.src = "assets/js/headerBubbles.js";
+          document.body.appendChild(s);
+        });
+    </script>
+    <br /><br /><br />
+    <main class="wrap" id="main-content">
+      <h1 class="sr-only">About Tatiana Estrina</h1>
 
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
-
-        // ✅ IMPORTANT: load header JS AFTER header exists
-        const s = document.createElement("script");
-        s.src = "assets/js/headerBubbles.js";
-        document.body.appendChild(s);
-      });
-  </script>
-  <br><Br><Br>
-  <main class="wrap" id="main-content">
-    <h1 class="sr-only">About Tatiana Estrina</h1>
-
-    <section class="intro">
-<figure class="illus">
-        <center><img src="Images/IMG_0056.jpg" alt="Tatiana illustration" style="width: auto; height: 350px;" />
-      </center>
+      <section class="intro">
+        <figure class="illus">
+          <center>
+            <img
+              src="Images/IMG_0056.jpg"
+              alt="Tatiana illustration"
+              style="width: auto; height: 350px"
+            />
+          </center>
         </figure>
-      <div class="bio">
-        <h3 class="Iam">I’m a <span class="flip-container">
-            <span class="flip-word active">designer</span>
-            <span class="flip-word">creative coder</span>
-            <span class="flip-word">ballroom dancer</span>
-            <span class="flip-word">ceramicist</span>
-            <span class="flip-word">nail artist</span>
-            <span class="flip-word">problem solver</span>
-            <span class="flip-word">urban sketcher</span>
-            <span class="flip-word">reader</span>
-            <span class="flip-word">cat mom</span>
-          </span> .
-        </h3>
-        <p><br><Br>
-          Currently an Industrial Designer at <a class="text-link" href="https://www.aboutamazon.com/news/tag/robotics"
-            target="_blank" rel="noopener noreferrer">
-            Amazon Robotics
-          </a>. Previously,  I was a design intern at <a class="text-link" href="https://www.tesla.com/" target="_blank"
-            rel="noopener noreferrer">
-            Tesla
-          </a> and architectural designer at <a class="text-link" href="https://partisans.com" target="_blank"
-            rel="noopener">PARTISANS</a>.
+        <div class="bio">
+          <h3 class="Iam">
+            I’m a
+            <span class="flip-container">
+              <span class="flip-word active">designer</span>
+              <span class="flip-word">creative coder</span>
+              <span class="flip-word">ballroom dancer</span>
+              <span class="flip-word">ceramicist</span>
+              <span class="flip-word">nail artist</span>
+              <span class="flip-word">problem solver</span>
+              <span class="flip-word">urban sketcher</span>
+              <span class="flip-word">reader</span>
+              <span class="flip-word">cat mom</span>
+            </span>
+            .
+          </h3>
+          <p>
+            <br /><br />
+            Currently an Industrial Designer at
+            <a
+              class="text-link"
+              href="https://www.aboutamazon.com/news/tag/robotics"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Amazon Robotics </a
+            >. Previously, I was a design intern at
+            <a
+              class="text-link"
+              href="https://www.tesla.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tesla
+            </a>
+            and architectural designer at
+            <a class="text-link" href="https://partisans.com" target="_blank" rel="noopener"
+              >PARTISANS</a
+            >.
 
-          <br><br>Studied architecture at
-          <a class="text-link" href="https://www.torontomu.ca/architectural-science/" target="_blank" rel="noopener">
-            Toronto Metropolitan University
-          </a>
-          before crossing the border to study Architecture and Computer Science at
-          <a class="text-link" href="https://architecture.mit.edu/" target="_blank" rel="noopener">MIT</a>.
-          My work now lives at the intersection of spatial design, human behavior, and emerging tools—
-          especially wherever hardware, software, and bodies collide.
+            <br /><br />Studied architecture at
+            <a
+              class="text-link"
+              href="https://www.torontomu.ca/architectural-science/"
+              target="_blank"
+              rel="noopener"
+            >
+              Toronto Metropolitan University
+            </a>
+            before crossing the border to study Architecture and Computer Science at
+            <a class="text-link" href="https://architecture.mit.edu/" target="_blank" rel="noopener"
+              >MIT</a
+            >. My work now lives at the intersection of spatial design, human behavior, and emerging
+            tools— especially wherever hardware, software, and bodies collide.
 
-          <br><br> Connect with me on <a class="text-link" href="https://www.instagram.com/tanya.estrina/" target="_blank"
-            rel="noopener">Instagram</a> and <a class="text-link" href="https://www.linkedin.com/in/tatianaestrina/" target="_blank"
-            rel="noopener">LinkedIn</a> or download my
-            <a class="text-link" href="files/Tatiana_Estrina_CV.pdf" target="_blank" rel="noopener">CV</a>
+            <br /><br />
+            Connect with me on
+            <a
+              class="text-link"
+              href="https://www.instagram.com/tanya.estrina/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            and
+            <a
+              class="text-link"
+              href="https://www.linkedin.com/in/tatianaestrina/"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            or download my
+            <a class="text-link" href="files/Tatiana_Estrina_CV.pdf" target="_blank" rel="noopener"
+              >CV</a
+            >
             or <a class="text-link" href="work.html">Portfolio</a>.
+          </p>
+        </div>
+      </section>
+    </main>
 
-      </div>
-
-      
-    </section>
-
-  </main>
-
-  <div id="footer"></div>
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/flipWord.js"></script>
-</body>
-
+    <div id="footer"></div>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
+    </script>
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/flipWord.js"></script>
+  </body>
 </html>

@@ -247,15 +247,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "aria-label": `${s.name} — ${s.ringText.replaceAll(" · ", ", ")}`
     });
 
-    const t = createSVG("text", {
-      x: sp.x, y: sp.y,
-      class: "puzzle-label",
-      "data-i": String(i),
-      "text-anchor": "middle",
-      "dominant-baseline": "middle"
-    });
-    t.textContent = s.name;
-
     const stripe = createSVG("line", {
       x1: 0, y1: 0, x2: 0, y2: 0,
       "stroke-width": stripeWidthPx(i),
@@ -286,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     layer.appendChild(r);
     layer.appendChild(stripe);
-    layer.appendChild(t);
     layer.appendChild(ringText);
 
     return {
@@ -302,7 +292,6 @@ document.addEventListener("DOMContentLoaded", () => {
       w: 120, h: 120, rx: 60, ry: 60,
 
       el: r,
-      label: t,
       stripe,
       clipRect,
 
@@ -336,9 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
     b.clipRect.setAttribute("height", b.h);
     b.clipRect.setAttribute("rx", b.rx);
     b.clipRect.setAttribute("ry", b.ry);
-
-    b.label.setAttribute("x", cx);
-    b.label.setAttribute("y", cy);
 
     const theta = (b.stripeAngle * Math.PI) / 180;
     const L = Math.max(b.w, b.h) * 2.2;
@@ -380,8 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isActive){
         b.el.setAttribute("fill", b.color);
         b.stripe.style.opacity = "0";
-        b.label.style.fill = b.textColor;
-        b.label.style.opacity = "0";
         b.ringText.style.opacity = "0";
         return;
       }
@@ -389,9 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
       b.el.setAttribute("fill", b.color);
       b.stripe.setAttribute("stroke", "#ffffff");
       b.stripe.style.opacity = "1";
-
-      b.label.style.fill = b.textColor;
-      b.label.style.opacity = "1";
 
       const hasRing = (b.ringTextPath.textContent || "").trim().length > 0;
       b.ringText.style.opacity = hasRing ? "1" : "0";
@@ -504,7 +485,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bubbles.forEach((b) => {
       b.el.style.visibility = "hidden";
-      b.label.style.visibility = "hidden";
       b.stripe.style.visibility = "hidden";
       b.ringText.style.visibility = "hidden";
     });
@@ -605,10 +585,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    b.label.addEventListener("pointerenter", onEnter);
-    b.label.addEventListener("pointerleave", onLeave);
-    b.label.addEventListener("click", onClick);
-
     b.stripe.addEventListener("pointerenter", onEnter);
     b.stripe.addEventListener("pointerleave", onLeave);
     b.stripe.addEventListener("click", onClick);
@@ -708,11 +684,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestAnimationFrame(tick);
   }
-
-  bubbles.forEach((b) => {
-    b.label.style.fill = b.textColor;
-    b.label.style.stroke = b.textColor === "#fff" ? "#000" : "#fff";
-  });
 
   requestAnimationFrame(tick);
 });

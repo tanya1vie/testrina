@@ -48,28 +48,6 @@
   filter: drop-shadow(0 0 4px rgba(255,255,255,.95));
 }
 
-.puzzle-label{
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  fill: rgba(0,0,0,.9);
-  paint-order: stroke;
-  stroke: rgba(255,255,255,.95);
-  stroke-width: 4px;
-  stroke-linejoin: round;
-  pointer-events: none;
-  text-anchor: middle;
-  dominant-baseline: middle;
-  opacity: 0;
-  transition: opacity 180ms ease-out;
-}
-
-
-/* you can delete .puzzle-label.show if you want */
-
-
-.puzzle-label.show{ opacity: 1; }
-
 .puzzle-ring-text {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: .875rem;

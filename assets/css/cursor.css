@@ -1,5 +1,5 @@
 @media (pointer: fine) {
-  html, body, a, button, img, svg, .puzzle-bubble, .puzzle-label {
+  html, body, a, button, img, svg, .puzzle-bubble {
     cursor: none !important;
   }
 }
@@ -44,7 +44,7 @@
   body {
     cursor: auto !important;
   }
-  a, button, img, svg, .puzzle-bubble, .puzzle-label {
+  a, button, img, svg, .puzzle-bubble {
     cursor: revert !important;
   }
 }

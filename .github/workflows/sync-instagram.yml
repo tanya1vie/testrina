@@ -1,4 +1,4 @@
-name: Sync Instagram gallery
+name: Scrape Instagram gallery
 
 on:
   workflow_dispatch:
@@ -16,11 +16,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Download recent Instagram posts
+      - name: Download public Instagram posts
         env:
-          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
-          INSTAGRAM_POST_LIMIT: 50
-        run: node tools/sync-instagram.mjs
+          INSTAGRAM_USERNAME: mani__festations
+          INSTAGRAM_POST_LIMIT: 12
+        run: node tools/scrape-instagram.mjs
       - name: Commit updated gallery data
         run: |
           if git diff --quiet -- assets/data/instagram-posts.json; then

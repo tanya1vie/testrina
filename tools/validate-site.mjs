@@ -1,4 +1,5 @@
 import { access, readdir, readFile, stat } from "node:fs/promises";
+import { sep } from "node:path";
 import { constants } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { dirname, extname, join, normalize, relative, resolve } from "node:path";
@@ -76,6 +77,19 @@ function isExternal(reference) {
   return /^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(reference);
 }
 
+async function existsWithExactCase(path) {
+  const pathFromRoot = relative(root, path);
+  if (!pathFromRoot) return true;
+
+  let current = root;
+  for (const part of pathFromRoot.split(sep)) {
+    const entries = await readdir(current);
+    if (!entries.includes(part)) return false;
+    current = join(current, part);
+  }
+  return true;
+}
+
 function cleanReference(reference) {
   const decodedEntities = reference.replaceAll("&amp;", "&");
   const withoutFragment = decodedEntities.split("#", 1)[0].split("?", 1)[0].trim();
@@ -107,11 +121,15 @@ async function checkReference(source, reference) {
   }
 
   if (await exists(normalizedTarget)) {
+    if (!await existsWithExactCase(normalizedTarget)) {
+      failures.push(`${relative(root, source)}: local reference has incorrect capitalization: ${reference}`);
+      return;
+    }
     const targetStat = await stat(normalizedTarget);
     if (!targetStat.isDirectory()) return;
-    if (await exists(join(normalizedTarget, "index.html"))) return;
+    if (await exists(join(normalizedTarget, "index.html")) && await existsWithExactCase(join(normalizedTarget, "index.html"))) return;
   }
-  if (!extname(normalizedTarget) && await exists(`${normalizedTarget}.html`)) return;
+  if (!extname(normalizedTarget) && await exists(`${normalizedTarget}.html`) && await existsWithExactCase(`${normalizedTarget}.html`)) return;
 
   failures.push(`${relative(root, source)}: missing local reference: ${reference}`);
 }
@@ -131,7 +149,9 @@ async function validateHtml(path) {
   }
   const references = [
     ...html.matchAll(/\b(?:href|src|poster)\s*=\s*["']([^"']+)["']/gi),
-    ...html.matchAll(/\bfetch\(\s*["']([^"']+)["']/gi)
+    ...html.matchAll(/\bfetch\(\s*["']([^"']+)["']/gi),
+    ...html.matchAll(/\burl\(\s*["']?([^"')]+)["']?\s*\)/gi),
+    ...html.matchAll(/["']([^"']+\.(?:avif|gif|heic|jpe?g|png|svg|tiff?|webp|mov|mp4|mkv)(?:[?#][^"']*)?)["']/gi)
   ];
   await Promise.all(references.map(match => checkReference(path, match[1])));
 }

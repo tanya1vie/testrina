@@ -1,0 +1,6 @@
+# Keep source files consistent across macOS, Windows, and CI.
+* text=auto eol=lf
+
+# These compatibility files are generated from the maintainable page source.
+/*.html linguist-generated=true
+/projects/head-above-water/** linguist-generated=true

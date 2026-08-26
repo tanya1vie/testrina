@@ -1,0 +1,7 @@
+# Third-party minified browser bundles
+browser.sentry-cdn.com/
+
+# Binary and generated media
+Images/
+assets/source-nails/
+dist/

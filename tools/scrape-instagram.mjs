@@ -5,22 +5,45 @@ const username = process.env.INSTAGRAM_USERNAME || "mani__festations";
 const output = process.env.INSTAGRAM_OUTPUT || "assets/data/instagram-posts.json";
 const limit = Math.min(Number(process.env.INSTAGRAM_POST_LIMIT || 12), 50);
 
-// This is Instagram's undocumented public web-profile endpoint. It requires no
-// login, but Instagram may change or block it at any time.
-const url = new URL("https://www.instagram.com/api/v1/users/web_profile_info/");
-url.searchParams.set("username", username);
-
-const response = await fetch(url, {
-  headers: {
-    Accept: "application/json",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128 Safari/537.36",
-    "X-IG-App-ID": "936619743392459",
-    Referer: `https://www.instagram.com/${username}/`
-  }
+// Bootstrap an anonymous browser session before requesting the undocumented
+// public web-profile response. No login credentials or account cookies are used.
+const userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128 Safari/537.36";
+const profileUrl = `https://www.instagram.com/${username}/`;
+const bootstrap = await fetch(profileUrl, {
+  headers: { Accept: "text/html,application/xhtml+xml", "Accept-Language": "en-US,en;q=0.9", "User-Agent": userAgent }
 });
 
+const rawCookies = bootstrap.headers.get("set-cookie") || "";
+const cookieNames = ["csrftoken", "mid", "ig_did", "datr"];
+const cookies = cookieNames.map(name => {
+  const match = rawCookies.match(new RegExp(`(?:^|,\\s*)${name}=([^;,]+)`));
+  return match ? `${name}=${match[1]}` : "";
+}).filter(Boolean).join("; ");
+const csrf = rawCookies.match(/(?:^|,\s*)csrftoken=([^;,]+)/)?.[1] || "";
+
+async function requestProfile(host) {
+  const url = new URL(`https://${host}/api/v1/users/web_profile_info/`);
+  url.searchParams.set("username", username);
+  return fetch(url, {
+    headers: {
+      Accept: "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "User-Agent": userAgent,
+      "X-IG-App-ID": "936619743392459",
+      "X-ASBD-ID": "129477",
+      ...(csrf ? { "X-CSRFToken": csrf } : {}),
+      ...(cookies ? { Cookie: cookies } : {}),
+      Referer: profileUrl
+    }
+  });
+}
+
+let response = await requestProfile("www.instagram.com");
+if (!response.ok && response.status !== 404) {
+  response = await requestProfile("i.instagram.com");
+}
 if (!response.ok) {
-  throw new Error(`Instagram blocked the public-profile request (${response.status}). Existing gallery data was kept.`);
+  throw new Error(`Instagram blocked the anonymous public-profile request (${response.status}). Existing gallery data was kept.`);
 }
 
 const payload = await response.json();

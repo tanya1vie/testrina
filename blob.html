@@ -250,8 +250,8 @@
         </p>
         
         <div class="image-row">
-            <img src="Images/Blob/l.jpg" width="800">
-            <img src="Images/Blob/400207025_1846442339128335_6539734190168272184_n.jpg" class="color">
+            <img src="Images/Blob/l.jpg" width="800" alt="Early concept sketches for the Blob wearable device">
+            <img src="Images/Blob/400207025_1846442339128335_6539734190168272184_n.jpg" class="color" alt="Flexible Blob prototype worn around a wrist">
             
         </div>
 <br><br>
@@ -259,7 +259,7 @@
         <br><br>
         <div class="image-row">
             <img src="Images/Blob/sketch2.jpg" alt="layers of circut" class="color">
-            <img src="Images/Blob/387472132_313239948271738_6631508175613630389_n.jpg" class="color">
+            <img src="Images/Blob/387472132_313239948271738_6631508175613630389_n.jpg" class="color" alt="Blob silicone prototype with embedded electronics">
         </div>
         <br><br>
         <table>
@@ -360,7 +360,7 @@
             <h2> PCB Design and Fabrication</h2>
             <br><br>
             <center>
-                <img src="Images/Blob/hardware sketch.jpg" width="600" class="color">
+                <img src="Images/Blob/hardware sketch.jpg" width="600" class="color" alt="Blob hardware and circuit layout sketch">
             </center>
             <div class="image-row">
                 <img src="Images/Blob/PCB Try  traces-01.png" alt="layers of circut">
@@ -424,7 +424,7 @@
                 </p>
                 <br><br>
                 <center>
-                    <img src="Images/Blob/IMG_4786.JPG" style="transform:rotate(90deg);" width="500">
+                    <img src="Images/Blob/IMG_4786.JPG" style="transform:rotate(90deg);" width="500" alt="Circuit fabrication test for the Blob prototype">
                 </center>
                 <br><br>
                 <div class="image-row">
@@ -465,7 +465,7 @@
                     <img src="Images/Blob/mold2.PNG" alt="final circut">
                 </div>
                 <br><br>
-                <img src="Images/Blob/405095491_1507847289996610_1236464702347615379_n.jpg" width="500">
+                <img src="Images/Blob/405095491_1507847289996610_1236464702347615379_n.jpg" width="500" alt="Molded silicone form for the Blob wearable prototype">
                 <br><br>
                 <p>
                     <br><br> While the electronics aspect of this
@@ -558,28 +558,6 @@
             .then(html => document.getElementById("header").innerHTML = html);
     </script>
     <script src="assets/js/cursor.js"></script>
-
-    <script>
-        let seeSawPlayer;
-
-        function onYouTubeIframeAPIReady() {
-            seeSawPlayer = new YT.Player('blobPlayer', {
-                events: {}
-            });
-        }
-
-        const wrapper = document.getElementById('blobVideo');
-
-        wrapper.addEventListener('mouseenter', () => {
-            seeSawPlayer.getIframe().src =
-                "https://www.youtube.com/embed/tDKV-lT-S-U?si=WM7nwpv540Q_YjEv";
-        });
-
-        wrapper.addEventListener('mouseleave', () => {
-            seeSawPlayer.getIframe().src =
-                "https://www.youtube.com/embed/tDKV-lT-S-U?si=WM7nwpv540Q_YjEv";
-        });
-    </script>
 
 </body>
 

@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div id="header"></div>
 
   <script>
@@ -30,6 +31,8 @@
         document.body.appendChild(s);
       });
   </script>
+  <main id="main-content">
+  <h1 class="sr-only">Ceramics Gallery</h1>
   <br><Br><Br><br>
 
   <div class="gallery-grid">
@@ -111,6 +114,7 @@
       <div class="project-link" data-project="24"><img src="Images/Ceramics/cup2.png" alt="Flower Cup" /></div>
     </div>
   </div>
+  </main>
 
   <!-- POPUP -->
   <div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
@@ -120,7 +124,7 @@
 
       <div class="popup-info" id="popupInfo">
         <p id="popupYear">Year</p>
-        <h1 id="popupTitle">Project Title</h1>
+        <h2 id="popupTitle">Project Title</h2>
         <p id="popupType">Project Type</p>
       </div>
       <div class="carousel-dots" id="carouselDots"></div>

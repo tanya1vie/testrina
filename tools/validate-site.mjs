@@ -152,7 +152,8 @@ const accessibilityContract = [
   [homePage, 'class="skip-link"', "Homepage skip link is missing"],
   [homePage, '<main id="main-content">', "Homepage main landmark is missing"],
   [homePage, 'aria-hidden="true"', "Animated homepage text needs a static accessible alternative"],
-  [homeScript, 'aria-label", "Explore work by discipline"', "Work explorer navigation label is missing"],
+  [homePage, 'aria-label="Explore work by discipline"', "Work explorer navigation label is missing"],
+  [homeScript, 'tabindex: "0"', "Work explorer keyboard links are missing"],
   [homeScript, 'prefers-reduced-motion: reduce', "Reduced-motion support is missing"]
 ];
 

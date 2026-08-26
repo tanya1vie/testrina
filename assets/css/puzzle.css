@@ -1,14 +1,14 @@
 .puzzle-hero{
   width: 100%;
   max-width: 900px;
-  min-height: 320px;
+  height: 320px;
   margin-top: 18px;
   position: relative;
 }
 
 .puzzle-hero svg{
   width: 100%;
-  height: 320px;
+  height: 100%;
   display: block;
   overflow: visible;
 }
@@ -39,6 +39,13 @@
 
 .puzzle-bubble:hover{
   filter: drop-shadow(0 16px 26px rgba(0,0,0,.18));
+}
+
+.puzzle-bubble:focus-visible {
+  outline: none;
+  stroke: #000;
+  stroke-width: 6px;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.95));
 }
 
 .puzzle-label{
@@ -72,62 +79,8 @@
   transition: opacity 180ms ease-out;
 }
 
-.puzzle-nav {
-  margin-top: 1.5rem;
-}
-
-.puzzle-nav-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: .75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.puzzle-nav-link {
-  display: grid;
-  grid-template-columns: 1rem 1fr;
-  column-gap: .75rem;
-  min-height: 3.5rem;
-  padding: .875rem 1rem;
-  color: #111;
-  background: #fff;
-  border: 2px solid #111;
-  border-radius: .75rem;
-  text-decoration: none;
-}
-
-.puzzle-nav-link:hover {
-  background: #f4f4f4;
-}
-
-.puzzle-nav-swatch {
-  width: 1rem;
-  height: 1rem;
-  margin-top: .2rem;
-  border: 1px solid #000;
-  border-radius: 50%;
-}
-
-.puzzle-nav-name {
-  display: block;
-  font: 700 1.125rem/1.25 Arial, sans-serif;
-}
-
-.puzzle-nav-description {
-  display: block;
-  margin-top: .2rem;
-  color: #333;
-  font: 400 1rem/1.4 Arial, sans-serif;
-}
-
 @media (max-width: 600px) {
-  .puzzle-hero svg {
-    height: 260px;
-  }
-
   .puzzle-hero {
-    min-height: 260px;
+    height: 260px;
   }
 }

@@ -85,49 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const VIEWBOX_H = 320;
 
   mount.innerHTML = `
-    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" role="group" aria-labelledby="puzzle-title puzzle-description">
+      <title id="puzzle-title">Portfolio disciplines</title>
+      <desc id="puzzle-description">Five animated shapes link to Spatial Design, Industrial Design, Interaction Design, Writing, and Ceramics.</desc>
       <defs id="defs"></defs>
       <g id="layer"></g>
     </svg>
   `;
-
-  const nav = document.createElement("nav");
-  nav.className = "puzzle-nav";
-  nav.setAttribute("aria-label", "Explore work by discipline");
-
-  const navList = document.createElement("ul");
-  navList.className = "puzzle-nav-list";
-  const navLinks = slices.map((slice) => {
-    const item = document.createElement("li");
-    const link = document.createElement("a");
-    const swatch = document.createElement("span");
-    const copy = document.createElement("span");
-    const name = document.createElement("span");
-    const description = document.createElement("span");
-
-    link.className = "puzzle-nav-link";
-    link.href = slice.href;
-    link.setAttribute(
-      "aria-label",
-      `${slice.name} — ${slice.ringText.replaceAll(" · ", ", ")}`
-    );
-    swatch.className = "puzzle-nav-swatch";
-    swatch.style.backgroundColor = slice.color;
-    swatch.setAttribute("aria-hidden", "true");
-    name.className = "puzzle-nav-name";
-    name.textContent = slice.name;
-    description.className = "puzzle-nav-description";
-    description.textContent = slice.ringText.replaceAll(" · ", ", ");
-
-    copy.append(name, description);
-    link.append(swatch, copy);
-    item.appendChild(link);
-    navList.appendChild(item);
-    return link;
-  });
-
-  nav.appendChild(navList);
-  mount.appendChild(nav);
 
   const svg = mount.querySelector("svg");
   const defs = svg.querySelector("#defs");
@@ -276,7 +240,11 @@ document.addEventListener("DOMContentLoaded", () => {
       rx: 60, ry: 60,
       fill: s.color,
       class: "puzzle-bubble",
-      "data-i": String(i)
+      "data-i": String(i),
+      role: "link",
+      tabindex: "0",
+      focusable: "true",
+      "aria-label": `${s.name} — ${s.ringText.replaceAll(" · ", ", ")}`
     });
 
     const t = createSVG("text", {
@@ -628,6 +596,14 @@ document.addEventListener("DOMContentLoaded", () => {
     b.el.addEventListener("pointerenter", onEnter);
     b.el.addEventListener("pointerleave", onLeave);
     b.el.addEventListener("click", onClick);
+    b.el.addEventListener("focus", onEnter);
+    b.el.addEventListener("blur", onLeave);
+    b.el.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        onClick();
+      }
+    });
 
     b.label.addEventListener("pointerenter", onEnter);
     b.label.addEventListener("pointerleave", onLeave);
@@ -636,13 +612,6 @@ document.addEventListener("DOMContentLoaded", () => {
     b.stripe.addEventListener("pointerenter", onEnter);
     b.stripe.addEventListener("pointerleave", onLeave);
     b.stripe.addEventListener("click", onClick);
-  });
-
-  navLinks.forEach((link, index) => {
-    link.addEventListener("pointerenter", () => setActive(index));
-    link.addEventListener("pointerleave", () => setActive(-1));
-    link.addEventListener("focus", () => setActive(index));
-    link.addEventListener("blur", () => setActive(-1));
   });
 
   const introStart = performance.now();
@@ -740,7 +709,10 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   }
 
-  bubbles.forEach(b => { b.label.style.fill = b.textColor; });
+  bubbles.forEach((b) => {
+    b.label.style.fill = b.textColor;
+    b.label.style.stroke = b.textColor === "#fff" ? "#000" : "#fff";
+  });
 
   requestAnimationFrame(tick);
 });

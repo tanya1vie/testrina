@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blobignton | Tatiana Estrina</title>
+    <link rel="stylesheet" href="shared/styles/base.css" />
+    <link rel="stylesheet" href="shared/styles/projectPage.css" />
+    <link rel="stylesheet" href="shared/styles/cursor.css" />
+
+    <style>
+      /* Make all <td> look like <p> */
+      td {
+        font-family: "Avenir Light", sans-serif;
+        max-width: 421px;
+        margin: 0 auto 29px;
+        font-size: 12px;
+        letter-spacing: 0.01em;
+        line-height: 1.3;
+        font-weight: 200;
+        text-align: left;
+      }
+
+      /* Make all <th> look like <h3> */
+      th {
+        font-family: "Avenir Bold", sans-serif;
+        max-width: 421px;
+        margin: 0 auto 29px;
+        font-size: 12px;
+        letter-spacing: 0.01em;
+        line-height: 1.3;
+        font-weight: 500;
+        text-align: left;
+      }
+
+      table {
+        width: 60%;
+        margin: 0 auto;
+        /* centers it */
+        border-collapse: separate;
+        border-spacing: 0 18px;
+        /* <-- increase this value for more gap */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2023</p>
+        <h1 class="project-title">BLOBIGNTON</h1>
+        <p class="project-subtitle">something that can be (almost) everything</p>
+        <p class="project-description"></p>
+        <p>
+          What if a singular object, that is both amorphic and shapely, could be a friendly widget
+          of many kinds? In response to a challange to use the skills learned throughout the HTMAA
+          class, this project attempts to make something that can be almost anything, while
+          simultaniously being whimsical and useless.
+        </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>
+              <a
+                class="text-link"
+                href="https://fab.cba.mit.edu/classes/863.23/Architecture/people/Tatiana/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                How to Make Almost Anything
+              </a>
+            </p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>
+              3D printing, Illustrator, Photoshop, Rhino, KiCAD, Sillicon casting, CNCing,
+              Sauldering
+            </p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SUPERVISORS</h2>
+            <p>Neil Gershenfeld</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="black-section">
+        <div class="two-col">
+          <img
+            src="Images/Blob/face.png"
+            alt="Drawing of the Marché du Pont proposal on the Expo Express bridge remnant"
+            width="600"
+          />
+          <div class="two-col-text">
+            <p>
+              <br /><br />
+              widg·et <br />
+              /ˈwijət/<br /><br />
+              noun<br />
+              plural noun: widgets<br />
+              1. a small gadget or mechanical device, especially one whose name is unknown or
+              unspecified.<br />
+              2. an application, or a component of an interface, that enables a user to perform a
+              function or access a service.
+            </p>
+          </div>
+        </div>
+
+        <div class="image-row">
+          <img src="Images/Blob/bloboff.png" alt="thneed" />
+          <img src="Images/Blob/IMG_5223.png" alt="gumby" />
+        </div>
+
+        <div class="image-row">
+          <img src="Images/Blob/necklace.png" alt="thneed" />
+          <img src="Images/Blob/bracelet.png" alt="gumby" />
+        </div>
+
+        <div class="image-row">
+          <img src="Images/Blob/timer.gif" alt="thneed" />
+          <img src="Images/Blob/bracelet.png" alt="gumby" />
+        </div>
+
+        <div class="video-wrapper" id="seeSawVideo">
+          <iframe
+            id="blobPlayer"
+            src="https://www.youtube.com/embed/tDKV-lT-S-U?si=WM7nwpv540Q_YjEv"
+            title="Blob Video"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </section>
+      <p>
+        <br /><br />
+        After a second thought, It seems like working on just the 'phone' portion of the project is
+        rather limiting, and nonsensical as a phone made of a paper-like material would effectivly
+        be equivalent to one made of glass, even if more materially accessible. I went back to the
+        drawing board to determine what about the phone was most interesting to me. I felt that it
+        was actually the idea of the 'widget', a collection of various functionalities that a phone
+        brings - like the timers, the msuic players, calculators, etc.
+      </p>
+      <p>
+        <br /><br />
+        Perhaps what would be more interesting is to take some of these digital widgets, which
+        currently live in our phones and turn them into physical gadgets, which can work together to
+        form a folio of lightweight and compact widgets (ideally even flat) that can be carried
+        around and interacted with anywhere, anytime. <br /><br />
+        I came accross
+        <a
+          href="https://www.kickstarter.com/projects/551648271/papier-machine-vol0-the-interactive-electronic-pap?ref=pl979s&amp;token=97c680b6"
+          class="ex1"
+          >this</a
+        >
+        project by french designers that created paper electronic toys and was very intruiged by
+        their approach with the interaction between the electronics, paper, and the user. I also
+        really liked how the batteries they were using were similarly lightweight and flat, which
+        might serve as useful power source ideas for my project.
+      </p>
+      <br /><br />
+      <p>
+        <br /><br />
+        Up until now I'm been esspeically interested in paper electronics, however after the
+        assignment in Week 6 with casting, I discovered a new possibility: silicone. Perhaps rather
+        than having a collection of paper items that can connect together to make different widgets,
+        my project could be one silicone object that bends and morphs to make different widgets!
+        <br /><br />
+        I think this train of thought is the most interesting to me, as it becomes a very playful
+        and do wad of an object where the fabrication and electronics need to work in harmony. I
+        have begun to think of the idea as a 'gumby thneed', referring to the sticky silicone green
+        man and the product from the Lorax that could famously 'be anything and everything people
+        need'.
+        <br /><br />
+        I am really interested in the idea that the different functionalities emerge when different
+        limbs on the object touch, forming a complete circut. Perhaps the same limb can even lead to
+        different functionalities depending on the other limb it is connected to.
+
+        <br /><br />
+        I began looking at if this is at all feasable, and it seems like there are some precedents.
+        First I found this site which describes
+        <a href="https://www.instructables.com/Silicone-Devices/" class="ex1"
+          >making embedded circuts into stretchy silicone</a
+        >, where they embedded all of the inputs, outputs, and power into silicone and show a
+        diversive of projects that use this system. In order to atcheive the different functions
+        this example used different layers to seperate the circuts. Each layer was cut or etched
+        into a baseplate, stuffed, then cast in silicone before moving onto the next layer. However
+        this example features an entriely flat silicone peice.
+
+        <br /><br />
+        A next step that I looked at was brainstorming some possible widget functionalities, and
+        corresponding 'positions' or 'emerging geometries' can can occur. Here is a non-exhaustive
+        list of the ideas:
+
+        <br /><br />
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th>Functionality</th>
+            <th>Posible Physical Position</th>
+            <th>Priority to Implement (on a 1-3 Scale)</th>
+            <th>Required Hardware Overview</th>
+          </tr>
+          <tr>
+            <th>Clock</th>
+            <td>Wrist-sized object so it can potentially be worn as a watch?<br /></td>
+            <td>1</td>
+            <td>
+              Array of 60 LED lights/embedded screen? <br />
+              alternitavly, 12 LEDs in a circle <br />
+              <a
+                href="https://blog.arduino.cc/2016/09/20/pixie-is-an-arduino-based-neopixel-watch/"
+                class="ex1"
+                >such as here</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th>Timer</th>
+            <td>Any</td>
+            <td>3</td>
+            <td>
+              Lights of any number to show time drcreasing (at least 3) and a vibration to indicate
+              time has run out. Also touch inputs to set the amount of time for timer.
+            </td>
+          </tr>
+          <tr>
+            <th>Digital Pet</th>
+            <td>Any</td>
+            <td>3</td>
+            <td>Eyes and Smile with lights, feeding and playing with it, haptic feedback.</td>
+          </tr>
+          <tr>
+            <th>Game</th>
+            <td>Any</td>
+            <td>3</td>
+            <td>
+              Could fit into the components of other functions if it has some sort of inputs and
+              outputs.
+            </td>
+          </tr>
+          <tr>
+            <th>Magic Eight Ball</th>
+            <td>Any</td>
+            <td>3</td>
+            <td>LED light array to convay message, touch inputs of some sort</td>
+          </tr>
+          <tr>
+            <th>Decorative Pattern</th>
+            <td>Necklace organization</td>
+            <td>2</td>
+            <td>LED light array to display digital decorative geometry, music visualizer.</td>
+          </tr>
+          <tr>
+            <th>Weather Forecast</th>
+            <td>Any</td>
+            <td>2</td>
+            <td>LED light array to display the weather</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="image-row">
+        <img
+          src="Images/Blob/l.jpg"
+          width="800"
+          alt="Early concept sketches for the Blob wearable device"
+        />
+        <img
+          src="Images/Blob/400207025_1846442339128335_6539734190168272184_n.jpg"
+          class="color"
+          alt="Flexible Blob prototype worn around a wrist"
+        />
+      </div>
+      <br /><br />
+      <h2>Hardware Electronics</h2>
+      <br /><br />
+      <div class="image-row">
+        <img src="Images/Blob/sketch2.jpg" alt="layers of circut" class="color" />
+        <img
+          src="Images/Blob/387472132_313239948271738_6631508175613630389_n.jpg"
+          class="color"
+          alt="Blob silicone prototype with embedded electronics"
+        />
+      </div>
+      <br /><br />
+      <table>
+        <tbody>
+          <tr>
+            <th>Functionality</th>
+            <th>Arm combination</th>
+            <th>Functionality</th>
+            <th>Required Hardware</th>
+          </tr>
+          <tr>
+            <th>Clock</th>
+            <td>1 + 4</td>
+            <td>1</td>
+            <td>+ 12 RGB Lights <br />+ GPS tracking to know the time</td>
+          </tr>
+          <tr>
+            <th>Timer</th>
+            <td>2 + 3</td>
+            <td>3</td>
+            <td>
+              +12 RGB lights to display countdown <br />
+              +3 buttons (one is enter, one is + and one is -)
+            </td>
+          </tr>
+          <tr>
+            <th>Digital Pet</th>
+            <td>Any</td>
+            <td>3 + 4</td>
+            <td>+12 lights <br />+3 buttons</td>
+          </tr>
+          <tr>
+            <th>Game</th>
+            <td>Any</td>
+            <td>5 + 6</td>
+            <td>
+              +10 lights <br />
+              +2 buttons (catch and reset)
+            </td>
+          </tr>
+          <tr>
+            <th>Magic Eight Ball</th>
+            <td>Any</td>
+            <td>3 + 4</td>
+            <td>
+              + 10 lights <br />
+              +2 buttons (weekly and day weather)
+            </td>
+          </tr>
+          <tr>
+            <th>Decorative Pattern</th>
+            <td>1 + 6</td>
+            <td>2</td>
+            <td>+ 12 lights <br />+button to switch modes</td>
+          </tr>
+          <tr>
+            <th>Weather Forecast</th>
+            <td>Any</td>
+            <td>2 + 5</td>
+            <td>
+              + LED light array to display the weather <br />+2 buttons to switch from day to week
+              display <br />+wifi module to figur eout the forecast
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br /><br />
+      <p>
+        I have decided to use the SEED XIAO micro processor, which means that despite the 12 lights,
+        Wifi module, three buttons, and mode switching, vibration, and speaker will all need to fit
+        within the 10 pins the XIAO offers. This will require some strategic approach to the
+        hardware.
+      </p>
+
+      <br /><br /><br />
+      <div class="image-container">
+        <img src="Images/Blob/rgblight.jpg" alt="layers of circut" />
+        <p>
+          I purchased these lights
+          <a
+            href="https://www.amazon.com/dp/B01DC0J0WS?_encoding=UTF8&amp;psc=1&amp;ref_=cm_sw_r_ud_dp_9Y99KF6BJJY8A4CRZBYT"
+            class="ex1"
+          >
+            here</a
+          >, which have built in circuts and can be condtrolled in bulk yet are individually
+          accessible.
+        </p>
+      </div>
+      <br /><br />
+      <div class="image-container">
+        <img src="Images/Blob/speaker.jpg" alt="final circut" />
+        <div>
+          I also got this speaker
+          <a
+            href="https://www.amazon.com/dp/B0BXKLY572?_encoding=UTF8&amp;psc=1&amp;ref_=cm_sw_r_ud_dp_H19FBYWRN5NZJ69QHWJ2"
+            class="ex1"
+          >
+            here</a
+          >, which will only use one of the XIAO pins for the output.
+        </div>
+      </div>
+      <br /><br />
+      <div class="image-container">
+        <img src="Images/Blob/wifi.jpg" alt="final circut" />
+        <div>
+          I aquired this wifi module
+          <a
+            href="https://www.amazon.com/dp/B010N1ROQS?ref_=cm_sw_r_ud_dp_9GESC142YBPDS2SVDBW6"
+            class="ex1"
+          >
+            here</a
+          >, which will connect tot he time and weather and such.
+        </div>
+      </div>
+      <br /><br />
+
+      <div>
+        <h2>PCB Design and Fabrication</h2>
+        <br /><br />
+        <center>
+          <img
+            src="Images/Blob/hardware sketch.jpg"
+            width="600"
+            class="color"
+            alt="Blob hardware and circuit layout sketch"
+          />
+        </center>
+        <div class="image-row">
+          <img src="Images/Blob/PCB Try  traces-01.png" alt="layers of circut" />
+          <img src="Images/Blob/IMG_4783.JPG" alt="final circut" />
+        </div>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/PCB try 2-01.png" alt="layers of circut" />
+          <img src="Images/Blob/IMG_4784.JPG" alt="final circut" />
+        </div>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/PCB try 3 traces-01.png" alt="layers of circut" />
+          <img src="Images/Blob/IMG_4802.JPG" alt="final circut" />
+        </div>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/traces 1-01.png" alt="layers of circut" />
+          <img src="Images/Blob/IMG_4871.JPG" alt="final circut" />
+        </div>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/traces 2-01.png" alt="layers of circut" />
+          <img src="Images/Blob/IMG_4874.JPG" alt="final circut" />
+        </div>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/traces 3.png" alt="layers of circut" />
+          <img src="Images/Blob/IMG_4887.JPG" alt="final circut" />
+        </div>
+        <br /><br />
+
+        <div>
+          <h2>Casting and Moldmaking</h2>
+          <br /><br />
+
+          <p>
+            I first modeled an approximate geometry in Rhino - the details of the form need to be
+            figured out later - and attempted to make a mold. I want to try 3D printing this mold as
+            it will be cast in silicone which is flexible and might be able to easily be removed
+            from the hard mold. I want to primarily see if the layers are an issue and if the
+            silicone will release from the mold.
+          </p>
+
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/mold for test.jpg" alt="layers of circut" />
+            <img src="Images/Blob/mold for test detail.jpg" alt="final circut" />
+          </div>
+          <br /><br />
+          <p>
+            <br /><br />
+            My mold I designed earlier finally got printed and was ready to be test-cast! I used
+            some silicon I had bought very cheaply on Amazon.
+          </p>
+          <br /><br />
+          <center>
+            <img
+              src="Images/Blob/IMG_4786.JPG"
+              style="transform: rotate(90deg)"
+              width="500"
+              alt="Circuit fabrication test for the Blob prototype"
+            />
+          </center>
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/IMG_4882.JPG" alt="layers of circut" />
+            <img src="Images/Blob/IMG_4883.JPG" alt="final circut" />
+          </div>
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/IMG_4896.JPG" alt="layers of circut" />
+            <img src="Images/Blob/IMG_4900.JPG" alt="final circut" />
+          </div>
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/IMG_4898.JPG" alt="layers of circut" />
+            <img src="Images/Blob/IMG_4899.JPG" alt="final circut" />
+          </div>
+          <br /><br />
+          <p>
+            <br /><br />
+            Although the molding process was overall sucessful, at first the two molds refused to
+            hold together, despite all the tape and hot glue the sillicon flowed right out. Thus I
+            decided to cast the two seperatley and then later attach them. <br /><br />
+            Moving onto the final iteration of the mold, I tried to make a ledge that would slot
+            into itself in order to ensure that I could cast it in one piece. I added indentations
+            for things like the clips and where the buttons would be, as well as holes for th wires
+            to exit the sillicon when the casting was being performed.
+          </p>
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/mold1.PNG" alt="layers of circut" />
+            <img src="Images/Blob/mold2.PNG" alt="final circut" />
+          </div>
+          <br /><br />
+          <img
+            src="Images/Blob/405095491_1507847289996610_1236464702347615379_n.jpg"
+            width="500"
+            alt="Molded silicone form for the Blob wearable prototype"
+          />
+          <br /><br />
+          <p>
+            <br /><br />
+            While the electronics aspect of this project was frustrating in its own way, the casting
+            was by far the most inexplicably and unexpectidly difficult. The morning of the final
+            presentation I tried to cast the sillicon, however I had eyeballed the ratios
+            incorrectly and so the entire thing had to be scrapped. <br /><br />
+            I decided to be persistant and try another cast another time the next day.
+          </p>
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/IMG_4786.JPG" alt="Circuit mold test" />
+            <img src="Images/Blob/IMG_5206-min.JPG" alt="Final circuit prototype" />
+          </div>
+          <br /><br />
+          <div class="image-row">
+            <img src="Images/Blob/IMG_5206-min.JPG" alt="Circuit prototype" />
+            <img src="Images/Blob/IMG_5206-min.JPG" alt="final circut" />
+          </div>
+          <br /><br />
+          <center>
+            <img src="Images/Blob/IMG_5206-min.JPG" alt="Completed circuit prototype" width="500" />
+          </center>
+          <br /><br />
+          <br /><br />
+
+          <h2>Final Product</h2>
+
+          <h3>What Worked</h3>
+          <p>
+            <br /><br />
+            A lot more of my project worked than I was originally expecting. The clips ended up
+            working despite the difficulty and number of iterations that were required to get than
+            portion functional. In addition I think the overall form was very sucessful in its goal
+            of being a playful 'blob'
+          </p>
+          <br /><br />
+        </div>
+        <div class="image-row">
+          <img src="Images/Blob/IMG_5209-min.jpg" alt="Circuit layers" class="color" />
+          <img src="Images/Blob/IMG_5223.png" alt="Final circuit" class="color" />
+        </div>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/IMG_5209-min.jpg" alt="layers of circut" class="color" />
+          <img src="Images/Blob/IMG_5243-min.JPG" alt="Final circuit" class="color" />
+        </div>
+
+        <h3>What Didn't Work</h3>
+        <p>
+          <br /><br />
+          On the hand, many things were also difficult to atcheive at the level I was hoping.
+          <br /><br />
+          For instance, despite the last time the casting was more sucessful there were some higher
+          elevation areas of the mold that were not reached by the sillicon so the top of the blob
+          is uneven. In addition, I had to remove the sound sensor when pouring the sillicon as I
+          had not made an opening for the microphone to stick out and I was worried about it
+          breaking if in silicon. I had the connecting wires stick out to be able to add it back in,
+          but I cant figure out which wires are which (two of the wires are the same color which
+          doesn't help).
+          <br /><br />
+          The blob also needs to be wired at the moment, as there is no battery within it, which
+          would be something I want to impliment in the next iteration.
+        </p>
+        <br /><br />
+        <div class="image-row">
+          <img src="Images/Blob/IMG_5243-min.JPG" alt="layers of circut" class="color" />
+          <img src="Images/Blob/IMG_5243-min.JPG" alt="Final circuit" class="color" />
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("shared/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
+
+      fetch("shared/components/header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+    <script src="shared/scripts/cursor.js"></script>
+  </body>
+</html>

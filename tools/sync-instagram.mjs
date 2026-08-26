@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 
 const token = process.env.INSTAGRAM_ACCESS_TOKEN;
-const output = process.env.INSTAGRAM_OUTPUT || "assets/data/instagram-posts.json";
+const output = process.env.INSTAGRAM_OUTPUT || "shared/data/instagram-posts.json";
 const limit = Math.min(Number(process.env.INSTAGRAM_POST_LIMIT || 50), 100);
 
 if (!token) throw new Error("Missing INSTAGRAM_ACCESS_TOKEN");

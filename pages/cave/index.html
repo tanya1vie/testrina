@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cave House</title>
+
+    <link rel="stylesheet" href="shared/styles/base.css" />
+    <link rel="stylesheet" href="shared/styles/projectPage.css" />
+    <link rel="stylesheet" href="shared/styles/cursor.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2020</p>
+        <h1 class="project-title">CAVE HOUSE</h1>
+        <p class="project-subtitle">House for the 21st Century</p>
+
+        <div class="project-description">
+          <p>
+            Frequently overshadowed by the primitive hut, the cave typology has been largely
+            unexplored in architectural discourse due to the lack of architectonic qualities. The
+            Australian town of Coober Pedy, “the opal capital of the world”, is also internationally
+            known for its peculiar vernacular housing tradition. The Cave House acts as a dwelling
+            for two NASA scientists, a botanist and an aeronautical engineer, and their children,
+            who are relocating to the outback for research work.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Here and Now: Housing Competition</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>Coober Pedy, Australia</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE + TOOLS</h2>
+            <p>Rhinoceros3D, V-Ray, Photoshop, Illustrator</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-images">
+        <img
+          src="Images/CaveHouse/Interior_Render.jpg"
+          class="thin-image"
+          alt="Interior rendering of the Cave House"
+        />
+        <br /><br /><br />
+
+        <img src="Images/CaveHouse/History_Bubbles.jpg" class="thin-image" alt="" />
+        <br />
+
+        <div class="image-row">
+          <img src="Images/CaveHouse/Hut_vs_Cave.jpg" alt="" />
+          <img src="Images/CaveHouse/Site_Plan.jpg" alt="" />
+        </div>
+
+        <br /><br />
+
+        <img src="Images/CaveHouse/Process_Diagrams.jpg" class="thin-image" alt="" />
+        <img src="Images/CaveHouse/Exterior_Render.jpg" class="thin-image" alt="" />
+        <br />
+
+        <img src="Images/CaveHouse/ACSA_Boards3_edited.jpg" class="thin-image" alt="" />
+        <br />
+
+        <img src="Images/CaveHouse/Rendered_Section.jpg" class="thin-image" alt="" />
+        <br /><br />
+
+        <img src="Images/CaveHouse/Plans.jpg" class="thin-image" alt="" />
+        <br /><br />
+
+        <img src="Images/CaveHouse/Section.jpg" class="thin-image" alt="" />
+        <br /><br /><br />
+
+        <img src="Images/CaveHouse/Exploded_Axon.jpg" class="thin-image" alt="" />
+        <br /><br /><br />
+
+        <img src="Images/CaveHouse/Room_Breakdown.jpg" class="thin-image" alt="" />
+        <br /><br />
+
+        <img src="Images/CaveHouse/ACSA_Boards4_edited.jpg" class="thin-image" alt="" />
+        <br /><br />
+
+        <img src="Images/CaveHouse/Detail_Sections.jpg" class="thin-image" alt="" />
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("shared/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
+
+      fetch("shared/components/header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="shared/scripts/cursor.js"></script>
+    <script src="shared/scripts/galleryscroll.js"></script>
+  </body>
+</html>

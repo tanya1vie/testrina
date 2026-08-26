@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratum | Tatiana Estrina</title>
+
+    <style>
+      /* True black background */
+      html,
+      body {
+        background: #000000 !important;
+      }
+
+      /* Invert ONLY text/content sections, not the image gallery */
+      #header,
+      #footer,
+      .project-header,
+      .content-wrapper {
+        filter: invert(1) hue-rotate(180deg);
+      }
+
+      /* Make sure project images are NOT filtered at all */
+      .project-images,
+      .project-images img,
+      .project-images .image-row img {
+        filter: none !important;
+      }
+
+      /* Cursor: keep global white/difference behavior */
+      .custom-cursor {
+        background: #ffffff;
+        mix-blend-mode: difference;
+      }
+    </style>
+
+    <link rel="stylesheet" href="shared/styles/base.css" />
+    <link rel="stylesheet" href="shared/styles/projectPage.css" />
+    <link rel="stylesheet" href="shared/styles/cursor.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2018</p>
+        <h1 class="project-title">STRATUM</h1>
+        <p class="project-subtitle">an installation made of isomalt and tonic water</p>
+        <p class="project-description"></p>
+        <p>
+          Drawing from references such as the Scarborough Bluffs, Stratum creates an immersive
+          experience using sculpture and light to examine how humans live within natural forces of
+          gravity, erosion and stratification. Material experimentation was a key element of the
+          project, developing the chemical mixture of quinine and isomalt.
+        </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Grow Op Exhibition 2018</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>Gladstone Hotel, Toronto</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>Rhinoceros3D, Illustrator, RhinoCam, CNC Mill</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">COLLABORATORS</h2>
+            <p>Shengyu Cai, Jiaqi Liu, Thomas Gomez</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">ROLES</h2>
+            <p>
+              Design, 3D Modeling, Budgeting, Fabrication, Material Experimentation, Logistics,
+              Detailing
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-images">
+        <img src="Images/Stratum/Full_Photo.jpg" alt="Yamal Peninsula - Exploded Axonometric" />
+        <div class="image-row">
+          <img src="Images/Stratum/MIT_Portoflio45_edited.jpg" alt="" />
+          <img src="Images/Stratum/[R]ed[U]xLab_GrowOp2018_GabbyFrank_(3).jpg" alt="" />
+        </div>
+        <div class="image-row">
+          <img src="Images/Stratum/[R]ed[U]xLab_GrowOp2018_GabbyFrank_(2).jpg" alt="" />
+          <img src="Images/Stratum/[R]ed[U]xLab_GrowOp2018_GabbyFrank_(1).jpg" alt="" />
+        </div>
+        <img
+          src="Images/Stratum/MIT_Portoflio45.png"
+          alt="Yamal Peninsula - Exploded Axonometric"
+        />
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("shared/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
+
+      fetch("shared/components/header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+    <script src="shared/scripts/cursor.js"></script>
+  </body>
+</html>

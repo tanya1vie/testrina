@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spatial Design</title>
+    <link rel="stylesheet" href="shared/styles/base.css" />
+    <link rel="stylesheet" href="shared/styles/projectList.css" />
+    <link rel="stylesheet" href="shared/styles/cursor.css" />
+
+    <!-- Page-specific styles -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div id="header"></div>
+
+    <script>
+      fetch("shared/components/header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
+
+          // ✅ IMPORTANT: load header JS AFTER header exists
+          const s = document.createElement("script");
+          s.src = "shared/scripts/headerBubbles.js";
+          document.body.appendChild(s);
+        });
+    </script>
+
+    <main id="main-content">
+      <div class="titleSection">
+        <h1>spatial design.</h1>
+        <div class="subtitle">architecture · spaces · cities · built work</div>
+      </div>
+      <div class="project-list">
+        <a href="vela.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Vela</div>
+            <h2>How can a restaurant become a spatial experience?</h2>
+            <p class="project-description">Internship at PARTISANS</p>
+            <p class="project-tags">Professional · Architecture · Interior Design · Detailing</p>
+          </div>
+          <div class="project-image">
+            <img src="Images/Vela/DL_WEB_Vela_3_edited.jpg" alt="Restaurant interior" />
+          </div>
+        </a>
+
+        <a href="uproot.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Uproot</div>
+            <h2>What if a mine could now be a garden?</h2>
+            <p class="project-description">ACSA / AISC Steel Design Competition</p>
+            <p class="project-tags">Competition · Architecture · Steel Design · Detailing</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Uproot/Aerial_Render.jpg"
+              alt="Aerial rendering of the Uproot mine and garden proposal"
+            />
+          </div>
+        </a>
+        <a href="tripix.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Tripix</div>
+            <h2>How can one build a pavillion on toronto's Waterfront that reflects the city?</h2>
+            <p class="project-description">Icebreakers Festival</p>
+            <p class="project-tags">Installation · Fabrication · Computational Design</p>
+          </div>
+          <div class="project-image">
+            <img src="Images/Tripix/MIT_Portoflio18_edited.jpg" alt="Tripix waterfront pavilion" />
+          </div>
+        </a>
+
+        <a href="polysapien.html" class="project">
+          <div class="project-info">
+            <div class="project-title">The Metamorphosis of the Polysapien</div>
+            <h2>What is the collective future of the human body?</h2>
+            <p class="project-description">Core I Studio at MIT</p>
+            <p class="project-tags">Research · Fabulation · Fabrication · Bookmaking</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Polysapien/Book_Layout_Large_Format39_edited.jpg"
+              alt="The Metamorphosis of the Polysapien"
+            />
+          </div>
+        </a>
+
+        <a href="matter.html" class="project">
+          <div class="project-info">
+            <div class="project-title">A Subsequent Matter of Substance</div>
+            <h2>How can we design for planned destruction in our spaces?</h2>
+            <p class="project-description">Core II Studio</p>
+            <p class="project-tags">Academic · Architecture</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Matter/Webp.net-gifmaker_(6).gif"
+              alt="A Subsequent Matter of Substance"
+            />
+          </div>
+        </a>
+
+        <a href="yamal.html" class="project">
+          <div class="project-info">
+            <div class="project-title">The Yamal Conspiracy</div>
+            <h2>How can we geoengineer the Russian Arctic?</h2>
+            <p class="project-description">Geo-Design Seminar</p>
+            <p class="project-tags">Academic · Fabulation · Geo Design · Writing</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Yamal/Yamal_Peninsula_-_Anthrax_Dispersion_02_edited_edited.jpg"
+              alt="The Yamal Conspiracy"
+            />
+          </div>
+        </a>
+
+        <a href="bach.html" class="project">
+          <div class="project-info">
+            <div class="project-title">A House for Bach</div>
+            <h2>How does Bach’s music become a spatial experience?</h2>
+            <p class="project-description">Advanced Architecture Studio</p>
+            <p class="project-tags">Academic · Architecture</p>
+          </div>
+          <div class="project-image">
+            <img src="Images/Bach/Sunrise_Approach_Render.jpg" alt="House for J.S. Bach" />
+          </div>
+        </a>
+
+        <a href="marche.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Marché du Pont</div>
+            <h2>How can an old bridge be repurposed as a market?</h2>
+            <p class="project-description">Canadian Steel Design Competition 2021</p>
+            <p class="project-tags">Competition · Architecture · Detailing</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Marche/186634585_1125922204571225_82523339383687862_n_(3)_edited.jpg"
+              alt="Marché du Pont"
+            />
+          </div>
+        </a>
+
+        <a href="conservatory.html" class="project">
+          <div class="project-info">
+            <div class="project-title">The Strand Conservatory</div>
+            <h2>How should we design with water-level rise?</h2>
+            <p class="project-description">Core II Studio</p>
+            <p class="project-tags">Academic · Architecture · Fabulation · Visualization</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Conservatory/Roof_Down_Center_FINAL.png"
+              alt="The Strand Conservatory"
+            />
+          </div>
+        </a>
+
+        <a href="ossurary.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Hart Island Ossuary</div>
+            <h2>How can architecture remember those who have been forgotten?</h2>
+            <p class="project-description">ACSA / AISC Steel Design Competition</p>
+            <p class="project-tags">Competition · Architecture · Detailing · Visualization</p>
+          </div>
+          <div class="project-image">
+            <img src="Images/Ossurary/Side_Render_cropped.jpg" alt="Hart Island Ossuary" />
+          </div>
+        </a>
+
+        <a href="seaweed.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Compass Harbor Seaweed Processing Facility</div>
+            <h2>How can a seaweed processing facility be built above the ocean?</h2>
+            <p class="project-description">Core III Studio</p>
+            <p class="project-tags">Academic · Architecture · Detailing</p>
+          </div>
+          <div class="project-image">
+            <img
+              src="Images/Seaweed/module_33.png"
+              alt="Compass Harbor Seaweed Processing Facility"
+            />
+          </div>
+        </a>
+
+        <a href="cave.html" class="project">
+          <div class="project-info">
+            <div class="project-title">Cave House</div>
+            <h2>How do we build a comfortable home underground?</h2>
+            <p class="project-description">House for the 21st Century Competition</p>
+            <p class="project-tags">Competition · Architecture · Visualization</p>
+          </div>
+          <div class="project-image">
+            <img src="Images/CaveHouse/Interior_Render.jpg" alt="Cave House interior" />
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <script src="shared/scripts/fadeIn.js" defer></script>
+
+    <div class="custom-cursor" id="customCursor"></div>
+    <script src="shared/scripts/cursor.js"></script>
+  </body>
+</html>

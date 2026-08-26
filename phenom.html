@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phenomeneurology | Tatiana Estrina</title>
+    <link rel="stylesheet" href="shared/styles/base.css" />
+    <link rel="stylesheet" href="shared/styles/projectPage.css" />
+    <link rel="stylesheet" href="shared/styles/cursor.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2018</p>
+        <h1 class="project-title">PHENOMENEUROLOGY</h1>
+        <p class="project-subtitle">the office that stays with you wherever you go </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>Non-Architecture Office Competition</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">LOCATION</h2>
+            <p>The Human Brain</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>Illustrator</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">COLLABORATORS</h2>
+            <p>Ruotao Wang</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-images">
+        <div class="two-col-e">
+          <img
+            src="Images/Phenom/Three_Faces.jpg"
+            alt="Drawing of the Marché du Pont proposal on the Expo Express bridge remnant"
+          />
+
+          <div class="two-col-text">
+            <p>
+              Introducing the revolutionary piece of synthetic neurology - Phenomeneurology. This
+              all-new product allows for 100% productivity, providing you time to do whatever you
+              wish. By connecting the cortex, hippocampus and frontal lobes, a direct signal network
+              emerges between critical thinking organs and those dealing with information and
+              retrieval.<br /><br />
+              The product is simple to use: simply ingest one pill and the virus within the tablet
+              will travel through your bloodstream to your brain. Here it will begin to grow into
+              synthetic neuron tissue, which when extended to reach the cortex, will begin to emit
+              radio waves through empty grey matter in the cortex giving your mind access to the
+              Internet.<br /><br />
+              In the 21st century architects were designing spaces to create sensations. In the 22nd
+              century, we design sensations directly using neural infrastructures. Rather than an
+              office you can inhabit, we have now created an office that inhabits you without the
+              need of transport. This technology allows you to collaborate with your coworkers
+              straight from the comfort of your own home.<br /><br />
+              Get yours today!<br /><br />
+              Possible Side Effects:<br /><br />
+              Hallucinations, delusions, vomiting, coma, momentary or permanent paralysis, and/or
+              death If you experience any of these effects please stay calm and have faith in
+              technology.
+            </p>
+          </div>
+        </div>
+        <br /><br />
+        <img
+          src="Images/Phenom/9599_Phenomeneurology_Technical.jpg"
+          alt="Yamal Peninsula - Anthrax Dispersion"
+        /><br /><br />
+        <img
+          src="Images/Phenom/9599_Phenomeneurology_Functional.jpg"
+          alt="Yamal Peninsula - Northern Sea Route"
+        />
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("shared/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
+
+      fetch("shared/components/header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+    <script src="shared/scripts/cursor.js"></script>
+  </body>
+</html>

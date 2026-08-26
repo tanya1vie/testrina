@@ -61,12 +61,16 @@ for (const page of pageDirectories) {
   const sourceDirectory = join(pagesRoot, page.name);
 
   if (page.name === "head-above-water") {
+    const localPublicDirectory = join(repositoryRoot, "projects", page.name);
+    await rm(localPublicDirectory, { recursive: true, force: true });
+    await cp(sourceDirectory, localPublicDirectory, { recursive: true });
     await cp(sourceDirectory, join(outputRoot, "projects", page.name), { recursive: true });
     continue;
   }
 
   const sourceHtml = join(sourceDirectory, "index.html");
   const publicName = page.name === "home" ? "index.html" : `${page.name}.html`;
+  await cp(sourceHtml, join(repositoryRoot, publicName));
   await cp(sourceHtml, join(outputRoot, publicName));
 
   const pageAssets = (await readdir(sourceDirectory, { withFileTypes: true })).filter(
@@ -86,5 +90,5 @@ for (const page of pageDirectories) {
 }
 
 console.log(
-  `Built ${pageDirectories.length} page directories into ${relative(repositoryRoot, outputRoot)}/.`,
+  `Synced local public pages and built ${pageDirectories.length} page directories into ${relative(repositoryRoot, outputRoot)}/.`,
 );

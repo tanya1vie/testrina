@@ -55,7 +55,6 @@ const retiredSourcePaths = [
   "footer.html",
   "head-above-water-main",
   "portfoliobook",
-  "projects",
   "assets/css",
   "assets/js",
   "assets/data",
@@ -223,10 +222,6 @@ for (const path of retiredSourcePaths) {
     failures.push(`Retired source path still exists: ${path}`);
 }
 
-const rootSourceHtml = (await readdir(repositoryRoot)).filter((name) => name.endsWith(".html"));
-if (rootSourceHtml.length)
-  failures.push(`Page source must live under pages/: ${rootSourceHtml.join(", ")}`);
-
 const pageDirectories = (
   await readdir(join(repositoryRoot, "pages"), { withFileTypes: true })
 ).filter((entry) => entry.isDirectory());
@@ -234,6 +229,38 @@ for (const page of pageDirectories) {
   if (!(await exists(join(repositoryRoot, "pages", page.name, "index.html")))) {
     failures.push(`Page folder is missing index.html: pages/${page.name}`);
   }
+}
+
+const expectedLocalPages = new Map(
+  pageDirectories
+    .filter((page) => page.name !== "head-above-water")
+    .map((page) => [page.name === "home" ? "index.html" : `${page.name}.html`, page.name]),
+);
+const actualLocalPages = (await readdir(repositoryRoot)).filter((name) => name.endsWith(".html"));
+for (const [publicName, pageName] of expectedLocalPages) {
+  const source = await readFile(join(repositoryRoot, "pages", pageName, "index.html"), "utf8");
+  const localPublicPath = join(repositoryRoot, publicName);
+  if (!(await exists(localPublicPath))) {
+    failures.push(`Local public page is missing: ${publicName}`);
+  } else if ((await readFile(localPublicPath, "utf8")) !== source) {
+    failures.push(
+      `Local public page is out of sync with pages/${pageName}/index.html: ${publicName}`,
+    );
+  }
+}
+for (const publicName of actualLocalPages) {
+  if (!expectedLocalPages.has(publicName))
+    failures.push(`Unexpected root HTML page: ${publicName}`);
+}
+
+const localHeadAboveWater = join(repositoryRoot, "projects/head-above-water/index.html");
+if (!(await exists(localHeadAboveWater))) {
+  failures.push("Local Head Above Water public page is missing");
+} else if (
+  (await readFile(localHeadAboveWater, "utf8")) !==
+  (await readFile(join(repositoryRoot, "pages/head-above-water/index.html"), "utf8"))
+) {
+  failures.push("Local Head Above Water public page is out of sync");
 }
 
 if (!(await exists(publicRoot)))

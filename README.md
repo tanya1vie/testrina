@@ -21,10 +21,12 @@ This repository contains Tatiana Estrina's static portfolio site. The editable s
 ├── files/                     Public downloadable files
 ├── docs/                      Setup and maintenance notes
 ├── tools/                     Build, validation, and maintenance scripts
+├── *.html                     Generated local/public compatibility copies
+├── projects/                  Generated standalone-project compatibility copy
 └── dist/                      Generated public site (ignored by Git)
 ```
 
-`Images/` intentionally retains its original name so existing media URLs and bookmarks keep working. Redirect-only aliases from the old Wix migration have been removed; internal links use the canonical pages directly.
+`Images/` intentionally retains its original name so existing media URLs and bookmarks keep working. Redirect-only aliases from the old Wix migration have been removed; internal links use the canonical pages directly. The root HTML files are generated from `pages/` so the repository can still be previewed with a server pointed at its root. Edit the files under `pages/`, not the generated root copies.
 
 ## Development
 
@@ -40,7 +42,7 @@ Build and validate the complete site:
 npm test
 ```
 
-The generated website is in `dist/`. To preview it in VS Code, open `dist/index.html` with Live Server. You can also serve the `dist/` folder with any static web server.
+The generated website is in `dist/`. You can preview either the repository root or the `dist/` folder with VS Code Live Server. Both use the same generated page content.
 
 When editing, change files under `pages/` or `shared/`, then rebuild. Do not edit generated files in `dist/`.
 

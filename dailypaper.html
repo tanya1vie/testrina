@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Paper | Tatiana Estrina</title>
+    <link rel="stylesheet" href="shared/styles/base.css" />
+    <link rel="stylesheet" href="shared/styles/projectPage.css" />
+    <link rel="stylesheet" href="shared/styles/cursor.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <main class="main">
+      <div class="project-header">
+        <p class="project-year">2023</p>
+        <h1 class="project-title">DAILY PAPER</h1>
+        <p class="project-subtitle">get your morning news on the throne</p>
+        <p class="project-description"></p>
+        <p>
+          This group project was spurred byt he challange to design a machine from scratch. We
+          decided to make a plotter that would print today's headline on toilet paper. The rest was
+          history.
+        </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="project-details">
+          <div class="detail-column">
+            <h2 class="detail-title">CONTEXT</h2>
+            <p>
+              <a
+                class="text-link"
+                href="https://fab.cba.mit.edu/classes/863.23/Architecture/people/Tatiana/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                How to Make Almost Anything
+              </a>
+              with Professor Neil Gershenfeld
+            </p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">SOFTWARE</h2>
+            <p>Rhino, 3D Printing, Illustrator, Python</p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">COLLABORATORS</h2>
+            <p>
+              Alexander Htet Kyaw, Charles Perot Janson, Danny Griffin, Diana Mykhaylychenko, Ekanem
+              Okeke, Mateo Fernandez Feraud, Merve Akdogan, Nasibe Nur Dundar Arifoglu, Niklas
+              Hagemann, Se Hwan Jeon, Shonit Nair Sharma, Simon Lesina Debiasi, Suwan Kim, Yitong
+              Tseo, Zhixing Chen
+            </p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">ROLES</h2>
+            <p>
+              Idea generation, Code to retreive headlines from the New York Times, Diagrams and
+              Documentation
+            </p>
+          </div>
+          <div class="detail-column">
+            <h2 class="detail-title">DISSEMINTION</h2>
+            <p>MIT Museum's After Dark</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-images">
+        <div class="two-col-e">
+          <img
+            src="Images/Hostile_Salad/img1.jpeg"
+            alt="Drawing of the Marché du Pont proposal on the Expo Express bridge remnant"
+          />
+
+          <div class="two-col-text">
+            <p>
+              Plating- an act performed on any meal as it is placed on the dish. With centuries of
+              tradition and history, the art of food presentation has undergone much exploration and
+              experimentation yet has failed to address the spatial nature of food display. Plating,
+              a form of microarchitecture, has implications beyond the borders of the dish, and has
+              spatial and behavioral effects on the consumers. This experiment examines the
+              development of a plating technique addressing gastronomic proxemics via robotic
+              actuation of the food. The meaningful act of combining artificial robotic elements
+              with natural food elements the project is able to implement proxemic-based responses
+              to the unique human relationships to food. This leads to the ability to map proxemic
+              concepts onto non-living elements such as cuisine.
+            </p>
+          </div>
+        </div>
+        <br />
+        <img
+          src="Images/Daily_Paper/exploded axon-01.jpg"
+          alt="Yamal Peninsula - Anthrax Dispersion"
+        />
+        <img
+          src="Images/Yamal/Yamal_Peninsula_-_Biosphere_(1).jpg"
+          alt="Yamal Peninsula - Perspectives"
+        />
+        <img
+          src="Images/Yamal/Yamal_Peninsula_-_Methane_Extraction_(1).jpg"
+          alt="Yamal Peninsula - Methane Extraction"
+        />
+        <img
+          src="Images/Yamal/Yamal_Peninsla__-_Northern_Sea_Route.jpg"
+          alt="Yamal Peninsula - Northern Sea Route"
+        />
+      </div>
+    </main>
+    <div id="footer"></div>
+
+    <script>
+      fetch("shared/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
+
+      fetch("shared/components/header.html")
+        .then((res) => res.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+    <script src="shared/scripts/cursor.js"></script>
+  </body>
+</html>

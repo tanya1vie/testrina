@@ -2,6 +2,12 @@ name: Scrape Instagram gallery
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - instagram-no-auth-scraper
+    paths-ignore:
+      - assets/data/instagram-posts.json
   schedule:
     - cron: "17 8 * * *"
 

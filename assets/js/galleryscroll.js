@@ -1,5 +1,6 @@
 (function(){
   const gallery = document.getElementById('gallery');
+  if (!gallery) return;
   let animating = false;
 
   // Ease-in-out cubic
@@ -42,6 +43,7 @@
   const lbCloseBtn = document.getElementById('lightboxClose');
 
   function sizeImage75(){
+    if (!lbImg) return;
     // 75% of the image's intrinsic size, clamped to viewport
     const nw = lbImg.naturalWidth  || 0;
     const nh = lbImg.naturalHeight || 0;
@@ -62,6 +64,7 @@ const targetH = nh * 0.95;
   }
 
   function openLightbox(src, alt){
+    if (!lightbox || !lbImg) return;
     lbImg.style.width = '';                    // reset any previous sizing
     lbImg.style.height = '';
 
@@ -74,9 +77,10 @@ const targetH = nh * 0.95;
   }
 
   function closeLightbox(){
+    if (!lightbox || !lbImg) return;
     lightbox.style.display = 'none';
     document.body.style.overflow = '';
-    lbImg.src = '';
+    lbImg.removeAttribute('src');
     lbImg.style.width = '';                    // cleanup
     lbImg.style.height = '';
   }
@@ -89,12 +93,14 @@ const targetH = nh * 0.95;
   });
 
   // Close interactions
-  lbCloseBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+  if (lbCloseBtn && lightbox && lbImg) {
+    lbCloseBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+  }
 
   // Re-clamp on resize (keeps 75% sizing within viewport)
   window.addEventListener('resize', ()=>{
-    if (lightbox.style.display === 'flex' && lbImg.complete) sizeImage80();
+    if (lightbox && lbImg && lightbox.style.display === 'flex' && lbImg.complete) sizeImage75();
   });
 })();

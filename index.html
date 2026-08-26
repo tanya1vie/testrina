@@ -45,8 +45,21 @@
       background: linear-gradient(transparent, rgba(0,0,0,.5));
     }
     .titleSection{ text-align: left; padding: 2rem 1rem; }
-    .titleSection h1{ margin: 0; font-size: 2rem; }
-    .titleSection .subtitle{ opacity: .8; }
+    .titleSection h1{
+      margin: .5rem 0;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      line-height: 1.05;
+    }
+    .titleSection .subtitle{
+      color: #1f1f1f;
+      font-size: clamp(1.125rem, 1.75vw, 1.25rem);
+      line-height: 1.5;
+      opacity: 1;
+    }
+    .titleSection .home-kicker{
+      font-size: clamp(1.125rem, 1.75vw, 1.25rem);
+      font-weight: 600;
+    }
     header .breadcrumb img { display: block; }
     .amazon-link{
       color: inherit;
@@ -60,6 +73,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div id="header"></div>
 
 <script>
@@ -75,13 +89,14 @@
     });
 </script>
 
-
+  <main id="main-content">
   <div class="titleSection">
-    <div class="subtitle"> Hey! </div>
+    <div class="subtitle home-kicker">Hey!</div>
     <h1 class="name">I'm Tanya.</h1>
     <div class="subtitle">
       I'm a
-      <span class="flip-container">
+      <span class="sr-only">multidisciplinary designer</span>
+      <span class="flip-container" aria-hidden="true">
         <span class="flip-word active">designer</span>
         <span class="flip-word">creative coder</span>
         <span class="flip-word">ballroom dancer</span>
@@ -102,9 +117,14 @@
     </div>
     <br><br>
 
-    <!-- ✅ CIRCLES HERE -->
-    <div id="puzzleHero" class="puzzle-hero" aria-label="Interactive triangle puzzle"></div>
+    <div
+      id="puzzleHero"
+      class="puzzle-hero"
+      role="navigation"
+      aria-label="Explore work by discipline"
+    ></div>
   </div>
+  </main>
 
 
   <div class="custom-cursor" id="customCursor"></div>

@@ -17,6 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial width
   syncWidth(words[index]);
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    words.forEach((word, wordIndex) => {
+      word.classList.toggle("active", wordIndex === index);
+      word.classList.remove("exit");
+    });
+    return;
+  }
+
   // Keep width correct on resize
   window.addEventListener("resize", () => {
     syncWidth(words[index]);

@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const mount = document.getElementById("puzzleHero");
   if (!mount) return;
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   const slices = [
     {
       name: "Spatial Design",
@@ -76,14 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  const MORPH_EVERY_MS = 4000;
-  const MORPH_DURATION_MS = 600;
+  const MORPH_EVERY_MS = prefersReducedMotion ? Number.POSITIVE_INFINITY : 4000;
+  const MORPH_DURATION_MS = prefersReducedMotion ? 1 : 600;
 
   const VIEWBOX_W = 1000;
   const VIEWBOX_H = 320;
 
   mount.innerHTML = `
-    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" role="img" aria-label="Interactive shapes">
+    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" role="group" aria-labelledby="puzzle-title puzzle-description">
+      <title id="puzzle-title">Portfolio disciplines</title>
+      <desc id="puzzle-description">Five animated shapes link to Spatial Design, Industrial Design, Interaction Design, Writing, and Ceramics.</desc>
       <defs id="defs"></defs>
       <g id="layer"></g>
     </svg>
@@ -125,7 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function bestBW(hexColor){
     const lum = relLuma(parseHexToRgb(hexColor));
-    return lum > 0.52 ? "#000" : "#fff";
+    const blackContrast = (lum + 0.05) / 0.05;
+    const whiteContrast = 1.05 / (lum + 0.05);
+    return blackContrast >= whiteContrast ? "#000" : "#fff";
   }
 
   // ----------------------------
@@ -214,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bubbles = slices.map((s, i) => {
     const sp = startPos(i);
 
-    const bobAmp   = 2.5 + Math.random() * 3.5;
+    const bobAmp   = prefersReducedMotion ? 0 : 2.5 + Math.random() * 3.5;
     const bobSpeed = 0.0007 + Math.random() * 0.0006;
     const bobPhase = Math.random() * Math.PI * 2;
 
@@ -234,17 +240,12 @@ document.addEventListener("DOMContentLoaded", () => {
       rx: 60, ry: 60,
       fill: s.color,
       class: "puzzle-bubble",
-      "data-i": String(i)
-    });
-
-    const t = createSVG("text", {
-      x: sp.x, y: sp.y,
-      class: "puzzle-label",
       "data-i": String(i),
-      "text-anchor": "middle",
-      "dominant-baseline": "middle"
+      role: "link",
+      tabindex: "0",
+      focusable: "true",
+      "aria-label": `${s.name} — ${s.ringText.replaceAll(" · ", ", ")}`
     });
-    t.textContent = s.name;
 
     const stripe = createSVG("line", {
       x1: 0, y1: 0, x2: 0, y2: 0,
@@ -276,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     layer.appendChild(r);
     layer.appendChild(stripe);
-    layer.appendChild(t);
     layer.appendChild(ringText);
 
     return {
@@ -292,13 +292,12 @@ document.addEventListener("DOMContentLoaded", () => {
       w: 120, h: 120, rx: 60, ry: 60,
 
       el: r,
-      label: t,
       stripe,
       clipRect,
 
       stripeAngle: stripeAngleDeg(i),
       stripeThickness: stripeWidthPx(i),
-      stripeColor: bestBW(s.color), // for logic if needed
+      textColor: bestBW(s.color),
 
       ringPath,
       ringText,
@@ -326,9 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
     b.clipRect.setAttribute("height", b.h);
     b.clipRect.setAttribute("rx", b.rx);
     b.clipRect.setAttribute("ry", b.ry);
-
-    b.label.setAttribute("x", cx);
-    b.label.setAttribute("y", cy);
 
     const theta = (b.stripeAngle * Math.PI) / 180;
     const L = Math.max(b.w, b.h) * 2.2;
@@ -370,7 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isActive){
         b.el.setAttribute("fill", b.color);
         b.stripe.style.opacity = "0";
-        b.label.style.fill = "#ffffff";   // names always white
         b.ringText.style.opacity = "0";
         return;
       }
@@ -378,8 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
       b.el.setAttribute("fill", b.color);
       b.stripe.setAttribute("stroke", "#ffffff");
       b.stripe.style.opacity = "1";
-
-      b.label.style.fill = "#ffffff";      // active name also white
 
       const hasRing = (b.ringTextPath.textContent || "").trim().length > 0;
       b.ringText.style.opacity = hasRing ? "1" : "0";
@@ -425,6 +418,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Click expansion
   function expandThenNavigate(bubble, href){
     if (transitioning) return;
+    if (prefersReducedMotion) {
+      window.location.href = href;
+      return;
+    }
     transitioning = true;
 
     active = bubble.i;
@@ -448,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const textColor = "#ffffff";            // title white
 
     const overlay = document.createElement("div");
+    overlay.className = "puzzle-transition-overlay";
     overlay.style.position = "fixed";
     overlay.style.inset = "0";
     overlay.style.zIndex = "999999";
@@ -488,7 +486,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bubbles.forEach((b) => {
       b.el.style.visibility = "hidden";
-      b.label.style.visibility = "hidden";
       b.stripe.style.visibility = "hidden";
       b.ringText.style.visibility = "hidden";
     });
@@ -580,10 +577,14 @@ document.addEventListener("DOMContentLoaded", () => {
     b.el.addEventListener("pointerenter", onEnter);
     b.el.addEventListener("pointerleave", onLeave);
     b.el.addEventListener("click", onClick);
-
-    b.label.addEventListener("pointerenter", onEnter);
-    b.label.addEventListener("pointerleave", onLeave);
-    b.label.addEventListener("click", onClick);
+    b.el.addEventListener("focus", onEnter);
+    b.el.addEventListener("blur", onLeave);
+    b.el.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        onClick();
+      }
+    });
 
     b.stripe.addEventListener("pointerenter", onEnter);
     b.stripe.addEventListener("pointerleave", onLeave);
@@ -591,12 +592,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const introStart = performance.now();
-  const INTRO_DURATION = 3200;
-  const INTRO_STAGGER  = 220;
+  const INTRO_DURATION = prefersReducedMotion ? 1 : 3200;
+  const INTRO_STAGGER  = prefersReducedMotion ? 0 : 220;
 
   let lastNow = performance.now();
+  let animationFrameId = 0;
+
+  function startAnimation(){
+    if (animationFrameId || transitioning) return;
+    lastNow = performance.now();
+    animationFrameId = requestAnimationFrame(tick);
+  }
 
   function tick(now){
+    animationFrameId = 0;
     if (transitioning) return;
 
     const dt = Math.min(40, now - lastNow);
@@ -682,11 +691,34 @@ document.addEventListener("DOMContentLoaded", () => {
       renderBubble(b);
     });
 
-    requestAnimationFrame(tick);
+    animationFrameId = requestAnimationFrame(tick);
   }
 
-  // Initial label colors – all white
-  bubbles.forEach(b => { b.label.style.fill = "#ffffff"; });
+  function restoreAfterHistoryNavigation(){
+    const overlay = document.querySelector(".puzzle-transition-overlay");
 
-  requestAnimationFrame(tick);
+    if (transitioning || overlay){
+      overlay?.remove();
+      transitioning = false;
+      active = -1;
+
+      bubbles.forEach((b) => {
+        b.el.style.removeProperty("visibility");
+        b.stripe.style.removeProperty("visibility");
+        b.ringText.style.removeProperty("visibility");
+        b.el.classList.remove("dim");
+        b.pushToX = 0;
+        b.pushToY = 0;
+        b.px = 0;
+        b.py = 0;
+      });
+
+      applyHoverVisuals();
+    }
+
+    startAnimation();
+  }
+
+  window.addEventListener("pageshow", restoreAfterHistoryNavigation);
+  startAnimation();
 });

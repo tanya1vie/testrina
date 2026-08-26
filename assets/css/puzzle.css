@@ -41,30 +41,24 @@
   filter: drop-shadow(0 16px 26px rgba(0,0,0,.18));
 }
 
-.puzzle-label{
-  font-size: 14px;
-  font-weight: 700;
-  fill: rgba(0,0,0,.9);
-  paint-order: stroke;
-  stroke: rgba(255,255,255,.95);
-  stroke-width: 4px;
-  stroke-linejoin: round;
-  pointer-events: none;
-  text-anchor: middle;
-  dominant-baseline: middle;
-  opacity: 0;                  /* ✅ ALWAYS visible */
+.puzzle-bubble:focus-visible {
+  outline: none;
+  stroke: #000;
+  stroke-width: 6px;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.95));
 }
 
-
-/* you can delete .puzzle-label.show if you want */
-
-
-.puzzle-label.show{ opacity: 0; }
-
 .puzzle-ring-text {
-  font-family: "Helvetica Neue", system-ui, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.20em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .08em;
   text-transform: uppercase;
   transition: opacity 180ms ease-out;
+}
+
+@media (max-width: 600px) {
+  .puzzle-hero {
+    height: 260px;
+  }
 }

@@ -28,8 +28,7 @@
     'label',
     '.project-link',
     '[data-clickable="true"]',
-    '.puzzle-bubble',   // SVG bubbles
-    '.puzzle-label'     // SVG labels
+    '.puzzle-bubble'   // SVG bubbles
   ].join(',');
 
   function isClickable(el) {

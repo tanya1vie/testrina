@@ -1,16 +1,16 @@
 # Instagram-powered nail gallery
 
-This version replaces the hand-written project cards with posts from the professional Creator account `@mani__festations`. GitHub Actions refreshes `data/instagram-posts.json` once per day; the browser never receives the private access token.
+This version replaces the hand-written project cards with posts from the professional Creator account `@mani__festations`. GitHub Actions refreshes `assets/data/instagram-posts.json` once per day; the browser never receives the private access token.
 
 ## Add these files to the repository
 
 Keep the paths exactly as supplied:
 
 - `nail-gallery.html` (rename it to the name of your existing gallery page if needed)
-- `JavaScript Files/instagramGallery.js`
-- `scripts/sync-instagram.mjs`
+- `assets/js/instagramGallery.js`
+- `tools/sync-instagram.mjs`
 - `.github/workflows/sync-instagram.yml`
-- `data/instagram-posts.json`
+- `assets/data/instagram-posts.json`
 
 ## Connect Instagram
 

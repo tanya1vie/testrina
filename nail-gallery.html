@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nail Art Gallery</title>
-  <link rel="stylesheet" href="CSS Files/base.css">
-  <link rel="stylesheet" href="CSS Files/cursor.css">
-  <link rel="stylesheet" href="CSS Files/imageGallery.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/cursor.css">
+  <link rel="stylesheet" href="assets/css/imageGallery.css">
   <style>
     .gallery-status { grid-column: 1 / -1; padding: 2rem; text-align: center; }
     .project-link { appearance: none; background: none; border: 0; padding: 0; cursor: pointer; width: 100%; }
@@ -26,7 +26,7 @@
       .then(html => {
         document.getElementById("header").innerHTML = html;
         const script = document.createElement("script");
-        script.src = "JavaScript Files/headerBubbles.js";
+        script.src = "assets/js/headerBubbles.js";
         document.body.appendChild(script);
       });
   </script>
@@ -55,13 +55,13 @@
   <div id="footer"></div>
   <div class="custom-cursor" id="customCursor"></div>
 
-  <script src="JavaScript Files/instagramGallery.js" defer></script>
+  <script src="assets/js/instagramGallery.js" defer></script>
   <script>
     fetch("footer.html")
       .then(response => response.text())
       .then(html => { document.getElementById("footer").innerHTML = html; });
   </script>
-  <script src="JavaScript Files/fadeIn.js" defer></script>
-  <script src="JavaScript Files/cursor.js"></script>
+  <script src="assets/js/fadeIn.js" defer></script>
+  <script src="assets/js/cursor.js"></script>
 </body>
 </html>

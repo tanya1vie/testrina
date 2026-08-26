@@ -445,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const textColor = "#ffffff";            // title white
 
     const overlay = document.createElement("div");
+    overlay.className = "puzzle-transition-overlay";
     overlay.style.position = "fixed";
     overlay.style.inset = "0";
     overlay.style.zIndex = "999999";
@@ -595,8 +596,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const INTRO_STAGGER  = prefersReducedMotion ? 0 : 220;
 
   let lastNow = performance.now();
+  let animationFrameId = 0;
+
+  function startAnimation(){
+    if (animationFrameId || transitioning) return;
+    lastNow = performance.now();
+    animationFrameId = requestAnimationFrame(tick);
+  }
 
   function tick(now){
+    animationFrameId = 0;
     if (transitioning) return;
 
     const dt = Math.min(40, now - lastNow);
@@ -682,8 +691,34 @@ document.addEventListener("DOMContentLoaded", () => {
       renderBubble(b);
     });
 
-    requestAnimationFrame(tick);
+    animationFrameId = requestAnimationFrame(tick);
   }
 
-  requestAnimationFrame(tick);
+  function restoreAfterHistoryNavigation(){
+    const overlay = document.querySelector(".puzzle-transition-overlay");
+
+    if (transitioning || overlay){
+      overlay?.remove();
+      transitioning = false;
+      active = -1;
+
+      bubbles.forEach((b) => {
+        b.el.style.removeProperty("visibility");
+        b.stripe.style.removeProperty("visibility");
+        b.ringText.style.removeProperty("visibility");
+        b.el.classList.remove("dim");
+        b.pushToX = 0;
+        b.pushToY = 0;
+        b.px = 0;
+        b.py = 0;
+      });
+
+      applyHoverVisuals();
+    }
+
+    startAnimation();
+  }
+
+  window.addEventListener("pageshow", restoreAfterHistoryNavigation);
+  startAnimation();
 });

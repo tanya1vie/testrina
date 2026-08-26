@@ -116,7 +116,7 @@
   overlay.addEventListener("click", event => { if (event.target === overlay) closePopup(); });
   document.addEventListener("keydown", event => { if (event.key === "Escape" && !overlay.hidden) closePopup(); });
 
-  fetch("data/instagram-posts.json", { cache: "no-cache" })
+  fetch("assets/data/instagram-posts.json", { cache: "no-cache" })
     .then(response => {
       if (!response.ok) throw new Error(`Feed request failed (${response.status})`);
       return response.json();

@@ -1,2 +1,13 @@
-Nail content/bridgeeton.psd
-Nail content/IMG_6338_2.mp4
+# Operating-system and editor metadata
+.DS_Store
+.vscode/
+
+# Local website-mirroring output
+hts-cache/
+hts-log.txt
+hts-in_progress.lock
+cookies.txt
+
+# Large local-only nail source exports
+assets/source-nails/bridgeeton.psd
+assets/source-nails/IMG_6338_2.mp4

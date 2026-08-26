@@ -8,13 +8,13 @@
   <title>Tatiana Estrina</title>
 
   <!-- Use relative paths so it works in any folder (incl. GitHub Pages project sites) -->
-  <link rel="stylesheet" href="CSS Files/base.css" />
-  <link rel="stylesheet" href="CSS Files/falling.css" />
-  <link rel="stylesheet" href="CSS Files/cursor.css">
-  <link rel="stylesheet" href="CSS Files/flipWord.css">
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/falling.css" />
+  <link rel="stylesheet" href="assets/css/cursor.css">
+  <link rel="stylesheet" href="assets/css/flipWord.css">
 
   <!-- ✅ NEW: puzzle styles -->
-  <link rel="stylesheet" href="CSS Files/puzzle.css">
+  <link rel="stylesheet" href="assets/css/puzzle.css">
 
   <style>
     .grid-container {
@@ -70,7 +70,7 @@
 
       // ✅ IMPORTANT: load header JS AFTER header exists
       const s = document.createElement("script");
-      s.src = "JavaScript Files/headerBubbles.js";
+      s.src = "assets/js/headerBubbles.js";
       document.body.appendChild(s);
     });
 </script>
@@ -109,12 +109,12 @@
 
   <div class="custom-cursor" id="customCursor"></div>
   
-  <script src="JavaScript Files/cursor.js"></script>
+  <script src="assets/js/cursor.js"></script>
 
-  <script src="JavaScript Files/popUp.js"></script>
-  <script src="JavaScript Files/flipWord.js"></script>
+  <script src="assets/js/popUp.js"></script>
+  <script src="assets/js/flipWord.js"></script>
 
   <!-- ✅ NEW: puzzle behavior -->
-  <script src="JavaScript Files/puzzle.js"></script>
+  <script src="assets/js/puzzle.js"></script>
 </body>
 </html>

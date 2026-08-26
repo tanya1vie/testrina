@@ -1,0 +1,13 @@
+{
+  "name": "testrina-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm run validate",
+    "validate": "node tools/validate-site.mjs",
+    "sync:instagram": "node tools/sync-instagram.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

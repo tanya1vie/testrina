@@ -146,6 +146,20 @@ for (const path of [...browserScripts, ...maintenanceScripts]) {
 
 JSON.parse(await readFile(join(root, "assets/data/instagram-posts.json"), "utf8"));
 
+const homePage = await readFile(join(root, "index.html"), "utf8");
+const homeScript = await readFile(join(root, "assets/js/puzzle.js"), "utf8");
+const accessibilityContract = [
+  [homePage, 'class="skip-link"', "Homepage skip link is missing"],
+  [homePage, '<main id="main-content">', "Homepage main landmark is missing"],
+  [homePage, 'aria-hidden="true"', "Animated homepage text needs a static accessible alternative"],
+  [homeScript, 'aria-label", "Explore work by discipline"', "Work explorer navigation label is missing"],
+  [homeScript, 'prefers-reduced-motion: reduce', "Reduced-motion support is missing"]
+];
+
+for (const [contents, marker, message] of accessibilityContract) {
+  if (!contents.includes(marker)) failures.push(message);
+}
+
 if (failures.length) {
   console.error(`Site validation failed with ${failures.length} issue(s):`);
   failures.sort().forEach(failure => console.error(`- ${failure}`));

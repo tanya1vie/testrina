@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const mount = document.getElementById("puzzleHero");
   if (!mount) return;
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   const slices = [
     {
       name: "Spatial Design",
@@ -76,18 +78,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  const MORPH_EVERY_MS = 4000;
-  const MORPH_DURATION_MS = 600;
+  const MORPH_EVERY_MS = prefersReducedMotion ? Number.POSITIVE_INFINITY : 4000;
+  const MORPH_DURATION_MS = prefersReducedMotion ? 1 : 600;
 
   const VIEWBOX_W = 1000;
   const VIEWBOX_H = 320;
 
   mount.innerHTML = `
-    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" role="img" aria-label="Interactive shapes">
+    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" aria-hidden="true" focusable="false">
       <defs id="defs"></defs>
       <g id="layer"></g>
     </svg>
   `;
+
+  const nav = document.createElement("nav");
+  nav.className = "puzzle-nav";
+  nav.setAttribute("aria-label", "Explore work by discipline");
+
+  const navList = document.createElement("ul");
+  navList.className = "puzzle-nav-list";
+  const navLinks = slices.map((slice) => {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    const swatch = document.createElement("span");
+    const copy = document.createElement("span");
+    const name = document.createElement("span");
+    const description = document.createElement("span");
+
+    link.className = "puzzle-nav-link";
+    link.href = slice.href;
+    link.setAttribute(
+      "aria-label",
+      `${slice.name} — ${slice.ringText.replaceAll(" · ", ", ")}`
+    );
+    swatch.className = "puzzle-nav-swatch";
+    swatch.style.backgroundColor = slice.color;
+    swatch.setAttribute("aria-hidden", "true");
+    name.className = "puzzle-nav-name";
+    name.textContent = slice.name;
+    description.className = "puzzle-nav-description";
+    description.textContent = slice.ringText.replaceAll(" · ", ", ");
+
+    copy.append(name, description);
+    link.append(swatch, copy);
+    item.appendChild(link);
+    navList.appendChild(item);
+    return link;
+  });
+
+  nav.appendChild(navList);
+  mount.appendChild(nav);
 
   const svg = mount.querySelector("svg");
   const defs = svg.querySelector("#defs");
@@ -125,7 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function bestBW(hexColor){
     const lum = relLuma(parseHexToRgb(hexColor));
-    return lum > 0.52 ? "#000" : "#fff";
+    const blackContrast = (lum + 0.05) / 0.05;
+    const whiteContrast = 1.05 / (lum + 0.05);
+    return blackContrast >= whiteContrast ? "#000" : "#fff";
   }
 
   // ----------------------------
@@ -214,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bubbles = slices.map((s, i) => {
     const sp = startPos(i);
 
-    const bobAmp   = 2.5 + Math.random() * 3.5;
+    const bobAmp   = prefersReducedMotion ? 0 : 2.5 + Math.random() * 3.5;
     const bobSpeed = 0.0007 + Math.random() * 0.0006;
     const bobPhase = Math.random() * Math.PI * 2;
 
@@ -298,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       stripeAngle: stripeAngleDeg(i),
       stripeThickness: stripeWidthPx(i),
-      stripeColor: bestBW(s.color), // for logic if needed
+      textColor: bestBW(s.color),
 
       ringPath,
       ringText,
@@ -370,7 +412,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isActive){
         b.el.setAttribute("fill", b.color);
         b.stripe.style.opacity = "0";
-        b.label.style.fill = "#ffffff";   // names always white
+        b.label.style.fill = b.textColor;
+        b.label.style.opacity = "0";
         b.ringText.style.opacity = "0";
         return;
       }
@@ -379,7 +422,8 @@ document.addEventListener("DOMContentLoaded", () => {
       b.stripe.setAttribute("stroke", "#ffffff");
       b.stripe.style.opacity = "1";
 
-      b.label.style.fill = "#ffffff";      // active name also white
+      b.label.style.fill = b.textColor;
+      b.label.style.opacity = "1";
 
       const hasRing = (b.ringTextPath.textContent || "").trim().length > 0;
       b.ringText.style.opacity = hasRing ? "1" : "0";
@@ -425,6 +469,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Click expansion
   function expandThenNavigate(bubble, href){
     if (transitioning) return;
+    if (prefersReducedMotion) {
+      window.location.href = href;
+      return;
+    }
     transitioning = true;
 
     active = bubble.i;
@@ -590,9 +638,16 @@ document.addEventListener("DOMContentLoaded", () => {
     b.stripe.addEventListener("click", onClick);
   });
 
+  navLinks.forEach((link, index) => {
+    link.addEventListener("pointerenter", () => setActive(index));
+    link.addEventListener("pointerleave", () => setActive(-1));
+    link.addEventListener("focus", () => setActive(index));
+    link.addEventListener("blur", () => setActive(-1));
+  });
+
   const introStart = performance.now();
-  const INTRO_DURATION = 3200;
-  const INTRO_STAGGER  = 220;
+  const INTRO_DURATION = prefersReducedMotion ? 1 : 3200;
+  const INTRO_STAGGER  = prefersReducedMotion ? 0 : 220;
 
   let lastNow = performance.now();
 
@@ -685,8 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   }
 
-  // Initial label colors – all white
-  bubbles.forEach(b => { b.label.style.fill = "#ffffff"; });
+  bubbles.forEach(b => { b.label.style.fill = b.textColor; });
 
   requestAnimationFrame(tick);
 });

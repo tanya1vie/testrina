@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" generatedBy="WIX">
-<sitemap>
-<loc>https://www.testrina.com/pages-sitemap.xml</loc>
-<lastmod>2025-03-06</lastmod>
-</sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.tatianaestrina.com/</loc></url>
+  <url><loc>https://www.tatianaestrina.com/work.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/spatial-design.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/industrial-design.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/interaction-design.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/about.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/ceramics-gallery.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/nail-gallery.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/augmenTote.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/bach.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/blob.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/bruce.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/cave.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/conservatory.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/dailypaper.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/figure.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/flatland.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/hostilesalad.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/janus.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/marche.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/matter.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/microhouse.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/ossurary.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/partner.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/phenom.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/polysapien.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/portfolioBook.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/projections.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/projects/head-above-water/</loc></url>
+  <url><loc>https://www.tatianaestrina.com/seaweed.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/seesaw.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/stratum.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/swrm.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/thesis.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/tort.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/trekkingCabins.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/tripix.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/uproot.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/vela.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/videogamesBook.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/woods.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/writing-projects.html</loc></url>
+  <url><loc>https://www.tatianaestrina.com/yamal.html</loc></url>
+</urlset>

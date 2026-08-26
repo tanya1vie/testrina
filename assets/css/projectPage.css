@@ -856,3 +856,95 @@ img {
   .gallery-arrow.left{ left: 10px; }
   .gallery-arrow.right{ right: 10px; }
 }
+
+/* Native project pages migrated from the original Wix portfolio. */
+.project-copy {
+  max-width: 780px;
+  margin: 36px auto;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.project-copy p + p {
+  margin-top: 1.25rem;
+}
+
+.project-section {
+  max-width: var(--max-content-width);
+  margin: var(--section-spacing) auto;
+  padding: 0 20px;
+}
+
+.project-section > h2 {
+  margin-bottom: 22px;
+  font-size: 20px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.project-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.project-media-grid figure {
+  margin: 0;
+}
+
+.project-media-grid img,
+.project-media-grid video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-media-grid .wide {
+  grid-column: 1 / -1;
+}
+
+.project-media-grid figcaption {
+  margin-top: 8px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.project-book {
+  margin-top: 30px;
+}
+
+.project-book summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 0;
+}
+
+.project-back-link {
+  display: inline-block;
+  margin: 0 20px 50px;
+}
+
+@media (max-width: 900px) {
+  .project-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .project-details,
+  .project-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-media-grid .wide {
+    grid-column: auto;
+  }
+
+  .project-copy {
+    font-size: 16px;
+  }
+}

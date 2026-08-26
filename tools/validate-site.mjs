@@ -43,7 +43,8 @@ function isExternal(reference) {
 }
 
 function cleanReference(reference) {
-  const withoutFragment = reference.split("#", 1)[0].split("?", 1)[0].trim();
+  const decodedEntities = reference.replaceAll("&amp;", "&");
+  const withoutFragment = decodedEntities.split("#", 1)[0].split("?", 1)[0].trim();
   try {
     return decodeURIComponent(withoutFragment);
   } catch {
@@ -61,11 +62,6 @@ async function checkReference(source, reference) {
     ? join(root, cleaned.slice(1))
     : resolve(dirname(source), cleaned);
   const normalizedTarget = normalize(target);
-  const repositoryPath = relative(root, normalizedTarget).replaceAll("\\", "/");
-  const isSharedPath = /^(?:assets|Images\/Navigation)\//.test(repositoryPath)
-    || repositoryPath === "projects/head-above-water/index.html"
-    || /^(?:header|footer|index|ceramics-gallery|work|about)\.html$/.test(repositoryPath);
-  if (!isSharedPath) return;
 
   const key = `${source}\0${normalizedTarget}`;
   if (checkedReferences.has(key)) return;
@@ -84,7 +80,7 @@ async function checkReference(source, reference) {
 }
 
 async function validateHtml(path) {
-  const html = await readFile(path, "utf8");
+  const html = (await readFile(path, "utf8")).replace(/<!--[\s\S]*?-->/g, "");
   const references = [
     ...html.matchAll(/\b(?:href|src|poster)\s*=\s*["']([^"']+)["']/gi),
     ...html.matchAll(/\bfetch\(\s*["']([^"']+)["']/gi)
@@ -167,7 +163,7 @@ if (failures.length) {
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${maintainedPages.length} public pages, ${checkedReferences.size} shared references, `
+    `Validated ${maintainedPages.length} public pages, ${checkedReferences.size} local references, `
     + `${browserScripts.length + maintenanceScripts.length} scripts, and the Instagram data file.`
   );
 }

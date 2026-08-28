@@ -25,11 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         leftPage.style.opacity = '1';
         leftPage.style.pointerEvents = 'auto';
-
         const pairIndex = currentSpreadIndex - 1;
         const leftIdx = 1 + pairIndex * 2;
         const rightIdx = leftIdx + 1;
-
         leftPage.style.backgroundImage = imagePaths[leftIdx] ? `url('${imagePaths[leftIdx]}')` : '';
         rightPage.style.backgroundImage = imagePaths[rightIdx] ? `url('${imagePaths[rightIdx]}')` : '';
       }
@@ -42,15 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentSpreadIndex >= maxSpreads) return;
       const targetIndex = currentSpreadIndex + 1;
       rightPage.classList.add('turning');
-
-      const finish = () => {
+      rightPage.addEventListener('animationend', () => {
         rightPage.classList.remove('turning');
         rightPage.style.transform = '';
         currentSpreadIndex = targetIndex;
         updateView();
-      };
-
-      rightPage.addEventListener('animationend', finish, { once: true });
+      }, { once: true });
     }
 
     function goPrev() {
@@ -124,6 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
         transform-origin: left center;
       }
 
+      .magazine-booklet.is-cover .magazine-page.verso {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .magazine-booklet.is-cover::after {
+        display: none;
+      }
+
       .magazine-booklet::after {
         content: '';
         position: absolute;
@@ -191,19 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
           width: 100%;
           padding: 0 32px;
         }
-        .magazine-booklet {
-          aspect-ratio: 1.36 / 1;
-        }
-        .magazine-booklet-arrow {
-          font-size: 30px;
-        }
+        .magazine-booklet { aspect-ratio: 1.36 / 1; }
+        .magazine-booklet-arrow { font-size: 30px; }
       }
 
       @media (prefers-reduced-motion: reduce) {
         .magazine-page.flip-forward,
-        .magazine-page.flip-backward {
-          animation-duration: 1ms;
-        }
+        .magazine-page.flip-backward { animation-duration: 1ms; }
       }
     `;
     document.head.appendChild(style);
@@ -217,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(img => img.getAttribute('src'))
       .filter(Boolean);
 
-    if (imagePaths.length < 2) return;
+    if (!imagePaths.length) return;
 
     container.className = 'magazine-booklet-wrap';
     container.innerHTML = `
@@ -230,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="magazine-booklet-status" aria-live="polite"></p>
     `;
 
+    const book = container.querySelector('.magazine-booklet');
     const verso = container.querySelector('.magazine-page.verso');
     const recto = container.querySelector('.magazine-page.recto');
     const prev = container.querySelector('.magazine-booklet-arrow.prev');
@@ -237,25 +236,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const status = container.querySelector('.magazine-booklet-status');
 
     let spreadIndex = 0;
-    const spreadCount = Math.ceil(imagePaths.length / 2);
+    const spreadCount = Math.ceil((imagePaths.length - 1) / 2);
     let animating = false;
 
     function render() {
-      const leftIndex = spreadIndex * 2;
-      const rightIndex = leftIndex + 1;
-      const leftSrc = imagePaths[leftIndex] || '';
-      const rightSrc = imagePaths[rightIndex] || '';
-
-      verso.style.backgroundImage = leftSrc ? `url('${leftSrc}')` : '';
-      recto.style.backgroundImage = rightSrc ? `url('${rightSrc}')` : '';
-      verso.setAttribute('aria-label', leftSrc ? `${label} page ${leftIndex + 1}` : 'Blank verso');
-      recto.setAttribute('aria-label', rightSrc ? `${label} page ${rightIndex + 1}` : 'Blank recto');
+      if (spreadIndex === 0) {
+        book.classList.add('is-cover');
+        verso.style.backgroundImage = '';
+        recto.style.backgroundImage = `url('${imagePaths[0]}')`;
+        verso.setAttribute('aria-label', 'Blank inside cover');
+        recto.setAttribute('aria-label', `${label} cover`);
+        status.textContent = 'Cover';
+      } else {
+        book.classList.remove('is-cover');
+        const pairIndex = spreadIndex - 1;
+        const leftIndex = 1 + pairIndex * 2;
+        const rightIndex = leftIndex + 1;
+        const leftSrc = imagePaths[leftIndex] || '';
+        const rightSrc = imagePaths[rightIndex] || '';
+        verso.style.backgroundImage = leftSrc ? `url('${leftSrc}')` : '';
+        recto.style.backgroundImage = rightSrc ? `url('${rightSrc}')` : '';
+        verso.setAttribute('aria-label', leftSrc ? `${label} page ${leftIndex + 1}` : 'Blank verso');
+        recto.setAttribute('aria-label', rightSrc ? `${label} page ${rightIndex + 1}` : 'Blank recto');
+        const lastVisible = Math.min(rightIndex + 1, imagePaths.length);
+        status.textContent = `Pages ${leftIndex + 1}–${lastVisible} of ${imagePaths.length}`;
+      }
 
       prev.disabled = spreadIndex === 0;
-      next.disabled = spreadIndex >= spreadCount - 1;
-
-      const lastVisible = Math.min(rightIndex + 1, imagePaths.length);
-      status.textContent = `Pages ${leftIndex + 1}–${lastVisible} of ${imagePaths.length}`;
+      next.disabled = spreadIndex >= spreadCount;
     }
 
     function finishFlip(page, className, targetIndex) {
@@ -267,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     next.addEventListener('click', () => {
-      if (animating || spreadIndex >= spreadCount - 1) return;
+      if (animating || spreadIndex >= spreadCount) return;
       animating = true;
       const targetIndex = spreadIndex + 1;
       recto.classList.add('flip-forward');

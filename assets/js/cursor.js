@@ -161,7 +161,6 @@
 })();
 
 (function () {
-  // Skip custom cursor on mobile / touch / coarse-pointer devices.
   if (
     'ontouchstart' in window ||
     (window.navigator && window.navigator.maxTouchPoints > 0) ||

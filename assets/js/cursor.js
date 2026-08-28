@@ -1,4 +1,17 @@
 (function () {
+  function hideCeramicsWithoutCovers(root) {
+    if ((document.title || '').trim().toLowerCase() !== 'ceramics gallery') return;
+
+    const scope = root && root.querySelectorAll ? root : document;
+    const cards = [];
+    if (root && root.matches && root.matches('.gallery-grid .project-card')) cards.push(root);
+    cards.push(...scope.querySelectorAll('.gallery-grid .project-card'));
+
+    cards.forEach(card => {
+      if (!card.querySelector('.project-link img')) card.remove();
+    });
+  }
+
   function projectName() {
     const projectTitle = document.querySelector('.project-title');
     if (projectTitle && projectTitle.textContent.trim()) return projectTitle.textContent.trim();
@@ -142,6 +155,7 @@
   }
 
   function runAccessibilityCleanup(root) {
+    hideCeramicsWithoutCovers(root);
     improveAltText(root);
     removeBackToTop(root);
   }

@@ -104,21 +104,27 @@
   const style = document.createElement('style');
   style.textContent = `
     main.main { position: relative; }
-    .strategy-card-section { width: 100%; margin: 80px 0 500px; position: relative; z-index: 1; pointer-events: none; }
-    .strategy-card-heading, .strategy-card-instructions { pointer-events: auto; }
+    .strategy-card-section { width: 100%; margin: 80px 0 40px; position: relative; z-index: 1; }
     .strategy-card-heading { margin-bottom: 8px; }
-    .strategy-card-instructions { max-width: 720px; margin: 0; opacity: 0.7; }
-    .strategy-card { position: absolute; width: clamp(150px, 19vw, 230px); aspect-ratio: 2 / 3; padding: 0; margin: 0; border: 0; outline: 0; background: transparent; box-shadow: 0 8px 22px rgba(0,0,0,0.18); cursor: grab; user-select: none; touch-action: none; transform-origin: center center; will-change: left, top, transform; z-index: 20; }
+    .strategy-card-instructions { max-width: 720px; margin: 0 0 28px; opacity: 0.7; }
+    .strategy-card-stage { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); align-items: start; gap: 22px; width: 100%; }
+    .strategy-card { position: relative; width: 100%; max-width: 230px; height: auto; padding: 0; margin: 0; border: 0; outline: 0; background: transparent; box-shadow: 0 8px 22px rgba(0,0,0,0.18); cursor: grab; user-select: none; touch-action: none; transform-origin: center center; will-change: transform; z-index: 20; justify-self: start; }
     .strategy-card:active { cursor: grabbing; }
     .strategy-card:focus-visible { box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
-    .strategy-card img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; pointer-events: none; }
-    @media (max-width: 700px) { .strategy-card-section { margin: 56px 0 420px; } .strategy-card { width: clamp(125px, 38vw, 185px); } }
+    .strategy-card img { display: block; width: 100%; height: auto; margin: 0; object-fit: contain; pointer-events: none; }
+    .strategy-card.is-dragging { position: absolute; width: clamp(150px, 19vw, 230px); max-width: none; z-index: 60; }
+    @media (max-width: 700px) {
+      .strategy-card-section { margin-top: 56px; }
+      .strategy-card-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .strategy-card { max-width: none; }
+      .strategy-card.is-dragging { width: clamp(125px, 38vw, 185px); }
+    }
   `;
   document.head.appendChild(style);
 
   const section = document.createElement('section');
   section.className = 'strategy-card-section';
-  section.innerHTML = `<h2 class="strategy-card-heading">STRATEGY CARDS</h2><p class="strategy-card-instructions">Drag the strategy cards anywhere across the thesis page. Click or tap a card to bring it forward. Hold Shift while dragging to rotate it.</p>`;
+  section.innerHTML = `<h2 class="strategy-card-heading">STRATEGY CARDS</h2><p class="strategy-card-instructions">Drag the strategy cards anywhere across the thesis page. Click or tap a card to bring it forward. Hold Shift while dragging to rotate it.</p><div class="strategy-card-stage"></div>`;
 
   const flipbook = document.getElementById('flipbookWrap');
   const projectImages = document.querySelector('.project-images');
@@ -126,6 +132,7 @@
   else if (projectImages) projectImages.appendChild(section);
   else return;
 
+  const stage = section.querySelector('.strategy-card-stage');
   let topZ = 40;
   let activePointerId = null;
   let activeCard = null;
@@ -138,34 +145,12 @@
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const bringForward = card => { topZ += 1; card.style.zIndex = String(topZ); };
 
-  function placeInitialCards() {
-    const sectionTop = section.offsetTop;
-    const mainWidth = main.clientWidth;
-    const centerX = mainWidth / 2;
-    const centerY = sectionTop + 245;
-
-    main.querySelectorAll('.strategy-card').forEach((card, index) => {
-      const angle = (index / filenames.length) * Math.PI * 2;
-      const ringX = Math.min(mainWidth * 0.27, 220) + (index % 4) * 10;
-      const ringY = 105 + (index % 5) * 10;
-      const cardW = card.offsetWidth || 190;
-      const cardH = card.offsetHeight || 285;
-      const left = clamp(centerX + Math.cos(angle) * ringX - cardW / 2, 0, Math.max(0, mainWidth - cardW));
-      const top = Math.max(0, centerY + Math.sin(angle) * ringY - cardH / 2);
-      const rotation = ((index * 17) % 31) - 15;
-      card.style.left = `${left}px`;
-      card.style.top = `${top}px`;
-      card.dataset.rotation = String(rotation);
-      card.style.transform = `rotate(${rotation}deg)`;
-      card.style.zIndex = String(20 + index);
-    });
-  }
-
   filenames.forEach((filename, index) => {
     const card = document.createElement('button');
     card.type = 'button';
     card.className = 'strategy-card';
     card.setAttribute('aria-label', `Architecture strategy card ${index + 1}`);
+    card.dataset.rotation = '0';
     card.innerHTML = `<img src="Images/Thesis/Playing%20Cards/${filename}" alt="Architecture strategy card ${index + 1}" draggable="false" loading="lazy">`;
 
     card.addEventListener('pointerdown', event => {
@@ -173,6 +158,17 @@
       activePointerId = event.pointerId;
       activeCard = card;
       bringForward(card);
+
+      const rect = card.getBoundingClientRect();
+      const mainRect = main.getBoundingClientRect();
+      const renderedWidth = rect.width;
+
+      card.style.width = `${renderedWidth}px`;
+      card.classList.add('is-dragging');
+      main.appendChild(card);
+      card.style.left = `${rect.left - mainRect.left + main.scrollLeft}px`;
+      card.style.top = `${rect.top - mainRect.top + main.scrollTop}px`;
+
       startPointerX = event.clientX;
       startPointerY = event.clientY;
       startLeft = parseFloat(card.style.left) || 0;
@@ -208,8 +204,6 @@
     card.addEventListener('pointercancel', finishDrag);
     card.addEventListener('click', () => bringForward(card));
     card.addEventListener('focus', () => bringForward(card));
-    main.appendChild(card);
+    stage.appendChild(card);
   });
-
-  requestAnimationFrame(placeInitialCards);
 })();

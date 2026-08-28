@@ -104,71 +104,21 @@
   const style = document.createElement('style');
   style.textContent = `
     main.main { position: relative; }
-
-    .strategy-card-section {
-      width: 100%;
-      margin: 80px 0 500px;
-      position: relative;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .strategy-card-heading,
-    .strategy-card-instructions {
-      pointer-events: auto;
-    }
-
+    .strategy-card-section { width: 100%; margin: 80px 0 500px; position: relative; z-index: 1; pointer-events: none; }
+    .strategy-card-heading, .strategy-card-instructions { pointer-events: auto; }
     .strategy-card-heading { margin-bottom: 8px; }
-
-    .strategy-card-instructions {
-      max-width: 720px;
-      margin: 0;
-      opacity: 0.7;
-    }
-
-    .strategy-card {
-      position: absolute;
-      width: clamp(150px, 19vw, 230px);
-      aspect-ratio: 2 / 3;
-      padding: 0;
-      margin: 0;
-      border: 0;
-      outline: 0;
-      background: transparent;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-      cursor: grab;
-      user-select: none;
-      touch-action: none;
-      transform-origin: center center;
-      will-change: left, top, transform;
-      z-index: 20;
-    }
-
+    .strategy-card-instructions { max-width: 720px; margin: 0; opacity: 0.7; }
+    .strategy-card { position: absolute; width: clamp(150px, 19vw, 230px); aspect-ratio: 2 / 3; padding: 0; margin: 0; border: 0; outline: 0; background: transparent; box-shadow: 0 8px 22px rgba(0,0,0,0.18); cursor: grab; user-select: none; touch-action: none; transform-origin: center center; will-change: left, top, transform; z-index: 20; }
     .strategy-card:active { cursor: grabbing; }
     .strategy-card:focus-visible { box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
-
-    .strategy-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      object-fit: cover;
-      pointer-events: none;
-    }
-
-    @media (max-width: 700px) {
-      .strategy-card-section { margin: 56px 0 420px; }
-      .strategy-card { width: clamp(125px, 38vw, 185px); }
-    }
+    .strategy-card img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; pointer-events: none; }
+    @media (max-width: 700px) { .strategy-card-section { margin: 56px 0 420px; } .strategy-card { width: clamp(125px, 38vw, 185px); } }
   `;
   document.head.appendChild(style);
 
   const section = document.createElement('section');
   section.className = 'strategy-card-section';
-  section.innerHTML = `
-    <h2 class="strategy-card-heading">STRATEGY CARDS</h2>
-    <p class="strategy-card-instructions">Drag the strategy cards anywhere across the thesis page. Click or tap a card to bring it forward. Hold Shift while dragging to rotate it.</p>
-  `;
+  section.innerHTML = `<h2 class="strategy-card-heading">STRATEGY CARDS</h2><p class="strategy-card-instructions">Drag the strategy cards anywhere across the thesis page. Click or tap a card to bring it forward. Hold Shift while dragging to rotate it.</p>`;
 
   const flipbook = document.getElementById('flipbookWrap');
   const projectImages = document.querySelector('.project-images');
@@ -185,14 +135,8 @@
   let startTop = 0;
   let startRotation = 0;
 
-  function bringForward(card) {
-    topZ += 1;
-    card.style.zIndex = String(topZ);
-  }
-
-  function clamp(value, min, max) {
-    return Math.max(min, Math.min(max, value));
-  }
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+  const bringForward = card => { topZ += 1; card.style.zIndex = String(topZ); };
 
   function placeInitialCards() {
     const sectionTop = section.offsetTop;
@@ -241,18 +185,14 @@
       if (activePointerId !== event.pointerId || activeCard !== card) return;
       const dx = event.clientX - startPointerX;
       const dy = event.clientY - startPointerY;
-
       if (event.shiftKey) {
         const rotation = startRotation + dx * 0.35;
         card.dataset.rotation = rotation.toFixed(1);
         card.style.transform = `rotate(${rotation}deg)`;
         return;
       }
-
-      const cardW = card.offsetWidth;
-      const cardH = card.offsetHeight;
-      const maxLeft = Math.max(0, main.clientWidth - cardW);
-      const maxTop = Math.max(0, main.scrollHeight - cardH);
+      const maxLeft = Math.max(0, main.clientWidth - card.offsetWidth);
+      const maxTop = Math.max(0, main.scrollHeight - card.offsetHeight);
       card.style.left = `${clamp(startLeft + dx, 0, maxLeft)}px`;
       card.style.top = `${clamp(startTop + dy, 0, maxTop)}px`;
     });
@@ -268,37 +208,8 @@
     card.addEventListener('pointercancel', finishDrag);
     card.addEventListener('click', () => bringForward(card));
     card.addEventListener('focus', () => bringForward(card));
-    card.addEventListener('keydown', event => {
-      const move = event.shiftKey ? 20 : 8;
-      let left = parseFloat(card.style.left) || 0;
-      let top = parseFloat(card.style.top) || 0;
-      let rotation = parseFloat(card.dataset.rotation) || 0;
-
-      if (event.key === 'ArrowLeft') left -= move;
-      else if (event.key === 'ArrowRight') left += move;
-      else if (event.key === 'ArrowUp') top -= move;
-      else if (event.key === 'ArrowDown') top += move;
-      else if (event.key.toLowerCase() === 'q') rotation -= 5;
-      else if (event.key.toLowerCase() === 'e') rotation += 5;
-      else return;
-
-      event.preventDefault();
-      card.style.left = `${clamp(left, 0, Math.max(0, main.clientWidth - card.offsetWidth))}px`;
-      card.style.top = `${clamp(top, 0, Math.max(0, main.scrollHeight - card.offsetHeight))}px`;
-      card.dataset.rotation = String(rotation);
-      card.style.transform = `rotate(${rotation}deg)`;
-    });
-
     main.appendChild(card);
   });
 
   requestAnimationFrame(placeInitialCards);
-  window.addEventListener('resize', () => {
-    main.querySelectorAll('.strategy-card').forEach(card => {
-      const left = parseFloat(card.style.left) || 0;
-      const top = parseFloat(card.style.top) || 0;
-      card.style.left = `${clamp(left, 0, Math.max(0, main.clientWidth - card.offsetWidth))}px`;
-      card.style.top = `${clamp(top, 0, Math.max(0, main.scrollHeight - card.offsetHeight))}px`;
-    });
-  });
 })();

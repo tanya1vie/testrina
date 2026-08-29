@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thesis - Tatiana Estrina</title>
+  <title>Architecture as Prosthesis | Tatiana Estrina</title>
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
   <link rel="stylesheet" href="assets/css/book.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <style>
+    main.main { position: relative; }
+    .thesis-context, .thesis-case-copy, .thesis-strategy-copy { max-width: 900px; margin: 88px auto 30px; }
+    .thesis-context h2, .thesis-case-copy h2, .thesis-strategy-copy h2 { margin: 0 0 14px; }
+    .thesis-context p, .thesis-case-copy p, .thesis-strategy-copy p { max-width: 790px; margin: 0 0 12px; }
+    .thesis-kicker { margin-bottom: 7px !important; opacity: .58; text-transform: uppercase; letter-spacing: .08em; }
+    .thesis-revision { opacity: .78; }
+    .thesis-visual-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; margin: 28px 0 76px; }
+    .thesis-visual-pair img, .thesis-provocations img { display: block; width: 100%; height: auto; margin: 0; object-fit: contain; }
+    .thesis-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 24px 0 78px; }
+    .thesis-timeline img { width: 100%; height: auto; margin: 0; object-fit: contain; }
+    .thesis-human { display: block; width: min(100%, 850px); height: auto; margin: 24px auto 46px; object-fit: contain; }
+    .thesis-simulation-section { margin: 90px 0 94px; }
+    .thesis-simulation-section > p { max-width: 760px; margin-bottom: 24px; }
+    .thesis-simulation-strip { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, minmax(170px, 24vw)); grid-auto-columns: minmax(260px, 34vw); gap: 14px; overflow-x: auto; padding: 4px 2px 18px; scroll-snap-type: x proximity; }
+    .thesis-simulation-strip img { width: 100%; height: 100%; margin: 0; object-fit: contain; scroll-snap-align: start; }
+    .thesis-provocations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 28px 0 88px; }
+    .strategy-card-section { width: 100%; margin: 90px 0 60px; position: relative; z-index: 1; }
+    .strategy-card-summary { max-width: 800px; }
+    .strategy-card-instructions { max-width: 720px; opacity: .62; }
+    .strategy-card-stage { position: relative; width: 100%; height: 470px; }
+    .strategy-card { position: absolute; width: clamp(150px, 19vw, 230px); height: auto; padding: 0; margin: 0; border: 0; outline: 0; background: transparent; box-shadow: 0 8px 22px rgba(0,0,0,.18); cursor: grab; user-select: none; touch-action: none; transform-origin: center center; }
+    .strategy-card img { display: block; width: 100%; height: auto; object-fit: contain; pointer-events: none; }
+    .strategy-card.is-dragging { max-width: none; z-index: 60; }
+    @media (max-width:760px) {
+      .thesis-context, .thesis-case-copy, .thesis-strategy-copy { margin-top: 60px; }
+      .thesis-visual-pair, .thesis-provocations { grid-template-columns: 1fr; }
+      .thesis-timeline { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .thesis-simulation-strip { grid-template-rows: repeat(2,150px); grid-auto-columns:minmax(220px,80vw); }
+      .strategy-card-stage { height: 400px; }
+      .strategy-card { width: clamp(125px,38vw,185px); }
+    }
+  </style>
 </head>
-
 <body>
   <div id="header"></div>
-
   <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
-        const s = document.createElement("script");
-        s.src = "assets/js/headerBubbles.js";
-        document.body.appendChild(s);
-      });
+    fetch("header.html").then(res => res.text()).then(html => {
+      document.getElementById("header").innerHTML = html;
+      const s = document.createElement("script");
+      s.src = "assets/js/headerBubbles.js";
+      document.body.appendChild(s);
+    });
   </script>
 
   <main class="main">
@@ -36,247 +62,284 @@
     </div>
 
     <div class="project-description">
-      <p>
-        The thesis unfolds from the tension between human comfort and planetary fragility. Interior environments, once
-        simple shelters, now envelop us in cocoon-like atmospheres where we spend ninety percent of our lives. These
-        spaces, engineered for ease and control, insulate us from the natural world while accelerating its degradation.
-        Through simulation, the research transforms design into an experimental field where human responses—social,
-        physical, and psychological—are observed across generations. Architectural conditions become scenarios, testing
-        grounds that reveal the long-term consequences of the comforts we craft today. Out of this interplay emerges a
-        speculative practice that merges computation, gaming, and narrative fabulation, offering strategies to redirect
-        architecture toward foresight. The resulting vision is not only a critique of comfort, but an invitation for
-        designers to imagine the architectures of tomorrow with intention, attuned to both planetary limits and human
-        evolution.
-      </p>
+      <p>Humans have always adapted to the environments they build. From early shelters to today’s sealed, mechanically conditioned interiors, architecture increasingly acts like a prosthesis — a third skin around the body. This thesis asks what happens when that relationship plays out over generations.</p>
     </div>
 
     <section class="project-details">
-      <div class="detail-column">
-        <h2 class="detail-title">CONTEXT</h2>
-        <p>MArch + MS EECS Thesis</p>
-      </div>
-      <div class="detail-column">
-        <h2 class="detail-title">SOFTWARE + TOOLS</h2>
-        <p>Python, C#, Sims 4, Unity, Illustrator, Photoshop, Rhino</p>
-      </div>
-      <div class="detail-column">
-        <h2 class="detail-title">SUPERVISORS</h2>
-        <p>Skylar Tibbits, Stefanie Mueller</p>
-      </div>
+      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>MArch + MS EECS Thesis</p></div>
+      <div class="detail-column"><h2 class="detail-title">SOFTWARE + TOOLS</h2><p>Python, C#, Sims 4, Unity, Illustrator, Photoshop, Rhino</p></div>
+      <div class="detail-column"><h2 class="detail-title">SUPERVISORS</h2><p>Skylar Tibbits, Stefanie Mueller</p></div>
     </section>
 
     <div class="project-images">
-      <div class="button-container"><a href="#flipbookWrap" class="button">
-          Read the full book here
-        </a></div>
-
+      <div class="button-container"><a href="#flipbookWrap" class="button">Read the full book here</a></div>
       <img src="Images/Thesis/Estrina_3846.jpg" alt="Architecture as Prosthesis thesis installation">
-      <p>
-        Our lives have become exceedingly comfortable. In fact, we are cheerfully inside of comfortable bubbles, while
-        the world around us burns. Today, 90% of our time is spent indoors, transforming interior spaces from mere shelters
-        into comfort cocoons. Daniel Barber’s “After Comfort” questions the necessity of such intensive comfort in
-        buildings, citing their environmental impacts. However, the conversation must go further. Designers must
-        critically examine the comforts we create—not only for their environmental consequences but also for their effects
-        on the evolution of the human species. This thesis posits that architects must consciously consider the long-term
-        impacts of their designs on future generations. It is imperative for designers to intentionally decide what to
-        advocate for as we build for the deep future—not only addressing today’s environmental effects but anticipating
-        those of tomorrow. How can we predict the repercussions of our current lifestyles on future generations? How might
-        we design with these possibilities in mind? To explore these questions, this thesis employs simulation as a design
-        tool, to observe humans’ social, physical, and psychological responses to architectural conditions over
-        generations. The research concludes with strategies derived from simulations to mitigate undesirable outcomes and
-        proposes revised existing building designs to implement them. By merging design, gaming, and narrative fabulation,
-        this research explores how the spaces we inhabit today could transform humanity’s future, urging architects to
-        approach design with greater intention and foresight, and how computation can play a role in the simulation and
-        prediction of such design.
-      </p>
-
+      <p>Using modified simulations in The Sims 4, three homes become evolutionary experiments. Each rewards different habits, senses and movements, producing three speculative future bodies. Those outcomes are translated into 18 strategies for architecture that keeps people adaptable instead of over-specialized.</p>
       <div class="image-row">
-        <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis thesis exhibition">
-        <img src="Images/Thesis/Estrina_3858.jpg" alt="Architecture as Prosthesis game installation">
+        <img src="Images/Thesis/Estrina_3848_(1).jpg" alt="Architecture as Prosthesis thesis exhibition display">
+        <img src="Images/Thesis/Estrina_3858.jpg" alt="Architecture as Prosthesis interactive game installation">
       </div>
 
-      <img src="Images/Thesis/Human Org.jpg" alt="Architecture as Prosthesis thesis exhibition">
-
-      <img src="Images/Thesis/dorm human.jpg" alt="Architecture as Prosthesis thesis exhibition">
-
-      <section class="thesis-book-archive" aria-labelledby="sanaBookHeading">
-        <h2 id="sanaBookHeading">Sana Book</h2>
-        <div id="sanaBookGallery">
-           <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-0.jpg" alt="Architecture as Prosthesis thesis book cover">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-1.jpg" alt="Architecture as Prosthesis thesis book page 2">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-2.jpg" alt="Architecture as Prosthesis thesis book page 3">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-3.jpg" alt="Architecture as Prosthesis thesis book page 4">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-4.jpg" alt="Architecture as Prosthesis thesis book page 5">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-5.jpg" alt="Architecture as Prosthesis thesis book page 6">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-6.jpg" alt="Architecture as Prosthesis thesis book page 7">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-7.jpg" alt="Architecture as Prosthesis thesis book page 8">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-8.jpg" alt="Architecture as Prosthesis thesis book page 9">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-9.jpg" alt="Architecture as Prosthesis thesis book page 10">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-10.jpg" alt="Architecture as Prosthesis thesis book page 11">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-11.jpg" alt="Architecture as Prosthesis thesis book page 12">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-12.jpg" alt="Architecture as Prosthesis thesis book page 13">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-13.jpg" alt="Architecture as Prosthesis thesis book page 14">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-14.jpg" alt="Architecture as Prosthesis thesis book page 15">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-15.jpg" alt="Architecture as Prosthesis thesis book page 16">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-16.jpg" alt="Architecture as Prosthesis thesis book page 17">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-17.jpg" alt="Architecture as Prosthesis thesis book page 18">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-18.jpg" alt="Architecture as Prosthesis thesis book page 19">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-19.jpg" alt="Architecture as Prosthesis thesis book page 20">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-20.jpg" alt="Architecture as Prosthesis thesis book page 21">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-21.jpg" alt="Architecture as Prosthesis thesis book page 22">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-22.jpg" alt="Architecture as Prosthesis thesis book page 23">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-23.jpg" alt="Architecture as Prosthesis thesis book page 24">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-24.jpg" alt="Architecture as Prosthesis thesis book page 25">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-25.jpg" alt="Architecture as Prosthesis thesis book page 26">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-26.jpg" alt="Architecture as Prosthesis thesis book page 27">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-27.jpg" alt="Architecture as Prosthesis thesis book page 28">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-28.jpg" alt="Architecture as Prosthesis thesis book page 29">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-29.jpg" alt="Architecture as Prosthesis thesis book page 30">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-30.jpg" alt="Architecture as Prosthesis thesis book page 31">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-31.jpg" alt="Architecture as Prosthesis thesis book page 32">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-32.jpg" alt="Architecture as Prosthesis thesis book page 33">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-33.jpg" alt="Architecture as Prosthesis thesis book page 34">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-34.jpg" alt="Architecture as Prosthesis thesis book page 35">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-35.jpg" alt="Architecture as Prosthesis thesis book page 36">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-36.jpg" alt="Architecture as Prosthesis thesis book page 37">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-37.jpg" alt="Architecture as Prosthesis thesis book page 38">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-38.jpg" alt="Architecture as Prosthesis thesis book page 39">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-39.jpg" alt="Architecture as Prosthesis thesis book page 40">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-40.jpg" alt="Architecture as Prosthesis thesis book page 41">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-41.jpg" alt="Architecture as Prosthesis thesis book page 42">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-42.jpg" alt="Architecture as Prosthesis thesis book page 43">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-43.jpg" alt="Architecture as Prosthesis thesis book page 44">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-44.jpg" alt="Architecture as Prosthesis thesis book page 45">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-45.jpg" alt="Architecture as Prosthesis thesis book page 46">
-          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-46.jpg" alt="Architecture as Prosthesis thesis book page 47">
-        </div>
+      <section class="thesis-context">
+        <p class="thesis-kicker">Background</p>
+        <h2>FROM SHELTER TO PROSTHESIS</h2>
+        <p>Architecture began as protection from climate, but increasingly became a controlled interior climate of its own. As heating, cooling, lighting and digital life smooth away environmental variation, the built environment becomes an active pressure on how bodies behave and adapt.</p>
       </section>
-
-      <div class="image-row">
-        <img src="Images/Thesis/Human Org.jpg" alt="Architecture as Prosthesis thesis exhibition">
-        <img src="Images/Thesis/Estrina_3858.jpg" alt="Architecture as Prosthesis game installation">
+      <div class="thesis-visual-pair">
+        <img src="Images/Thesis/Human Org.jpg" alt="Diagram of human biological organization and adaptation used in Architecture as Prosthesis">
+        <img src="Images/Thesis/taonomy.jpg" alt="Taxonomy diagram mapping architectural conditions and human adaptations">
+      </div>
+      <div class="thesis-timeline">
+        <img src="Images/Thesis/Timeline1.jpg" alt="Architecture as Prosthesis historical timeline panel 1">
+        <img src="Images/Thesis/Timeline2.jpg" alt="Architecture as Prosthesis historical timeline panel 2">
+        <img src="Images/Thesis/Timeline3.jpg" alt="Architecture as Prosthesis historical timeline panel 3">
+        <img src="Images/Thesis/Timeline4.jpg" alt="Architecture as Prosthesis historical timeline panel 4">
       </div>
 
-      <img src="Images/Thesis/farns human.jpg" alt="Architecture as Prosthesis thesis exhibition">
-
-      <section class="thesis-book-archive" aria-labelledby="miesBookHeading">
-        <h2 id="miesBookHeading">Mies Book</h2>
-        <div id="miesBookGallery">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-0.jpg" alt="Mies van der Rohe case-study booklet cover">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-1.jpg" alt="Mies van der Rohe case-study booklet page 2">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-2.jpg" alt="Mies van der Rohe case-study booklet page 3">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-3.jpg" alt="Mies van der Rohe case-study booklet page 4">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-4.jpg" alt="Mies van der Rohe case-study booklet page 5">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-5.jpg" alt="Mies van der Rohe case-study booklet page 6">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-6.jpg" alt="Mies van der Rohe case-study booklet page 7">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-7.jpg" alt="Mies van der Rohe case-study booklet page 8">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-8.jpg" alt="Mies van der Rohe case-study booklet page 9">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-9.jpg" alt="Mies van der Rohe case-study booklet page 10">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-10.jpg" alt="Mies van der Rohe case-study booklet page 11">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-11.jpg" alt="Mies van der Rohe case-study booklet page 12">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-12.jpg" alt="Mies van der Rohe case-study booklet page 13">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-13.jpg" alt="Mies van der Rohe case-study booklet page 14">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-14.jpg" alt="Mies van der Rohe case-study booklet page 15">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-15.jpg" alt="Mies van der Rohe case-study booklet page 16">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-16.jpg" alt="Mies van der Rohe case-study booklet page 17">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-17.jpg" alt="Mies van der Rohe case-study booklet page 18">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-18.jpg" alt="Mies van der Rohe case-study booklet page 19">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-19.jpg" alt="Mies van der Rohe case-study booklet page 20">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-20.jpg" alt="Mies van der Rohe case-study booklet page 21">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-21.jpg" alt="Mies van der Rohe case-study booklet page 22">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-22.jpg" alt="Mies van der Rohe case-study booklet page 23">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-23.jpg" alt="Mies van der Rohe case-study booklet page 24">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-24.jpg" alt="Mies van der Rohe case-study booklet page 25">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-25.jpg" alt="Mies van der Rohe case-study booklet page 26">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-26.jpg" alt="Mies van der Rohe case-study booklet page 27">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-27.jpg" alt="Mies van der Rohe case-study booklet page 28">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-28.jpg" alt="Mies van der Rohe case-study booklet page 29">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-29.jpg" alt="Mies van der Rohe case-study booklet page 30">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-30.jpg" alt="Mies van der Rohe case-study booklet page 31">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-31.jpg" alt="Mies van der Rohe case-study booklet page 32">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-32.jpg" alt="Mies van der Rohe case-study booklet page 33">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-33.jpg" alt="Mies van der Rohe case-study booklet page 34">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-34.jpg" alt="Mies van der Rohe case-study booklet page 35">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-35.jpg" alt="Mies van der Rohe case-study booklet page 36">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-36.jpg" alt="Mies van der Rohe case-study booklet page 37">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-37.jpg" alt="Mies van der Rohe case-study booklet page 38">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-38.jpg" alt="Mies van der Rohe case-study booklet page 39">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-39.jpg" alt="Mies van der Rohe case-study booklet page 40">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-40.jpg" alt="Mies van der Rohe case-study booklet page 41">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-41.jpg" alt="Mies van der Rohe case-study booklet page 42">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-42.jpg" alt="Mies van der Rohe case-study booklet page 43">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-43.jpg" alt="Mies van der Rohe case-study booklet page 44">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-44.jpg" alt="Mies van der Rohe case-study booklet page 45">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-45.jpg" alt="Mies van der Rohe case-study booklet page 46">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-46.jpg" alt="Mies van der Rohe case-study booklet page 47">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-47.jpg" alt="Mies van der Rohe case-study booklet page 48">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-48.jpg" alt="Mies van der Rohe case-study booklet page 49">
-          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-49.jpg" alt="Mies van der Rohe case-study booklet page 50">
+      <section class="thesis-simulation-section">
+        <h2>SIMULATING GENERATIONS</h2>
+        <p>The simulations turn each house into a long-term experiment: architectural conditions reward or discourage behaviors, and those accumulated pressures become speculative physical, social and sensory adaptations.</p>
+        <div class="thesis-simulation-strip">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.15.15 PM.png" alt="Architecture as Prosthesis simulation study frame 1" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.15.23 PM.png" alt="Architecture as Prosthesis simulation study frame 2" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.15.35 PM.png" alt="Architecture as Prosthesis simulation study frame 3" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.15.42 PM.png" alt="Architecture as Prosthesis simulation study frame 4" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.15.47 PM.png" alt="Architecture as Prosthesis simulation study frame 5" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.15.56 PM.png" alt="Architecture as Prosthesis simulation study frame 6" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.10 PM.png" alt="Architecture as Prosthesis simulation study frame 7" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.15 PM.png" alt="Architecture as Prosthesis simulation study frame 8" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.25 PM.png" alt="Architecture as Prosthesis simulation study frame 9" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.38 PM.png" alt="Architecture as Prosthesis simulation study frame 10" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.43 PM.png" alt="Architecture as Prosthesis simulation study frame 11" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.52 PM.png" alt="Architecture as Prosthesis simulation study frame 12" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.16.58 PM.png" alt="Architecture as Prosthesis simulation study frame 13" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.04 PM.png" alt="Architecture as Prosthesis simulation study frame 14" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.11 PM.png" alt="Architecture as Prosthesis simulation study frame 15" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.17 PM.png" alt="Architecture as Prosthesis simulation study frame 16" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.22 PM.png" alt="Architecture as Prosthesis simulation study frame 17" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.32 PM.png" alt="Architecture as Prosthesis simulation study frame 18" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.39 PM.png" alt="Architecture as Prosthesis simulation study frame 19" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.17.47 PM.png" alt="Architecture as Prosthesis simulation study frame 20" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.18.25 PM.png" alt="Architecture as Prosthesis simulation study frame 21" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.18.36 PM.png" alt="Architecture as Prosthesis simulation study frame 22" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.19.04 PM.png" alt="Architecture as Prosthesis simulation study frame 23" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.20.17 PM.png" alt="Architecture as Prosthesis simulation study frame 24" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 4.20.25 PM.png" alt="Architecture as Prosthesis simulation study frame 25" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.10.52 PM.png" alt="Architecture as Prosthesis simulation study frame 26" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.11.05 PM.png" alt="Architecture as Prosthesis simulation study frame 27" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.11.48 PM.png" alt="Architecture as Prosthesis simulation study frame 28" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.11.53 PM.png" alt="Architecture as Prosthesis simulation study frame 29" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.11.59 PM.png" alt="Architecture as Prosthesis simulation study frame 30" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.12.13 PM.png" alt="Architecture as Prosthesis simulation study frame 31" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.12.18 PM.png" alt="Architecture as Prosthesis simulation study frame 32" loading="lazy">
+          <img src="Images/Thesis/Screenshot 2026-08-28 at 11.12.31 PM.png" alt="Architecture as Prosthesis simulation study frame 33" loading="lazy">
         </div>
       </section>
 
-      <img src="Images/Thesis/sejima human.jpg" alt="Architecture as Prosthesis thesis exhibition">
+      <section class="thesis-case-copy">
+        <p class="thesis-kicker">Case 01</p>
+        <h2>THE DORM</h2>
+        <p>A generic MIT efficiency apartment becomes the control. Tight space, weak daylight, screens, flat floors and steady HVAC reward sitting still and staying inside. Over generations, the body becomes optimized for a sedentary, technology-heavy interior life.</p>
+        <p class="thesis-revision"><strong>Revision:</strong> Variable floor heights, unflat flooring, stronger daylight and longer sight lines, plus more exchange between inside and outside, put movement and environmental variation back into everyday life.</p>
+      </section>
+      <img class="thesis-human" src="Images/Thesis/dorm human.jpg" alt="Speculative future human adapted to the dorm case study">
 
-      <section class="thesis-book-archive" aria-labelledby="sanaBookHeading">
-        <h2 id="sanaBookHeading">Sana Book</h2>
-        <div id="sanaBookGallery">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-0.jpg" alt="SANAA case-study booklet cover">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-1.jpg" alt="SANAA case-study booklet page 2">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-2.jpg" alt="SANAA case-study booklet page 3">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-3.jpg" alt="SANAA case-study booklet page 4">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-4.jpg" alt="SANAA case-study booklet page 5">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-5.jpg" alt="SANAA case-study booklet page 6">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-6.jpg" alt="SANAA case-study booklet page 7">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-7.jpg" alt="SANAA case-study booklet page 8">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-8.jpg" alt="SANAA case-study booklet page 9">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-9.jpg" alt="SANAA case-study booklet page 10">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-10.jpg" alt="SANAA case-study booklet page 11">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-11.jpg" alt="SANAA case-study booklet page 12">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-12.jpg" alt="SANAA case-study booklet page 13">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-13.jpg" alt="SANAA case-study booklet page 14">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-14.jpg" alt="SANAA case-study booklet page 15">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-15.jpg" alt="SANAA case-study booklet page 16">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-16.jpg" alt="SANAA case-study booklet page 17">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-17.jpg" alt="SANAA case-study booklet page 18">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-18.jpg" alt="SANAA case-study booklet page 19">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-19.jpg" alt="SANAA case-study booklet page 20">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-20.jpg" alt="SANAA case-study booklet page 21">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-21.jpg" alt="SANAA case-study booklet page 22">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-22.jpg" alt="SANAA case-study booklet page 23">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-23.jpg" alt="SANAA case-study booklet page 24">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-24.jpg" alt="SANAA case-study booklet page 25">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-25.jpg" alt="SANAA case-study booklet page 26">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-26.jpg" alt="SANAA case-study booklet page 27">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-27.jpg" alt="SANAA case-study booklet page 28">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-28.jpg" alt="SANAA case-study booklet page 29">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-29.jpg" alt="SANAA case-study booklet page 30">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-30.jpg" alt="SANAA case-study booklet page 31">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-31.jpg" alt="SANAA case-study booklet page 32">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-32.jpg" alt="SANAA case-study booklet page 33">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-33.jpg" alt="SANAA case-study booklet page 34">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-34.jpg" alt="SANAA case-study booklet page 35">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-35.jpg" alt="SANAA case-study booklet page 36">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-36.jpg" alt="SANAA case-study booklet page 37">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-37.jpg" alt="SANAA case-study booklet page 38">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-38.jpg" alt="SANAA case-study booklet page 39">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-39.jpg" alt="SANAA case-study booklet page 40">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-40.jpg" alt="SANAA case-study booklet page 41">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-41.jpg" alt="SANAA case-study booklet page 42">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-42.jpg" alt="SANAA case-study booklet page 43">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-43.jpg" alt="SANAA case-study booklet page 44">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-44.jpg" alt="SANAA case-study booklet page 45">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-45.jpg" alt="SANAA case-study booklet page 46">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-46.jpg" alt="SANAA case-study booklet page 47">
-          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-47.jpg" alt="SANAA case-study booklet page 48">
+      <section class="thesis-book-archive" aria-labelledby="dormBookHeading">
+        <h2 id="dormBookHeading">DORM — BOOKLET</h2>
+        <div id="dormBookGallery" data-booklet data-label="Dorm">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-0.jpg" alt="Dorm booklet cover">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-1.jpg" alt="Dorm booklet page 2">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-2.jpg" alt="Dorm booklet page 3">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-3.jpg" alt="Dorm booklet page 4">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-4.jpg" alt="Dorm booklet page 5">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-5.jpg" alt="Dorm booklet page 6">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-6.jpg" alt="Dorm booklet page 7">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-7.jpg" alt="Dorm booklet page 8">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-8.jpg" alt="Dorm booklet page 9">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-9.jpg" alt="Dorm booklet page 10">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-10.jpg" alt="Dorm booklet page 11">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-11.jpg" alt="Dorm booklet page 12">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-12.jpg" alt="Dorm booklet page 13">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-13.jpg" alt="Dorm booklet page 14">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-14.jpg" alt="Dorm booklet page 15">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-15.jpg" alt="Dorm booklet page 16">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-16.jpg" alt="Dorm booklet page 17">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-17.jpg" alt="Dorm booklet page 18">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-18.jpg" alt="Dorm booklet page 19">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-19.jpg" alt="Dorm booklet page 20">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-20.jpg" alt="Dorm booklet page 21">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-21.jpg" alt="Dorm booklet page 22">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-22.jpg" alt="Dorm booklet page 23">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-23.jpg" alt="Dorm booklet page 24">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-24.jpg" alt="Dorm booklet page 25">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-25.jpg" alt="Dorm booklet page 26">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-26.jpg" alt="Dorm booklet page 27">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-27.jpg" alt="Dorm booklet page 28">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-28.jpg" alt="Dorm booklet page 29">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-29.jpg" alt="Dorm booklet page 30">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-30.jpg" alt="Dorm booklet page 31">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-31.jpg" alt="Dorm booklet page 32">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-32.jpg" alt="Dorm booklet page 33">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-33.jpg" alt="Dorm booklet page 34">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-34.jpg" alt="Dorm booklet page 35">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-35.jpg" alt="Dorm booklet page 36">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-36.jpg" alt="Dorm booklet page 37">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-37.jpg" alt="Dorm booklet page 38">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-38.jpg" alt="Dorm booklet page 39">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-39.jpg" alt="Dorm booklet page 40">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-40.jpg" alt="Dorm booklet page 41">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-41.jpg" alt="Dorm booklet page 42">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-42.jpg" alt="Dorm booklet page 43">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-43.jpg" alt="Dorm booklet page 44">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-44.jpg" alt="Dorm booklet page 45">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-45.jpg" alt="Dorm booklet page 46">
+          <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-46.jpg" alt="Dorm booklet page 47">
         </div>
       </section>
 
+      <section class="thesis-case-copy"><p class="thesis-kicker">Case 02</p><h2>FARNSWORTH HOUSE</h2><p>Mies van der Rohe’s glass pavilion produces the opposite pressure: exposure. Hard surfaces, minimal furniture, open planning and constant visibility tune the body to a highly controlled modernist world while reducing privacy and tolerance for softer, less predictable terrain.</p><p class="thesis-revision"><strong>Revision:</strong> Soft partitions, dynamic layouts, variable levels, seasonal zones and passive ventilation keep the openness but make the house less physically and socially prescriptive.</p></section>
+      <img class="thesis-human" src="Images/Thesis/farns human.jpg" alt="Speculative future human adapted to the Farnsworth House case study">
+      <section class="thesis-book-archive" aria-labelledby="miesBookHeading"><h2 id="miesBookHeading">FARNSWORTH HOUSE — BOOKLET</h2><div id="miesBookGallery" data-booklet data-label="Farnsworth House">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-0.jpg" alt="Farnsworth House booklet cover">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-1.jpg" alt="Farnsworth House booklet page 2">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-2.jpg" alt="Farnsworth House booklet page 3">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-3.jpg" alt="Farnsworth House booklet page 4">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-4.jpg" alt="Farnsworth House booklet page 5">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-5.jpg" alt="Farnsworth House booklet page 6">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-6.jpg" alt="Farnsworth House booklet page 7">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-7.jpg" alt="Farnsworth House booklet page 8">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-8.jpg" alt="Farnsworth House booklet page 9">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-9.jpg" alt="Farnsworth House booklet page 10">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-10.jpg" alt="Farnsworth House booklet page 11">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-11.jpg" alt="Farnsworth House booklet page 12">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-12.jpg" alt="Farnsworth House booklet page 13">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-13.jpg" alt="Farnsworth House booklet page 14">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-14.jpg" alt="Farnsworth House booklet page 15">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-15.jpg" alt="Farnsworth House booklet page 16">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-16.jpg" alt="Farnsworth House booklet page 17">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-17.jpg" alt="Farnsworth House booklet page 18">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-18.jpg" alt="Farnsworth House booklet page 19">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-19.jpg" alt="Farnsworth House booklet page 20">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-20.jpg" alt="Farnsworth House booklet page 21">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-21.jpg" alt="Farnsworth House booklet page 22">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-22.jpg" alt="Farnsworth House booklet page 23">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-23.jpg" alt="Farnsworth House booklet page 24">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-24.jpg" alt="Farnsworth House booklet page 25">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-25.jpg" alt="Farnsworth House booklet page 26">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-26.jpg" alt="Farnsworth House booklet page 27">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-27.jpg" alt="Farnsworth House booklet page 28">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-28.jpg" alt="Farnsworth House booklet page 29">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-29.jpg" alt="Farnsworth House booklet page 30">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-30.jpg" alt="Farnsworth House booklet page 31">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-31.jpg" alt="Farnsworth House booklet page 32">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-32.jpg" alt="Farnsworth House booklet page 33">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-33.jpg" alt="Farnsworth House booklet page 34">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-34.jpg" alt="Farnsworth House booklet page 35">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-35.jpg" alt="Farnsworth House booklet page 36">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-36.jpg" alt="Farnsworth House booklet page 37">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-37.jpg" alt="Farnsworth House booklet page 38">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-38.jpg" alt="Farnsworth House booklet page 39">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-39.jpg" alt="Farnsworth House booklet page 40">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-40.jpg" alt="Farnsworth House booklet page 41">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-41.jpg" alt="Farnsworth House booklet page 42">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-42.jpg" alt="Farnsworth House booklet page 43">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-43.jpg" alt="Farnsworth House booklet page 44">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-44.jpg" alt="Farnsworth House booklet page 45">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-45.jpg" alt="Farnsworth House booklet page 46">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-46.jpg" alt="Farnsworth House booklet page 47">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-47.jpg" alt="Farnsworth House booklet page 48">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-48.jpg" alt="Farnsworth House booklet page 49">
+          <img src="Images/Thesis/MiesBook/27556e2f-aec7-4e69-85ac-6614201d2109-49.jpg" alt="Farnsworth House booklet page 50">
+        </div></section>
+
+      <section class="thesis-case-copy"><p class="thesis-kicker">Case 03</p><h2>MORIYAMA HOUSE</h2><p>Ryue Nishizawa’s fragmented house turns daily life into a sequence of thresholds. Moving between small rooms and outdoor space rewards balance, flexibility, environmental awareness and sensitivity to others.</p><p class="thesis-revision"><strong>Revision:</strong> Movable elements, uneven floors, seasonal spaces, augmented rather than total HVAC, and acoustic zoning preserve the house’s productive instability while giving occupants more ways to adapt.</p></section>
+      <img class="thesis-human" src="Images/Thesis/sejima human.jpg" alt="Speculative future human adapted to the Moriyama House case study">
+      <section class="thesis-book-archive" aria-labelledby="sanaBookHeading"><h2 id="sanaBookHeading">MORIYAMA HOUSE — BOOKLET</h2><div id="sanaBookGallery" data-booklet data-label="Moriyama House">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-0.jpg" alt="Moriyama House booklet cover">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-1.jpg" alt="Moriyama House booklet page 2">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-2.jpg" alt="Moriyama House booklet page 3">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-3.jpg" alt="Moriyama House booklet page 4">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-4.jpg" alt="Moriyama House booklet page 5">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-5.jpg" alt="Moriyama House booklet page 6">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-6.jpg" alt="Moriyama House booklet page 7">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-7.jpg" alt="Moriyama House booklet page 8">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-8.jpg" alt="Moriyama House booklet page 9">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-9.jpg" alt="Moriyama House booklet page 10">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-10.jpg" alt="Moriyama House booklet page 11">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-11.jpg" alt="Moriyama House booklet page 12">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-12.jpg" alt="Moriyama House booklet page 13">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-13.jpg" alt="Moriyama House booklet page 14">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-14.jpg" alt="Moriyama House booklet page 15">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-15.jpg" alt="Moriyama House booklet page 16">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-16.jpg" alt="Moriyama House booklet page 17">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-17.jpg" alt="Moriyama House booklet page 18">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-18.jpg" alt="Moriyama House booklet page 19">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-19.jpg" alt="Moriyama House booklet page 20">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-20.jpg" alt="Moriyama House booklet page 21">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-21.jpg" alt="Moriyama House booklet page 22">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-22.jpg" alt="Moriyama House booklet page 23">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-23.jpg" alt="Moriyama House booklet page 24">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-24.jpg" alt="Moriyama House booklet page 25">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-25.jpg" alt="Moriyama House booklet page 26">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-26.jpg" alt="Moriyama House booklet page 27">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-27.jpg" alt="Moriyama House booklet page 28">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-28.jpg" alt="Moriyama House booklet page 29">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-29.jpg" alt="Moriyama House booklet page 30">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-30.jpg" alt="Moriyama House booklet page 31">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-31.jpg" alt="Moriyama House booklet page 32">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-32.jpg" alt="Moriyama House booklet page 33">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-33.jpg" alt="Moriyama House booklet page 34">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-34.jpg" alt="Moriyama House booklet page 35">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-35.jpg" alt="Moriyama House booklet page 36">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-36.jpg" alt="Moriyama House booklet page 37">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-37.jpg" alt="Moriyama House booklet page 38">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-38.jpg" alt="Moriyama House booklet page 39">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-39.jpg" alt="Moriyama House booklet page 40">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-40.jpg" alt="Moriyama House booklet page 41">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-41.jpg" alt="Moriyama House booklet page 42">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-42.jpg" alt="Moriyama House booklet page 43">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-43.jpg" alt="Moriyama House booklet page 44">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-44.jpg" alt="Moriyama House booklet page 45">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-45.jpg" alt="Moriyama House booklet page 46">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-46.jpg" alt="Moriyama House booklet page 47">
+          <img src="Images/Thesis/SanaBook/cbedc579-5a4b-4f58-83ea-b2416c334032-47.jpg" alt="Moriyama House booklet page 48">
+        </div></section>
+
+      <section class="strategy-card-section">
+        <h2 class="strategy-card-heading">18 STRATEGIES</h2>
+        <p class="strategy-card-summary">The three cases become a toolkit rather than a single ideal building. The strategies challenge physical habits, increase sensory engagement, blur the line between interior and climate, and loosen rigid program. The goal is simple: design for variation, not frictionless comfort.</p>
+        <p class="strategy-card-instructions">Drag the strategy cards anywhere across the thesis page. Click or tap a card to bring it forward. Hold Shift while dragging to rotate it.</p>
+        <div class="strategy-card-stage">
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 1"><img src="Images/Thesis/Playing Cards/cards-2.jpg" alt="Architecture strategy card 1" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 2"><img src="Images/Thesis/Playing Cards/cards-22.jpg" alt="Architecture strategy card 2" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 3"><img src="Images/Thesis/Playing Cards/cards-23.jpg" alt="Architecture strategy card 3" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 4"><img src="Images/Thesis/Playing Cards/cards-24.jpg" alt="Architecture strategy card 4" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 5"><img src="Images/Thesis/Playing Cards/cards-25.jpg" alt="Architecture strategy card 5" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 6"><img src="Images/Thesis/Playing Cards/cards-26.jpg" alt="Architecture strategy card 6" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 7"><img src="Images/Thesis/Playing Cards/cards-27.jpg" alt="Architecture strategy card 7" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 8"><img src="Images/Thesis/Playing Cards/cards-28.jpg" alt="Architecture strategy card 8" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 9"><img src="Images/Thesis/Playing Cards/cards-29.jpg" alt="Architecture strategy card 9" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 10"><img src="Images/Thesis/Playing Cards/cards-3.jpg" alt="Architecture strategy card 10" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 11"><img src="Images/Thesis/Playing Cards/cards-32.jpg" alt="Architecture strategy card 11" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 12"><img src="Images/Thesis/Playing Cards/cards-33.jpg" alt="Architecture strategy card 12" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 13"><img src="Images/Thesis/Playing Cards/cards-34.jpg" alt="Architecture strategy card 13" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 14"><img src="Images/Thesis/Playing Cards/cards-35.jpg" alt="Architecture strategy card 14" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 15"><img src="Images/Thesis/Playing Cards/cards-36.jpg" alt="Architecture strategy card 15" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 16"><img src="Images/Thesis/Playing Cards/cards-37.jpg" alt="Architecture strategy card 16" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 17"><img src="Images/Thesis/Playing Cards/cards-38.jpg" alt="Architecture strategy card 17" draggable="false" loading="lazy"></button>
+          <button type="button" class="strategy-card" aria-label="Architecture strategy card 18"><img src="Images/Thesis/Playing Cards/cards-39.jpg" alt="Architecture strategy card 18" draggable="false" loading="lazy"></button>
+        </div>
+      </section>
+
+      <div class="thesis-provocations">
+        <img src="Images/Thesis/ad4.jpg" alt="Architecture as Prosthesis design provocation graphic 1" loading="lazy">
+        <img src="Images/Thesis/ad5.jpg" alt="Architecture as Prosthesis design provocation graphic 2" loading="lazy">
+        <img src="Images/Thesis/ad6.jpg" alt="Architecture as Prosthesis design provocation graphic 3" loading="lazy">
+      </div>
+
+      <section class="thesis-strategy-copy"><p class="thesis-kicker">Full thesis</p><h2>ARCHITECTURE AS PROSTHESIS</h2><p>Flip through the complete thesis to see the research, simulations, case studies and strategy catalogue together.</p></section>
       <div class="wrap" id="flipbookWrap" aria-label="Architecture as Prosthesis thesis book">
-        <div class="book" id="book">
-          <div class="page left" id="pageLeft"></div>
-          <div class="page right" id="pageRight"></div>
-        </div>
-
+        <div class="book" id="book"><div class="page left" id="pageLeft"></div><div class="page right" id="pageRight"></div></div>
         <div id="flipbookImages" style="display:none;">
           <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-0.jpg" alt="Architecture as Prosthesis thesis book cover">
           <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-1.jpg" alt="Architecture as Prosthesis thesis book page 2">
@@ -326,7 +389,6 @@
           <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-45.jpg" alt="Architecture as Prosthesis thesis book page 46">
           <img src="Images/Thesis/TanyaBook/37df8518-436c-451a-8311-6088b4e213b0-46.jpg" alt="Architecture as Prosthesis thesis book page 47">
         </div>
-
         <button id="prevBtn" class="arrow left" aria-label="Previous thesis-book spread" title="Previous page">❮</button>
         <button id="nextBtn" class="arrow right" aria-label="Next thesis-book spread" title="Next page">❯</button>
       </div>
@@ -334,18 +396,10 @@
   </main>
 
   <div id="footer"></div>
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
-
+  <script>fetch("footer.html").then(res => res.text()).then(html => document.getElementById("footer").innerHTML = html);</script>
   <div class="custom-cursor" id="customCursor"></div>
   <script src="assets/js/cursor.js"></script>
   <script src="assets/js/galleryscroll.js"></script>
   <script src="assets/js/book.js"></script>
 </body>
-
 </html>

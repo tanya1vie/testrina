@@ -38,6 +38,41 @@ main.main {
   opacity: 0.62;
 }
 
+/* Reusable side-by-side text + image layout. Add .reverse to put the image first. */
+.project-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: start;
+  margin: 60px 0;
+}
+
+.project-split-text {
+  min-width: 0;
+}
+
+.project-split-text h2 {
+  margin-top: 0;
+}
+
+.project-split img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+}
+
+.project-split.reverse > img {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.project-split.reverse > .project-split-text {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 .project-image-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -278,8 +313,16 @@ main.main {
 
 @media (max-width: 760px) {
   .project-copy-section { margin-top: 60px; }
+  .project-split,
   .project-image-pair,
   .project-image-grid-three { grid-template-columns: 1fr; }
+  .project-split.reverse > img,
+  .project-split.reverse > .project-split-text {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .project-split.reverse > img { order: 0; }
+  .project-split.reverse > .project-split-text { order: 1; }
   .project-image-grid-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-scroll-strip {
     grid-template-rows: repeat(2, 150px);

@@ -142,4 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initMainFlipbook();
   document.querySelectorAll('[data-booklet]').forEach(initMagazineBooklet);
+
+  if (document.querySelector('main .project-header') && !document.querySelector('script[data-project-figures]')) {
+    const figures = document.createElement('script');
+    figures.src = 'assets/js/projectFigures.js';
+    figures.dataset.projectFigures = 'true';
+    document.body.appendChild(figures);
+  }
 });

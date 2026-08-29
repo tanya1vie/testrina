@@ -90,10 +90,10 @@
 
 (function(){
   const main = document.querySelector('main.main');
-  const stage = document.querySelector('.strategy-card-stage');
+  const stage = document.querySelector('.draggable-card-stage');
   if (!main || !stage) return;
 
-  const cards = Array.from(stage.querySelectorAll('.strategy-card'));
+  const cards = Array.from(stage.querySelectorAll('.draggable-card'));
   if (!cards.length) return;
 
   let topZ = 40;

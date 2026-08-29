@@ -1,0 +1,77 @@
+/* Automatic captions used only on project pages. */
+.auto-project-figure {
+  margin: 0;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.auto-project-figure > img {
+  display: block;
+  max-width: 100%;
+}
+
+.auto-project-caption {
+  margin-top: 6px;
+  font-family: 'Helvetica Light', sans-serif;
+  font-size: 10px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #000;
+}
+
+/* Preserve the existing project-page image-row proportions after images are wrapped in figures. */
+.image-row > .auto-project-figure {
+  flex: 1 1 0;
+}
+
+.image-row > .auto-project-figure > img {
+  width: 100%;
+  height: auto;
+}
+
+.image-row-three > .auto-project-figure {
+  width: 100%;
+}
+
+.image-row-three > .auto-project-figure > img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.image-row-four > .auto-project-figure {
+  flex: 0 1 18%;
+  max-width: 18%;
+}
+
+.image-row-four > .auto-project-figure > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery-item.auto-project-figure,
+.gallery-item .auto-project-figure {
+  flex: 0 0 auto;
+}
+
+.gallery-item .auto-project-caption {
+  padding-top: 2px;
+}
+
+.masonry-gallery > .auto-project-figure {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.masonry-gallery > .auto-project-figure > img {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .image-row-four > .auto-project-figure {
+    flex-basis: 44%;
+    max-width: 44%;
+  }
+}

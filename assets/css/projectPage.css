@@ -706,6 +706,10 @@ img {
   min-width: 100px; /* was 200px */
 }
 
+.project-split .image-small {
+  max-width: 250px;
+}
+
 
 .two-col {
   display: grid;

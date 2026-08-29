@@ -1,0 +1,299 @@
+/* Shared project-page components. Reuse these classes on any project page. */
+
+main.main {
+  position: relative;
+}
+
+.project-copy-section {
+  max-width: 900px;
+  margin: 88px auto 30px;
+}
+
+.project-copy-section h2 {
+  margin: 0 0 14px;
+}
+
+.project-copy-section p {
+  max-width: 790px;
+  margin: 0 0 12px;
+}
+
+.project-kicker {
+  margin-bottom: 7px !important;
+  opacity: 0.58;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-note {
+  opacity: 0.78;
+}
+
+.project-section-summary {
+  max-width: 800px;
+}
+
+.project-section-instructions {
+  max-width: 720px;
+  opacity: 0.62;
+}
+
+.project-image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+  margin: 28px 0 76px;
+}
+
+.project-image-pair img,
+.project-image-grid-three img,
+.project-image-grid-four img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+}
+
+.project-image-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 28px 0 88px;
+}
+
+.project-image-grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px 0 78px;
+}
+
+.project-feature-image {
+  display: block;
+  width: min(100%, 850px);
+  height: auto;
+  margin: 24px auto 46px;
+  object-fit: contain;
+}
+
+.project-scroll-section {
+  margin: 90px 0 94px;
+}
+
+.project-scroll-section > p {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.project-scroll-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, minmax(170px, 24vw));
+  grid-auto-columns: minmax(260px, 34vw);
+  gap: 14px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 4px 2px 18px;
+  scroll-snap-type: x proximity;
+}
+
+.project-scroll-strip img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+  scroll-snap-align: start;
+}
+
+.project-booklet-section {
+  width: 100%;
+  margin: 72px 0;
+}
+
+.project-booklet-section h2 {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.magazine-booklet-wrap {
+  width: min(82vw, 980px);
+  margin: 0 auto;
+  position: relative;
+  padding: 0 44px;
+  box-sizing: border-box;
+}
+
+.magazine-booklet {
+  width: 100%;
+  aspect-ratio: 1.48 / 1;
+  display: flex;
+  position: relative;
+  overflow: visible;
+  perspective: 1800px;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16));
+}
+
+.magazine-page {
+  position: relative;
+  flex: 1 1 50%;
+  min-width: 0;
+  background-color: #fffdf7;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.magazine-page.verso {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  transform-origin: right center;
+}
+
+.magazine-page.recto {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  transform-origin: left center;
+}
+
+.magazine-booklet.is-cover .magazine-page.verso {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.magazine-booklet.is-cover::after {
+  display: none;
+}
+
+.magazine-booklet::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.magazine-page.flip-forward {
+  animation: magazineFlipForward 720ms cubic-bezier(.25, .8, .25, 1);
+  z-index: 4;
+}
+
+.magazine-page.flip-backward {
+  animation: magazineFlipBackward 720ms cubic-bezier(.25, .8, .25, 1);
+  z-index: 4;
+}
+
+@keyframes magazineFlipForward {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-180deg); }
+}
+
+@keyframes magazineFlipBackward {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(180deg); }
+}
+
+.magazine-booklet-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 8px;
+  font: inherit;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.magazine-booklet-arrow.prev { left: 0; }
+.magazine-booklet-arrow.next { right: 0; }
+.magazine-booklet-arrow:disabled { opacity: 0.2; cursor: default; }
+
+.magazine-booklet-status {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+  opacity: 0.65;
+}
+
+.draggable-card-section {
+  width: 100%;
+  margin: 90px 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.draggable-card-stage {
+  position: relative;
+  width: 100%;
+  height: 470px;
+}
+
+.draggable-card {
+  position: absolute;
+  width: clamp(150px, 19vw, 230px);
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transform-origin: center center;
+}
+
+.draggable-card:active { cursor: grabbing; }
+
+.draggable-card:focus-visible {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.draggable-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.draggable-card.is-dragging {
+  max-width: none;
+  z-index: 60;
+}
+
+@media (max-width: 760px) {
+  .project-copy-section { margin-top: 60px; }
+  .project-image-pair,
+  .project-image-grid-three { grid-template-columns: 1fr; }
+  .project-image-grid-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-scroll-strip {
+    grid-template-rows: repeat(2, 150px);
+    grid-auto-columns: minmax(220px, 80vw);
+  }
+  .project-booklet-section { margin: 52px 0; }
+  .magazine-booklet-wrap { width: 100%; padding: 0 32px; }
+  .magazine-booklet { aspect-ratio: 1.36 / 1; }
+  .magazine-booklet-arrow { font-size: 30px; }
+  .draggable-card-stage { height: 400px; }
+  .draggable-card { width: clamp(125px, 38vw, 185px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magazine-page.flip-forward,
+  .magazine-page.flip-backward { animation-duration: 1ms; }
+}

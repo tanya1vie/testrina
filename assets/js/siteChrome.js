@@ -15,4 +15,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch("footer.html");
     footer.innerHTML = await response.text();
   }
+
+  if (document.querySelector("main .project-header")) {
+    const figures = document.createElement("script");
+    figures.src = "assets/js/projectFigures.js";
+    document.body.appendChild(figures);
+  }
 });

@@ -5,10 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     if (!leftPage || !rightPage || !prevBtn || !nextBtn) return;
-    const imagePaths = Array.from(document.querySelectorAll('#flipbookImages img')).map(img => img.getAttribute('src')).filter(Boolean);
+
+    const imagePaths = Array.from(document.querySelectorAll('#flipbookImages img'))
+      .map(img => img.getAttribute('src'))
+      .filter(Boolean);
     if (!imagePaths.length) return;
+
     let currentSpreadIndex = 0;
     const maxSpreads = Math.ceil((imagePaths.length - 1) / 2);
+
     function updateView() {
       if (currentSpreadIndex === 0) {
         leftPage.style.backgroundImage = '';
@@ -27,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       prevBtn.disabled = currentSpreadIndex === 0;
       nextBtn.disabled = currentSpreadIndex >= maxSpreads;
     }
+
     nextBtn.addEventListener('click', () => {
       if (currentSpreadIndex >= maxSpreads) return;
       const targetIndex = currentSpreadIndex + 1;
@@ -38,11 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
         updateView();
       }, { once: true });
     });
+
     prevBtn.addEventListener('click', () => {
       if (currentSpreadIndex <= 0) return;
       currentSpreadIndex -= 1;
       updateView();
     });
+
     updateView();
   }
 
@@ -76,29 +84,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
   }
 
-  function initMagazineBooklet(containerId, label) {
-    const container = document.getElementById(containerId);
+  function initMagazineBooklet(container) {
     if (!container) return;
-    const imagePaths = Array.from(container.querySelectorAll('img')).map(img => img.getAttribute('src')).filter(Boolean);
+    const label = container.dataset.label || '';
+    const sourceImages = Array.from(container.querySelectorAll('img'));
+    const imagePaths = sourceImages.map(img => img.getAttribute('src')).filter(Boolean);
+    const imageAlts = sourceImages.map(img => img.getAttribute('alt') || '');
     if (!imagePaths.length) return;
+
     container.className = 'magazine-booklet-wrap';
-    container.innerHTML = `<button type="button" class="magazine-booklet-arrow prev" aria-label="Previous ${label} spread">❮</button><div class="magazine-booklet" role="group" aria-label="${label} booklet"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next ${label} spread">❯</button><p class="magazine-booklet-status" aria-live="polite"></p>`;
+    container.innerHTML = `<button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet" role="group"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button><p class="magazine-booklet-status" aria-live="polite"></p>`;
+
     const book = container.querySelector('.magazine-booklet');
     const verso = container.querySelector('.magazine-page.verso');
     const recto = container.querySelector('.magazine-page.recto');
     const prev = container.querySelector('.magazine-booklet-arrow.prev');
     const next = container.querySelector('.magazine-booklet-arrow.next');
     const status = container.querySelector('.magazine-booklet-status');
+    if (label) book.setAttribute('aria-label', label);
+
     let spreadIndex = 0;
     const spreadCount = Math.ceil((imagePaths.length - 1) / 2);
     let animating = false;
+
     function render() {
       if (spreadIndex === 0) {
         book.classList.add('is-cover');
         verso.style.backgroundImage = '';
         recto.style.backgroundImage = `url('${imagePaths[0]}')`;
         verso.setAttribute('aria-label', 'Blank inside cover');
-        recto.setAttribute('aria-label', `${label} cover`);
+        recto.setAttribute('aria-label', imageAlts[0] || label);
         status.textContent = 'Cover';
       } else {
         book.classList.remove('is-cover');
@@ -109,14 +124,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightSrc = imagePaths[rightIndex] || '';
         verso.style.backgroundImage = leftSrc ? `url('${leftSrc}')` : '';
         recto.style.backgroundImage = rightSrc ? `url('${rightSrc}')` : '';
-        verso.setAttribute('aria-label', leftSrc ? `${label} page ${leftIndex + 1}` : 'Blank verso');
-        recto.setAttribute('aria-label', rightSrc ? `${label} page ${rightIndex + 1}` : 'Blank recto');
+        verso.setAttribute('aria-label', imageAlts[leftIndex] || 'Blank verso');
+        recto.setAttribute('aria-label', imageAlts[rightIndex] || 'Blank recto');
         const lastVisible = Math.min(rightIndex + 1, imagePaths.length);
         status.textContent = `Pages ${leftIndex + 1}–${lastVisible} of ${imagePaths.length}`;
       }
       prev.disabled = spreadIndex === 0;
       next.disabled = spreadIndex >= spreadCount;
     }
+
     function finishFlip(page, className, targetIndex) {
       page.classList.remove(className);
       page.style.transform = '';
@@ -124,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       animating = false;
       render();
     }
+
     next.addEventListener('click', () => {
       if (animating || spreadIndex >= spreadCount) return;
       animating = true;
@@ -131,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       recto.classList.add('flip-forward');
       recto.addEventListener('animationend', () => finishFlip(recto, 'flip-forward', targetIndex), { once: true });
     });
+
     prev.addEventListener('click', () => {
       if (animating || spreadIndex <= 0) return;
       animating = true;
@@ -138,15 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
       verso.classList.add('flip-backward');
       verso.addEventListener('animationend', () => finishFlip(verso, 'flip-backward', targetIndex), { once: true });
     });
+
     container.addEventListener('keydown', event => {
       if (event.key === 'ArrowRight' && !next.disabled) { event.preventDefault(); next.click(); }
       else if (event.key === 'ArrowLeft' && !prev.disabled) { event.preventDefault(); prev.click(); }
     });
+
     render();
   }
 
   initMainFlipbook();
   addMagazineBookStyles();
-  initMagazineBooklet('miesBookGallery', 'Mies Book');
-  initMagazineBooklet('sanaBookGallery', 'Sana Book');
+  document.querySelectorAll('[data-booklet]').forEach(initMagazineBooklet);
 });

@@ -38,16 +38,21 @@ main.main {
   opacity: 0.62;
 }
 
-/* Reusable side-by-side text + image layout. Add .reverse to put the image first. */
+/* Reusable side-by-side text + image layout. The shared --project-split-width
+   controls both columns so text always stays exactly as wide as the image. */
 .project-split {
+  --project-split-width: min(100%, 520px);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, var(--project-split-width));
   gap: 40px;
   align-items: start;
+  justify-content: center;
   margin: 60px 0;
 }
 
 .project-split-text {
+  width: var(--project-split-width);
+  max-width: 100%;
   min-width: 0;
 }
 
@@ -57,11 +62,17 @@ main.main {
 
 .project-split img {
   display: block;
-  width: 100%;
+  width: var(--project-split-width);
+  max-width: 100%;
   height: auto;
   margin: 0;
   object-fit: contain;
 }
+
+/* Optional shared sizes: both the image and its text column change together. */
+.project-split.small { --project-split-width: min(100%, 350px); }
+.project-split.medium { --project-split-width: min(100%, 440px); }
+.project-split.large { --project-split-width: min(100%, 520px); }
 
 .project-split.reverse > img {
   grid-column: 1;
@@ -316,6 +327,10 @@ main.main {
   .project-split,
   .project-image-pair,
   .project-image-grid-three { grid-template-columns: 1fr; }
+  .project-split-text,
+  .project-split img {
+    width: min(100%, var(--project-split-width));
+  }
   .project-split.reverse > img,
   .project-split.reverse > .project-split-text {
     grid-column: 1;

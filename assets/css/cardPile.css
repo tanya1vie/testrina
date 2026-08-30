@@ -1,0 +1,66 @@
+/* Reusable draggable-card pile styles. Intentionally isolated from Thesis layout styles. */
+
+main.main {
+  position: relative;
+}
+
+.draggable-card-section {
+  width: 100%;
+  margin: 90px 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.draggable-card-stage {
+  position: relative;
+  width: 100%;
+  height: 470px;
+}
+
+.draggable-card {
+  position: absolute;
+  width: clamp(150px, 19vw, 230px);
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transform-origin: center center;
+}
+
+.draggable-card:active {
+  cursor: grabbing;
+}
+
+.draggable-card:focus-visible {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.draggable-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.draggable-card.is-dragging {
+  max-width: none;
+  z-index: 60;
+}
+
+@media (max-width: 760px) {
+  .draggable-card-stage {
+    height: 400px;
+  }
+
+  .draggable-card {
+    width: clamp(125px, 38vw, 185px);
+  }
+}

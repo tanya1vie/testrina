@@ -8,9 +8,94 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
+  <style>
+    .tort-editorial {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tort-editorial .hero-image {
+      width: 100%;
+      max-width: 1000px;
+      margin: 30px auto 80px;
+    }
+
+    .tort-editorial .editorial-copy {
+      max-width: 700px;
+      margin: 0 auto 80px;
+      text-align: center;
+    }
+
+    .tort-editorial .editorial-copy h2 {
+      margin-bottom: 18px;
+    }
+
+    .tort-editorial .editorial-copy p {
+      margin-bottom: 14px;
+    }
+
+    .tort-editorial .full-image {
+      display: block;
+      width: 100%;
+      margin: 0 auto 56px;
+    }
+
+    .tort-editorial .image-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+      margin: 0 auto 64px;
+    }
+
+    .tort-editorial .image-pair img {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      object-fit: contain;
+    }
+
+    .tort-editorial .manual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin: 0 auto 80px;
+    }
+
+    .tort-editorial .manual-stack img {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .tort-editorial .taxonomy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin: 0 auto 90px;
+    }
+
+    .tort-editorial .taxonomy-stack img {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tort-editorial .draggable-card-section {
+      margin-top: 90px;
+    }
+
+    @media (max-width: 760px) {
+      .tort-editorial .image-pair {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header"></div>
+
   <main class="main" id="main-content">
     <header class="project-header">
       <p class="project-year">2021</p>
@@ -28,78 +113,90 @@
       <div class="detail-column"><h2 class="detail-title">SUPERVISOR</h2><p>Ana Miljački</p></div>
     </section>
 
-    <section class="project-section"><figure><img src="Images/Tort/Title.png" alt="Tort card game title illustration"></figure></section>
+    <div class="tort-editorial">
+      <img class="hero-image" src="Images/Tort/Title.png" alt="Tort card game title illustration">
 
-    <section class="project-copy">
-      <p>Tort is a card game about agency: does it belong to users, architecture, or architects? It combines active but ridiculous laws from around the world with design briefs inspired by existing projects.</p>
-      <p>Players choose which law is most useful for preventing a proposed building and make a case for applying it. The humorous play exposes obscure entanglements between communities, policy, and the built environment.</p>
-      <p>The game asks who the unseen actors affected by a building project are, how policies and laws are accounted for, and how the public can take agency over urban proposals before they are realized.</p>
-    </section>
+      <section class="editorial-copy">
+        <h2>The building game without building</h2>
+        <p>Tort is a card game about agency: does it belong to users, architecture, or architects? It combines active but ridiculous laws from around the world with design briefs inspired by existing projects.</p>
+        <p>Players choose which law is most useful for preventing a proposed building and make a case for applying it. The humorous play exposes obscure entanglements between communities, policy, and the built environment.</p>
+        <p>The game asks who the unseen actors affected by a building project are, how policies and laws are accounted for, and how the public can take agency over urban proposals before they are realized.</p>
+      </section>
 
-    <section class="project-section">
-      <h2>How to play</h2>
-      <div class="project-media-grid">
-        <figure><img src="Images/Tort/Tort_User_Manual_Master_File_TE4.jpg" alt="Tort game setup and first step" loading="lazy"></figure>
-        <figure><img src="Images/Tort/Tort_User_Manual_Master_File_TE5.jpg" alt="Tort gameplay instructions" loading="lazy"></figure>
-        <figure><img src="Images/Tort/Tort_User_Manual_Master_File_TE6.jpg" alt="Tort winning conditions" loading="lazy"></figure>
-        <figure><img src="Images/Tort/what%27s_in_the_box-01.png" alt="Contents of the Tort card game" loading="lazy"></figure>
-      </div>
-    </section>
+      <section class="editorial-copy">
+        <h2>How to play</h2>
+        <p>Each round combines a building brief with a hand of laws. Players argue which legal constraint can most convincingly stop the proposed building from happening.</p>
+      </section>
 
-    <section class="project-section">
-      <h2>The laws and briefs</h2>
-      <div class="project-media-grid">
-        <figure><img src="Images/Tort/Laws_Chart-01.png" alt="Tort law-card taxonomy, part one" loading="lazy"></figure>
-        <figure><img src="Images/Tort/Laws_Chart-02.png" alt="Tort law-card taxonomy, part two" loading="lazy"></figure>
-        <figure class="wide"><img src="Images/Tort/Laws_Chart-03.png" alt="Tort law-card taxonomy, part three" loading="lazy"></figure>
-        <figure><img src="Images/Tort/Brief_Cards-01.png" alt="Tort building brief cards" loading="lazy"></figure>
-        <figure><img src="Images/Tort/Law_Cards-01.png" alt="Tort law cards" loading="lazy"></figure>
+      <div class="manual-stack">
+        <img src="Images/Tort/Tort_User_Manual_Master_File_TE4.jpg" alt="Tort game setup and first step" loading="lazy">
+        <img src="Images/Tort/Tort_User_Manual_Master_File_TE5.jpg" alt="Tort gameplay instructions" loading="lazy">
+        <img src="Images/Tort/Tort_User_Manual_Master_File_TE6.jpg" alt="Tort winning conditions" loading="lazy">
       </div>
-    </section>
 
-    <section class="draggable-card-section" aria-labelledby="lawCardsHeading">
-      <div class="project-copy">
-        <h2 id="lawCardsHeading">Law cards</h2>
-        <p>Drag the cards around the page, click one to bring it to the front, or hold Shift while dragging to rotate it.</p>
-      </div>
-      <div class="draggable-card-stage" aria-label="Interactive pile of Tort law cards">
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%282%29.jpg" alt="Tort law card 1" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%283%29.jpg" alt="Tort law card 2" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%284%29.jpg" alt="Tort law card 3" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%285%29.jpg" alt="Tort law card 4" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%286%29.jpg" alt="Tort law card 5" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%287%29.jpg" alt="Tort law card 6" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%288%29.jpg" alt="Tort law card 7" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%289%29.jpg" alt="Tort law card 8" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%2810%29.jpg" alt="Tort law card 9" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%282%29.jpg" alt="Tort law card 10" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%283%29.jpg" alt="Tort law card 11" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%284%29.jpg" alt="Tort law card 12" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%285%29.jpg" alt="Tort law card 13" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%286%29.jpg" alt="Tort law card 14" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%287%29.jpg" alt="Tort law card 15" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%288%29.jpg" alt="Tort law card 16" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%289%29.jpg" alt="Tort law card 17" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%2810%29.jpg" alt="Tort law card 18" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%282%29.jpg" alt="Tort law card 19" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%283%29.jpg" alt="Tort law card 20" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%284%29.jpg" alt="Tort law card 21" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%285%29.jpg" alt="Tort law card 22" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%286%29.jpg" alt="Tort law card 23" loading="lazy"></button>
-      </div>
-    </section>
+      <img class="full-image" src="Images/Tort/what%27s_in_the_box-01.png" alt="Contents of the Tort card game" loading="lazy">
 
-    <section class="draggable-card-section" aria-labelledby="briefCardsHeading">
-      <div class="project-copy">
-        <h2 id="briefCardsHeading">Brief cards</h2>
-        <p>Move the briefs around the page and bring either proposal to the front.</p>
+      <section class="editorial-copy">
+        <h2>The laws</h2>
+        <p>The law deck pulls from real regulations, ordinances, and restrictions whose specificity can become absurd when applied outside their original context.</p>
+      </section>
+
+      <div class="taxonomy-stack">
+        <img src="Images/Tort/Laws_Chart-01.png" alt="Tort law-card taxonomy, part one" loading="lazy">
+        <img src="Images/Tort/Laws_Chart-02.png" alt="Tort law-card taxonomy, part two" loading="lazy">
+        <img src="Images/Tort/Laws_Chart-03.png" alt="Tort law-card taxonomy, part three" loading="lazy">
       </div>
-      <div class="draggable-card-stage" aria-label="Interactive pile of Tort brief cards">
-        <button type="button" class="draggable-card"><img src="Images/Tort/Brief_Cards/Brief%20Cards-01_edited.jpg" alt="Tort brief card 1" loading="lazy"></button>
-        <button type="button" class="draggable-card"><img src="Images/Tort/Brief_Cards/Brief%20Cards-03_edited.jpg" alt="Tort brief card 2" loading="lazy"></button>
+
+      <div class="image-pair">
+        <img src="Images/Tort/Brief_Cards-01.png" alt="Tort building brief cards" loading="lazy">
+        <img src="Images/Tort/Law_Cards-01.png" alt="Tort law cards" loading="lazy">
       </div>
-    </section>
+
+      <section class="draggable-card-section" aria-labelledby="lawCardsHeading">
+        <div class="editorial-copy">
+          <h2 id="lawCardsHeading">Law cards</h2>
+          <p>Drag the cards around the page, click one to bring it to the front, or hold Shift while dragging to rotate it.</p>
+        </div>
+        <div class="draggable-card-stage" aria-label="Interactive pile of Tort law cards">
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%282%29.jpg" alt="Tort law card 1" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%283%29.jpg" alt="Tort law card 2" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%284%29.jpg" alt="Tort law card 3" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%285%29.jpg" alt="Tort law card 4" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%286%29.jpg" alt="Tort law card 5" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%287%29.jpg" alt="Tort law card 6" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%288%29.jpg" alt="Tort law card 7" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%289%29.jpg" alt="Tort law card 8" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%2810%29.jpg" alt="Tort law card 9" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%282%29.jpg" alt="Tort law card 10" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%283%29.jpg" alt="Tort law card 11" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%284%29.jpg" alt="Tort law card 12" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%285%29.jpg" alt="Tort law card 13" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%286%29.jpg" alt="Tort law card 14" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%287%29.jpg" alt="Tort law card 15" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%288%29.jpg" alt="Tort law card 16" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%289%29.jpg" alt="Tort law card 17" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%2810%29.jpg" alt="Tort law card 18" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%282%29.jpg" alt="Tort law card 19" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%283%29.jpg" alt="Tort law card 20" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%284%29.jpg" alt="Tort law card 21" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%285%29.jpg" alt="Tort law card 22" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%286%29.jpg" alt="Tort law card 23" loading="lazy"></button>
+        </div>
+      </section>
+
+      <section class="draggable-card-section" aria-labelledby="briefCardsHeading">
+        <div class="editorial-copy">
+          <h2 id="briefCardsHeading">Brief cards</h2>
+          <p>Move the briefs around the page and bring either proposal to the front.</p>
+        </div>
+        <div class="draggable-card-stage" aria-label="Interactive pile of Tort brief cards">
+          <button type="button" class="draggable-card"><img src="Images/Tort/Brief_Cards/Brief%20Cards-01_edited.jpg" alt="Tort brief card 1" loading="lazy"></button>
+          <button type="button" class="draggable-card"><img src="Images/Tort/Brief_Cards/Brief%20Cards-03_edited.jpg" alt="Tort brief card 2" loading="lazy"></button>
+        </div>
+      </section>
+    </div>
   </main>
+
   <div id="footer"></div>
   <div class="custom-cursor" id="customCursor"></div>
   <script src="assets/js/siteChrome.js"></script>

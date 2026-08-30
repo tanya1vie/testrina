@@ -8,6 +8,43 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
+  <style>
+    .bruce-page{max-width:1000px;margin:0 auto;padding:20px 20px 100px}
+    .bruce-intro{display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:start;margin:85px 0 80px}
+    .bruce-intro .project-copy{margin:0;max-width:none}
+    .bruce-intro-art img{width:100%;height:auto;object-fit:contain}
+    .character-title{text-align:center;letter-spacing:.25em;margin:45px 0 45px}
+    .character-title h2{margin:0 0 4px;font-size:20px;letter-spacing:.28em}
+    .character-title p{margin:0;font-style:italic}
+    .bruce-meet{display:grid;grid-template-columns:310px 1fr;gap:70px;align-items:center;margin:0 0 30px}
+    .bruce-meet .project-copy{margin:0;max-width:none}
+    .bruce-meet figure{margin:0}
+    .bruce-photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;margin:30px 0 40px}
+    .bruce-photo-pair figure{margin:0}
+    .bruce-detail{width:100%;margin:0}
+    .bruce-detail figure{margin:0;width:100%}
+    .bruce-detail img{display:block;width:100%;height:auto;object-fit:contain}
+    .wendy-dark{background:#000;color:#fff;margin-top:20px;padding:55px 0 0}
+    .wendy-inner{max-width:1000px;margin:0 auto;padding:0 20px}
+    .wendy-intro{display:grid;grid-template-columns:1fr 360px;gap:70px;align-items:start}
+    .wendy-intro .project-copy{margin:55px 0 0;max-width:none;color:#fff}
+    .wendy-intro figure{margin:0}
+    .wendy-intro img{filter:none}
+    .wendy-dark .character-title{margin:0 0 25px}
+    .wendy-dark .character-title h2,.wendy-dark .character-title p{color:#fff}
+    .wendy-pair{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin:60px 0 50px}
+    .wendy-pair figure{margin:0}
+    .wendy-detail{width:100%;margin:0}
+    .wendy-detail figure{margin:0;width:100%}
+    .wendy-detail img{display:block;width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center top}
+    .wendy-dark .auto-project-caption,.wendy-dark .auto-project-pair-caption-column{color:#fff}
+    .alternate{background:#fff;color:#000;padding:65px 20px 90px}
+    .alternate-inner{max-width:1000px;margin:0 auto}
+    .alternate h2{font-size:20px;letter-spacing:.28em;line-height:1.25;margin:0 0 35px;max-width:520px}
+    .alternate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 28px}
+    .alternate-grid figure{margin:0}
+    @media(max-width:760px){.bruce-intro,.bruce-meet,.wendy-intro{grid-template-columns:1fr;gap:30px}.bruce-photo-pair,.wendy-pair{grid-template-columns:1fr;gap:25px}.bruce-detail,.wendy-detail{width:100%;margin:0}.alternate-grid{grid-template-columns:1fr 1fr}.wendy-intro .project-copy{margin-top:0}}
+  </style>
 </head>
 <body>
   <div id="header"></div>
@@ -16,59 +53,60 @@
       <p class="project-year">2021</p>
       <h1 class="project-title">BRUCE &amp; WENDY</h1>
       <p class="project-subtitle">A Geometric Essay on Architectural Assemblies</p>
-      <div class="project-copy">
-        <p>Could the idea of the thneed—a textile that can morph and reshape itself—be applied within an architectural context?</p>
-      </div>
+      <div class="project-copy"><p>Could the idea of the thneed - a textile that can morph and reshape itself - be applied within an architectural context?</p></div>
     </header>
-
     <section class="project-details" aria-label="Project details">
-      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>4.105: Geometric Disciplines and Architectural Skills, MIT</p></div>
-      <div class="detail-column"><h2 class="detail-title">SOFTWARE + TOOLS</h2><p>Grasshopper, Rhinoceros 3D, Illustrator, laser cutting</p></div>
-      <div class="detail-column"><h2 class="detail-title">SUPERVISOR</h2><p>J. Jih</p></div>
+      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>4.105: Geometric Disciplines and Architectural Skills, Massachusetts Institute of Technology</p></div>
+      <div class="detail-column"><h2 class="detail-title">SOFTWARE + TOOLS</h2><p>Grasshopper, Rhinoceros3D, Illustrator, Laser cutting</p></div>
+      <div class="detail-column"><h2 class="detail-title">SUPERVISOR</h2><p>J Jih</p></div>
     </section>
-
-    <section class="project-copy">
-      <p>This project examines aggregating limp sheet materials into structural assemblies through zipping and weaving techniques. In place of fasteners, the forms are self-supporting and can be disassembled and reassembled at will.</p>
-      <p>The process resembles textile Lego: reconfigurable assemblies that could support architectural and fashion applications while reducing material use.</p>
-    </section>
-
-    <section class="project-section">
-      <h2>Bruce — a leather assembly</h2>
-      <div class="project-copy"><p>Bruce’s leather assembly creates a three-dimensional landscape of tabs and connections, pairing a rugged exterior with a softer interior.</p></div>
-      <div class="project-media-grid">
-        <figure class="wide"><img src="Images/Bruce/Estrina_Tatiana-03.jpg" alt="Bruce leather assembly presentation"></figure>
-        <figure><img src="Images/Bruce/Bruce_2_b%26w_edited_edited_edited_edited.png" alt="Bruce leather assembly"></figure>
-        <figure><img src="Images/Bruce/Bruce_Zoom_in_edited.jpg" alt="Close detail of the Bruce assembly"></figure>
-        <figure class="wide"><img src="Images/Bruce/Estrina_Tatiana-01.jpg" alt="Bruce assembly drawings"></figure>
+    <div class="bruce-page">
+      <section class="bruce-intro">
+        <div class="project-copy"><p>This project examines the possibility of the aggregation of limp sheet materials into structural assemblies via zipping and weaving techniques. In place of fasteners, these forms are self-supporting and can thus be disassembled and re-assembled at will. This process, which could be likened to textile Lego, may be able to find uses in many facets of life, most notably the architectural and fashion industries, where the ability to reconfigure and deconstruct a garment or an enclosure at will may not only aid in creating multi-purpose assemblies but also reduce material use.</p></div>
+        <figure class="bruce-intro-art"><img src="Images/Bruce/Thneed_drawings-03.png" alt="Sequential drawing showing the thneed assembly zipping and reshaping"></figure>
+      </section>
+      <section>
+        <div class="character-title"><h2>BRUCE</h2><p>a leather assembly</p></div>
+        <div class="bruce-meet">
+          <div class="project-copy"><h2><em>meet bruce.</em></h2><p>He is a fun-loving guy who just rolls with the punches. His favorite food is Hawaiian pizza but without the pepperoni. Almost he may seem rough on the outside, his texture on the inside is entirely different. His leather assembly gives him a more three-dimensional assemblage with tabs building a formal landscape within his form.</p></div>
+          <figure><img src="Images/Bruce/Thneed_drawings-01.png" alt="Illustrated portrait and leather assembly diagram for Bruce"></figure>
+        </div>
+        <div class="bruce-photo-pair">
+          <figure><img src="Images/Bruce/Bruce_1_edited.jpg" alt="Bruce leather assembly suspended by hand in an elongated configuration"></figure>
+          <figure><img src="Images/Bruce/Bruce_2_b&amp;w_edited_edited_edited_edited.png" alt="Bruce leather assembly suspended by hand in a rounded configuration"></figure>
+        </div>
+        <div class="bruce-detail"><figure><img src="Images/Bruce/Bruce_Zoom_in_edited.jpg" alt="Close-up detail of Bruce showing interlocking leather tabs"></figure></div>
+      </section>
+    </div>
+    <section class="wendy-dark">
+      <div class="wendy-inner">
+        <div class="character-title"><h2>WENDY</h2><p>an acetate assembly</p></div>
+        <div class="wendy-intro">
+          <figure><img src="Images/Bruce/Thneed_drawings-02_edited.png" alt="Illustrated portrait and acetate assembly diagram for Wendy"></figure>
+          <div class="project-copy"><h2><em>meet wendy.</em></h2><p>She enjoys long walks on the beach and pets of all kinds, specifically parrots. As she is transparent, both in her professional and personal lives, you can clearly see what makes her tick. The clear acetate material flattens the assembly and leads her to seem sleeker in photos than she is in real life.</p></div>
+        </div>
+        <div class="wendy-pair">
+          <figure><img src="Images/Bruce/wendy_2_yellow_edited.png" alt="Wendy acetate assembly in a folded configuration"></figure>
+          <figure><img src="Images/Bruce/wendy_3_yellow.jpg" alt="Wendy acetate assembly opened into a circular configuration"></figure>
+        </div>
+        <div class="wendy-detail"><figure><img src="Images/Bruce/Wendy_Zoom_in_yellow.jpg" alt="Close-up detail of the translucent Wendy acetate tabs"></figure></div>
       </div>
+      <section class="alternate">
+        <div class="alternate-inner">
+          <h2>alternate configurations of<br>wendy...</h2>
+          <div class="alternate-grid">
+            <figure><img src="Images/Bruce/option_1.png" alt="Alternate Wendy configuration one"></figure>
+            <figure><img src="Images/Bruce/option_2.png" alt="Alternate Wendy configuration two"></figure>
+            <figure><img src="Images/Bruce/option_3.png" alt="Alternate Wendy configuration three"></figure>
+            <figure><img src="Images/Bruce/option_4.png" alt="Alternate Wendy configuration four"></figure>
+            <figure><img src="Images/Bruce/option_5.png" alt="Alternate Wendy configuration five"></figure>
+            <figure><img src="Images/Bruce/option_6.png" alt="Alternate Wendy configuration six"></figure>
+          </div>
+        </div>
+      </section>
     </section>
-
-    <section class="project-section">
-      <h2>Wendy — an acetate assembly</h2>
-      <div class="project-copy"><p>Wendy uses transparent acetate to flatten the visual weight of the assembly and reveal how every connection works.</p></div>
-      <div class="project-media-grid">
-        <figure><img src="Images/Bruce/Wendy_Zoom_in_yellow.jpg" alt="Close detail of the Wendy acetate assembly"></figure>
-        <figure><img src="Images/Bruce/wendy_2_yellow_edited.png" alt="Wendy acetate assembly"></figure>
-        <figure class="wide"><img src="Images/Bruce/Thneed_drawings-02_edited.png" alt="Thneed assembly drawings"></figure>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <h2>Alternate configurations</h2>
-      <div class="project-media-grid">
-        <figure><img src="Images/Bruce/option_1.png" alt="Wendy configuration one" loading="lazy"></figure>
-        <figure><img src="Images/Bruce/option_2.png" alt="Wendy configuration two" loading="lazy"></figure>
-        <figure><img src="Images/Bruce/option_3.png" alt="Wendy configuration three" loading="lazy"></figure>
-        <figure><img src="Images/Bruce/option_4.png" alt="Wendy configuration four" loading="lazy"></figure>
-        <figure><img src="Images/Bruce/option_5.png" alt="Wendy configuration five" loading="lazy"></figure>
-        <figure><img src="Images/Bruce/option_6.png" alt="Wendy configuration six" loading="lazy"></figure>
-      </div>
-    </section>
-    <a class="text-link project-back-link" href="industrial-design.html">Back to Industrial Design</a>
   </main>
-  <div id="footer"></div>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="assets/js/siteChrome.js"></script>
-  <script src="assets/js/cursor.js"></script>
+  <div id="footer"></div><div class="custom-cursor" id="customCursor"></div>
+  <script src="assets/js/siteChrome.js"></script><script src="assets/js/cursor.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
   }
 
   const stripFigureNumber = (text) => (text || '')
-    .replace(/^\s*fig(?:ure)?\s*\d+\s*[.:\-]?\s*/i, '')
+    .replace(/^\s*fig(?:ure)?\.?\s*\d+\s*[.:\-]?\s*/i, '')
     .trim();
 
   function existingCaptionFor(img, figure) {

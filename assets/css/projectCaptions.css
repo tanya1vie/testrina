@@ -1,23 +1,49 @@
 /* Automatic captions used only on project pages. */
 .auto-project-figure {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 50px;
+  column-gap: 10px;
+  align-items: start;
   margin: 0;
   max-width: 100%;
   min-width: 0;
 }
 
 .auto-project-figure > img {
+  grid-column: 1;
   display: block;
+  width: 100%;
   max-width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 .auto-project-caption {
-  margin-top: 6px;
+  grid-column: 2;
+  margin: 0;
+  width: 50px;
   font-family: 'Helvetica Light', sans-serif;
   font-size: 10px;
   line-height: 1.25;
   letter-spacing: 0.01em;
   text-align: left;
   color: #000;
+  overflow-wrap: break-word;
+}
+
+/* In a two-image row, the left image keeps a side caption. The right image's
+   caption sits directly underneath that image, as requested. */
+.auto-project-figure.auto-project-pair-right {
+  display: block;
+}
+
+.auto-project-figure.auto-project-pair-right > img {
+  width: 100%;
+}
+
+.auto-project-figure.auto-project-pair-right > .auto-project-caption {
+  width: 100%;
+  margin-top: 6px;
 }
 
 /* Preserve the existing project-page image-row proportions after images are wrapped in figures. */
@@ -54,10 +80,6 @@
 .gallery-item.auto-project-figure,
 .gallery-item .auto-project-figure {
   flex: 0 0 auto;
-}
-
-.gallery-item .auto-project-caption {
-  padding-top: 2px;
 }
 
 .masonry-gallery > .auto-project-figure {

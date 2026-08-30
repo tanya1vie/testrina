@@ -10,6 +10,57 @@
     document.head.appendChild(stylesheet);
   }
 
+  const stripFigureNumber = (text) => (text || '')
+    .replace(/^\s*fig(?:ure)?\.?\s*\d+\s*[.:\-]?\s*/i, '')
+    .trim();
+
+  function existingCaptionFor(img, figure) {
+    if (img.dataset.caption) return img.dataset.caption.trim();
+
+    const existingFigcaption = figure && figure.querySelector(':scope > figcaption');
+    if (existingFigcaption && existingFigcaption.textContent.trim()) {
+      return stripFigureNumber(existingFigcaption.textContent);
+    }
+
+    const sibling = figure ? figure.nextElementSibling : img.nextElementSibling;
+    if (sibling && sibling.matches('.imageSubtitle, .image-subtitle, .image-caption, .project-image-caption')) {
+      const text = stripFigureNumber(sibling.textContent);
+      sibling.remove();
+      if (text) return text;
+    }
+
+    return (img.getAttribute('alt') || '').trim();
+  }
+
+  function clearPairClasses() {
+    main.querySelectorAll('.auto-project-figure').forEach((figure) => {
+      figure.classList.remove('auto-project-pair-left', 'auto-project-pair-right');
+    });
+  }
+
+  function markSideBySidePairs() {
+    clearPairClasses();
+
+    const parents = new Set();
+    main.querySelectorAll('.auto-project-figure').forEach((figure) => {
+      if (figure.parentElement) parents.add(figure.parentElement);
+    });
+
+    parents.forEach((parent) => {
+      const figures = Array.from(parent.children).filter((child) => child.classList?.contains('auto-project-figure'));
+      if (figures.length !== 2) return;
+
+      const firstRect = figures[0].getBoundingClientRect();
+      const secondRect = figures[1].getBoundingClientRect();
+      const sameRow = Math.abs(firstRect.top - secondRect.top) < 24 && secondRect.left > firstRect.left;
+
+      if (sameRow) {
+        figures[0].classList.add('auto-project-pair-left');
+        figures[1].classList.add('auto-project-pair-right');
+      }
+    });
+  }
+
   function refreshProjectFigures() {
     const images = Array.from(main.querySelectorAll('img')).filter((img) => {
       if (img.matches('[data-no-figure-caption]')) return false;
@@ -21,6 +72,7 @@
     images.forEach((img, index) => {
       const label = `fig ${index + 1}.`;
       let figure = img.closest('figure');
+      const description = existingCaptionFor(img, figure);
 
       if (!figure || !figure.contains(img)) {
         figure = document.createElement('figure');
@@ -37,18 +89,27 @@
         figure.appendChild(caption);
       }
 
-      const description = img.dataset.caption || img.getAttribute('alt') || '';
       caption.classList.add('auto-project-caption');
       caption.textContent = description ? `${label} ${description}` : label;
     });
+
+    requestAnimationFrame(markSideBySidePairs);
   }
 
   refreshProjectFigures();
 
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(markSideBySidePairs, 100);
+  });
+
   const observer = new MutationObserver((mutations) => {
     const changed = mutations.some((mutation) =>
       Array.from(mutation.addedNodes).some((node) =>
-        node.nodeType === 1 && (node.matches?.('img') || node.querySelector?.('img'))
+        node.nodeType === 1 &&
+        !node.classList?.contains('auto-project-caption') &&
+        (node.matches?.('img') || node.querySelector?.('img'))
       )
     );
     if (changed) refreshProjectFigures();

@@ -1,7 +1,7 @@
 /* Automatic captions used only on project pages. */
 .auto-project-figure {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 50px;
+  grid-template-columns: minmax(0, 1fr) 60px;
   column-gap: 10px;
   align-items: start;
   margin: 0;
@@ -21,7 +21,7 @@
 .auto-project-caption {
   grid-column: 2;
   margin: 0;
-  width: 50px;
+  width: 60px;
   font-family: 'Helvetica Light', sans-serif;
   font-size: 10px;
   line-height: 1.25;
@@ -31,19 +31,61 @@
   overflow-wrap: break-word;
 }
 
-/* In a two-image row, the left image keeps a side caption. The right image's
-   caption sits directly underneath that image, as requested. */
-.auto-project-figure.auto-project-pair-right {
+.auto-project-caption-label {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* When exactly two images share a row, reserve one 60px caption column on the
+   far right of both images. Captions are stacked in image order: left first,
+   right second. */
+.auto-project-pair-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 60px !important;
+  column-gap: 18px;
+  align-items: start;
+}
+
+.auto-project-pair-row > .auto-project-figure {
   display: block;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  flex: none !important;
 }
 
-.auto-project-figure.auto-project-pair-right > img {
+.auto-project-pair-row > .auto-project-figure > img {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
-.auto-project-figure.auto-project-pair-right > .auto-project-caption {
-  width: 100%;
-  margin-top: 6px;
+.auto-project-pair-row > .auto-project-figure > .auto-project-caption {
+  display: none;
+}
+
+.auto-project-pair-row > .auto-project-pair-left {
+  grid-column: 1;
+}
+
+.auto-project-pair-row > .auto-project-pair-right {
+  grid-column: 2;
+}
+
+.auto-project-pair-caption-column {
+  grid-column: 3;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: start;
+}
+
+.auto-project-pair-caption-column .auto-project-caption {
+  display: block;
+  width: 60px;
+  margin: 0;
 }
 
 /* Preserve the existing project-page image-row proportions after images are wrapped in figures. */
@@ -95,5 +137,10 @@
   .image-row-four > .auto-project-figure {
     flex-basis: 44%;
     max-width: 44%;
+  }
+
+  .auto-project-pair-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 60px !important;
+    column-gap: 10px;
   }
 }

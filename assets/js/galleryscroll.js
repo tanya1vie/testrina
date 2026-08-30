@@ -133,100 +133,103 @@
 
 (function(){
   const main = document.querySelector('main.main');
-  const stage = document.querySelector('.draggable-card-stage');
-  if (!main || !stage) return;
-
-  const cards = Array.from(stage.querySelectorAll('.draggable-card'));
-  if (!cards.length) return;
+  const stages = Array.from(document.querySelectorAll('.draggable-card-stage'));
+  if (!main || !stages.length) return;
 
   let topZ = 40;
-  let activePointerId = null;
-  let activeCard = null;
-  let startPointerX = 0;
-  let startPointerY = 0;
-  let startLeft = 0;
-  let startTop = 0;
-  let startRotation = 0;
-
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const bringForward = card => { topZ += 1; card.style.zIndex = String(topZ); };
 
-  function placePile(){
-    const stageWidth = stage.clientWidth;
-    const stageHeight = stage.clientHeight;
+  stages.forEach((stage, stageIndex) => {
+    const cards = Array.from(stage.querySelectorAll('.draggable-card'));
+    if (!cards.length) return;
 
-    cards.forEach((card, index) => {
-      if (card.classList.contains('is-dragging')) return;
-      const cardW = card.offsetWidth || 190;
-      const cardH = card.offsetHeight || 260;
-      const spreadX = Math.min(stageWidth * .22, 190);
-      const spreadY = Math.min(stageHeight * .12, 54);
-      const xNoise = ((index * 67) % 101) / 100 - .5;
-      const yNoise = ((index * 43) % 97) / 96 - .5;
-      const left = clamp(stageWidth / 2 - cardW / 2 + xNoise * spreadX * 2, 0, Math.max(0, stageWidth - cardW));
-      const top = clamp(stageHeight / 2 - cardH / 2 + yNoise * spreadY * 2, 0, Math.max(0, stageHeight - cardH));
-      const rotation = ((index * 17) % 33) - 16;
-      card.style.left = `${left}px`;
-      card.style.top = `${top}px`;
-      card.dataset.rotation = String(rotation);
-      card.style.transform = `rotate(${rotation}deg)`;
-      card.style.zIndex = String(20 + index);
-    });
-  }
+    let activePointerId = null;
+    let activeCard = null;
+    let startPointerX = 0;
+    let startPointerY = 0;
+    let startLeft = 0;
+    let startTop = 0;
+    let startRotation = 0;
 
-  cards.forEach(card => {
-    card.addEventListener('pointerdown', event => {
-      if (activePointerId !== null) return;
-      activePointerId = event.pointerId;
-      activeCard = card;
-      bringForward(card);
+    function placePile(){
+      const stageWidth = stage.clientWidth;
+      const stageHeight = stage.clientHeight;
 
-      const rect = card.getBoundingClientRect();
-      const mainRect = main.getBoundingClientRect();
-      card.style.width = `${rect.width}px`;
-      card.classList.add('is-dragging');
-      main.appendChild(card);
-      card.style.left = `${rect.left - mainRect.left + main.scrollLeft}px`;
-      card.style.top = `${rect.top - mainRect.top + main.scrollTop}px`;
-
-      startPointerX = event.clientX;
-      startPointerY = event.clientY;
-      startLeft = parseFloat(card.style.left) || 0;
-      startTop = parseFloat(card.style.top) || 0;
-      startRotation = parseFloat(card.dataset.rotation) || 0;
-      card.setPointerCapture(event.pointerId);
-    });
-
-    card.addEventListener('pointermove', event => {
-      if (activePointerId !== event.pointerId || activeCard !== card) return;
-      const dx = event.clientX - startPointerX;
-      const dy = event.clientY - startPointerY;
-
-      if (event.shiftKey) {
-        const rotation = startRotation + dx * .35;
-        card.dataset.rotation = rotation.toFixed(1);
+      cards.forEach((card, index) => {
+        if (card.classList.contains('is-dragging')) return;
+        const cardW = card.offsetWidth || 190;
+        const cardH = card.offsetHeight || 260;
+        const spreadX = Math.min(stageWidth * .22, 190);
+        const spreadY = Math.min(stageHeight * .12, 54);
+        const seed = index + stageIndex * 29;
+        const xNoise = ((seed * 67) % 101) / 100 - .5;
+        const yNoise = ((seed * 43) % 97) / 96 - .5;
+        const left = clamp(stageWidth / 2 - cardW / 2 + xNoise * spreadX * 2, 0, Math.max(0, stageWidth - cardW));
+        const top = clamp(stageHeight / 2 - cardH / 2 + yNoise * spreadY * 2, 0, Math.max(0, stageHeight - cardH));
+        const rotation = ((seed * 17) % 33) - 16;
+        card.style.left = `${left}px`;
+        card.style.top = `${top}px`;
+        card.dataset.rotation = String(rotation);
         card.style.transform = `rotate(${rotation}deg)`;
-        return;
-      }
-
-      const maxLeft = Math.max(0, main.clientWidth - card.offsetWidth);
-      const maxTop = Math.max(0, main.scrollHeight - card.offsetHeight);
-      card.style.left = `${clamp(startLeft + dx, 0, maxLeft)}px`;
-      card.style.top = `${clamp(startTop + dy, 0, maxTop)}px`;
-    });
-
-    function finishDrag(event){
-      if (activePointerId !== event.pointerId || activeCard !== card) return;
-      try { card.releasePointerCapture(event.pointerId); } catch (_) {}
-      activePointerId = null;
-      activeCard = null;
+        card.style.zIndex = String(20 + index);
+      });
     }
 
-    card.addEventListener('pointerup', finishDrag);
-    card.addEventListener('pointercancel', finishDrag);
-    card.addEventListener('click', () => bringForward(card));
-    card.addEventListener('focus', () => bringForward(card));
-  });
+    cards.forEach(card => {
+      card.addEventListener('pointerdown', event => {
+        if (activePointerId !== null) return;
+        activePointerId = event.pointerId;
+        activeCard = card;
+        bringForward(card);
 
-  requestAnimationFrame(placePile);
+        const rect = card.getBoundingClientRect();
+        const mainRect = main.getBoundingClientRect();
+        card.style.width = `${rect.width}px`;
+        card.classList.add('is-dragging');
+        main.appendChild(card);
+        card.style.left = `${rect.left - mainRect.left + main.scrollLeft}px`;
+        card.style.top = `${rect.top - mainRect.top + main.scrollTop}px`;
+
+        startPointerX = event.clientX;
+        startPointerY = event.clientY;
+        startLeft = parseFloat(card.style.left) || 0;
+        startTop = parseFloat(card.style.top) || 0;
+        startRotation = parseFloat(card.dataset.rotation) || 0;
+        card.setPointerCapture(event.pointerId);
+      });
+
+      card.addEventListener('pointermove', event => {
+        if (activePointerId !== event.pointerId || activeCard !== card) return;
+        const dx = event.clientX - startPointerX;
+        const dy = event.clientY - startPointerY;
+
+        if (event.shiftKey) {
+          const rotation = startRotation + dx * .35;
+          card.dataset.rotation = rotation.toFixed(1);
+          card.style.transform = `rotate(${rotation}deg)`;
+          return;
+        }
+
+        const maxLeft = Math.max(0, main.clientWidth - card.offsetWidth);
+        const maxTop = Math.max(0, main.scrollHeight - card.offsetHeight);
+        card.style.left = `${clamp(startLeft + dx, 0, maxLeft)}px`;
+        card.style.top = `${clamp(startTop + dy, 0, maxTop)}px`;
+      });
+
+      function finishDrag(event){
+        if (activePointerId !== event.pointerId || activeCard !== card) return;
+        try { card.releasePointerCapture(event.pointerId); } catch (_) {}
+        activePointerId = null;
+        activeCard = null;
+      }
+
+      card.addEventListener('pointerup', finishDrag);
+      card.addEventListener('pointercancel', finishDrag);
+      card.addEventListener('click', () => bringForward(card));
+      card.addEventListener('focus', () => bringForward(card));
+    });
+
+    requestAnimationFrame(placePile);
+  });
 })();

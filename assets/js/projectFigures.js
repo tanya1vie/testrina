@@ -32,10 +32,29 @@
     return (img.getAttribute('alt') || '').trim();
   }
 
+  function setCaptionContent(caption, number, description) {
+    caption.replaceChildren();
+
+    const label = document.createElement('strong');
+    label.className = 'auto-project-caption-label';
+    label.textContent = `fig ${number}.`;
+    caption.appendChild(label);
+
+    if (description) {
+      caption.appendChild(document.createTextNode(` ${description}`));
+    }
+  }
+
   function clearPairClasses() {
     main.querySelectorAll('.auto-project-figure').forEach((figure) => {
       figure.classList.remove('auto-project-pair-left', 'auto-project-pair-right');
     });
+
+    main.querySelectorAll('.auto-project-pair-row').forEach((parent) => {
+      parent.classList.remove('auto-project-pair-row');
+    });
+
+    main.querySelectorAll('.auto-project-pair-caption-column').forEach((column) => column.remove());
   }
 
   function markSideBySidePairs() {
@@ -53,11 +72,25 @@
       const firstRect = figures[0].getBoundingClientRect();
       const secondRect = figures[1].getBoundingClientRect();
       const sameRow = Math.abs(firstRect.top - secondRect.top) < 24 && secondRect.left > firstRect.left;
+      if (!sameRow) return;
 
-      if (sameRow) {
-        figures[0].classList.add('auto-project-pair-left');
-        figures[1].classList.add('auto-project-pair-right');
-      }
+      parent.classList.add('auto-project-pair-row');
+      figures[0].classList.add('auto-project-pair-left');
+      figures[1].classList.add('auto-project-pair-right');
+
+      const column = document.createElement('div');
+      column.className = 'auto-project-pair-caption-column';
+      column.setAttribute('aria-label', 'Figure captions');
+
+      figures.forEach((figure) => {
+        const caption = figure.querySelector(':scope > .auto-project-caption');
+        if (!caption) return;
+        const copy = caption.cloneNode(true);
+        copy.classList.add('auto-project-pair-caption');
+        column.appendChild(copy);
+      });
+
+      parent.appendChild(column);
     });
   }
 
@@ -70,7 +103,6 @@
     });
 
     images.forEach((img, index) => {
-      const label = `fig ${index + 1}.`;
       let figure = img.closest('figure');
       const description = existingCaptionFor(img, figure);
 
@@ -90,7 +122,7 @@
       }
 
       caption.classList.add('auto-project-caption');
-      caption.textContent = description ? `${label} ${description}` : label;
+      setCaptionContent(caption, index + 1, description);
     });
 
     requestAnimationFrame(markSideBySidePairs);
@@ -109,6 +141,7 @@
       Array.from(mutation.addedNodes).some((node) =>
         node.nodeType === 1 &&
         !node.classList?.contains('auto-project-caption') &&
+        !node.classList?.contains('auto-project-pair-caption-column') &&
         (node.matches?.('img') || node.querySelector?.('img'))
       )
     );

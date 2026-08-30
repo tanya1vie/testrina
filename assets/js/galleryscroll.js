@@ -1,47 +1,4 @@
 (function(){
-  const componentHref = 'assets/css/projectComponents.css';
-  if (!document.querySelector(`link[href="${componentHref}"]`)) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = componentHref;
-    document.head.appendChild(link);
-  }
-
-  const classMap = {
-    'thesis-context': 'project-copy-section',
-    'thesis-case-copy': 'project-copy-section',
-    'thesis-strategy-copy': 'project-copy-section',
-    'thesis-kicker': 'project-kicker',
-    'thesis-revision': 'project-note',
-    'thesis-visual-pair': 'project-image-pair',
-    'thesis-timeline': 'project-image-grid-four',
-    'thesis-human': 'project-feature-image',
-    'thesis-simulation-section': 'project-scroll-section',
-    'thesis-simulation-strip': 'project-scroll-strip',
-    'thesis-provocations': 'project-image-grid-three',
-    'thesis-book-archive': 'project-booklet-section',
-    'strategy-card-section': 'draggable-card-section',
-    'strategy-card-summary': 'project-section-summary',
-    'strategy-card-instructions': 'project-section-instructions',
-    'strategy-card-stage': 'draggable-card-stage',
-    'strategy-card': 'draggable-card'
-  };
-
-  Object.entries(classMap).forEach(([oldClass, newClass]) => {
-    document.querySelectorAll(`.${oldClass}`).forEach(element => {
-      element.classList.remove(oldClass);
-      element.classList.add(newClass);
-    });
-  });
-
-  document.querySelectorAll('style').forEach(style => {
-    if (style.textContent.includes('.thesis-context') || style.textContent.includes('.strategy-card-section')) {
-      style.remove();
-    }
-  });
-})();
-
-(function(){
   const gallery = document.getElementById('gallery');
   if (!gallery) return;
   let animating = false;

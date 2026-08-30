@@ -174,6 +174,17 @@
   }
 })();
 
+/* Older project pages load cursor.js directly instead of siteChrome.js.
+   Load the shared automatic figure system here too, but only on project pages. */
+(function () {
+  if (!document.querySelector('main .project-header')) return;
+  if (document.querySelector('script[src$="assets/js/projectFigures.js"]')) return;
+
+  const figures = document.createElement('script');
+  figures.src = 'assets/js/projectFigures.js';
+  document.body.appendChild(figures);
+})();
+
 (function () {
   if (
     'ontouchstart' in window ||

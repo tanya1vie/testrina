@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     footer.innerHTML = await response.text();
   }
 
-  if (document.querySelector("main .project-header")) {
+  if (
+    document.querySelector("main .project-header") &&
+    !document.querySelector('script[src$="assets/js/projectFigures.js"]')
+  ) {
     const figures = document.createElement("script");
     figures.src = "assets/js/projectFigures.js";
     document.body.appendChild(figures);

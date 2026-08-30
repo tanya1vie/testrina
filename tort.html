@@ -3,204 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tort | Tatiana Estrina</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/css/base.css">
+  <title>TORT | Tatiana Estrina</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
-  <link rel="stylesheet" href="assets/css/cursor.css">
+  <link rel="stylesheet" href="assets/css/cardPile.css">
   <style>
-    .tort-editorial {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .tort-editorial .hero-image {
-      width: 100%;
-      max-width: 1000px;
-      margin: 30px auto 80px;
-    }
-
-    .tort-editorial .editorial-copy {
-      max-width: 700px;
-      margin: 0 auto 80px;
-      text-align: center;
-    }
-
-    .tort-editorial .editorial-copy h2 {
-      margin-bottom: 18px;
-    }
-
-    .tort-editorial .editorial-copy p {
-      margin-bottom: 14px;
-    }
-
-    .tort-editorial .full-image {
-      display: block;
-      width: 100%;
-      margin: 0 auto 56px;
-    }
-
-    .tort-editorial .image-pair {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      align-items: start;
-      margin: 0 auto 64px;
-    }
-
-    .tort-editorial .image-pair img {
-      width: 100%;
-      height: auto;
-      margin: 0;
-      object-fit: contain;
-    }
-
-    .tort-editorial .manual-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      margin: 0 auto 80px;
-    }
-
-    .tort-editorial .manual-stack img {
-      width: 100%;
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    .tort-editorial .taxonomy-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      margin: 0 auto 90px;
-    }
-
-    .tort-editorial .taxonomy-stack img {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .tort-editorial .draggable-card-section {
-      margin-top: 90px;
-    }
-
-    @media (max-width: 760px) {
-      .tort-editorial .image-pair {
-        grid-template-columns: 1fr;
-      }
-    }
+    .tort-body{max-width:1000px;margin:0 auto;padding:30px 20px 100px}.tort-intro-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:72px;align-items:start;margin:70px 0 58px}.tort-intro-copy{font-size:16px;line-height:1.62}.tort-rules{display:flex;flex-direction:column}.tort-rule{display:grid;grid-template-columns:78px 1fr;gap:18px;padding:18px 8px;border-bottom:2px solid #32c318;color:#32c318}.tort-rule-number{font-size:46px;line-height:1;font-weight:700}.tort-rule-text{font-size:15px;line-height:1.25;font-weight:700}.tort-questions{margin-top:34px}.tort-questions ul{padding-left:27px}.tort-manual,.tort-wide{width:100%;margin:55px auto 70px}.tort-manual img,.tort-wide img{width:100%;max-width:none}.tort-card-feature{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:55px;align-items:center;margin:70px 0 90px;min-height:520px}.tort-card-feature.reverse{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}.tort-card-feature .draggable-card-section{margin:0}.tort-card-feature .draggable-card-stage{height:520px}.tort-card-feature .draggable-card{width:clamp(145px,15vw,205px)}.tort-slideshow{position:relative;min-height:500px;display:flex;align-items:center;justify-content:center;overflow:hidden}.tort-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .8s ease}.tort-slide.is-active{opacity:1}.tort-gameplay{display:grid;grid-template-columns:130px 1fr;gap:45px;align-items:start;margin:80px 0}.tort-gameplay-label{color:#32c318;font-size:17px;line-height:1.2;font-weight:700;letter-spacing:.08em}.tort-video-placeholder{aspect-ratio:16/9;border:1px solid #bbb;display:flex;align-items:center;justify-content:center;color:#777}@media(max-width:760px){.tort-intro-grid,.tort-card-feature,.tort-card-feature.reverse,.tort-gameplay{grid-template-columns:1fr;gap:28px}.tort-rule{grid-template-columns:62px 1fr}.tort-rule-number{font-size:38px}.tort-card-feature .draggable-card-stage{height:410px}.tort-slideshow{min-height:390px}}
   </style>
 </head>
 <body>
-  <div id="header"></div>
-
-  <main class="main" id="main-content">
-    <header class="project-header">
-      <p class="project-year">2021</p>
-      <h1 class="project-title">TORT</h1>
-      <p class="project-subtitle">The Building Game without Building (there’s too much of that anyway)</p>
-      <div class="project-copy">
-        <p>Are you tired of hating the buildings around you? Do you just want to tear them all down? Tort is the building game without building—the game where buildings don’t happen because of your legal prowess.</p>
-      </div>
-    </header>
-
-    <section class="project-details" aria-label="Project details">
-      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>4.205: Cultivating Critical Practice, MIT</p></div>
-      <div class="detail-column"><h2 class="detail-title">SOFTWARE + TOOLS</h2><p>Procreate, Illustrator, laser cutting</p></div>
-      <div class="detail-column"><h2 class="detail-title">COLLABORATOR</h2><p>Soala Ajienka</p></div>
-      <div class="detail-column"><h2 class="detail-title">SUPERVISOR</h2><p>Ana Miljački</p></div>
-    </section>
-
-    <div class="tort-editorial">
-      <img class="hero-image" src="Images/Tort/Title.png" alt="Tort card game title illustration">
-
-      <section class="editorial-copy">
-        <h2>The building game without building</h2>
-        <p>Tort is a card game about agency: does it belong to users, architecture, or architects? It combines active but ridiculous laws from around the world with design briefs inspired by existing projects.</p>
-        <p>Players choose which law is most useful for preventing a proposed building and make a case for applying it. The humorous play exposes obscure entanglements between communities, policy, and the built environment.</p>
-        <p>The game asks who the unseen actors affected by a building project are, how policies and laws are accounted for, and how the public can take agency over urban proposals before they are realized.</p>
-      </section>
-
-      <section class="editorial-copy">
-        <h2>How to play</h2>
-        <p>Each round combines a building brief with a hand of laws. Players argue which legal constraint can most convincingly stop the proposed building from happening.</p>
-      </section>
-
-      <div class="manual-stack">
-        <img src="Images/Tort/Tort_User_Manual_Master_File_TE4.jpg" alt="Tort game setup and first step" loading="lazy">
-        <img src="Images/Tort/Tort_User_Manual_Master_File_TE5.jpg" alt="Tort gameplay instructions" loading="lazy">
-        <img src="Images/Tort/Tort_User_Manual_Master_File_TE6.jpg" alt="Tort winning conditions" loading="lazy">
-      </div>
-
-      <img class="full-image" src="Images/Tort/what%27s_in_the_box-01.png" alt="Contents of the Tort card game" loading="lazy">
-
-      <section class="editorial-copy">
-        <h2>The laws</h2>
-        <p>The law deck pulls from real regulations, ordinances, and restrictions whose specificity can become absurd when applied outside their original context.</p>
-      </section>
-
-      <div class="taxonomy-stack">
-        <img src="Images/Tort/Laws_Chart-01.png" alt="Tort law-card taxonomy, part one" loading="lazy">
-        <img src="Images/Tort/Laws_Chart-02.png" alt="Tort law-card taxonomy, part two" loading="lazy">
-        <img src="Images/Tort/Laws_Chart-03.png" alt="Tort law-card taxonomy, part three" loading="lazy">
-      </div>
-
-      <div class="image-pair">
-        <img src="Images/Tort/Brief_Cards-01.png" alt="Tort building brief cards" loading="lazy">
-        <img src="Images/Tort/Law_Cards-01.png" alt="Tort law cards" loading="lazy">
-      </div>
-
-      <section class="draggable-card-section" aria-labelledby="lawCardsHeading">
-        <div class="editorial-copy">
-          <h2 id="lawCardsHeading">Law cards</h2>
-          <p>Drag the cards around the page, click one to bring it to the front, or hold Shift while dragging to rotate it.</p>
-        </div>
-        <div class="draggable-card-stage" aria-label="Interactive pile of Tort law cards">
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%282%29.jpg" alt="Tort law card 1" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%283%29.jpg" alt="Tort law card 2" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%284%29.jpg" alt="Tort law card 3" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%285%29.jpg" alt="Tort law card 4" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%286%29.jpg" alt="Tort law card 5" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%287%29.jpg" alt="Tort law card 6" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%288%29.jpg" alt="Tort law card 7" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%289%29.jpg" alt="Tort law card 8" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-01_edited%20%2810%29.jpg" alt="Tort law card 9" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%282%29.jpg" alt="Tort law card 10" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%283%29.jpg" alt="Tort law card 11" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%284%29.jpg" alt="Tort law card 12" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%285%29.jpg" alt="Tort law card 13" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%286%29.jpg" alt="Tort law card 14" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%287%29.jpg" alt="Tort law card 15" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%288%29.jpg" alt="Tort law card 16" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%289%29.jpg" alt="Tort law card 17" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-03_edited%20%2810%29.jpg" alt="Tort law card 18" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%282%29.jpg" alt="Tort law card 19" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%283%29.jpg" alt="Tort law card 20" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%284%29.jpg" alt="Tort law card 21" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%285%29.jpg" alt="Tort law card 22" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Law_Cards/Law%20Cards-05_edited%20%286%29.jpg" alt="Tort law card 23" loading="lazy"></button>
-        </div>
-      </section>
-
-      <section class="draggable-card-section" aria-labelledby="briefCardsHeading">
-        <div class="editorial-copy">
-          <h2 id="briefCardsHeading">Brief cards</h2>
-          <p>Move the briefs around the page and bring either proposal to the front.</p>
-        </div>
-        <div class="draggable-card-stage" aria-label="Interactive pile of Tort brief cards">
-          <button type="button" class="draggable-card"><img src="Images/Tort/Brief_Cards/Brief%20Cards-01_edited.jpg" alt="Tort brief card 1" loading="lazy"></button>
-          <button type="button" class="draggable-card"><img src="Images/Tort/Brief_Cards/Brief%20Cards-03_edited.jpg" alt="Tort brief card 2" loading="lazy"></button>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <div id="footer"></div>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="assets/js/siteChrome.js"></script>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/galleryscroll.js"></script>
-</body>
-</html>
+<main class="main">
+<div class="content-wrapper"><header class="project-header">
+<div class="project-year">2021</div><h1 class="project-title">TORT</h1><p class="project-subtitle"><em>The Building Game without Building<br>(there's too much of that anyway)</em></p>
+<p class="project-description">Are you tired of hating the buildings around you? Do you just want to tear them all down? Yes?<br>In that case, this game is the one for you! Tort is the building game without building. The game where buildings don’t happen because of your legal prowess! Play tort with your friends, family, and even enemies.<br><br><strong>Tort.</strong> The building game without building. Available soon on the shelves of your local Target. Or, if you live in Cambridge, a Target very far away.</p>
+<div class="project-details"><div class="detail-column"><h3 class="detail-title">CONTEXT</h3><p>4.205: Cultivating Critical Practice,<br>Massachusetts Institute of Technology</p></div><div class="detail-column"><h3 class="detail-title">COLLABORATORS</h3><p>Soala Ajienka</p></div><div class="detail-column"><h3 class="detail-title">SUPERVISOR</h3><p>Ana Miljački</p></div><div class="detail-column"><h3 class="detail-title">SOFTWARE</h3><p>Procreate, Illustrator,<br>Laser cutting</p></div></div>
+</header></div>
+<div class="tort-body">
+<section class="tort-intro-grid"><div class="tort-intro-copy">
+<p>TORT is a card game about agency; the users, the architecture or the architect? The conversation is rearticulated in a way that situates the locus of agency in a frame of interactions between the end users of the buildings and in turn the inhabitants of the built environment. It brings two aspects of world building together, ridiculous but still active laws from a diverse range of places, and design briefs inspired by existing projects that can possibly be situated in a range of contexts.</p>
+<p>By deciding from a fixed set of varying laws, players choose and make a case for which is most applicable to not get a building built. They leave after a series of humorous yet educational game plays with the understanding of a perhaps obscure set of entanglements that they will not have been concerned with otherwise, if they had not been positioned to justify the application of the laws in their arsenal against building projects.</p>
+<p>This game emerged from ideas discussed by Michael De Certeau, discussing agency within design of the built environment and the ways users assimilate designed systems into their own cultural patterns. However this game inverts this narrative, proposing: what if communities were given the opportunities to fully reject new urban proposals before they are ever implemented.</p>
+<div class="tort-questions"><p>As players engage with the game, the questions that should permeate are:</p><ul><li>Who are the 'unseen' actors that will be affected by this building project and how does architecture intentionally or unintentionally affect them?</li><li>How are existing policies and laws accounted for in building projects?</li><li>How can the public renounce new building proposals and take agency over their urban environments?</li><li>How can vested interests in the built environment diverge?</li></ul></div></div>
+<div class="tort-rules"><div class="tort-rule"><div class="tort-rule-number">01</div><div class="tort-rule-text">You begin by distributing 4 cards to every player. Whoever’s birthday occurred most recently plays as the judge first.</div></div><div class="tort-rule"><div class="tort-rule-number">02</div><div class="tort-rule-text">The judge pulls one brief card and one site card from the decks, turning them right side up for all the players to see.</div></div><div class="tort-rule"><div class="tort-rule-number">03</div><div class="tort-rule-text">If the brief card is a regular card, all players who are not judge need to select one of their law cards that they believe would be viable in preventing the construction project from taking place, placing their chosen cards facedown.</div></div><div class="tort-rule"><div class="tort-rule-number">04</div><div class="tort-rule-text">Judge flips all chosen law cards over, listens to the reasoning for the selections, and picks their favorite. This may be the card they feel makes the most sense, or perhaps the most outlandish one, or the least logical, it is up to the judge to pick subjectively.</div></div><div class="tort-rule"><div class="tort-rule-number">05</div><div class="tort-rule-text">Continue play by drawing new briefs and presenting laws, rotating the judge and building a case around each proposed project.</div></div><div class="tort-rule"><div class="tort-rule-number">06</div><div class="tort-rule-text">If the card is a community card, which can be spotted by its inverted coloring, all the players become a part of a jury, needing to all place cards and then collectively come to a consensus on the card selection.</div></div><div class="tort-rule"><div class="tort-rule-number">07</div><div class="tort-rule-text">If a player’s card is selected, they place the card faceup near their end of the table. If they are the first to collect one card, they can place the letter “T” in the center of the table. If they are the first player to amass two cards, they may place the “O”, and so on. The winner of the game is the player who completes the “tort” by being the first to have their card be selected four times thus having prevented the largest number of construction projects from being realized.</div></div></div></section>
+<figure class="tort-manual"><img src="Images/Tort/what's_in_the_box-01.png" alt="What's in the box diagram showing the Tort game components"></figure>
+<div class="image-row"><img src="Images/Tort/Tort_User_Manual_Master_File_TE4.jpg" alt="Tort user manual spread showing law and context cards"><img src="Images/Tort/Tort_User_Manual_Master_File_TE5.jpg" alt="Tort user manual spread showing brief cards"></div>
+<figure class="tort-wide"><img src="Images/Tort/Laws_Chart-01.png" alt="Tort law taxonomy"></figure><figure class="tort-wide"><img src="Images/Tort/Laws_Chart-02.png" alt="Tort law chart organized across public and private domains"></figure>
+<section class="tort-card-feature"><div class="draggable-card-section" data-card-pile><div class="draggable-card-stage"><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited.jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (2).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (3).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (4).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (5).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (6).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (7).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (8).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (9).jpg" alt="Law card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Law_Cards/Law Cards-01_edited (10).jpg" alt="Law card"></button></div></div><div class="tort-slideshow" data-slideshow><img class="tort-slide is-active" src="Images/Tort/Law_Cards-01.png" alt="Law card case study"><img class="tort-slide" src="Images/Tort/Law_Cards-03.png" alt="Law card case study"></div></section>
+<figure class="tort-wide"><img src="Images/Tort/Laws_Chart-03.png" alt="World map locating laws represented in Tort"></figure>
+<section class="tort-card-feature reverse"><div class="draggable-card-section" data-card-pile><div class="draggable-card-stage"><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Brief_Cards/Brief Cards-01_edited.jpg" alt="Brief card"></button><button class="draggable-card" type="button"><img data-no-figure-caption src="Images/Tort/Brief_Cards/Brief Cards-03_edited.jpg" alt="Brief card"></button></div></div><div class="tort-slideshow" data-slideshow><img class="tort-slide is-active" src="Images/Tort/Brief_Cards-01.png" alt="Brief card case study"><img class="tort-slide" src="Images/Tort/Brief_Cards-03.png" alt="Brief card case study"></div></section>
+<div class="tort-gameplay"><div class="tort-gameplay-label">Watch some<br>gameplay<br>here:</div><div class="tort-video-placeholder">Gameplay video</div></div>
+</div></main>
+<script src="assets/js/cursor.js"></script><script src="assets/js/galleryscroll.js"></script><script>document.querySelectorAll('[data-slideshow]').forEach((s)=>{const a=[...s.querySelectorAll('.tort-slide')];if(a.length<2)return;let i=0;setInterval(()=>{a[i].classList.remove('is-active');i=(i+1)%a.length;a[i].classList.add('is-active')},3200)});</script>
+</body></html>

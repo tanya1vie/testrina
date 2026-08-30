@@ -97,6 +97,7 @@
   function refreshProjectFigures() {
     const images = Array.from(main.querySelectorAll('img')).filter((img) => {
       if (img.matches('[data-no-figure-caption]')) return false;
+      if (img.closest('.draggable-card, .draggable-card-stage, .draggable-card-section')) return false;
       if (img.closest('.lightbox, .modal, template')) return false;
       if (img.closest('[style*="display:none"], [style*="display: none"]')) return false;
       return true;

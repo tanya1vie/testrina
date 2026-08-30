@@ -93,6 +93,14 @@
   const stages = Array.from(document.querySelectorAll('.draggable-card-stage'));
   if (!main || !stages.length) return;
 
+  const cardStylesHref = 'assets/css/cardPile.css';
+  if (!document.querySelector(`link[href="${cardStylesHref}"]`)) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = cardStylesHref;
+    document.head.appendChild(link);
+  }
+
   let topZ = 40;
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const bringForward = card => { topZ += 1; card.style.zIndex = String(topZ); };

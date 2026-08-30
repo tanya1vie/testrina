@@ -8,126 +8,95 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
+  <style>
+    .janus-page{max-width:1020px;margin:0 auto;padding:35px 20px 100px}
+    .janus-opening{display:grid;grid-template-columns:255px minmax(0,1fr);gap:42px;align-items:start;margin:35px 0 55px}
+    .janus-quote{font-family:Georgia,serif;font-style:italic;font-size:26px;line-height:1.25;text-align:right;margin:40px 0 0}
+    .janus-opening figure{margin:0}
+    .janus-two-copy{display:grid;grid-template-columns:1fr 1fr;gap:110px;margin:0 55px 55px}
+    .janus-two-copy .project-copy{margin:0;max-width:none}
+    .janus-video{margin:0 55px 70px;aspect-ratio:16/9;background:#262626;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-size:18px}
+    .janus-full{margin:0 0 55px}.janus-full img{display:block;width:100%;height:auto;object-fit:contain}
+    .janus-how{max-width:690px;margin:0 auto 40px}
+    .janus-how h2,.janus-prompts h2{letter-spacing:.2em;font-size:22px;margin-bottom:16px}
+    .janus-how-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+    .janus-how-grid .project-copy{margin:0;max-width:none}
+    .janus-diagram{margin:35px 0 70px}.janus-diagram img{width:100%;height:auto;display:block}
+    .janus-process{margin:0 auto 55px;max-width:760px}.janus-process img{width:100%;height:auto;display:block}
+    .janus-prompts{margin:30px 0 80px}
+    .janus-prompt-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.75fr);gap:36px;align-items:start}
+    .janus-prompt-stack{display:grid;gap:20px}
+    .janus-prompt-stack figure,.janus-prompt-photo{margin:0}
+    .janus-prompt-stack img,.janus-prompt-photo img{width:100%;height:auto;display:block}
+    .janus-axo-row{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:start;margin:35px 0 70px}
+    .janus-axo-row figure{margin:0}.janus-axo-row img{width:100%;height:auto;display:block}
+    .janus-final{max-width:820px;margin:0 auto}.janus-final img{display:block;width:100%;height:auto;object-fit:contain}
+    .janus-missing{border:1px dashed #999;padding:40px;text-align:center;color:#777}
+    @media(max-width:760px){.janus-opening,.janus-two-copy,.janus-how-grid,.janus-prompt-grid,.janus-axo-row{grid-template-columns:1fr;gap:28px}.janus-quote{text-align:left;margin-top:0}.janus-two-copy,.janus-video{margin-left:0;margin-right:0}.janus-how{max-width:none}}
+  </style>
 </head>
 <body>
   <div id="header"></div>
-
   <main class="main" id="main-content">
     <header class="project-header">
       <p class="project-year">2023</p>
       <h1 class="project-title">JANUS</h1>
       <p class="project-subtitle">an AI doorknob</p>
-      <div class="project-copy">
-        <p>Janus is a playful, multimodal guardian of thresholds—otherwise known as a doorknob.</p>
-      </div>
+      <div class="project-copy"><p>Janus is a playful, multimodal guardian of thresholds—otherwise known as a doorknob.</p></div>
     </header>
 
     <section class="project-details" aria-label="Project details">
-      <div class="detail-column">
-        <h2 class="detail-title">CONTEXT</h2>
-        <p>Interaction Intelligence + Intelligent Multimodal User Interfaces, MIT SA+P + EECS</p>
-      </div>
-      <div class="detail-column">
-        <h2 class="detail-title">SOFTWARE + TOOLS</h2>
-        <p>Python, C++, Arduino, 3D printing, wood fabrication, laser cutting</p>
-      </div>
-      <div class="detail-column">
-        <h2 class="detail-title">SUPERVISORS</h2>
-        <p>Marcelo Coelho, Randall Davis</p>
-      </div>
+      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>Interaction Intelligence + Intelligent Multimodal User Interfaces, MIT SA+P + EECS</p></div>
+      <div class="detail-column"><h2 class="detail-title">SOFTWARE + TOOLS</h2><p>Python, C++, Arduino, 3D printing, wood fabrication, laser cutting</p></div>
+      <div class="detail-column"><h2 class="detail-title">SUPERVISORS</h2><p>Marcelo Coelho, Randall Davis</p></div>
     </section>
 
-    <section class="project-section">
-      <figure class="wide">
-        <img src="Images/Janus/Untitled-5.png" alt="Janus AI doorknob installed on a full-scale doorway">
-      </figure>
-    </section>
+    <div class="janus-page">
+      <section class="janus-opening">
+        <blockquote class="janus-quote">“Hello. How are you today? It's my pleasure to be your doorknob tonight.”</blockquote>
+        <figure><img src="Images/Janus/Untitled-5.png" alt="Janus AI doorknob mounted in a wooden door prototype"></figure>
+      </section>
 
-    <section class="project-copy">
-      <h2>“Hello. How are you today? It’s my pleasure to be your doorknob tonight.”</h2>
-      <p>Janus explores the possibility of a digital doorman: a door that can guard a threshold while understanding what is physically happening on both sides. It recognizes approved visitors and playfully engages with those who do not have permission to enter.</p>
-      <p>If Janus cannot let you in, it stalls with a sequence of challenges. It might ask you to sing, dance, perform a handshake, tell a joke, or answer a riddle. Satisfy its requirements and it might let you through.</p>
-    </section>
+      <section class="janus-two-copy">
+        <div class="project-copy"><p>This project examines the possibility of having a "digital doorman", or a door that is able to playfully guard the threshold while knowing what is physically on both ends. Janus is able to not only recognize if the person approaching is on its list to let into the space, but also begins to playfully engage with those that do not have permission to enter.</p></div>
+        <div class="project-copy"><p>If Janus is not allowed to let you in, it will stall by giving you a string of challenges. It might ask you to sing, dance, to a handshake, tell a joke, answer a riddle, and more.</p><p>If you satisfy its requirements it might let you in.....</p></div>
+      </section>
 
-    <section class="project-section">
-      <div class="project-media-grid">
-        <figure>
-          <img src="Images/Janus/Untitled-2_edited.jpg" alt="Person interacting with the Janus doorway" loading="lazy">
-        </figure>
-        <figure>
-          <img src="Images/Janus/Untitled-3_edited.jpg" alt="Janus doorway interaction from the opposite side" loading="lazy">
-        </figure>
-      </div>
-    </section>
+      <div class="janus-video">Video unavailable</div>
 
-    <section class="project-copy">
-      <h2>HOW IT WORKS</h2>
-      <p>The system combines language generation, computer vision, facial recognition, speech-to-text, text-to-speech, and physical sensors. A microphone listens for input, the system builds a prompt and generates a response, then translates that response to audio before the interaction continues.</p>
-    </section>
+      <figure class="janus-full"><img src="Images/Janus/Untitled-2.png" alt="Janus doorknob interaction illuminated with green, blue, and magenta light"></figure>
 
-    <section class="project-section">
-      <figure class="wide">
-        <img src="Images/Janus/Doorknob_diagram_3-03.png" alt="Janus multimodal interaction system diagram" loading="lazy">
-      </figure>
-    </section>
+      <section class="janus-how">
+        <h2>HOW IT WORKS</h2>
+        <div class="janus-how-grid">
+          <div class="project-copy"><p>This system is connected to several APIs that allow it to perform it's tasks, including OpenAI, Computer Vision API, Facial Recognition API, Speech to Text and Text to Speech.</p><p>Here is a rough diagram of the process:</p></div>
+          <div class="project-copy"><p>The basic framework is that the microphone listens for user input, then crafts a prompt for openAI to then respond to, which is translated to audio, transmitted to the user, and then the cycle repeats itself again. This system is made more complex by the supplemental sensors and functions.</p></div>
+        </div>
+      </section>
 
-    <section class="project-section">
-      <div class="project-media-grid">
-        <figure class="wide">
-          <img src="Images/Janus/Doorknob_diagram_3-02.png" alt="Janus sensing and input system diagram" loading="lazy">
-        </figure>
-        <figure>
-          <img src="Images/Janus/Doorknob_diagram_3-11.png" alt="Janus prompt-generation example" loading="lazy">
-        </figure>
-        <figure>
-          <img src="Images/Janus/Doorknob_diagram_3-12.png" alt="Janus generated-response example" loading="lazy">
-        </figure>
-        <figure class="wide">
-          <img src="Images/Janus/Doorknob_diagram_3-10.png" alt="Janus challenge-generation example" loading="lazy">
-        </figure>
-      </div>
-    </section>
+      <figure class="janus-diagram"><img src="Images/Janus/Doorknob_diagram_3-03.png" alt="Janus multimodal interaction system diagram"></figure>
+      <figure class="janus-process"><img src="Images/Janus/Doorknob_diagram_3-02.png" alt="Sequential Janus interaction diagram showing identification, facial recognition, statements, conversation and responses"></figure>
 
-    <section class="project-copy">
-      <h2>DEVELOPMENT</h2>
-      <p>Janus developed through a series of physical and computational prototypes, moving from an interaction concept to a full-scale threshold with sensing, computation, speech and mechanical components embedded into the door assembly.</p>
-    </section>
+      <section class="janus-prompts">
+        <h2>EXAMPLES OF PROMPT GENERATION</h2>
+        <div class="janus-prompt-grid">
+          <div class="janus-prompt-stack">
+            <figure><img src="Images/Janus/Doorknob_diagram_3-11.png" alt="Janus prompt generation logic example"></figure>
+            <figure><img src="Images/Janus/Doorknob_diagram_3-12.png" alt="Janus conversation and recognition prompt example"></figure>
+            <figure><img src="Images/Janus/Doorknob_diagram_3-10.png" alt="Janus generated room and challenge prompt example"></figure>
+          </div>
+          <figure class="janus-prompt-photo"><img src="Images/Janus/Untitled-43.png" alt="Person leaning toward the Janus doorknob prototype"></figure>
+        </div>
+      </section>
 
-    <section class="project-section">
-      <figure class="wide">
-        <img src="Images/Janus/past_iterartions.png" alt="Sequence of earlier Janus prototype iterations" loading="lazy">
-      </figure>
-    </section>
+      <section class="janus-axo-row">
+        <figure><img src="Images/Janus/axo-01.png" alt="Janus assembled door and doorknob axonometric"></figure>
+        <figure><img src="Images/Janus/axo-02.png" alt="Janus exploded axonometric showing frame, sensors, lights, motor, camera and electronics"></figure>
+      </section>
 
-    <section class="project-section">
-      <div class="project-media-grid">
-        <figure>
-          <img src="Images/Janus/axo-01.png" alt="Exploded axonometric drawing of the Janus doorknob assembly" loading="lazy">
-        </figure>
-        <figure>
-          <img src="Images/Janus/axo-02.png" alt="Axonometric drawing of Janus hardware components" loading="lazy">
-        </figure>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <figure class="wide">
-        <img src="Images/Janus/Untitled-43.png" alt="Janus physical prototype and embedded hardware" loading="lazy">
-      </figure>
-    </section>
-
-    <section class="project-section">
-      <div class="project-media-grid">
-        <figure>
-          <img src="Images/Janus/Untitled-2.png" alt="Completed Janus doorway installation" loading="lazy">
-        </figure>
-        <figure>
-          <img src="Images/Janus/Untitled-3.png" alt="Completed Janus doorway viewed from the reverse side" loading="lazy">
-        </figure>
-      </div>
-    </section>
+      <figure class="janus-final"><img src="Images/Janus/Untitled-3.png" alt="Final Janus doorknob installation glowing with multicolored light"></figure>
+    </div>
   </main>
-
   <div id="footer"></div>
   <div class="custom-cursor" id="customCursor"></div>
   <script src="assets/js/siteChrome.js"></script>

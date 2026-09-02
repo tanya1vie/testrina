@@ -36,14 +36,26 @@
   font-weight: 700;
 }
 
-/* When exactly two images share a row, reserve one 60px caption column on the
-   far right of both images. Captions are stacked in image order: left first,
-   right second. */
+/* Caption side switch.
+   Page-wide: <main data-caption-side="left">
+   Local override: <div class="image-row" data-caption-side="left"> */
+.auto-project-figure.caption-side-left {
+  grid-template-columns: 60px minmax(0, 1fr);
+}
+.auto-project-figure.caption-side-left > img { grid-column: 2; }
+.auto-project-figure.caption-side-left > .auto-project-caption { grid-column: 1; }
+
+/* When exactly two images share a row, reserve ONE caption column outside
+   the pair. Captions are stacked in image order: left image first, then right. */
 .auto-project-pair-row {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 60px !important;
   column-gap: 18px;
   align-items: start;
+}
+
+.auto-project-pair-row.caption-side-left {
+  grid-template-columns: 60px minmax(0, 1fr) minmax(0, 1fr) !important;
 }
 
 .auto-project-pair-row > .auto-project-figure {
@@ -61,86 +73,87 @@
   height: auto;
 }
 
-.auto-project-pair-row > .auto-project-figure > .auto-project-caption {
-  display: none;
-}
-
-.auto-project-pair-row > .auto-project-pair-left {
-  grid-column: 1;
-}
-
-.auto-project-pair-row > .auto-project-pair-right {
-  grid-column: 2;
-}
+.auto-project-pair-row > .auto-project-figure > .auto-project-caption { display: none; }
+.auto-project-pair-row.caption-side-right > .auto-project-pair-left { grid-column: 1; }
+.auto-project-pair-row.caption-side-right > .auto-project-pair-right { grid-column: 2; }
+.auto-project-pair-row.caption-side-left > .auto-project-pair-left { grid-column: 2; }
+.auto-project-pair-row.caption-side-left > .auto-project-pair-right { grid-column: 3; }
 
 .auto-project-pair-caption-column {
-  grid-column: 3;
   width: 60px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-self: start;
 }
-
+.auto-project-pair-row.caption-side-right > .auto-project-pair-caption-column { grid-column: 3; }
+.auto-project-pair-row.caption-side-left > .auto-project-pair-caption-column { grid-column: 1; }
 .auto-project-pair-caption-column .auto-project-caption {
   display: block;
   width: 60px;
   margin: 0;
 }
 
-/* Preserve the existing project-page image-row proportions after images are wrapped in figures. */
-.image-row > .auto-project-figure {
-  flex: 1 1 0;
-}
+/* Existing equal-width image row. */
+.image-row > .auto-project-figure { flex: 1 1 0; }
+.image-row > .auto-project-figure > img { width: 100%; height: auto; }
 
-.image-row > .auto-project-figure > img {
-  width: 100%;
-  height: auto;
+/* Reusable equal-height pair. The images keep their natural aspect ratios,
+   so a landscape image can be wider than a portrait image while both align
+   to the same displayed height. Change --image-pair-height where needed. */
+.image-row-equal-height {
+  --image-pair-height: min(46vw, 520px);
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 30px auto 0;
 }
-
-.image-row-three > .auto-project-figure {
-  width: 100%;
+.image-row-equal-height > .auto-project-figure {
+  flex: 0 1 auto;
+  width: auto !important;
+  max-width: none !important;
 }
-
-.image-row-three > .auto-project-figure > img {
-  width: 100%;
-  height: 200px;
+.image-row-equal-height > .auto-project-figure > img {
+  width: auto;
+  max-width: 100%;
+  height: var(--image-pair-height);
+  object-fit: contain;
+}
+.image-row-equal-height.auto-project-pair-row {
+  display: grid !important;
+  grid-template-columns: auto auto 60px !important;
+  justify-content: center;
+}
+.image-row-equal-height.auto-project-pair-row.caption-side-left {
+  grid-template-columns: 60px auto auto !important;
+}
+.image-row-equal-height.auto-project-pair-row > .auto-project-figure > img {
+  width: auto;
+  max-width: min(42vw, 460px);
+  height: var(--image-pair-height);
   object-fit: contain;
 }
 
-.image-row-four > .auto-project-figure {
-  flex: 0 1 18%;
-  max-width: 18%;
-}
-
-.image-row-four > .auto-project-figure > img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
+.image-row-three > .auto-project-figure { width: 100%; }
+.image-row-three > .auto-project-figure > img { width: 100%; height: 200px; object-fit: contain; }
+.image-row-four > .auto-project-figure { flex: 0 1 18%; max-width: 18%; }
+.image-row-four > .auto-project-figure > img { width: 100%; max-width: 100%; height: auto; }
 .gallery-item.auto-project-figure,
-.gallery-item .auto-project-figure {
-  flex: 0 0 auto;
-}
-
-.masonry-gallery > .auto-project-figure {
-  break-inside: avoid;
-  margin-bottom: 10px;
-}
-
-.masonry-gallery > .auto-project-figure > img {
-  margin-bottom: 0;
-}
+.gallery-item .auto-project-figure { flex: 0 0 auto; }
+.masonry-gallery > .auto-project-figure { break-inside: avoid; margin-bottom: 10px; }
+.masonry-gallery > .auto-project-figure > img { margin-bottom: 0; }
 
 @media (max-width: 768px) {
-  .image-row-four > .auto-project-figure {
-    flex-basis: 44%;
-    max-width: 44%;
-  }
-
-  .auto-project-pair-row {
+  .image-row-four > .auto-project-figure { flex-basis: 44%; max-width: 44%; }
+  .auto-project-pair-row,
+  .auto-project-pair-row.caption-side-left {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 60px !important;
     column-gap: 10px;
   }
+  .auto-project-pair-row.caption-side-left > .auto-project-pair-left { grid-column: 1; }
+  .auto-project-pair-row.caption-side-left > .auto-project-pair-right { grid-column: 2; }
+  .auto-project-pair-row.caption-side-left > .auto-project-pair-caption-column { grid-column: 3; }
+  .image-row-equal-height { --image-pair-height: 34vw; gap: 14px; }
 }

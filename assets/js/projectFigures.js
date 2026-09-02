@@ -14,22 +14,63 @@
     .replace(/^\s*fig(?:ure)?\.?\s*\d+\s*[.:\-]?\s*/i, '')
     .trim();
 
+  const normalizeSpaces = (text) => (text || '').replace(/\s+/g, ' ').trim();
+
+  function projectNameAliases() {
+    const title = normalizeSpaces(main.querySelector('.project-title')?.textContent || '');
+    if (!title) return [];
+
+    const aliases = new Set([title]);
+    aliases.add(title.replace(/[–—:|]/g, ' '));
+    aliases.add(title.replace(/\b\d+(?:\.\d+)?\b/g, ' '));
+
+    const compact = title
+      .replace(/[’']/g, '')
+      .replace(/[^a-z0-9]+/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (compact) aliases.add(compact);
+
+    return Array.from(aliases)
+      .map(normalizeSpaces)
+      .filter(Boolean)
+      .sort((a, b) => b.length - a.length);
+  }
+
+  const titleAliases = projectNameAliases();
+
+  function stripProjectName(text) {
+    let output = normalizeSpaces(stripFigureNumber(text));
+    if (!output) return '';
+
+    for (const alias of titleAliases) {
+      const escaped = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const pattern = new RegExp(`^${escaped}(?:\\s*[-–—:|,]\\s*|\\s+)`, 'i');
+      if (pattern.test(output)) {
+        output = output.replace(pattern, '').trim();
+        break;
+      }
+    }
+
+    return output.charAt(0).toLowerCase() + output.slice(1);
+  }
+
   function existingCaptionFor(img, figure) {
-    if (img.dataset.caption) return img.dataset.caption.trim();
+    if (img.dataset.caption) return stripProjectName(img.dataset.caption);
 
     const existingFigcaption = figure && figure.querySelector(':scope > figcaption');
     if (existingFigcaption && existingFigcaption.textContent.trim()) {
-      return stripFigureNumber(existingFigcaption.textContent);
+      return stripProjectName(existingFigcaption.textContent);
     }
 
     const sibling = figure ? figure.nextElementSibling : img.nextElementSibling;
     if (sibling && sibling.matches('.imageSubtitle, .image-subtitle, .image-caption, .project-image-caption')) {
-      const text = stripFigureNumber(sibling.textContent);
+      const text = stripProjectName(sibling.textContent);
       sibling.remove();
       if (text) return text;
     }
 
-    return (img.getAttribute('alt') || '').trim();
+    return stripProjectName(img.getAttribute('alt') || '');
   }
 
   function setCaptionContent(caption, number, description) {
@@ -40,25 +81,31 @@
     label.textContent = `fig ${number}.`;
     caption.appendChild(label);
 
-    if (description) {
-      caption.appendChild(document.createTextNode(` ${description}`));
-    }
+    if (description) caption.appendChild(document.createTextNode(` ${description}`));
+  }
+
+  function captionSideFor(element) {
+    const local = element.closest('[data-caption-side]')?.dataset.captionSide;
+    const page = main.dataset.captionSide;
+    return (local || page || 'right').toLowerCase() === 'left' ? 'left' : 'right';
   }
 
   function clearPairClasses() {
     main.querySelectorAll('.auto-project-figure').forEach((figure) => {
-      figure.classList.remove('auto-project-pair-left', 'auto-project-pair-right');
+      figure.classList.remove('auto-project-pair-left', 'auto-project-pair-right', 'caption-side-left', 'caption-side-right');
     });
-
     main.querySelectorAll('.auto-project-pair-row').forEach((parent) => {
-      parent.classList.remove('auto-project-pair-row');
+      parent.classList.remove('auto-project-pair-row', 'caption-side-left', 'caption-side-right');
     });
-
     main.querySelectorAll('.auto-project-pair-caption-column').forEach((column) => column.remove());
   }
 
   function markSideBySidePairs() {
     clearPairClasses();
+
+    main.querySelectorAll('.auto-project-figure').forEach((figure) => {
+      figure.classList.add(`caption-side-${captionSideFor(figure)}`);
+    });
 
     const parents = new Set();
     main.querySelectorAll('.auto-project-figure').forEach((figure) => {
@@ -74,7 +121,8 @@
       const sameRow = Math.abs(firstRect.top - secondRect.top) < 24 && secondRect.left > firstRect.left;
       if (!sameRow) return;
 
-      parent.classList.add('auto-project-pair-row');
+      const side = captionSideFor(parent);
+      parent.classList.add('auto-project-pair-row', `caption-side-${side}`);
       figures[0].classList.add('auto-project-pair-left');
       figures[1].classList.add('auto-project-pair-right');
 

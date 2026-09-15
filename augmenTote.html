@@ -13,8 +13,33 @@
     :root{--augment-red:#d92d2d;--augment-cream:#f5e8bf}
     body.locked #header{filter:none!important;pointer-events:auto!important;user-select:auto!important;opacity:1!important;position:relative;z-index:10001}
     body.locked .password-overlay{z-index:9999}
-    .augmentote-page{max-width:1040px;margin:0 auto;padding:30px 22px 110px}.augmentote-section{margin:82px 0}.augmentote-section:first-child{margin-top:40px}.augmentote-kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--augment-red);font-weight:700;margin:0 0 10px}.augmentote-section h2{font-size:28px;line-height:1.15;letter-spacing:.05em;margin:0 0 18px}.augmentote-section h3{font-size:17px;margin:0 0 10px}.augmentote-lede{max-width:760px;font-size:20px;line-height:1.45}.augmentote-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}.augmentote-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}.augmentote-card{border:1px solid #111;border-radius:26px;padding:24px 22px;background:#fff;box-shadow:7px 7px 0 #111}.augmentote-card h3{color:var(--augment-red)}.augmentote-workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}.augmentote-step{border-top:1px solid #111;padding-top:10px;min-height:72px}.augmentote-step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--augment-red);font-size:24px;font-weight:700}.augmentote-media{margin:34px 0}.augmentote-media img{display:block;width:100%;height:auto;object-fit:contain}.augmentote-band{background:var(--augment-red);color:var(--augment-cream);padding:46px 34px;margin:90px -22px 58px}.augmentote-band p{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}.augmentote-band h2{font-size:42px;line-height:1.04;margin:0}.augmentote-feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 44px;padding:0;list-style:none}.augmentote-feature-list li{border-top:1px solid #bbb;padding-top:10px}.augmentote-quote{border-left:3px solid var(--augment-red);padding-left:18px;margin:24px 0;font-size:17px;line-height:1.5}.augmentote-tech-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}.augmentote-tech-flow div{border:1px solid #111;padding:16px;text-align:center;border-radius:18px}.augmentote-wrap{background:#f4f4f4;padding:30px;border-radius:26px}.augmentote-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}.augmentote-gallery figure{margin:0}.augmentote-gallery img{display:block;width:100%;height:auto;object-fit:contain}.augmentote-gallery figure:nth-child(7n+1){grid-column:span 2}.augmentote-gallery figure:nth-child(11n+4){grid-column:span 2}
-    @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-gallery{grid-template-columns:1fr 1fr}.augmentote-gallery figure:nth-child(n){grid-column:span 1}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{padding-left:16px;padding-right:16px}}
+    .augmentote-page{max-width:1040px;margin:0 auto;padding:30px 22px 110px}
+    .augmentote-section{margin:82px 0}
+    .augmentote-section:first-child{margin-top:40px}
+    .augmentote-kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--augment-red);font-weight:700;margin:0 0 10px}
+    .augmentote-section h2{font-size:28px;line-height:1.15;letter-spacing:.05em;margin:0 0 18px}
+    .augmentote-section h3{font-size:17px;margin:0 0 10px}
+    .augmentote-lede{max-width:760px;font-size:20px;line-height:1.45}
+    .augmentote-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+    .augmentote-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+    .augmentote-card{border:1px solid #111;border-radius:26px;padding:24px 22px;background:#fff;box-shadow:7px 7px 0 #111}
+    .augmentote-card h3{color:var(--augment-red)}
+    .augmentote-workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+    .augmentote-step{border-top:1px solid #111;padding-top:10px;min-height:72px}
+    .augmentote-step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--augment-red);font-size:24px;font-weight:700}
+    .augmentote-band{background:var(--augment-red);color:var(--augment-cream);padding:46px 34px;margin:90px -22px 58px}
+    .augmentote-band p{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .augmentote-band h2{font-size:42px;line-height:1.04;margin:0}
+    .augmentote-feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 44px;padding:0;list-style:none}
+    .augmentote-feature-list li{border-top:1px solid #bbb;padding-top:10px}
+    .augmentote-quote{border-left:3px solid var(--augment-red);padding-left:18px;margin:24px 0;font-size:17px;line-height:1.5}
+    .augmentote-tech-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+    .augmentote-tech-flow div{border:1px solid #111;padding:16px;text-align:center;border-radius:18px}
+    .augmentote-wrap{background:#f4f4f4;padding:30px;border-radius:26px}
+    .augmentote-full{width:100%;margin:34px 0 54px}
+    .augmentote-full img{display:block;width:100%;height:auto;object-fit:contain}
+    .augmentote-text-break{max-width:760px;margin:54px 0 22px}
+    @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{padding-left:16px;padding-right:16px}}
   </style>
 </head>
 <body>
@@ -31,46 +56,132 @@
     <div class="detail-column"><h2 class="detail-title">APPLICATION</h2><p>ToteASRS Pick workflow across fulfillment centers</p></div>
     <div class="detail-column"><h2 class="detail-title">SOFTWARE + HARDWARE</h2><p>Unity3D, C#, Magic Leap 2, mixed-reality prototyping</p></div>
   </section>
+
   <div class="augmentote-page">
     <section class="augmentote-section">
-      <p class="augmentote-kicker">Background</p><h2>Why mixed reality?</h2>
+      <p class="augmentote-kicker">Background</p>
+      <h2>Why mixed reality?</h2>
       <p class="augmentote-lede">Extended reality blends the physical and digital. For this project, mixed reality is the useful middle ground: virtual information can react to and sit within the real work environment instead of replacing it.</p>
-      <div class="augmentote-grid-3"><article class="augmentote-card"><h3>Flexible Infrastructure</h3><p>Software can be updated more easily than hardware. The same glasses can support many situations across fulfillment centers and help bridge locations running different generations of physical equipment.</p></article><article class="augmentote-card"><h3>Smart Learning + Support</h3><p>Personalized guidance, feedback, training, knowledge sharing, and clearer access to the information required to complete a task.</p></article><article class="augmentote-card"><h3>Connected Culture</h3><p>More opportunities for social interaction, entertainment, and healthier work practices within the scope of the role.</p></article></div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_1.jpg" alt="presentation study 01"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_2.jpg" alt="presentation study 02"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_3.jpg" alt="presentation study 03"></figure>
+      <div class="augmentote-grid-3">
+        <article class="augmentote-card"><h3>Flexible Infrastructure</h3><p>Software can be updated more easily than hardware. The same glasses can support many situations across fulfillment centers and help bridge locations running different generations of physical equipment.</p></article>
+        <article class="augmentote-card"><h3>Smart Learning + Support</h3><p>Personalized guidance, feedback, training, knowledge sharing, and clearer access to the information required to complete a task.</p></article>
+        <article class="augmentote-card"><h3>Connected Culture</h3><p>More opportunities for social interaction, entertainment, and healthier work practices within the scope of the role.</p></article>
+      </div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_4.jpg" alt="presentation study 04"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_5.jpg" alt="presentation study 05"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_6.jpg" alt="presentation study 06"></figure>
     </section>
+
     <section class="augmentote-section">
-      <p class="augmentote-kicker">Case study</p><h2>ToteASRS + the Pick workflow</h2>
-      <div class="augmentote-grid-2"><div><p>ToteASRS picking supports low-volume and sub-same-day delivery, but the workflow can involve 8–12 hour shifts of repetitive and physically demanding work. AugmenTote asks where mixed reality can reduce ambiguity and repetitive searching without adding another screen to manage.</p><div class="augmentote-workflow"><div class="augmentote-step">Sign in</div><div class="augmentote-step">Wait for source tote</div><div class="augmentote-step">Seek item</div><div class="augmentote-step">Pick item</div><div class="augmentote-step">Scan item</div><div class="augmentote-step">Place item</div><div class="augmentote-step">Transition tote</div><div class="augmentote-step">Problem solving</div></div></div><figure class="augmentote-media"><img src="Images/AugmenTote/Screenshot%202025-12-25%20at%2010.40.48AM.png" alt="mixed-reality prototype view of a ToteASRS workstation"></figure></div>
+      <p class="augmentote-kicker">Case study</p>
+      <h2>ToteASRS + the Pick workflow</h2>
+      <p>ToteASRS picking supports low-volume and sub-same-day delivery, but the workflow can involve 8–12 hour shifts of repetitive and physically demanding work. AugmenTote asks where mixed reality can reduce ambiguity and repetitive searching without adding another screen to manage.</p>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_7.jpg" alt="presentation study 07"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_8.jpg" alt="presentation study 08"></figure>
+      <div class="augmentote-workflow">
+        <div class="augmentote-step">Sign in</div><div class="augmentote-step">Wait for source tote</div><div class="augmentote-step">Seek item</div><div class="augmentote-step">Pick item</div>
+        <div class="augmentote-step">Scan item</div><div class="augmentote-step">Place item</div><div class="augmentote-step">Transition tote</div><div class="augmentote-step">Problem solving</div>
+      </div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_9.jpg" alt="presentation study 09"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_10.jpg" alt="presentation study 10"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_11.jpg" alt="presentation study 11"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_12.jpg" alt="presentation study 12"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_13.jpg" alt="presentation study 13"></figure>
+      <div class="augmentote-text-break"><h3>Prototype direction</h3><p>The prototype places graphics directly over the station and rebin wall so information appears in the spatial context where it is needed. Early experiments explored item information, scanned-state feedback, directional indicators, help controls, and visual cues attached to physical totes and slots.</p></div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_14.jpg" alt="presentation study 14"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_15.jpg" alt="presentation study 15"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_16.jpg" alt="presentation study 16"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_17.jpg" alt="presentation study 17"></figure>
     </section>
-    <section class="augmentote-section"><p class="augmentote-kicker">Prototype</p><h2>Unity + C# + Magic Leap 2</h2><p>The prototype places graphics directly over the station and rebin wall so information appears in the spatial context where it is needed. Early experiments explored item information, scanned-state feedback, directional indicators, help controls, and visual cues attached to physical totes and slots.</p></section>
 
     <div class="augmentote-band"><p>User Experience Requirement #1</p><h2>INCREASED EFFICIENCY</h2></div>
-    <section class="augmentote-section"><div class="augmentote-grid-2"><div><h3>Put the right information where the work happens</h3><p>The mixed-reality proposal moves the most useful pieces of task information into the worker's field of view so less attention has to travel back and forth between the station and a separate screen.</p><p class="augmentote-quote">Associates described checking the barcode first, then using product description details such as material or color when an item is hard to identify.</p></div><article class="augmentote-card"><h3>3D item guidance</h3><p>Product name and ASIN can accompany a spatial representation of the item. A future goal is to use computer vision to help with the seek process.</p></article></div><ul class="augmentote-feature-list"><li><strong>Current slot:</strong> highlighted directly in space.</li><li><strong>Ongoing order:</strong> stays visible without appearing active.</li><li><strong>Order quantity:</strong> visual state changes with the number of items.</li><li><strong>Transition:</strong> directional and blinking cues signal the next action.</li></ul></section>
-
-    <div class="augmentote-band"><p>User Experience Requirement #2</p><h2>SMART LEARNING + SUPPORT</h2></div>
-    <section class="augmentote-section"><div class="augmentote-grid-2"><div><h3>Help without leaving the task</h3><p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional game modes. PeccAI is proposed as a responsive helper that maps spoken descriptions of problems to the appropriate help state.</p></div><div><h3>How PeccAI works</h3><div class="augmentote-tech-flow"><div>Magic Leap microphone</div><div>AWS Transcribe</div><div>Prompt engineering + OpenAI API</div><div>Matched response screen</div></div></div></div></section>
-
-    <div class="augmentote-band"><p>User Experience Requirement #3</p><h2>WELLNESS + WORK SATISFACTION</h2></div>
-    <section class="augmentote-section"><h2>Can 8–12 hours of picking be made less boring?</h2><p>Existing fulfillment-center games can sit in the background without meaningfully engaging the associate. The proposal reframes gamification so challenges are attached to the actual pick and can include speed, placement, wellness, and competitive prompts.</p></section>
-
     <section class="augmentote-section">
-      <p class="augmentote-kicker">Project imagery</p><h2>Interface studies, scenarios + prototype development</h2>
-      <p>These images come from the AugmenTote project image folder and document the broader design process, interface explorations, prototype states, and presentation studies.</p>
-      <div class="augmentote-gallery">
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_1.jpg" alt="project study image 01"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_2.jpg" alt="project study image 02"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_3.jpg" alt="project study image 03"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_4.jpg" alt="project study image 04"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_5.jpg" alt="project study image 05"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_6.jpg" alt="project study image 06"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_7.jpg" alt="project study image 07"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_8.jpg" alt="project study image 08"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_9.jpg" alt="project study image 09"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_10.jpg" alt="project study image 10"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_11.jpg" alt="project study image 11"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_12.jpg" alt="project study image 12"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_13.jpg" alt="project study image 13"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_14.jpg" alt="project study image 14"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_15.jpg" alt="project study image 15"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_16.jpg" alt="project study image 16"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_17.jpg" alt="project study image 17"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_18.jpg" alt="project study image 18"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_19.jpg" alt="project study image 19"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_20.jpg" alt="project study image 20"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_21.jpg" alt="project study image 21"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_22.jpg" alt="project study image 22"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_23.jpg" alt="project study image 23"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_24.jpg" alt="project study image 24"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_25.jpg" alt="project study image 25"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_26.jpg" alt="project study image 26"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_27.jpg" alt="project study image 27"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_28.jpg" alt="project study image 28"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_29.jpg" alt="project study image 29"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_30.jpg" alt="project study image 30"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_31.jpg" alt="project study image 31"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_32.jpg" alt="project study image 32"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_33.jpg" alt="project study image 33"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_34.jpg" alt="project study image 34"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_35.jpg" alt="project study image 35"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_36.jpg" alt="project study image 36"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_37.jpg" alt="project study image 37"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_38.jpg" alt="project study image 38"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_39.jpg" alt="project study image 39"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_40.jpg" alt="project study image 40"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_41.jpg" alt="project study image 41"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_42.jpg" alt="project study image 42"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_43.jpg" alt="project study image 43"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_44.jpg" alt="project study image 44"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_45.jpg" alt="project study image 45"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_46.jpg" alt="project study image 46"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_47.jpg" alt="project study image 47"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_48.jpg" alt="project study image 48"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_49.jpg" alt="project study image 49"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_50.jpg" alt="project study image 50"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_51.jpg" alt="project study image 51"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_52.jpg" alt="project study image 52"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_53.jpg" alt="project study image 53"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_54.jpg" alt="project study image 54"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_55.jpg" alt="project study image 55"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_56.jpg" alt="project study image 56"></figure>
-        <figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_57.jpg" alt="project study image 57"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_58.jpg" alt="project study image 58"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_59.jpg" alt="project study image 59"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_60.jpg" alt="project study image 60"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_61.jpg" alt="project study image 61"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_62.jpg" alt="project study image 62"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_63.jpg" alt="project study image 63"></figure><figure><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_64.jpg" alt="project study image 64"></figure>
-      </div>
+      <h3>Put the right information where the work happens</h3>
+      <p>The mixed-reality proposal moves the most useful pieces of task information into the worker's field of view so less attention has to travel back and forth between the station and a separate screen.</p>
+      <p class="augmentote-quote">Associates described checking the barcode first, then using product description details such as material or color when an item is hard to identify.</p>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_18.jpg" alt="presentation study 18"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_19.jpg" alt="presentation study 19"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_20.jpg" alt="presentation study 20"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_21.jpg" alt="presentation study 21"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_22.jpg" alt="presentation study 22"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_23.jpg" alt="presentation study 23"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_24.jpg" alt="presentation study 24"></figure>
+      <div class="augmentote-text-break"><h3>Rebin wall guides + slot transition indicators</h3><p>Spatial cues can distinguish the current slot from ongoing orders, communicate how many items remain, and make tote or slot transitions harder to miss. The proposal also explores 3D item guidance and future computer-vision support for the seek process.</p></div>
+      <ul class="augmentote-feature-list"><li><strong>Current slot:</strong> highlighted directly in space.</li><li><strong>Ongoing order:</strong> stays visible without appearing active.</li><li><strong>Order quantity:</strong> visual state changes with the number of items.</li><li><strong>Transition:</strong> directional and blinking cues signal the next action.</li></ul>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_25.jpg" alt="presentation study 25"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_26.jpg" alt="presentation study 26"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_27.jpg" alt="presentation study 27"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_28.jpg" alt="presentation study 28"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_29.jpg" alt="presentation study 29"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_30.jpg" alt="presentation study 30"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_31.jpg" alt="presentation study 31"></figure>
     </section>
 
-    <section class="augmentote-section augmentote-wrap"><p class="augmentote-kicker">Wrap up</p><div class="augmentote-grid-2"><div><h2>Barriers to implementation</h2><p>Current glasses still face practical constraints: battery life, headset weight, device management, and the question of shared versus individually issued wearables.</p></div><div><h2>What the prototype can do today</h2><p>Even before full deployment, the prototype is useful for testing UX proposals, moving into user testing earlier, sharing prototype states between locations, and letting employees experience proposed processes directly in AR.</p></div></div></section>
+    <div class="augmentote-band"><p>User Experience Requirement #2</p><h2>SMART LEARNING + SUPPORT</h2></div>
+    <section class="augmentote-section">
+      <h3>Help without leaving the task</h3>
+      <p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional game modes. PeccAI is proposed as a responsive helper that maps spoken descriptions of problems to the appropriate help state.</p>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_32.jpg" alt="presentation study 32"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_33.jpg" alt="presentation study 33"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_34.jpg" alt="presentation study 34"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_35.jpg" alt="presentation study 35"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_36.jpg" alt="presentation study 36"></figure>
+      <div class="augmentote-text-break"><h3>How PeccAI works</h3><p>The prototype listens for speech, converts audio to text, classifies the issue, then displays the matching support flow.</p></div>
+      <div class="augmentote-tech-flow"><div>Magic Leap microphone</div><div>AWS Transcribe</div><div>Prompt engineering + OpenAI API</div><div>Matched response screen</div></div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_37.jpg" alt="presentation study 37"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_38.jpg" alt="presentation study 38"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_39.jpg" alt="presentation study 39"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_40.jpg" alt="presentation study 40"></figure>
+    </section>
+
+    <div class="augmentote-band"><p>User Experience Requirement #3</p><h2>WELLNESS + WORK SATISFACTION</h2></div>
+    <section class="augmentote-section">
+      <h2>Can 8–12 hours of picking be made less boring?</h2>
+      <p>The proposal considers health, social interaction, entertainment, and visible progress as part of the work experience—not as separate systems layered on top of it.</p>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_41.jpg" alt="presentation study 41"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_42.jpg" alt="presentation study 42"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_43.jpg" alt="presentation study 43"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_44.jpg" alt="presentation study 44"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_45.jpg" alt="presentation study 45"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_46.jpg" alt="presentation study 46"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_47.jpg" alt="presentation study 47"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_48.jpg" alt="presentation study 48"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_49.jpg" alt="presentation study 49"></figure>
+      <div class="augmentote-text-break"><h3>Gamification attached to the pick</h3><p>Instead of background games, each pick can be regular or become a specific challenge with a direct reward. Challenges can respond to speed, placement, item type, wellness, or competitive play.</p></div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_50.jpg" alt="presentation study 50"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_51.jpg" alt="presentation study 51"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_52.jpg" alt="presentation study 52"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_53.jpg" alt="presentation study 53"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_54.jpg" alt="presentation study 54"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_55.jpg" alt="presentation study 55"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_56.jpg" alt="presentation study 56"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_57.jpg" alt="presentation study 57"></figure>
+      <div class="augmentote-text-break"><h3>Wellness should not depend on the game</h3><p>Direct wellness features include visible progress, music, hydration prompts, and scheduled stretch or rest suggestions. Associate feedback in the study specifically called for short recurring stretch breaks during long standing shifts.</p></div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_58.jpg" alt="presentation study 58"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_59.jpg" alt="presentation study 59"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_60.jpg" alt="presentation study 60"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_61.jpg" alt="presentation study 61"></figure>
+    </section>
+
+    <div class="augmentote-band"><p>Wrap up</p><h2>IMPLEMENTATION + APPLICATIONS TODAY</h2></div>
+    <section class="augmentote-section augmentote-wrap">
+      <div class="augmentote-grid-2">
+        <div><h2>Barriers to implementation</h2><p>Current glasses still face practical constraints: an eight-hour battery target is difficult, more capable headsets can be heavy or bulky, and there are unresolved questions around shared devices versus issuing a pair to every associate.</p></div>
+        <div><h2>What the prototype can do today</h2><p>Even before full deployment, the mixed-reality prototype is useful for testing UX proposals without fully coding or fabricating every system, moving into user testing earlier, sharing prototype states between locations, and letting employees experience proposed processes directly in AR.</p></div>
+      </div>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_62.jpg" alt="presentation study 62"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_63.jpg" alt="presentation study 63"></figure>
+      <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_64.jpg" alt="presentation study 64"></figure>
+    </section>
   </div>
 </main>
-<div id="footer"></div><div class="custom-cursor" id="customCursor"></div>
-<script src="assets/js/siteChrome.js"></script><script src="assets/js/cursor.js"></script><script src="assets/js/password.js"></script>
+<div id="footer"></div>
+<div class="custom-cursor" id="customCursor"></div>
+<script src="assets/js/siteChrome.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/password.js"></script>
 </body>
 </html>

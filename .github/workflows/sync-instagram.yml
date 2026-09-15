@@ -2,6 +2,12 @@ name: Sync Instagram gallery
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/sync-instagram.yml
+      - tools/sync-instagram.mjs
   schedule:
     - cron: "17 8 * * *"
 

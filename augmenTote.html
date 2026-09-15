@@ -14,7 +14,7 @@
     body.locked #header{filter:none!important;pointer-events:auto!important;user-select:auto!important;opacity:1!important;position:relative;z-index:10001}
     body.locked .password-overlay{z-index:9999}
     .augmentote-page{max-width:1040px;margin:0 auto;padding:30px 22px 110px}
-    .augmentote-section{margin:82px 0}
+    .augmentote-section{display:block!important;margin:82px 0}
     .augmentote-section:first-child{margin-top:40px}
     .augmentote-kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--augment-red);font-weight:700;margin:0 0 10px}
     .augmentote-section h2{font-size:28px;line-height:1.15;letter-spacing:.05em;margin:0 0 18px}
@@ -36,8 +36,10 @@
     .augmentote-tech-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
     .augmentote-tech-flow div{border:1px solid #111;padding:16px;text-align:center;border-radius:18px}
     .augmentote-wrap{background:#f4f4f4;padding:30px;border-radius:26px}
-    .augmentote-full{width:100%;margin:34px 0 54px}
-    .augmentote-full img{display:block;width:100%;height:auto;object-fit:contain}
+    .augmentote-full{display:grid!important;grid-template-columns:minmax(0,1fr) 60px!important;column-gap:10px!important;width:100%!important;max-width:none!important;min-width:0!important;clear:both!important;float:none!important;margin:34px 0 54px!important}
+    .augmentote-full>img{display:block!important;grid-column:1!important;width:100%!important;max-width:100%!important;height:auto!important;object-fit:contain!important;margin:0!important}
+    .augmentote-full>.auto-project-caption{display:block!important;grid-column:2!important;width:60px!important}
+    .augmentote-section>.augmentote-full,.augmentote-wrap>.augmentote-full{grid-column:1/-1!important}
     .augmentote-text-break{max-width:760px;margin:54px 0 22px}
     @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{padding-left:16px;padding-right:16px}}
   </style>
@@ -81,10 +83,7 @@
       <p>ToteASRS picking supports low-volume and sub-same-day delivery, but the workflow can involve 8–12 hour shifts of repetitive and physically demanding work. AugmenTote asks where mixed reality can reduce ambiguity and repetitive searching without adding another screen to manage.</p>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_7.jpg" alt="presentation study 07"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_8.jpg" alt="presentation study 08"></figure>
-      <div class="augmentote-workflow">
-        <div class="augmentote-step">Sign in</div><div class="augmentote-step">Wait for source tote</div><div class="augmentote-step">Seek item</div><div class="augmentote-step">Pick item</div>
-        <div class="augmentote-step">Scan item</div><div class="augmentote-step">Place item</div><div class="augmentote-step">Transition tote</div><div class="augmentote-step">Problem solving</div>
-      </div>
+      <div class="augmentote-workflow"><div class="augmentote-step">Sign in</div><div class="augmentote-step">Wait for source tote</div><div class="augmentote-step">Seek item</div><div class="augmentote-step">Pick item</div><div class="augmentote-step">Scan item</div><div class="augmentote-step">Place item</div><div class="augmentote-step">Transition tote</div><div class="augmentote-step">Problem solving</div></div>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_9.jpg" alt="presentation study 09"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_10.jpg" alt="presentation study 10"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_11.jpg" alt="presentation study 11"></figure>
@@ -99,9 +98,7 @@
 
     <div class="augmentote-band"><p>User Experience Requirement #1</p><h2>INCREASED EFFICIENCY</h2></div>
     <section class="augmentote-section">
-      <h3>Put the right information where the work happens</h3>
-      <p>The mixed-reality proposal moves the most useful pieces of task information into the worker's field of view so less attention has to travel back and forth between the station and a separate screen.</p>
-      <p class="augmentote-quote">Associates described checking the barcode first, then using product description details such as material or color when an item is hard to identify.</p>
+      <h3>Put the right information where the work happens</h3><p>The mixed-reality proposal moves the most useful pieces of task information into the worker's field of view so less attention has to travel back and forth between the station and a separate screen.</p><p class="augmentote-quote">Associates described checking the barcode first, then using product description details such as material or color when an item is hard to identify.</p>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_18.jpg" alt="presentation study 18"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_19.jpg" alt="presentation study 19"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_20.jpg" alt="presentation study 20"></figure>
@@ -122,8 +119,7 @@
 
     <div class="augmentote-band"><p>User Experience Requirement #2</p><h2>SMART LEARNING + SUPPORT</h2></div>
     <section class="augmentote-section">
-      <h3>Help without leaving the task</h3>
-      <p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional game modes. PeccAI is proposed as a responsive helper that maps spoken descriptions of problems to the appropriate help state.</p>
+      <h3>Help without leaving the task</h3><p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional game modes. PeccAI is proposed as a responsive helper that maps spoken descriptions of problems to the appropriate help state.</p>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_32.jpg" alt="presentation study 32"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_33.jpg" alt="presentation study 33"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_34.jpg" alt="presentation study 34"></figure>
@@ -139,8 +135,7 @@
 
     <div class="augmentote-band"><p>User Experience Requirement #3</p><h2>WELLNESS + WORK SATISFACTION</h2></div>
     <section class="augmentote-section">
-      <h2>Can 8–12 hours of picking be made less boring?</h2>
-      <p>The proposal considers health, social interaction, entertainment, and visible progress as part of the work experience—not as separate systems layered on top of it.</p>
+      <h2>Can 8–12 hours of picking be made less boring?</h2><p>The proposal considers health, social interaction, entertainment, and visible progress as part of the work experience—not as separate systems layered on top of it.</p>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_41.jpg" alt="presentation study 41"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_42.jpg" alt="presentation study 42"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_43.jpg" alt="presentation study 43"></figure>
@@ -168,10 +163,7 @@
 
     <div class="augmentote-band"><p>Wrap up</p><h2>IMPLEMENTATION + APPLICATIONS TODAY</h2></div>
     <section class="augmentote-section augmentote-wrap">
-      <div class="augmentote-grid-2">
-        <div><h2>Barriers to implementation</h2><p>Current glasses still face practical constraints: an eight-hour battery target is difficult, more capable headsets can be heavy or bulky, and there are unresolved questions around shared devices versus issuing a pair to every associate.</p></div>
-        <div><h2>What the prototype can do today</h2><p>Even before full deployment, the mixed-reality prototype is useful for testing UX proposals without fully coding or fabricating every system, moving into user testing earlier, sharing prototype states between locations, and letting employees experience proposed processes directly in AR.</p></div>
-      </div>
+      <div class="augmentote-grid-2"><div><h2>Barriers to implementation</h2><p>Current glasses still face practical constraints: an eight-hour battery target is difficult, more capable headsets can be heavy or bulky, and there are unresolved questions around shared devices versus issuing a pair to every associate.</p></div><div><h2>What the prototype can do today</h2><p>Even before full deployment, the mixed-reality prototype is useful for testing UX proposals without fully coding or fabricating every system, moving into user testing earlier, sharing prototype states between locations, and letting employees experience proposed processes directly in AR.</p></div></div>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_62.jpg" alt="presentation study 62"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_63.jpg" alt="presentation study 63"></figure>
       <figure class="augmentote-full"><img src="Images/AugmenTote/1789505858240-dbf3a133-9f20-4135-abcf-50056364e685_64.jpg" alt="presentation study 64"></figure>

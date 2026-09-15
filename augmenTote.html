@@ -1,114 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AugmenTote | Tatiana Estrina</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
   <link rel="stylesheet" href="assets/css/password.css">
+  <style>
+    :root{--augment-red:#d92d2d;--augment-cream:#f5e8bf}
+    body.locked #header{filter:none!important;pointer-events:auto!important;user-select:auto!important;opacity:1!important;position:relative;z-index:10001}
+    body.locked .password-overlay{z-index:9999}
+    .augmentote-page{max-width:1040px;margin:0 auto;padding:30px 22px 110px}
+    .augmentote-section{margin:82px 0}
+    .augmentote-section:first-child{margin-top:40px}
+    .augmentote-kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--augment-red);font-weight:700;margin:0 0 10px}
+    .augmentote-section h2{font-size:28px;line-height:1.15;letter-spacing:.05em;margin:0 0 18px}
+    .augmentote-section h3{font-size:17px;margin:0 0 10px}
+    .augmentote-lede{max-width:760px;font-size:20px;line-height:1.45}
+    .augmentote-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+    .augmentote-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+    .augmentote-card{border:1px solid #111;border-radius:26px;padding:24px 22px;background:#fff;box-shadow:7px 7px 0 #111}
+    .augmentote-card h3{color:var(--augment-red)}
+    .augmentote-card p:last-child,.augmentote-card ul:last-child{margin-bottom:0}
+    .augmentote-card ul{padding-left:18px}
+    .augmentote-card li{margin-bottom:10px}
+    .augmentote-workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+    .augmentote-step{border-top:1px solid #111;padding-top:10px;min-height:72px}
+    .augmentote-step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--augment-red);font-size:24px;font-weight:700;margin-bottom:4px}
+    .augmentote-media{margin:34px 0}
+    .augmentote-media img{display:block;width:100%;height:auto;object-fit:contain}
+    .augmentote-band{background:var(--augment-red);color:var(--augment-cream);padding:46px 34px;margin:90px -22px 58px}
+    .augmentote-band p{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .augmentote-band h2{font-size:42px;line-height:1.04;margin:0;letter-spacing:.02em}
+    .augmentote-video-placeholder{aspect-ratio:16/9;border:1px dashed #888;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#777;margin:34px 0;background:#fafafa}
+    .augmentote-feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 44px;padding:0;list-style:none}
+    .augmentote-feature-list li{border-top:1px solid #bbb;padding-top:10px}
+    .augmentote-quote{border-left:3px solid var(--augment-red);padding-left:18px;margin:24px 0;font-size:17px;line-height:1.5}
+    .augmentote-tech-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:stretch;margin-top:24px}
+    .augmentote-tech-flow div{border:1px solid #111;padding:16px;text-align:center;border-radius:18px}
+    .augmentote-wrap{background:#f4f4f4;padding:30px;border-radius:26px}
+    @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{padding-left:16px;padding-right:16px}}
+  </style>
 </head>
-
 <body>
   <div id="header"></div>
-
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
-
-        // ✅ IMPORTANT: load header JS AFTER header exists
-        const s = document.createElement("script");
-        s.src = "assets/js/headerBubbles.js";
-        document.body.appendChild(s);
-      });
-  </script>
-
-
-  <main class="main">
-    <div class="project-header">
+  <main class="main" id="main-content">
+    <header class="project-header">
       <p class="project-year">2025</p>
       <h1 class="project-title">AugmenTote</h1>
-      <p class="project-subtitle">a geo-engineered fabulation</p>
-      <p class="project-description">
-      <p>In anticipation of the closure of several northern Ontario’s mines, UPROOT provides a structure with an
-        alternative use for these areas. The intervention calls for the redevelopment of open-pit mines into stepping
-        community farmland, offering new possibilities for its use after closure as a suspended hub for agricultural and
-        social activities.</p>
-    </div>
-    <div class="content-wrapper">
-      <div class="project-details">
-        <div class="detail-column">
-          <h2 class="detail-title">CONTEXT</h2>
-          <p>Work at Amazon Robotics</p>
+      <p class="project-subtitle">Mixed reality for the ToteASRS pick workflow</p>
+      <div class="project-copy"><p>What could fulfillment-center work look like five years from now? AugmenTote explores mixed reality as a flexible layer over the ToteASRS pick workflow—bringing spatial guidance, contextual information, responsive help, and more engaging moments directly into the associate's field of view.</p></div>
+    </header>
+
+    <section class="project-details" aria-label="Project details">
+      <div class="detail-column"><h2 class="detail-title">CONTEXT</h2><p>Work at Amazon Robotics</p></div>
+      <div class="detail-column"><h2 class="detail-title">APPLICATION</h2><p>ToteASRS Pick workflow across fulfillment centers</p></div>
+      <div class="detail-column"><h2 class="detail-title">SOFTWARE + HARDWARE</h2><p>Unity3D, C#, Magic Leap 2, mixed-reality prototyping</p></div>
+    </section>
+
+    <div class="augmentote-page">
+      <section class="augmentote-section">
+        <p class="augmentote-kicker">Background</p>
+        <h2>Why mixed reality?</h2>
+        <p class="augmentote-lede">Extended reality blends the physical and digital. For this project, mixed reality is the useful middle ground: virtual information can react to and sit within the real work environment instead of replacing it.</p>
+        <div class="augmentote-grid-3">
+          <article class="augmentote-card"><h3>Flexible Infrastructure</h3><p>Software can be updated more easily than hardware. The same glasses can support many situations across fulfillment centers and help bridge locations running different generations of physical equipment.</p></article>
+          <article class="augmentote-card"><h3>Smart Learning + Support</h3><p>Personalized guidance, feedback, training, knowledge sharing, and clearer access to the information required to complete a task.</p></article>
+          <article class="augmentote-card"><h3>Connected Culture</h3><p>More opportunities for social interaction, entertainment, and healthier work practices within the scope of the role.</p></article>
         </div>
-        <div class="detail-column">
-          <h2 class="detail-title">LOCATION</h2>
-          <p>Across Amazon Fullfillment Centers</p>
+      </section>
+
+      <section class="augmentote-section">
+        <p class="augmentote-kicker">Case study</p>
+        <h2>ToteASRS + the Pick workflow</h2>
+        <div class="augmentote-grid-2">
+          <div>
+            <p>ToteASRS picking supports low-volume and sub-same-day delivery, but the workflow can involve 8–12 hour shifts of repetitive and physically demanding work. AugmenTote asks where mixed reality can reduce ambiguity and repetitive searching without adding another screen to manage.</p>
+            <div class="augmentote-workflow">
+              <div class="augmentote-step">Sign in</div><div class="augmentote-step">Wait for source tote</div><div class="augmentote-step">Seek item</div><div class="augmentote-step">Pick item</div>
+              <div class="augmentote-step">Scan item</div><div class="augmentote-step">Place item</div><div class="augmentote-step">Transition tote</div><div class="augmentote-step">Problem solving</div>
+            </div>
+          </div>
+          <figure class="augmentote-media"><img src="Images/AugmenTote/Screenshot%202025-12-25%20at%2010.40.48AM.png" alt="Mixed-reality prototype view of a ToteASRS workstation"></figure>
         </div>
-        <div class="detail-column">
-          <h2 class="detail-title">SOFTWARE</h2>
-          <p> Unity3D, Magic Leap 2, Rhinoceros3D, Grasshopper (+Pufferfish), V-Ray, Photoshop, Illustrator</p>
+      </section>
+
+      <section class="augmentote-section">
+        <p class="augmentote-kicker">Prototype</p>
+        <h2>Unity + C# + Magic Leap 2</h2>
+        <p>The prototype places graphics directly over the station and rebin wall so information appears in the spatial context where it is needed. Early experiments explored item information, scanned-state feedback, directional indicators, help controls, and visual cues attached to physical totes and slots.</p>
+        <figure class="augmentote-media"><img src="Images/AugmenTote/pdf-prototype-still.jpg" alt="Prototype view showing mixed-reality labels over yellow totes"></figure>
+        <div class="augmentote-video-placeholder">Prototype walkthrough video space<br>Add the final video here when available.</div>
+      </section>
+
+      <div class="augmentote-band"><p>User Experience Requirement #1</p><h2>INCREASED EFFICIENCY</h2></div>
+      <section class="augmentote-section">
+        <div class="augmentote-grid-2">
+          <div><h3>Put the right information where the work happens</h3><p>The current interface surfaces product name, ASIN, product image, associate information, and issue-reporting controls. The mixed-reality proposal moves the most useful pieces of that information into the worker's view so less attention has to travel back and forth between the station and a separate screen.</p><p class="augmentote-quote">Associates described checking the barcode first, then using product description details such as material or color when an item is hard to identify.</p></div>
+          <article class="augmentote-card"><h3>3D item guidance</h3><p>Product name and ASIN can accompany a spatial representation of the item. A future goal is to use computer vision to help with the seek process and make the desired item easier to locate within a tote.</p></article>
         </div>
+        <h3>Rebin wall guides + slot transition indicators</h3>
+        <p>The proposal adds spatial cues to the rebin wall: indicators can distinguish the current slot from ongoing orders, communicate how many items remain in an order, and make tote or slot transitions harder to miss. The goal is to reduce avoidable running back and forth caused by transitions that are difficult to predict or easy to overlook.</p>
+        <ul class="augmentote-feature-list"><li><strong>Current slot:</strong> highlighted directly in space.</li><li><strong>Ongoing order:</strong> stays visible without appearing active.</li><li><strong>Order quantity:</strong> visual state changes with the number of items.</li><li><strong>Transition:</strong> directional and blinking cues signal the next action.</li></ul>
+      </section>
 
-      </div>
-    </div>
+      <div class="augmentote-band"><p>User Experience Requirement #2</p><h2>SMART LEARNING + SUPPORT</h2></div>
+      <section class="augmentote-section">
+        <div class="augmentote-grid-2">
+          <div><h3>Help without leaving the task</h3><p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional game modes. Instead of requiring the associate to translate a problem into the correct menu path, the system can respond to a spoken description of the issue.</p><p>PeccAI is proposed as a responsive helper: it detects that the associate may be struggling, asks them to describe the problem, and maps the response to the appropriate help state.</p></div>
+          <figure class="augmentote-media"><img src="Images/AugmenTote/pdf-prototype-still.jpg" alt="Mixed-reality workstation prototype with contextual interface elements"></figure>
+        </div>
+        <h3>How PeccAI works</h3>
+        <div class="augmentote-tech-flow"><div>Magic Leap microphone</div><div>AWS Transcribe</div><div>Prompt engineering + OpenAI API</div><div>Matched response screen</div></div>
+        <p>The prototype listens for speech, converts audio to text, classifies the issue, then displays the matching support flow. Example categories include missing or damaged items, scanning problems, difficulty grabbing an item, a requested break, or the need to contact a manager.</p>
+        <p class="augmentote-quote">Examples in the study include an associate saying they cannot find an item, that a tote appears empty, or that an item is damaged or will not scan.</p>
+        <div class="augmentote-video-placeholder">Responsive-help / PeccAI demo video space<br>Add the final video here when available.</div>
+      </section>
 
+      <div class="augmentote-band"><p>User Experience Requirement #3</p><h2>WELLNESS + WORK SATISFACTION</h2></div>
+      <section class="augmentote-section">
+        <h2>Can 8–12 hours of picking be made less boring?</h2>
+        <p>Existing fulfillment-center games can sit in the background without meaningfully engaging the associate. The proposal reframes gamification so the challenge is attached to the actual pick: some picks stay regular while others become specific challenges with direct rewards or competitive effects.</p>
+        <div class="augmentote-grid-2">
+          <figure class="augmentote-media"><img src="Images/AugmenTote/pdf-gamification-approach.jpg" alt="AR gamification approach explaining task challenges and rewards"></figure>
+          <div>
+            <h3>Challenge families</h3>
+            <ul>
+              <li><strong>Speed:</strong> timed picks that can boost points.</li>
+              <li><strong>Placement + type:</strong> stars, gems, or targets that reward particular item types, quantities, or orientations.</li>
+              <li><strong>Wellness:</strong> non-dominant-hand picks, hydration reminders, and stretch suggestions.</li>
+              <li><strong>Competitive:</strong> shields, fog, fire, and bombs that affect an opponent's temporary game state.</li>
+            </ul>
+          </div>
+        </div>
+        <h3>Wellness should not depend on the game</h3>
+        <p>The research also points to direct wellness features: music, visible progress, and scheduled stretch or rest prompts. Associates specifically described pain building through long periods of standing and said short, recurring stretch breaks could help their workflow.</p>
+        <div class="augmentote-video-placeholder">Game / wellness interaction video space<br>Add the final video here when available.</div>
+      </section>
 
-    <div class="project-images">
-      <div class="button-container">
-        <a href="https://www.designlinesmagazine.com/uproot-mine-transformed-into-garden/" target="_blank"
-          rel="noopener noreferrer" class="button">
-          Read about it on Designlines
-        </a>
-      </div>
-
-      <img src="Images/Uproot/Aerial_Render.jpg" alt="Aerial view of Uproot intervention">
-      <p class="imageSubtitle">Fig. 1. Aerial view of Uproot intervention</p>
-      <br>
-      <img src="Images/Uproot/MIT_Portoflio5_edited.jpg" alt="Uproot portfolio spread 1" style="width:80%; display:block; margin:0 auto;">
-      <br>
-      <img src="Images/Uproot/MIT_Portoflio51.png" alt="Uproot portfolio spread 2"style="width:70%; display:block; margin:0 auto;">
-      <p class="imageSubtitle">Fig. 2. Mining industry in Ontario, Canada</p>
-      <br>
-      <img src="Images/Uproot/Site_Plan.png" alt="Uproot site plan"style="width:70%; display:block; margin:0 auto;">
-      <p class="imageSubtitle">Fig. 3. Site Plan</p>
-      <br>
-      <img src="Images/Uproot/approach.png" alt="View from within the mine">
-      <p class="imageSubtitle">Fig. 4. View from within the mine</p>
-      <br>
-      <img src="Images/Uproot/MIT_Portoflio52.png" alt="Uproot portfolio spread 3">
-      <br>
-      <img src="Images/Uproot/Section.jpg" alt="Site section through Uproot">
-      <p class="imageSubtitle">Fig. 5. Site Section</p>
-      <br>
-      <img src="Images/Uproot/fireworks.png" alt="Canada Day celebrations at the mine">
-      <p class="imageSubtitle">Fig. 6. Canada Day celebrations at the mine</p>
-      <br>
-      <img src="Images/Uproot/Exploded_Sectional_Perspective.jpg"
-        alt="Exploded axonometric and sectional perspective">
-      <p class="imageSubtitle">Fig. 7. Exploded Axonometric + Sectional Perspective</p>
+      <section class="augmentote-section augmentote-wrap">
+        <p class="augmentote-kicker">Wrap up</p>
+        <div class="augmentote-grid-2">
+          <div><h2>Barriers to implementation</h2><p>Current glasses still face practical constraints: an eight-hour battery target is difficult, more capable headsets can be heavy or bulky, and there are unresolved questions around shared devices versus issuing a pair to every associate. The presentation frames these as moving constraints as wearable technology develops.</p></div>
+          <div><h2>What the prototype can do today</h2><p>Even before full deployment, the mixed-reality prototype is useful for testing UX proposals without fully coding or fabricating every system, moving into user testing earlier, sharing prototype states between locations, and letting employees experience proposed processes directly in AR.</p></div>
+        </div>
+      </section>
     </div>
   </main>
-
-  <!-- Footer -->
   <div id="footer"></div>
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
   <div class="custom-cursor" id="customCursor"></div>
+  <script src="assets/js/siteChrome.js"></script>
   <script src="assets/js/cursor.js"></script>
   <script src="assets/js/password.js"></script>
-
 </body>
-
 </html>

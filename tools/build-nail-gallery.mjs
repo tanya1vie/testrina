@@ -90,7 +90,7 @@ sets.sort((a, b) => {
   const aHasNumericId = Number.isFinite(aId);
   const bHasNumericId = Number.isFinite(bId);
 
-  if (aHasNumericId && bHasNumericId && aId !== bId) return aId - bId;
+  if (aHasNumericId && bHasNumericId && aId !== bId) return bId - aId;
   if (aHasNumericId !== bHasNumericId) return aHasNumericId ? -1 : 1;
   return a.name.localeCompare(b.name, undefined, { numeric: true });
 });

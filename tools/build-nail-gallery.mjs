@@ -87,12 +87,12 @@ for (const entry of entries.filter(item => item.isDirectory()).sort((a, b) => a.
     id: row.id || entry.name,
     folder: entry.name,
     name: row.name || entry.name,
-    size: simplifySize(row.size),\n    shape: extractShape(row.caption || row.video_caption),
+    size: simplifySize(row.size),
+    shape: extractShape(row.caption || row.video_caption),
     collection: row.collection || "",
     client: row.client || "",
     instagram_url: row.instagram_url || "",
-    caption: row.caption || "",
-    video_caption: row.video_caption || "",
+    caption: cleanCaption(row.caption || row.video_caption),
     cover: files.find(file => file.type === "image" && /cover/i.test(file.name))?.src
       || files.find(file => file.type === "image")?.src
       || files[0].src,

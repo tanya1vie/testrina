@@ -25,6 +25,9 @@ jobs:
       - name: Check out the site
         uses: actions/checkout@v6
 
+      - name: Build nail gallery
+        run: node tools/build-nail-gallery.mjs
+
       - name: Validate site files
         run: node tools/validate-site.mjs
 

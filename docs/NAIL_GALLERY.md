@@ -20,7 +20,7 @@ GitHub Actions runs **Build nail gallery** automatically and updates `assets/dat
 
 ## Spreadsheet columns
 
-- `id`: stable unique number
+- `id`: stable unique number that controls reverse-chronological gallery order (highest/newest first)
 - `folder`: exact matching folder name under `Images/Nails`
 - `name`: title shown on the website
 - `size`: nail size or format

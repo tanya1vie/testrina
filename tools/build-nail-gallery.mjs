@@ -77,10 +77,23 @@ for (const entry of entries.filter(item => item.isDirectory()).sort((a, b) => a.
     instagram_url: row.instagram_url || "",
     caption: row.caption || "",
     video_caption: row.video_caption || "",
-    cover: files.find(file => file.type === "image")?.src || files[0].src,
+    cover: files.find(file => file.type === "image" && /cover/i.test(file.name))?.src
+      || files.find(file => file.type === "image")?.src
+      || files[0].src,
     media: files
   });
 }
+
+sets.sort((a, b) => {
+  const aId = Number(a.id);
+  const bId = Number(b.id);
+  const aHasNumericId = Number.isFinite(aId);
+  const bHasNumericId = Number.isFinite(bId);
+
+  if (aHasNumericId && bHasNumericId && aId !== bId) return bId - aId;
+  if (aHasNumericId !== bHasNumericId) return aHasNumericId ? -1 : 1;
+  return a.name.localeCompare(b.name, undefined, { numeric: true });
+});
 
 await mkdir(join(root, "assets", "data"), { recursive: true });
 await writeFile(outputPath, JSON.stringify({

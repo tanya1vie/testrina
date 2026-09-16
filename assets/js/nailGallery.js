@@ -35,10 +35,15 @@
   function openSet(set, trigger) {
     lastFocus = trigger;
     activeIndex = 0;
-    stage.replaceChildren();
+    stage.querySelectorAll("img, video").forEach(item => item.remove());
     dots.replaceChildren();
 
-    set.media.forEach((item, index) => {
+    const orderedMedia = [...set.media].sort((a, b) => {
+      if (a.type === b.type) return 0;
+      return a.type === "video" ? -1 : 1;
+    });
+
+    orderedMedia.forEach((item, index) => {
       const media = document.createElement(item.type === "video" ? "video" : "img");
       media.src = item.src;
       if (item.type === "video") {
@@ -60,13 +65,18 @@
     });
 
     title.textContent = set.name;
-    const details = [set.size && `Size: ${set.size}`, set.collection && `Collection: ${set.collection}`, set.client && `Client: ${set.client}`].filter(Boolean);
+    const details = [
+      set.size && `Size: ${set.size}`,
+      set.collection && `Collection: ${set.collection}`,
+      set.client && `Client: ${set.client}`
+    ].filter(Boolean);
     meta.textContent = details.join(" · ");
     caption.textContent = set.caption || set.video_caption || "";
     caption.hidden = !caption.textContent;
     instagram.hidden = !set.instagram_url;
     instagram.href = set.instagram_url || "#";
-    const showNavigation = set.media.length > 1;
+
+    const showNavigation = orderedMedia.length > 1;
     previous.hidden = !showNavigation;
     next.hidden = !showNavigation;
     dots.hidden = !showNavigation;
@@ -94,15 +104,7 @@
       image.alt = set.name;
       image.loading = "lazy";
 
-      const label = document.createElement("span");
-      label.className = "nail-card-label";
-      const name = document.createElement("strong");
-      name.textContent = set.name;
-      const collection = document.createElement("span");
-      collection.textContent = set.collection || set.size || "";
-      label.append(name, collection);
-
-      button.append(image, label);
+      button.appendChild(image);
       button.addEventListener("click", () => openSet(set, button));
       card.appendChild(button);
       grid.appendChild(card);

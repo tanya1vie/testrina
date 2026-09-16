@@ -84,6 +84,17 @@ for (const entry of entries.filter(item => item.isDirectory()).sort((a, b) => a.
   });
 }
 
+sets.sort((a, b) => {
+  const aId = Number(a.id);
+  const bId = Number(b.id);
+  const aHasNumericId = Number.isFinite(aId);
+  const bHasNumericId = Number.isFinite(bId);
+
+  if (aHasNumericId && bHasNumericId && aId !== bId) return aId - bId;
+  if (aHasNumericId !== bHasNumericId) return aHasNumericId ? -1 : 1;
+  return a.name.localeCompare(b.name, undefined, { numeric: true });
+});
+
 await mkdir(join(root, "assets", "data"), { recursive: true });
 await writeFile(outputPath, JSON.stringify({
   generated_at: new Date().toISOString(),

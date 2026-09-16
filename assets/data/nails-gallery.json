@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T03:27:09.554Z",
+  "generated_at": "2026-09-16T03:38:16.114Z",
   "sets": [
     {
       "id": "11",
@@ -11,12 +11,12 @@
       "instagram_url": "https://www.instagram.com/reel/DVP0M3pgP2h/",
       "caption": "",
       "video_caption": "🐝 “Dearest gentle reader…” 🐝\n\nIn honor of S2 wrapping up, here is my rendition of the Bridgerton nails! Complete with Sophie’s mask and inspired by the version by the Pamper Nail Gallery.\n\n💅 Short Almond, Size S",
-      "cover": "Images/Nails/Bridgerton/Bridgerton%20nails.PNG",
+      "cover": "Images/Nails/Bridgerton/cover.PNG",
       "media": [
         {
           "type": "image",
-          "src": "Images/Nails/Bridgerton/Bridgerton%20nails.PNG",
-          "name": "Bridgerton nails.PNG"
+          "src": "Images/Nails/Bridgerton/cover.PNG",
+          "name": "cover.PNG"
         },
         {
           "type": "video",
@@ -40,12 +40,12 @@
       "instagram_url": "",
       "caption": "A custom set for @shengnan! As an avid @DavetheDiver player, she requested a set themed around this fishing and cooking game.\n\nFeaturing some heat-reactive glitter, this set is perfect for summer!",
       "video_caption": "",
-      "cover": "Images/Nails/Dave%20the%20Diver/dave%202.png",
+      "cover": "Images/Nails/Dave%20the%20Diver/cover.png",
       "media": [
         {
           "type": "image",
-          "src": "Images/Nails/Dave%20the%20Diver/dave%202.png",
-          "name": "dave 2.png"
+          "src": "Images/Nails/Dave%20the%20Diver/cover.png",
+          "name": "cover.png"
         },
         {
           "type": "image",
@@ -73,8 +73,8 @@
         },
         {
           "type": "image",
-          "src": "Images/Nails/Fine%20China/IMG_5624.JPG",
-          "name": "IMG_5624.JPG"
+          "src": "Images/Nails/Fine%20China/cover.JPG",
+          "name": "cover.JPG"
         }
       ]
     },
@@ -88,8 +88,13 @@
       "instagram_url": "",
       "caption": "",
       "video_caption": "",
-      "cover": "Images/Nails/In%20Full%20Bloom/In%20Bloom%201.png",
+      "cover": "Images/Nails/In%20Full%20Bloom/cover.jpg",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/cover.jpg",
+          "name": "cover.jpg"
+        },
         {
           "type": "image",
           "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%201.png",
@@ -119,11 +124,6 @@
           "type": "image",
           "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%206.png",
           "name": "In Bloom 6.png"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%207.jpg",
-          "name": "In Bloom 7.jpg"
         }
       ]
     },
@@ -137,8 +137,13 @@
       "instagram_url": "https://www.instagram.com/reel/DVfBLC6AJQ7/",
       "caption": "",
       "video_caption": "👖 Nails to match your Canadian tuxedo! 🇨🇦\n\nFun fact: the Jean texture here is a print of my fingerprint!\n\n💅 XShort Squoval, Size S",
-      "cover": "Images/Nails/Jeans/IMG_6761.JPG",
+      "cover": "Images/Nails/Jeans/cover.JPG",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Jeans/cover.JPG",
+          "name": "cover.JPG"
+        },
         {
           "type": "image",
           "src": "Images/Nails/Jeans/IMG_6761.JPG",
@@ -148,11 +153,6 @@
           "type": "image",
           "src": "Images/Nails/Jeans/IMG_6764.JPG",
           "name": "IMG_6764.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Jeans/IMG_6767.JPG",
-          "name": "IMG_6767.JPG"
         },
         {
           "type": "video",
@@ -171,8 +171,13 @@
       "instagram_url": "",
       "caption": "",
       "video_caption": "",
-      "cover": "Images/Nails/Monet%20Lillies/IMG_5498.jpeg",
+      "cover": "Images/Nails/Monet%20Lillies/cover.jpeg",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/cover.jpeg",
+          "name": "cover.jpeg"
+        },
         {
           "type": "image",
           "src": "Images/Nails/Monet%20Lillies/IMG_5498.jpeg",
@@ -182,11 +187,6 @@
           "type": "image",
           "src": "Images/Nails/Monet%20Lillies/IMG_5510.jpeg",
           "name": "IMG_5510.jpeg"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Monet%20Lillies/IMG_5516.jpeg",
-          "name": "IMG_5516.jpeg"
         }
       ]
     },
@@ -200,8 +200,13 @@
       "instagram_url": "",
       "caption": "",
       "video_caption": "",
-      "cover": "Images/Nails/Peterson%20Museum/IMG_4410.jpeg",
+      "cover": "Images/Nails/Peterson%20Museum/cover.png",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/cover.png",
+          "name": "cover.png"
+        },
         {
           "type": "image",
           "src": "Images/Nails/Peterson%20Museum/IMG_4410.jpeg",
@@ -238,11 +243,6 @@
           "name": "Peterson 4.png"
         },
         {
-          "type": "image",
-          "src": "Images/Nails/Peterson%20Museum/Peterson%20Nails%201.png",
-          "name": "Peterson Nails 1.png"
-        },
-        {
           "type": "video",
           "src": "Images/Nails/Peterson%20Museum/Glam%20shots.mp4",
           "name": "Glam shots.mp4"
@@ -259,17 +259,17 @@
       "instagram_url": "",
       "caption": "",
       "video_caption": "",
-      "cover": "Images/Nails/Secret%20Garden/IMG_7185.jpeg",
+      "cover": "Images/Nails/Secret%20Garden/cover.jpeg",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/cover.jpeg",
+          "name": "cover.jpeg"
+        },
         {
           "type": "image",
           "src": "Images/Nails/Secret%20Garden/IMG_7185.jpeg",
           "name": "IMG_7185.jpeg"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Secret%20Garden/IMG_7199.jpeg",
-          "name": "IMG_7199.jpeg"
         },
         {
           "type": "image",
@@ -293,8 +293,13 @@
       "instagram_url": "",
       "caption": "🎾 Serving a fresh set for the US Open 🎾\n\n💅 XShort Oval, Size S\n\n📷 @seanxiaf488",
       "video_caption": "",
-      "cover": "Images/Nails/Tennis/Tennis%201.jpg",
+      "cover": "Images/Nails/Tennis/cover.jpg",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/cover.jpg",
+          "name": "cover.jpg"
+        },
         {
           "type": "image",
           "src": "Images/Nails/Tennis/Tennis%201.jpg",
@@ -304,11 +309,6 @@
           "type": "image",
           "src": "Images/Nails/Tennis/Tennis%202.jpg",
           "name": "Tennis 2.jpg"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Tennis/Tennis%203.jpg",
-          "name": "Tennis 3.jpg"
         },
         {
           "type": "image",

@@ -7,16 +7,7 @@
   <title>Nail Art Gallery</title>
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
-  <link rel="stylesheet" href="assets/css/imageGallery.css">
-  <style>
-    .gallery-status { grid-column: 1 / -1; padding: 2rem; text-align: center; }
-    .project-link { appearance: none; background: none; border: 0; padding: 0; cursor: pointer; width: 100%; }
-    .project-link img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .instagram-caption { white-space: pre-wrap; }
-    .instagram-post-link { color: inherit; text-decoration: underline; }
-    .popup-gallery video { display: none; max-width: 100%; max-height: 100%; }
-    .popup-gallery video.active { display: block; }
-  </style>
+  <link rel="stylesheet" href="assets/css/nailGallery.css">
 </head>
 <body>
   <div id="header"></div>
@@ -33,22 +24,24 @@
 
   <br><br><br><br>
 
-  <main class="gallery-grid" id="instagramGallery" aria-live="polite">
-    <p class="gallery-status">Loading recent nail art…</p>
+  <main class="nail-gallery" id="nailGallery" aria-live="polite">
+    <p class="gallery-status">Loading nail gallery…</p>
   </main>
 
-  <div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden style="display: none;">
-    <div class="popup-content">
-      <button class="close-popup" id="closePopup" aria-label="Close">&times;</button>
-      <div class="popup-gallery" id="popupGallery"></div>
-      <div class="popup-info" id="popupInfo">
-        <p id="popupYear"></p>
-        <h1 id="popupTitle">Instagram post</h1>
-        <p class="instagram-caption" id="popupDescription"></p>
-        <p><a class="instagram-post-link" id="popupPostLink" target="_blank" rel="noopener noreferrer">View original post on Instagram</a></p>
-      </div>
-      <div class="carousel-dots" id="carouselDots"></div>
-      <br><br>
+  <div class="nail-modal" id="nailModal" role="dialog" aria-modal="true" aria-labelledby="nailTitle" hidden>
+    <div class="nail-modal-panel">
+      <button class="nail-close" id="nailClose" type="button" aria-label="Close">&times;</button>
+      <section class="nail-media-stage" id="nailMediaStage" aria-label="Nail set media">
+        <button class="nail-nav nail-prev" id="nailPrevious" type="button" aria-label="Previous media">&#8249;</button>
+        <button class="nail-nav nail-next" id="nailNext" type="button" aria-label="Next media">&#8250;</button>
+        <div class="nail-dots" id="nailDots"></div>
+      </section>
+      <section class="nail-modal-info">
+        <h1 id="nailTitle"></h1>
+        <p class="nail-meta" id="nailMeta"></p>
+        <p class="nail-caption" id="nailCaption"></p>
+        <p><a class="nail-instagram-link" id="nailInstagram" target="_blank" rel="noopener noreferrer">View the Instagram post</a></p>
+      </section>
     </div>
   </div>
 

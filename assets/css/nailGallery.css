@@ -113,11 +113,13 @@
 }
 
 .nail-close {
-  top: .8rem;
-  right: .8rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.7rem;
+  top: .5rem;
+  right: .5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1;
   background: rgba(255,255,255,.92);
 }
 

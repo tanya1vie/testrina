@@ -1,5 +1,5 @@
 // Generated gallery builder: folder names match the spreadsheet folder column.\nimport { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
-import { extname, join, posix } from "node:path";
+import { extname, join } from "node:path";
 
 const root = process.cwd();
 const mediaRoot = join(root, "Images", "Nails");

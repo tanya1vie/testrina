@@ -44,24 +44,33 @@ const nativeMigratedPages = [
 ];
 
 const requiredPaths = [
+  ".github/workflows/build-nail-gallery.yml",
   "assets/css/base.css",
-  "assets/data/instagram-posts.json",
+  "assets/css/nailGallery.css",
+  "assets/data/nails.csv",
+  "assets/data/nails-gallery.json",
   "assets/js/cursor.js",
-  "docs/instagram-setup.md",
+  "assets/js/nailGallery.js",
+  "docs/NAIL_GALLERY.md",
   "header.html",
   "head-above-water-main/index.html",
   "footer.html",
   "index.html",
   "projects/head-above-water/index.html",
-  "tools/sync-instagram.mjs"
+  "tools/build-nail-gallery.mjs"
 ];
 
 const retiredPaths = [
+  ".github/workflows/sync-instagram.yml",
+  "assets/data/instagram-posts.json",
+  "assets/js/instagramGallery.js",
   "CSS Files",
   "JavaScript Files",
   "Nail content",
   "data/instagram-posts.json",
-  "scripts/sync-instagram.mjs"
+  "docs/instagram-setup.md",
+  "scripts/sync-instagram.mjs",
+  "tools/sync-instagram.mjs"
 ];
 
 async function exists(path) {

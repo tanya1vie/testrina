@@ -201,10 +201,11 @@ await Promise.all(maintainedPages.map(validateHtml));
 
 const sharedTextFiles = [
   ...maintainedPages,
-  join(root, ".github/workflows/sync-instagram.yml"),
-  join(root, "assets/js/instagramGallery.js"),
-  join(root, "docs/instagram-setup.md"),
-  join(root, "tools/sync-instagram.mjs")
+  join(root, ".github/workflows/build-nail-gallery.yml"),
+  join(root, "assets/js/nailGallery.js"),
+  join(root, "docs/NAIL_GALLERY.md"),
+  join(root, "tools/build-nail-gallery.mjs"),
+  join(root, "assets/data/nails.csv")
 ];
 const retiredReferences = [
   "CSS Files/",

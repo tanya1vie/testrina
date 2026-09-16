@@ -1,4 +1,5 @@
-// Generated gallery builder: folder names match the spreadsheet folder column.\nimport { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
+// Generated gallery builder: folder names match the spreadsheet folder column.
+import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import { extname, join } from "node:path";
 
 const root = process.cwd();

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T02:57:31.609Z",
+  "generated_at": "2026-09-16T03:27:09.554Z",
   "sets": [
     {
       "id": "11",
@@ -79,6 +79,55 @@
       ]
     },
     {
+      "id": "In Full Bloom",
+      "folder": "In Full Bloom",
+      "name": "In Full Bloom",
+      "size": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/In%20Full%20Bloom/In%20Bloom%201.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%201.png",
+          "name": "In Bloom 1.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%202.png",
+          "name": "In Bloom 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%203.png",
+          "name": "In Bloom 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%204.png",
+          "name": "In Bloom 4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%205.png",
+          "name": "In Bloom 5.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%206.png",
+          "name": "In Bloom 6.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%207.jpg",
+          "name": "In Bloom 7.jpg"
+        }
+      ]
+    },
+    {
       "id": "5",
       "folder": "Jeans",
       "name": "Jeans",
@@ -109,6 +158,35 @@
           "type": "video",
           "src": "Images/Nails/Jeans/jean%20nails.MP4",
           "name": "jean nails.MP4"
+        }
+      ]
+    },
+    {
+      "id": "Monet Lillies",
+      "folder": "Monet Lillies",
+      "name": "Monet Lillies",
+      "size": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/Monet%20Lillies/IMG_5498.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/IMG_5498.jpeg",
+          "name": "IMG_5498.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/IMG_5510.jpeg",
+          "name": "IMG_5510.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/IMG_5516.jpeg",
+          "name": "IMG_5516.jpeg"
         }
       ]
     },
@@ -168,6 +246,40 @@
           "type": "video",
           "src": "Images/Nails/Peterson%20Museum/Glam%20shots.mp4",
           "name": "Glam shots.mp4"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "folder": "Secret Garden",
+      "name": "Secret Garden",
+      "size": "S - Tanya Var.",
+      "collection": "Media Inspired",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/Secret%20Garden/IMG_7185.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7185.jpeg",
+          "name": "IMG_7185.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7199.jpeg",
+          "name": "IMG_7199.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7218.jpeg",
+          "name": "IMG_7218.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7246.jpeg",
+          "name": "IMG_7246.jpeg"
         }
       ]
     },

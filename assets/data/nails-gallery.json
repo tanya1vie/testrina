@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-16T10:01:17.126Z",
+  "generated_at": "2026-09-16T10:17:14.959Z",
   "sets": [
     {
       "id": "25",
       "folder": "Dave the Diver",
       "name": "Dave the Diver",
       "size": "Custom",
+      "shape": "",
       "collection": "Media Inspired",
       "client": "Shengnan - received",
       "instagram_url": "",
       "caption": "A custom set for @shengnan! As an avid @DavetheDiver player, she requested a set themed around this fishing and cooking game.\n\nFeaturing some heat-reactive glitter, this set is perfect for summer!",
-      "video_caption": "",
       "cover": "Images/Nails/Dave%20the%20Diver/cover.png",
       "media": [
         {
@@ -29,12 +29,12 @@
       "id": "22",
       "folder": "Tennis",
       "name": "Tennis",
-      "size": "M - Mama",
+      "size": "M",
+      "shape": "XShort Oval",
       "collection": "",
       "client": "",
       "instagram_url": "",
-      "caption": "🎾 Serving a fresh set for the US Open 🎾\n\n💅 XShort Oval, Size S\n\n📷 @seanxiaf488",
-      "video_caption": "",
+      "caption": "🎾 Serving a fresh set for the US Open 🎾",
       "cover": "Images/Nails/Tennis/cover.jpg",
       "media": [
         {
@@ -90,15 +90,49 @@
       ]
     },
     {
+      "id": "21",
+      "folder": "Japanese Art",
+      "name": "Japanese Art",
+      "size": "S",
+      "shape": "",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Japanese%20Art/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5411.jpeg",
+          "name": "IMG_5411.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5424.jpeg",
+          "name": "IMG_5424.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5450.jpeg",
+          "name": "IMG_5450.jpeg"
+        }
+      ]
+    },
+    {
       "id": "20",
       "folder": "Monet Lillies",
       "name": "Money Lillies",
       "size": "S",
+      "shape": "",
       "collection": "Artist Feature",
       "client": "",
       "instagram_url": "",
       "caption": "",
-      "video_caption": "",
       "cover": "Images/Nails/Monet%20Lillies/cover.jpeg",
       "media": [
         {
@@ -122,12 +156,12 @@
       "id": "16",
       "folder": "Peterson Museum",
       "name": "Petersen Cars",
-      "size": "S - Tanya Var.",
+      "size": "S",
+      "shape": "Short Coffin",
       "collection": "Museum Feature",
       "client": "",
       "instagram_url": "https://www.instagram.com/p/DZokp3IAOrk/",
-      "caption": "🚙 A nail set for the journey 🚗\n\nWhile visiting the @petersenmuseum, I painted this nail set on site!\n\n💅 Short Coffin, Size S\n\n📷 @seanxiaf488",
-      "video_caption": "",
+      "caption": "🚙 A nail set for the journey 🚗\n\nWhile visiting the @petersenmuseum, I painted this nail set on site!",
       "cover": "Images/Nails/Peterson%20Museum/cover.png",
       "media": [
         {
@@ -181,12 +215,12 @@
       "id": "15",
       "folder": "In Full Bloom",
       "name": "In Bloom",
-      "size": "S - Tanya Var.",
+      "size": "S",
+      "shape": "Short Almond",
       "collection": "Museum Feature",
       "client": "",
       "instagram_url": "https://www.instagram.com/p/Da_Xw6cFfqA/",
-      "caption": "💐 “Florals? Groundbreaking” 💐 — Miranda Priestly\n\nThrowback to when this set was painted live at @mfaboston’s In Full Bloom event.\n\n💅 Short Almond, Size S\n\n📸 @seanxiaf488",
-      "video_caption": "",
+      "caption": "💐 “Florals? Groundbreaking” 💐 — Miranda Priestly\n\nThrowback to when this set was painted live at @mfaboston’s In Full Bloom event.",
       "cover": "Images/Nails/In%20Full%20Bloom/cover.jpg",
       "media": [
         {
@@ -227,15 +261,34 @@
       ]
     },
     {
+      "id": "14",
+      "folder": "Love Letter",
+      "name": "Love Letter",
+      "size": "S",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+          "name": "IMG_4784.jpeg"
+        }
+      ]
+    },
+    {
       "id": "12",
       "folder": "Secret Garden",
       "name": "Secret Garden",
-      "size": "S - Tanya Var.",
+      "size": "S",
+      "shape": "",
       "collection": "Media Inspired",
       "client": "",
       "instagram_url": "",
       "caption": "",
-      "video_caption": "",
       "cover": "Images/Nails/Secret%20Garden/cover.jpeg",
       "media": [
         {
@@ -264,12 +317,12 @@
       "id": "11",
       "folder": "Bridgerton",
       "name": "Bridgerton",
-      "size": "S - Tanya Var.",
+      "size": "S",
+      "shape": "Short Almond",
       "collection": "Media Inspired",
       "client": "",
       "instagram_url": "https://www.instagram.com/reel/DVP0M3pgP2h/",
-      "caption": "",
-      "video_caption": "🐝 “Dearest gentle reader…” 🐝\n\nIn honor of S2 wrapping up, here is my rendition of the Bridgerton nails! Complete with Sophie’s mask and inspired by the version by the Pamper Nail Gallery.\n\n💅 Short Almond, Size S",
+      "caption": "🐝 “Dearest gentle reader…” 🐝\n\nIn honor of S2 wrapping up, here is my rendition of the Bridgerton nails! Complete with Sophie’s mask and inspired by the version by the Pamper Nail Gallery.",
       "cover": "Images/Nails/Bridgerton/cover.PNG",
       "media": [
         {
@@ -290,15 +343,49 @@
       ]
     },
     {
+      "id": "6",
+      "folder": "Citrus",
+      "name": "Citrus",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DZyT3fqgIPV/",
+      "caption": "🍋 When life gives you lemons….. wear them! 🍋💁‍♀️\n\nJust a fun juicy set for the summer!",
+      "cover": "Images/Nails/Citrus/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%202.png",
+          "name": "Cirtrus 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%203.png",
+          "name": "Cirtrus 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%204.png",
+          "name": "Cirtrus 4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/cover.png",
+          "name": "cover.png"
+        }
+      ]
+    },
+    {
       "id": "5",
       "folder": "Jeans",
       "name": "Jeans",
-      "size": "S - Tanya Var.",
+      "size": "S",
+      "shape": "XShort Squoval",
       "collection": "",
       "client": "",
       "instagram_url": "https://www.instagram.com/reel/DVfBLC6AJQ7/",
-      "caption": "",
-      "video_caption": "👖 Nails to match your Canadian tuxedo! 🇨🇦\n\nFun fact: the Jean texture here is a print of my fingerprint!\n\n💅 XShort Squoval, Size S",
+      "caption": "👖 Nails to match your Canadian tuxedo! 🇨🇦\n\nFun fact: the Jean texture here is a print of my fingerprint!",
       "cover": "Images/Nails/Jeans/cover.JPG",
       "media": [
         {
@@ -327,12 +414,12 @@
       "id": "1",
       "folder": "Fine China",
       "name": "Fine China",
-      "size": "S - Tanya Var.",
+      "size": "S",
+      "shape": "Short Almond",
       "collection": "Geometric Series",
       "client": "",
       "instagram_url": "https://www.instagram.com/p/DVB2wEVgB4w/",
-      "caption": "🏺 Fine China nail set! This was the first set I ever made! 🏺\n\n💅 Short Almond, Size S\n\n#nails #nailsart #nailsnailsnails #nailsdesign #nails💅",
-      "video_caption": "",
+      "caption": "🏺 Fine China nail set! This was the first set I ever made! 🏺",
       "cover": "Images/Nails/Fine%20China/cover.JPG",
       "media": [
         {
@@ -344,6 +431,30 @@
           "type": "image",
           "src": "Images/Nails/Fine%20China/cover.JPG",
           "name": "cover.JPG"
+        }
+      ]
+    },
+    {
+      "id": "Porcelain Statues ",
+      "folder": "Porcelain Statues ",
+      "name": "Porcelain Statues ",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Porcelain%20Statues%20/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues%20/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues%20/IMG_5486.jpeg",
+          "name": "IMG_5486.jpeg"
         }
       ]
     }

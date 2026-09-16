@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T10:14:45.774Z",
+  "generated_at": "2026-09-16T10:17:14.959Z",
   "sets": [
     {
       "id": "25",
@@ -343,6 +343,40 @@
       ]
     },
     {
+      "id": "6",
+      "folder": "Citrus",
+      "name": "Citrus",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DZyT3fqgIPV/",
+      "caption": "🍋 When life gives you lemons….. wear them! 🍋💁‍♀️\n\nJust a fun juicy set for the summer!",
+      "cover": "Images/Nails/Citrus/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%202.png",
+          "name": "Cirtrus 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%203.png",
+          "name": "Cirtrus 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%204.png",
+          "name": "Cirtrus 4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/cover.png",
+          "name": "cover.png"
+        }
+      ]
+    },
+    {
       "id": "5",
       "folder": "Jeans",
       "name": "Jeans",
@@ -397,40 +431,6 @@
           "type": "image",
           "src": "Images/Nails/Fine%20China/cover.JPG",
           "name": "cover.JPG"
-        }
-      ]
-    },
-    {
-      "id": "Citrus",
-      "folder": "Citrus",
-      "name": "Citrus",
-      "size": "",
-      "shape": "",
-      "collection": "",
-      "client": "",
-      "instagram_url": "",
-      "caption": "",
-      "cover": "Images/Nails/Citrus/cover.png",
-      "media": [
-        {
-          "type": "image",
-          "src": "Images/Nails/Citrus/Cirtrus%202.png",
-          "name": "Cirtrus 2.png"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Citrus/Cirtrus%203.png",
-          "name": "Cirtrus 3.png"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Citrus/Cirtrus%204.png",
-          "name": "Cirtrus 4.png"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Citrus/cover.png",
-          "name": "cover.png"
         }
       ]
     },

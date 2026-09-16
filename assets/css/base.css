@@ -124,6 +124,15 @@ body {
     padding-top: 20px;
 }
 
+li{
+    font-family: 'Avenir Light', sans-serif;
+    line-height: 1.5;
+    color: var(--primary-color);
+    background: var(--bg-color);
+    font-size: smaller;
+}
+
+
 .titleSection {
     display: block;
     text-align: left;

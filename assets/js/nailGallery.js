@@ -66,7 +66,8 @@
 
     title.textContent = set.name;
     const details = [
-      set.shape && `Shape: ${set.shape}`,\n      set.size && `Size: ${set.size}`,
+      set.shape && `Shape: ${set.shape}`,
+      set.size && `Size: ${set.size}`,
       set.collection && `Collection: ${set.collection}`,
       set.client && `Client: ${set.client}`
     ].filter(Boolean);

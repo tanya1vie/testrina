@@ -30,6 +30,22 @@ function parseCsv(text) {
   );
 }
 
+function simplifySize(value) {
+  return String(value || "").split(/\s+-\s+/)[0].trim();
+}
+
+function extractShape(value) {
+  const match = String(value || "").match(/💅\s*([^\n#]+?)(?:,\s*Size\b|$)/i);
+  return match ? match[1].trim() : "";
+}
+
+function cleanCaption(value) {
+  return String(value || "")
+    .split("💅")[0]
+    .split(/(?:^|\s)#/)[0]
+    .trim();
+}
+
 function webPath(...parts) {
   return parts.map(part => encodeURIComponent(part)).join("/");
 }
@@ -71,7 +87,7 @@ for (const entry of entries.filter(item => item.isDirectory()).sort((a, b) => a.
     id: row.id || entry.name,
     folder: entry.name,
     name: row.name || entry.name,
-    size: row.size || "",
+    size: simplifySize(row.size),\n    shape: extractShape(row.caption || row.video_caption),
     collection: row.collection || "",
     client: row.client || "",
     instagram_url: row.instagram_url || "",

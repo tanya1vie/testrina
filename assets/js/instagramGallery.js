@@ -14,7 +14,7 @@
   let lastFocus = null;
 
   function showMedia(index) {
-    const items = [...stage.children];
+    const items = [...stage.querySelectorAll("img, video")];
     if (!items.length) return;
     activeIndex = (index + items.length) % items.length;
     items.forEach((item, itemIndex) => {

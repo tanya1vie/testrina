@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "Images/Nails/**"
+      - ".github/workflows/build-nail-gallery.yml"\n      - "Images/Nails/**"
       - "assets/data/nails.csv"
       - "tools/build-nail-gallery.mjs"
 

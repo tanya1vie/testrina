@@ -1,129 +1,133 @@
 (() => {
-  const grid = document.getElementById("instagramGallery");
-  const overlay = document.getElementById("popupOverlay");
-  const gallery = document.getElementById("popupGallery");
-  const dotsContainer = document.getElementById("carouselDots");
-  const title = document.getElementById("popupTitle");
-  const date = document.getElementById("popupYear");
-  const description = document.getElementById("popupDescription");
-  const postLink = document.getElementById("popupPostLink");
-  const closeButton = document.getElementById("closePopup");
-  let timer;
+  const grid = document.getElementById("nailGallery");
+  const modal = document.getElementById("nailModal");
+  const stage = document.getElementById("nailMediaStage");
+  const dots = document.getElementById("nailDots");
+  const title = document.getElementById("nailTitle");
+  const meta = document.getElementById("nailMeta");
+  const caption = document.getElementById("nailCaption");
+  const instagram = document.getElementById("nailInstagram");
+  const close = document.getElementById("nailClose");
+  const previous = document.getElementById("nailPrevious");
+  const next = document.getElementById("nailNext");
+  let activeIndex = 0;
+  let lastFocus = null;
 
-  function mediaItems(post) {
-    if (Array.isArray(post.children) && post.children.length) return post.children;
-    return [{ media_type: post.media_type, media_url: post.media_url, thumbnail_url: post.thumbnail_url }];
-  }
-
-  function previewUrl(post) {
-    const first = mediaItems(post)[0] || {};
-    return first.thumbnail_url || first.media_url || post.thumbnail_url || post.media_url;
-  }
-
-  function closePopup() {
-    clearInterval(timer);
-    gallery.querySelectorAll("video").forEach(video => video.pause());
-    overlay.hidden = true;
-    overlay.style.display = "none";
-    document.body.style.overflow = "";
-  }
-
-  function openPost(post) {
-    clearInterval(timer);
-    gallery.replaceChildren();
-    dotsContainer.replaceChildren();
-
-    title.textContent = "Instagram post";
-    date.textContent = post.timestamp
-      ? new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date(post.timestamp))
-      : "";
-    description.textContent = post.caption || "";
-    postLink.href = post.permalink;
-
-    const items = mediaItems(post);
-    let index = 0;
-
+  function showMedia(index) {
+    const items = [...stage.children];
+    if (!items.length) return;
+    activeIndex = (index + items.length) % items.length;
     items.forEach((item, itemIndex) => {
-      const isVideo = item.media_type === "VIDEO";
-      const media = document.createElement(isVideo ? "video" : "img");
-      media.src = item.media_url;
-      media.alt = post.caption ? post.caption.slice(0, 140) : "Nail art from Instagram";
-      if (isVideo) {
+      const active = itemIndex === activeIndex;
+      item.classList.toggle("active", active);
+      if (!active && item.tagName === "VIDEO") item.pause();
+    });
+    [...dots.children].forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === activeIndex));
+  }
+
+  function closeModal() {
+    stage.querySelectorAll("video").forEach(video => video.pause());
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    lastFocus?.focus();
+  }
+
+  function openSet(set, trigger) {
+    lastFocus = trigger;
+    activeIndex = 0;
+    stage.replaceChildren();
+    dots.replaceChildren();
+
+    set.media.forEach((item, index) => {
+      const media = document.createElement(item.type === "video" ? "video" : "img");
+      media.src = item.src;
+      if (item.type === "video") {
         media.controls = true;
         media.playsInline = true;
-        media.poster = item.thumbnail_url || "";
+        media.preload = "metadata";
+      } else {
+        media.alt = `${set.name} — image ${index + 1}`;
       }
-      if (itemIndex === 0) media.classList.add("active");
-      gallery.appendChild(media);
+      if (index === 0) media.classList.add("active");
+      stage.appendChild(media);
 
       const dot = document.createElement("button");
       dot.type = "button";
-      dot.setAttribute("aria-label", `Show media ${itemIndex + 1}`);
-      if (itemIndex === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => { index = itemIndex; showSlide(); restartTimer(); });
-      dotsContainer.appendChild(dot);
+      dot.setAttribute("aria-label", `Show media ${index + 1}`);
+      if (index === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => showMedia(index));
+      dots.appendChild(dot);
     });
 
-    const slides = [...gallery.children];
-    const dots = [...dotsContainer.children];
-    function showSlide() {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-        if (slide.tagName === "VIDEO" && i !== index) slide.pause();
-      });
-      dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
-    }
-    function nextSlide() { index = (index + 1) % slides.length; showSlide(); }
-    function restartTimer() {
-      clearInterval(timer);
-      if (slides.length > 1) timer = setInterval(nextSlide, 4000);
-    }
-    restartTimer();
-
-    overlay.hidden = false;
-    overlay.style.display = "flex";
+    title.textContent = set.name;
+    const details = [set.size && `Size: ${set.size}`, set.collection && `Collection: ${set.collection}`, set.client && `Client: ${set.client}`].filter(Boolean);
+    meta.textContent = details.join(" · ");
+    caption.textContent = set.caption || set.video_caption || "";
+    caption.hidden = !caption.textContent;
+    instagram.hidden = !set.instagram_url;
+    instagram.href = set.instagram_url || "#";
+    const showNavigation = set.media.length > 1;
+    previous.hidden = !showNavigation;
+    next.hidden = !showNavigation;
+    dots.hidden = !showNavigation;
+    modal.hidden = false;
     document.body.style.overflow = "hidden";
-    closeButton.focus();
+    close.focus();
   }
 
-  function render(posts) {
+  function render(sets) {
     grid.replaceChildren();
-    if (!posts.length) {
-      grid.innerHTML = '<p class="gallery-status">No Instagram posts are available yet.</p>';
+    if (!sets.length) {
+      grid.innerHTML = '<p class="gallery-status">No nail sets have been added yet.</p>';
       return;
     }
-    posts.forEach(post => {
-      const imageUrl = previewUrl(post);
-      if (!imageUrl || !post.permalink) return;
+
+    sets.forEach(set => {
       const card = document.createElement("article");
-      card.className = "project-card";
+      card.className = "nail-card";
       const button = document.createElement("button");
-      button.className = "project-link";
       button.type = "button";
-      button.setAttribute("aria-label", post.caption ? `Open: ${post.caption.slice(0, 100)}` : "Open Instagram post");
+      button.setAttribute("aria-label", `View ${set.name}`);
+
       const image = document.createElement("img");
-      image.src = imageUrl;
-      image.alt = post.caption ? post.caption.slice(0, 140) : "Nail art from Instagram";
+      image.src = set.cover;
+      image.alt = set.name;
       image.loading = "lazy";
-      button.appendChild(image);
-      button.addEventListener("click", () => openPost(post));
+
+      const label = document.createElement("span");
+      label.className = "nail-card-label";
+      const name = document.createElement("strong");
+      name.textContent = set.name;
+      const collection = document.createElement("span");
+      collection.textContent = set.collection || set.size || "";
+      label.append(name, collection);
+
+      button.append(image, label);
+      button.addEventListener("click", () => openSet(set, button));
       card.appendChild(button);
       grid.appendChild(card);
     });
   }
 
-  closeButton.addEventListener("click", closePopup);
-  overlay.addEventListener("click", event => { if (event.target === overlay) closePopup(); });
-  document.addEventListener("keydown", event => { if (event.key === "Escape" && !overlay.hidden) closePopup(); });
+  close.addEventListener("click", closeModal);
+  previous.addEventListener("click", () => showMedia(activeIndex - 1));
+  next.addEventListener("click", () => showMedia(activeIndex + 1));
+  modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+  document.addEventListener("keydown", event => {
+    if (modal.hidden) return;
+    if (event.key === "Escape") closeModal();
+    if (event.key === "ArrowLeft") showMedia(activeIndex - 1);
+    if (event.key === "ArrowRight") showMedia(activeIndex + 1);
+  });
 
-  fetch("assets/data/instagram-posts.json", { cache: "no-cache" })
+  fetch("assets/data/nails-gallery.json", { cache: "no-cache" })
     .then(response => {
-      if (!response.ok) throw new Error(`Feed request failed (${response.status})`);
+      if (!response.ok) throw new Error(`Gallery data request failed (${response.status})`);
       return response.json();
     })
-    .then(data => render(Array.isArray(data.posts) ? data.posts : []))
+    .then(data => render(Array.isArray(data.sets) ? data.sets : []))
     .catch(error => {
       console.error(error);
-      grid.innerHTML = '<p class="gallery-status">The Instagram gallery is temporarily unavailable.</p>';
+      grid.innerHTML = '<p class="gallery-status">The nail gallery is temporarily unavailable.</p>';
     });
 })();

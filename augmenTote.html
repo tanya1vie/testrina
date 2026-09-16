@@ -11,246 +11,38 @@
   <link rel="stylesheet" href="assets/css/cursor.css">
   <link rel="stylesheet" href="assets/css/password.css">
   <style>
-    :root {
-      --augment-red: #d92d2d;
-      --augment-cream: #f5e8bf
-    }
-
-    body.locked #header {
-      filter: none !important;
-      pointer-events: auto !important;
-      user-select: auto !important;
-      opacity: 1 !important;
-      position: relative;
-      z-index: 10001
-    }
-
-    body.locked .password-overlay {
-      z-index: 9999
-    }
-
-    .augmentote-page {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 30px 22px 110px
-    }
-
-    .augmentote-section {
-      display: block !important;
-      margin: 82px 0
-    }
-
-    .augmentote-section:first-child {
-      margin-top: 40px
-    }
-
-    .augmentote-kicker {
-      font-size: 12px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--augment-red);
-      font-weight: 700;
-      margin: 0 0 10px
-    }
-
-    .augmentote-section h2 {
-      font-size: 28px;
-      line-height: 1.15;
-      letter-spacing: .05em;
-      margin: 0 0 18px
-    }
-
-    .augmentote-section h3 {
-      font-size: 17px;
-      margin: 0 0 10px
-    }
-
-    .augmentote-lede {
-      max-width: 760px;
-      font-size: 20px;
-      line-height: 1.45
-    }
-
-    .augmentote-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 46px;
-      align-items: start
-    }
-
-    .augmentote-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px
-    }
-
-    .augmentote-card {
-      border: 1px solid #111;
-      border-radius: 26px;
-      padding: 24px 22px;
-      background: #fff;
-      box-shadow: 7px 7px 0 #111
-    }
-
-    .augmentote-card h3 {
-      color: var(--augment-red)
-    }
-
-    .augmentote-workflow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      counter-reset: step;
-      margin: 28px 0
-    }
-
-    .augmentote-step {
-      border-top: 1px solid #111;
-      padding-top: 10px;
-      min-height: 72px
-    }
-
-    .augmentote-step::before {
-      counter-increment: step;
-      content: counter(step, decimal-leading-zero);
-      display: block;
-      color: var(--augment-red);
-      font-size: 24px;
-      font-weight: 700
-    }
-
-    .augmentote-band {
-      background: var(--augment-red);
-      color: var(--augment-cream);
-      padding: 46px 34px;
-      margin: 90px -22px 58px
-    }
-
-    .augmentote-band p {
-      margin: 0 0 8px;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: 12px
-    }
-
-    .augmentote-band h2 {
-      font-size: 42px;
-      line-height: 1.04;
-      margin: 0
-    }
-
-    .augmentote-feature-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px 44px;
-      padding: 0;
-      list-style: none;
-      margin: 28px 0
-    }
-
-    .augmentote-feature-list li {
-      border-top: 1px solid #bbb;
-      padding-top: 10px
-    }
-
-    .augmentote-quote {
-      border-left: 3px solid var(--augment-red);
-      padding-left: 18px;
-      margin: 24px 0;
-      font-size: 17px;
-      line-height: 1.5
-    }
-
-    .augmentote-tech-flow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin: 28px 0
-    }
-
-    .augmentote-tech-flow div {
-      border: 1px solid #111;
-      padding: 16px;
-      text-align: center;
-      border-radius: 18px
-    }
-
-    .augmentote-wrap {
-      background: #f4f4f4;
-      padding: 30px;
-      border-radius: 26px
-    }
-
-    .augmentote-image-sequence {
-      display: block !important;
-      width: 100% !important;
-      margin: 30px 0 56px !important
-    }
-
-    .augmentote-image-sequence .augmentote-full {
-      display: grid !important;
-      grid-template-columns: minmax(0, 1fr) 60px !important;
-      column-gap: 10px !important;
-      width: 100% !important;
-      max-width: none !important;
-      min-width: 0 !important;
-      clear: both !important;
-      float: none !important;
-      margin: 28px 0 48px !important
-    }
-
-    .augmentote-image-sequence .augmentote-full>img {
-      display: block !important;
-      grid-column: 1 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      height: auto !important;
-      object-fit: contain !important;
-      margin: 0 !important
-    }
-
-    .augmentote-image-sequence .augmentote-full>.auto-project-caption {
-      display: block !important;
-      grid-column: 2 !important;
-      width: 60px !important
-    }
-
-    .augmentote-text-break {
-      max-width: 760px;
-      margin: 50px 0 20px
-    }
-
-    @media(max-width:760px) {
-
-      .augmentote-grid-2,
-      .augmentote-grid-3,
-      .augmentote-tech-flow {
-        grid-template-columns: 1fr
-      }
-
-      .augmentote-workflow {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .augmentote-feature-list {
-        grid-template-columns: 1fr
-      }
-
-      .augmentote-band {
-        margin-left: -12px;
-        margin-right: -12px;
-        padding: 34px 22px
-      }
-
-      .augmentote-band h2 {
-        font-size: 31px
-      }
-
-      .augmentote-page {
-        padding-left: 16px;
-        padding-right: 16px
-      }
-    }
+    :root{--augment-red:#d92d2d;--augment-cream:#f5e8bf}
+    body.locked #header{filter:none!important;pointer-events:auto!important;user-select:auto!important;opacity:1!important;position:relative;z-index:10001}
+    body.locked .password-overlay{z-index:9999}
+    .augmentote-page{max-width:1040px;margin:0 auto;padding:30px 22px 110px}
+    .augmentote-section{display:block!important;margin:82px 0}
+    .augmentote-section:first-child{margin-top:40px}
+    .augmentote-kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--augment-red);font-weight:700;margin:0 0 10px}
+    .augmentote-section h2{font-size:28px;line-height:1.15;letter-spacing:.05em;margin:0 0 18px}
+    .augmentote-section h3{font-size:17px;margin:0 0 10px}
+    .augmentote-lede{max-width:760px;font-size:20px;line-height:1.45}
+    .augmentote-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+    .augmentote-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+    .augmentote-card{border:1px solid #111;border-radius:26px;padding:24px 22px;background:#fff;box-shadow:7px 7px 0 #111}
+    .augmentote-card h3{color:var(--augment-red)}
+    .augmentote-workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step;margin:28px 0}
+    .augmentote-step{border-top:1px solid #111;padding-top:10px;min-height:72px}
+    .augmentote-step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--augment-red);font-size:24px;font-weight:700}
+    .augmentote-band{background:var(--augment-red);color:var(--augment-cream);padding:46px 34px;margin:90px -22px 58px}
+    .augmentote-band p{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .augmentote-band h2{font-size:42px;line-height:1.04;margin:0}
+    .augmentote-feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 44px;padding:0;list-style:none;margin:28px 0}
+    .augmentote-feature-list li{border-top:1px solid #bbb;padding-top:10px}
+    .augmentote-quote{border-left:3px solid var(--augment-red);padding-left:18px;margin:24px 0;font-size:17px;line-height:1.5}
+    .augmentote-tech-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0}
+    .augmentote-tech-flow div{border:1px solid #111;padding:16px;text-align:center;border-radius:18px}
+    .augmentote-wrap{background:#f4f4f4;padding:30px;border-radius:26px}
+    .augmentote-image-sequence{display:block!important;width:100%!important;margin:30px 0 56px!important}
+    .augmentote-image-sequence .augmentote-full{display:grid!important;grid-template-columns:minmax(0,1fr) 60px!important;column-gap:10px!important;width:100%!important;max-width:none!important;min-width:0!important;clear:both!important;float:none!important;margin:28px 0 48px!important}
+    .augmentote-image-sequence .augmentote-full>img{display:block!important;grid-column:1!important;width:100%!important;max-width:100%!important;height:auto!important;object-fit:contain!important;margin:0!important}
+    .augmentote-image-sequence .augmentote-full>.auto-project-caption{display:block!important;grid-column:2!important;width:60px!important}
+    .augmentote-text-break{max-width:760px;margin:50px 0 20px}
+    @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{padding-left:16px;padding-right:16px}}
   </style>
 </head>
 
@@ -282,179 +74,91 @@
       </div>
     </section>
 
-    <div class="augmentote-page">
-      <section class="augmentote-section">
-        <p class="augmentote-kicker">Background</p>
-        <h2>Why mixed reality?</h2>
-        <p class="augmentote-lede">Extended reality blends the physical and digital. For this project, mixed reality is
-          the useful middle ground: virtual information can react to and sit within the real work environment instead of
-          replacing it.</p>
-        <div class="augmentote-image-sequence" data-images="0-2"></div>
-        <div class="augmentote-grid-3">
-          <article class="augmentote-card">
-            <h3>Flexible Infrastructure</h3>
-            <p>Software can be updated more easily than hardware. The same glasses can support many situations across
-              fulfillment centers and help bridge locations running different generations of physical equipment.</p>
-          </article>
-          <article class="augmentote-card">
-            <h3>Smart Learning + Support</h3>
-            <p>Personalized guidance, feedback, training, knowledge sharing, and clearer access to the information
-              required to complete a task.</p>
-          </article>
-          <article class="augmentote-card">
-            <h3>Connected Culture</h3>
-            <p>More opportunities for social interaction, entertainment, and healthier work practices within the scope
-              of the role.</p>
-          </article>
-        </div>
-        <div class="augmentote-image-sequence" data-images="3-5"></div>
-      </section>
-
-      <section class="augmentote-section">
-        <p class="augmentote-kicker">Case study</p>
-        <h2>ToteASRS + the Pick workflow</h2>
-        <p>ToteASRS picking supports low-volume and sub-same-day delivery, but the workflow can involve 8–12 hour shifts
-          of repetitive and physically demanding work. AugmenTote asks where mixed reality can reduce ambiguity and
-          repetitive searching without adding another screen to manage.</p>
-        <div class="augmentote-image-sequence" data-images="6-8"></div>
-        <div class="augmentote-workflow">
-          <div class="augmentote-step">Sign in</div>
-          <div class="augmentote-step">Wait for source tote</div>
-          <div class="augmentote-step">Seek item</div>
-          <div class="augmentote-step">Pick item</div>
-          <div class="augmentote-step">Scan item</div>
-          <div class="augmentote-step">Place item</div>
-          <div class="augmentote-step">Transition tote</div>
-          <div class="augmentote-step">Problem solving</div>
-        </div>
-        <div class="augmentote-image-sequence" data-images="9-12"></div>
-        <div class="augmentote-text-break">
-          <h3>Prototype direction</h3>
-          <p>The prototype places graphics directly over the station and rebin wall so information appears in the
-            spatial context where it is needed. Early experiments explored item information, scanned-state feedback,
-            directional indicators, help controls, and visual cues attached to physical totes and slots.</p>
-        </div>
-        <div class="augmentote-image-sequence" data-images="13-16"></div>
-      </section>
-
-      <div class="augmentote-band">
-        <p>User Experience Requirement #1</p>
-        <h2>INCREASED EFFICIENCY</h2>
+  <div class="augmentote-page">
+    <section class="augmentote-section">
+      <p class="augmentote-kicker">Background</p>
+      <h2>Why mixed reality?</h2>
+      <p class="augmentote-lede">Extended reality blends the physical and digital. For this project, mixed reality is the useful middle ground: virtual information can react to and sit within the real work environment instead of replacing it.</p>
+      <div class="augmentote-image-sequence" data-images="0-2"></div>
+      <div class="augmentote-grid-3">
+        <article class="augmentote-card"><h3>Flexible Infrastructure</h3><p>Software can be updated more easily than hardware. The same glasses can support many situations across fulfillment centers and help bridge locations running different generations of physical equipment.</p></article>
+        <article class="augmentote-card"><h3>Smart Learning + Support</h3><p>Personalized guidance, feedback, training, knowledge sharing, and clearer access to the information required to complete a task.</p></article>
+        <article class="augmentote-card"><h3>Connected Culture</h3><p>More opportunities for social interaction, entertainment, and healthier work practices within the scope of the role.</p></article>
       </div>
-      <section class="augmentote-section">
-        <h3>Put the right information where the work happens</h3>
-        <p>The mixed-reality proposal moves the most useful pieces of task information into the worker's field of view
-          so less attention has to travel back and forth between the station and a separate screen.</p>
-        <p class="augmentote-quote">Associates described checking the barcode first, then using product description
-          details such as material or color when an item is hard to identify.</p>
-        <div class="augmentote-image-sequence" data-images="17-20"></div>
-        <div class="augmentote-grid-2">
-          <article class="augmentote-card">
-            <h3>3D item guidance</h3>
-            <p>Product name and ASIN can accompany a spatial representation of the item. A future goal is to use
-              computer vision to help with the seek process and make the desired item easier to locate within a tote.
-            </p>
-          </article>
-          <article class="augmentote-card">
-            <h3>Information hierarchy</h3>
-            <p>The proposal prioritizes the details associates actually use during a pick—barcode, item description,
-              product identity, and exception reporting—while reducing unnecessary visual travel.</p>
-          </article>
-        </div>
-        <div class="augmentote-image-sequence" data-images="21-24"></div>
-        <div class="augmentote-text-break">
-          <h3>Rebin wall guides + slot transition indicators</h3>
-          <p>Spatial cues can distinguish the current slot from ongoing orders, communicate how many items remain, and
-            make tote or slot transitions harder to miss.</p>
-        </div>
-        <ul class="augmentote-feature-list">
-          <li><strong>Current slot:</strong> highlighted directly in space.</li>
-          <li><strong>Ongoing order:</strong> stays visible without appearing active.</li>
-          <li><strong>Order quantity:</strong> visual state changes with the number of items.</li>
-          <li><strong>Transition:</strong> directional and blinking cues signal the next action.</li>
-        </ul>
-        <div class="augmentote-image-sequence" data-images="25-30"></div>
-      </section>
+      <div class="augmentote-image-sequence" data-images="3-5"></div>
+    </section>
 
-      <div class="augmentote-band">
-        <p>User Experience Requirement #2</p>
-        <h2>SMART LEARNING + SUPPORT</h2>
-      </div>
-      <section class="augmentote-section">
-        <h3>Help without leaving the task</h3>
-        <p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional
-          game modes. PeccAI is proposed as a responsive helper that maps spoken descriptions of problems to the
-          appropriate help state.</p>
-        <div class="augmentote-image-sequence" data-images="31-35"></div>
-        <div class="augmentote-text-break">
-          <h3>How PeccAI works</h3>
-          <p>The prototype listens for speech, converts audio to text, classifies the issue, then displays the matching
-            support flow.</p>
-        </div>
-        <div class="augmentote-tech-flow">
-          <div>Magic Leap microphone</div>
-          <div>AWS Transcribe</div>
-          <div>Prompt engineering + OpenAI API</div>
-          <div>Matched response screen</div>
-        </div>
-        <div class="augmentote-image-sequence" data-images="36-39"></div>
-      </section>
+    <section class="augmentote-section">
+      <p class="augmentote-kicker">Case study</p>
+      <h2>ToteASRS + the Pick workflow</h2>
+      <p>ToteASRS picking supports low-volume and sub-same-day delivery, but the workflow can involve 8–12 hour shifts of repetitive and physically demanding work. AugmenTote asks where mixed reality can reduce ambiguity and repetitive searching without adding another screen to manage.</p>
+      <div class="augmentote-image-sequence" data-images="6-8"></div>
+      <div class="augmentote-workflow"><div class="augmentote-step">Sign in</div><div class="augmentote-step">Wait for source tote</div><div class="augmentote-step">Seek item</div><div class="augmentote-step">Pick item</div><div class="augmentote-step">Scan item</div><div class="augmentote-step">Place item</div><div class="augmentote-step">Transition tote</div><div class="augmentote-step">Problem solving</div></div>
+      <div class="augmentote-image-sequence" data-images="9-12"></div>
+      <div class="augmentote-text-break"><h3>Prototype direction</h3><p>The prototype places graphics directly over the station and rebin wall so information appears in the spatial context where it is needed. Early experiments explored item information, scanned-state feedback, directional indicators, help controls, and visual cues attached to physical totes and slots.</p></div>
+      <div class="augmentote-image-sequence" data-images="13-16"></div>
+    </section>
 
-      <div class="augmentote-band">
-        <p>User Experience Requirement #3</p>
-        <h2>WELLNESS + WORK SATISFACTION</h2>
+    <div class="augmentote-band"><p>User Experience Requirement #1</p><h2>INCREASED EFFICIENCY</h2></div>
+    <section class="augmentote-section">
+      <h3>Put the right information where the work happens</h3>
+      <p>The mixed-reality proposal moves the most useful pieces of task information into the worker's field of view so less attention has to travel back and forth between the station and a separate screen.</p>
+      <p class="augmentote-quote">Associates described checking the barcode first, then using product description details such as material or color when an item is hard to identify.</p>
+      <div class="augmentote-image-sequence" data-images="17-20"></div>
+      <div class="augmentote-grid-2">
+        <article class="augmentote-card"><h3>3D item guidance</h3><p>Product name and ASIN can accompany a spatial representation of the item. A future goal is to use computer vision to help with the seek process and make the desired item easier to locate within a tote.</p></article>
+        <article class="augmentote-card"><h3>Information hierarchy</h3><p>The proposal prioritizes the details associates actually use during a pick—barcode, item description, product identity, and exception reporting—while reducing unnecessary visual travel.</p></article>
       </div>
-      <section class="augmentote-section">
-        <h2>Can 8–12 hours of picking be made less boring?</h2>
-        <p>The proposal considers health, social interaction, entertainment, and visible progress as part of the work
-          experience—not as separate systems layered on top of it.</p>
-        <div class="augmentote-image-sequence" data-images="40-48"></div>
-        <div class="augmentote-text-break">
-          <h3>Gamification attached to the pick</h3>
-          <p>Instead of background games, each pick can be regular or become a specific challenge with a direct reward.
-            Challenges can respond to speed, placement, item type, wellness, or competitive play.</p>
-        </div>
-        <div class="augmentote-grid-2">
-          <article class="augmentote-card">
-            <h3>Speed + placement</h3>
-            <p>Timed picks, stars, gems, targets, and orientation challenges make specific picks meaningfully different
-              rather than simply adding decoration behind the workflow.</p>
-          </article>
-          <article class="augmentote-card">
-            <h3>Wellness + competitive play</h3>
-            <p>Hydration and stretch prompts can coexist with shields, fog, fire, and other competitive effects that
-              temporarily change the scoring state.</p>
-          </article>
-        </div>
-        <div class="augmentote-image-sequence" data-images="49-56"></div>
-        <div class="augmentote-text-break">
-          <h3>Wellness should not depend on the game</h3>
-          <p>Direct wellness features include visible progress, music, hydration prompts, and scheduled stretch or rest
-            suggestions. Associate feedback in the study specifically called for short recurring stretch breaks during
-            long standing shifts.</p>
-        </div>
-        <div class="augmentote-image-sequence" data-images="57-60"></div>
-      </section>
-  </main>
-  <div id="footer"></div>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script>
-    document.querySelectorAll('.augmentote-image-sequence[data-images]').forEach((sequence) => {
-      const [start, end] = sequence.dataset.images.split('-').map(Number);
-      for (let i = start; i <= end; i += 1) {
-        const figure = document.createElement('figure');
-        figure.className = 'augmentote-full';
-        const img = document.createElement('img');
-        img.src = `Images/AugmenTote/Midreview%20Presentation-images-${i}.jpg`;
-        img.alt = `AugmenTote presentation image ${i + 1}`;
-        figure.appendChild(img);
-        sequence.appendChild(figure);
-      }
-    });
-  </script>
-  <script src="assets/js/siteChrome.js"></script>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/password.js"></script>
+      <div class="augmentote-image-sequence" data-images="21-24"></div>
+      <div class="augmentote-text-break"><h3>Rebin wall guides + slot transition indicators</h3><p>Spatial cues can distinguish the current slot from ongoing orders, communicate how many items remain, and make tote or slot transitions harder to miss.</p></div>
+      <ul class="augmentote-feature-list"><li><strong>Current slot:</strong> highlighted directly in space.</li><li><strong>Ongoing order:</strong> stays visible without appearing active.</li><li><strong>Order quantity:</strong> visual state changes with the number of items.</li><li><strong>Transition:</strong> directional and blinking cues signal the next action.</li></ul>
+      <div class="augmentote-image-sequence" data-images="25-30"></div>
+    </section>
+
+    <div class="augmentote-band"><p>User Experience Requirement #2</p><h2>SMART LEARNING + SUPPORT</h2></div>
+    <section class="augmentote-section">
+      <h3>Help without leaving the task</h3>
+      <p>A wrist-accessible help menu can expose issue reporting, manager contact, guided help, breaks, and optional game modes. PeccAI is proposed as a responsive helper that maps spoken descriptions of problems to the appropriate help state.</p>
+      <div class="augmentote-image-sequence" data-images="31-35"></div>
+      <div class="augmentote-text-break"><h3>How PeccAI works</h3><p>The prototype listens for speech, converts audio to text, classifies the issue, then displays the matching support flow.</p></div>
+      <div class="augmentote-tech-flow"><div>Magic Leap microphone</div><div>AWS Transcribe</div><div>Prompt engineering + OpenAI API</div><div>Matched response screen</div></div>
+      <div class="augmentote-image-sequence" data-images="36-39"></div>
+    </section>
+
+    <div class="augmentote-band"><p>User Experience Requirement #3</p><h2>WELLNESS + WORK SATISFACTION</h2></div>
+    <section class="augmentote-section">
+      <h2>Can 8–12 hours of picking be made less boring?</h2>
+      <p>The proposal considers health, social interaction, entertainment, and visible progress as part of the work experience—not as separate systems layered on top of it.</p>
+      <div class="augmentote-image-sequence" data-images="40-48"></div>
+      <div class="augmentote-text-break"><h3>Gamification attached to the pick</h3><p>Instead of background games, each pick can be regular or become a specific challenge with a direct reward. Challenges can respond to speed, placement, item type, wellness, or competitive play.</p></div>
+      <div class="augmentote-grid-2">
+        <article class="augmentote-card"><h3>Speed + placement</h3><p>Timed picks, stars, gems, targets, and orientation challenges make specific picks meaningfully different rather than simply adding decoration behind the workflow.</p></article>
+        <article class="augmentote-card"><h3>Wellness + competitive play</h3><p>Hydration and stretch prompts can coexist with shields, fog, fire, and other competitive effects that temporarily change the scoring state.</p></article>
+      </div>
+      <div class="augmentote-image-sequence" data-images="49-56"></div>
+      <div class="augmentote-text-break"><h3>Wellness should not depend on the game</h3><p>Direct wellness features include visible progress, music, hydration prompts, and scheduled stretch or rest suggestions. Associate feedback in the study specifically called for short recurring stretch breaks during long standing shifts.</p></div>
+      <div class="augmentote-image-sequence" data-images="57-60"></div>
+    </section>
+</main>
+<div id="footer"></div>
+<div class="custom-cursor" id="customCursor"></div>
+<script>
+  document.querySelectorAll('.augmentote-image-sequence[data-images]').forEach((sequence) => {
+    const [start, end] = sequence.dataset.images.split('-').map(Number);
+    for (let i = start; i <= end; i += 1) {
+      const figure = document.createElement('figure');
+      figure.className = 'augmentote-full';
+      const img = document.createElement('img');
+      img.src = `Images/AugmenTote/Midreview%20Presentation-images-${i}.jpg`;
+      img.alt = `AugmenTote presentation image ${i + 1}`;
+      figure.appendChild(img);
+      sequence.appendChild(figure);
+    }
+  });
+</script>
+<script src="assets/js/siteChrome.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/password.js"></script>
 </body>
 
 </html>

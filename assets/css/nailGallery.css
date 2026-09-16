@@ -1,6 +1,8 @@
 .nail-intro {
-  max-width: 760px;
-  padding: 2rem clamp(1rem, 4vw, 4rem) 0;
+  width: min(1120px, calc(100% - 80px));
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 0 0;
 }
 
 .nail-intro h1 {
@@ -26,7 +28,10 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
-  padding: 2rem clamp(1rem, 4vw, 4rem) 5rem;
+  width: min(1120px, calc(100% - 80px));
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 0 5rem;
 }
 
 .nail-card {
@@ -34,6 +39,7 @@
   aspect-ratio: 1;
   overflow: hidden;
   background: #f2f0ee;
+  border-radius: 12px;
 }
 
 .nail-card button {
@@ -179,4 +185,12 @@
   .nail-gallery { grid-template-columns: 1fr; }
   .nail-modal { padding: 0; }
   .nail-modal-panel { max-height: 100vh; height: 100%; }
+}
+
+
+@media (max-width: 640px) {
+  .nail-intro,
+  .nail-gallery {
+    width: calc(100% - 32px);
+  }
 }

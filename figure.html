@@ -9,79 +9,6 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
-  <style>
-    :root {
-      --primary-color: #000;
-      --bg-color: #fff;
-      --header-height: 63px;
-      --max-content-width: 1200px;
-      --section-spacing: 74px;
-    }
-
-    .black-section {
-      background: #000;
-      color: #fff;
-      padding: 48px 0;
-    }
-
-    .content-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .image-row-three {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 24px auto;
-      max-width: var(--max-content-width);
-    }
-
-    .image-row-four {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin: 24px auto;
-      max-width: var(--max-content-width);
-    }
-
-    .image-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin: 24px auto;
-      max-width: var(--max-content-width);
-    }
-
-    .centered-video {
-      display: block;
-      margin: 0 auto;
-      max-width: 900px;
-      width: 100%;
-      height: auto;
-      border: none;
-      outline: none;
-      box-shadow: none;
-      background: #000;
-    }
-
-    figure {
-      margin: 0;
-    }
-
-    figcaption {
-      font-size: 12px;
-      opacity: .7;
-      margin-top: 6px;
-    }
-
-    video {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
 </head>
 
 <body>
@@ -131,7 +58,7 @@
       <center>
         <h2 class="project-title">DANCE NOTATION</h2>
         <p class="project-subtitle">a history</p><br>
-        <p style="text-align:justify;">
+        <p class="project-copy-justified">
           In the 1680s Pierre Beauchamp developed a dance notation, the Beauchamp-Feuillet
           notation, which was used to record Baroque dance styles.
         </p>
@@ -151,7 +78,7 @@
         <img src="Images/FigureAlphabet/canaries-delagarde-dupre-40.webp" alt="Notation 8" />
       </div>
 
-      <p style="text-align:justify;">
+      <p class="project-copy-justified">
         The Smooth dance styles explored in this project are similarly progressive dances —
         directionally moving and composed of specific collections of steps.
       </p>
@@ -164,17 +91,17 @@
             <h2 class="project-title">DEVELOPING A 3D NOTATION</h2>
             <p class="project-subtitle">a process</p><br>
 
-            <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-  <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+            <div class="project-circle-row">
+  <div class="project-circle-media">
     <video autoplay muted loop playsinline aria-label="Foxtrot base step follower"
-      style="width:100%;height:100%;object-fit:cover;display:block;">
+      class="project-media-cover">
       <source src="Images/FigureAlphabet/13_-_Foxtrot_BaseStep_Follower.mp4" type="video/mp4">
     </video>
   </div>
 
-  <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+  <div class="project-circle-media">
     <video autoplay muted loop playsinline aria-label="Foxtrot base step leader"
-      style="width:100%;height:100%;object-fit:cover;display:block;">
+      class="project-media-cover">
       <source src="Images/FigureAlphabet/12_-_Foxtrot_BaseStep_Leader.mp4" type="video/mp4">
     </video>
   </div>
@@ -186,8 +113,7 @@
             <p>in order to track both bodies as only one can be tracked at a time</p>
             <br><br>
 
-            <pre
-              style="white-space:pre-wrap;font-size:7px;padding:1rem;color:white;text-align:left;columns:4;column-gap:1rem;word-break:break-word;overflow-wrap:break-word;background:none;background-color:transparent;border:none;">
+            <pre class="project-code-sample">
 <code>/* code omitted for brevity */</code>
             </pre>
           </center>
@@ -227,16 +153,16 @@
         <h2 class="project-title">THE WALTZ</h2>
         <p class="project-subtitle">an elegant, progressive dance</p><br>
 
-        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-          <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+        <div class="project-circle-row">
+          <div class="project-circle-media">
             <video autoplay muted loop playsinline
-              style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
+              class="project-media-cover project-media-zoom">
               <source src="Images/FigureAlphabet/16_-_Waltx_Reference.mp4" type="video/mp4" />
             </video>
           </div>
-          <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+          <div class="project-circle-media">
             <video autoplay muted loop playsinline
-              style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
+              class="project-media-cover project-media-zoom">
               <source src="Images/FigureAlphabet/19_-_Original_Footage_French_Waltz_1909-1915.mp4"
                 type="video/mp4" />
             </video>
@@ -298,14 +224,14 @@
         <h2 class="project-title">THE TANGO</h2>
         <p class="project-subtitle">a sharp, progressive dance</p><br>
 
-        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-          <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+        <div class="project-circle-row">
+          <div class="project-circle-media">
             <img src="Images/FigureAlphabet/18_-_The_Gigolos_Tango.gif" alt="The Gigolos tango"
-              style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
+              class="project-media-cover project-media-zoom">
           </div>
-          <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+          <div class="project-circle-media">
             <video autoplay muted loop playsinline
-              style="width:100%;height:100%;object-fit:cover;transform:scale(1.2);">
+              class="project-media-cover project-media-zoom">
               <source src="Images/FigureAlphabet/15_-_Tango_Reference.mp4" type="video/mp4" />
             </video>
           </div>
@@ -350,16 +276,13 @@
 
       <br><br>
       <div class="image-row-three">
-        <video width="500" height="300" autoplay muted loop playsinline
-          style="object-fit:cover;transform:scale(1.2);">
+        <video class="project-media-cover project-media-zoom" autoplay muted loop playsinline>
           <source src="Images/FigureAlphabet/11_-_2022-11-25_12-06-50_Trim.mp4" type="video/mp4" />
         </video>
-        <video width="500" height="300" autoplay muted loop playsinline
-          style="object-fit:cover;transform:scale(1.2);">
+        <video class="project-media-cover project-media-zoom" autoplay muted loop playsinline>
           <source src="Images/FigureAlphabet/14_-_2022-11-24_14-21-20_Trim.mp4" type="video/mp4" />
         </video>
-        <video width="500" height="300" autoplay muted loop playsinline
-          style="object-fit:cover;transform:scale(1.2);">
+        <video class="project-media-cover project-media-zoom" autoplay muted loop playsinline>
           <source src="Images/FigureAlphabet/12_-_Foxtrot_BaseStep_Leader.mp4" type="video/mp4" />
         </video>
       </div>
@@ -382,17 +305,17 @@
         <h2 class="project-title">THE FOXTROT</h2>
         <p class="project-subtitle">a smooth, progressive dance</p><br>
 
-        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-          <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
-            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+        <div class="project-circle-row">
+          <div class="project-circle-media">
+            <video autoplay muted loop playsinline class="project-media-cover">
               <source src="Images/FigureAlphabet/17_-_Foxtrot_Reference.mp4" type="video/mp4" />
             </video>
           </div>
-          <div style="width:300px;height:300px;border-radius:50%;overflow:hidden;">
+          <div class="project-circle-media">
             <img
               src="Images/FigureAlphabet/20_-_The_Fox_Trot_in_the_Jazz_Age.gif"
               alt="The Fox Trot in the Jazz Age"
-              style="width:100%;height:100%;object-fit:cover;display:block;">
+              class="project-media-cover">
           </div>
         </div>
 

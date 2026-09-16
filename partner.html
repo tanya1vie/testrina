@@ -75,8 +75,7 @@
   <img
     src="Images/FigureAlphabet/18_-_The_Gigolos_Tango.gif"
     alt="The Gigolo's Tango"
-    class="small-video"
-    style="width:100%;height:100%;object-fit:cover;display:block;">
+    class="small-video project-media-cover">
 </div>
 
         </div>
@@ -96,7 +95,7 @@
     <!-- PIPELINE -->
 
 
-      <img src="Images/PhantomPartner/diagram_of_machine_learning-01.png" alt="Side by Side" style="width:900px; height:auto; display:block; margin:0 auto;" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/diagram_of_machine_learning-01.png" alt="Side by Side" class="project-image project-image--900" loading="lazy" decoding="async"/>
 
       <p>
         <b>1) Ingest.</b> FBX/C3D clips from Mixamo, CMU, and HDM05 are converted to <code>.npy</code> arrays (shape: <code>[frames, markers, 3]</code>).<br/>
@@ -143,13 +142,13 @@
 
 
     <!-- MODEL DETAILS -->
-    <section class="content-container" style="padding-top:40px;">
+    <section class="content-container project-section-spaced">
       <center>
         <h2 class="project-title">LEARNING THE PARTNER</h2>
         <p class="project-subtitle">From leader motion to duet synthesis</p>
       </center>
 
-      <img src="Images/PhantomPartner/diagram_of_machine_learning-02.png" alt="Side by Side" style="width:900px; height:auto; display:block; margin:0 auto;" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/diagram_of_machine_learning-02.png" alt="Side by Side" class="project-image project-image--900" loading="lazy" decoding="async"/>
 
       <p>
         Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the follower’s <code>[x,y,z]</code>. Overlapping windows are averaged to produce the full sequence.
@@ -158,7 +157,7 @@
     <br><br>
 
     <section class="black-section">
-      <section class="content-container" style="padding-top:40px;">
+      <section class="content-container project-section-spaced">
         <center>
           <h2 class="project-title">RESULTS</h2>
           <p class="project-subtitle">Five styles, many duets</p>

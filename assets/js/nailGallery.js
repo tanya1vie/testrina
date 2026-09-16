@@ -66,12 +66,12 @@
 
     title.textContent = set.name;
     const details = [
-      set.size && `Size: ${set.size}`,
+      set.shape && `Shape: ${set.shape}`,\n      set.size && `Size: ${set.size}`,
       set.collection && `Collection: ${set.collection}`,
       set.client && `Client: ${set.client}`
     ].filter(Boolean);
     meta.textContent = details.join(" · ");
-    caption.textContent = set.caption || set.video_caption || "";
+    caption.textContent = set.caption || "";
     caption.hidden = !caption.textContent;
     instagram.hidden = !set.instagram_url;
     instagram.href = set.instagram_url || "#";

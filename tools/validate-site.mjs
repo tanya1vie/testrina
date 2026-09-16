@@ -235,7 +235,13 @@ for (const path of [...browserScripts, ...maintenanceScripts]) {
   }
 }
 
-const nailGalleryData = JSON.parse(await readFile(join(root, "assets/data/nails-gallery.json"), "utf8"));\nif (!Array.isArray(nailGalleryData.sets)) failures.push("Nail gallery data must contain a sets array");\n\nconst nailSpreadsheet = await readFile(join(root, "assets/data/nails.csv"), "utf8");\nif (!nailSpreadsheet.startsWith("id,folder,name,size,collection,client,instagram_url,caption,video_caption")) {\n  failures.push("Nail spreadsheet has an unexpected header");\n}
+const nailGalleryData = JSON.parse(await readFile(join(root, "assets/data/nails-gallery.json"), "utf8"));
+if (!Array.isArray(nailGalleryData.sets)) failures.push("Nail gallery data must contain a sets array");
+
+const nailSpreadsheet = await readFile(join(root, "assets/data/nails.csv"), "utf8");
+if (!nailSpreadsheet.startsWith("id,folder,name,size,collection,client,instagram_url,caption,video_caption")) {
+  failures.push("Nail spreadsheet has an unexpected header");
+}
 
 const homePage = await readFile(join(root, "index.html"), "utf8");
 const homeScript = await readFile(join(root, "assets/js/puzzle.js"), "utf8");

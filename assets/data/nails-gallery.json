@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-09-16T00:00:00.000Z",
+  "sets": [
+    {
+      "id": "11",
+      "folder": "Bridgerton",
+      "name": "Bridgerton",
+      "size": "S - Tanya Var.",
+      "collection": "Media Inspired",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/reel/DVP0M3pgP2h/",
+      "caption": "",
+      "video_caption": "🐝 “Dearest gentle reader…” 🐝\n\nIn honor of S2 wrapping up, here is my rendition of the Bridgerton nails! Complete with Sophie’s mask and inspired by the version by the Pamper Nail Gallery.\n\n💅 Short Almond, Size S",
+      "cover": "Images/Nails/Bridgerton/Bridgerton%20nails.PNG",
+      "media": [
+        {"type":"image","src":"Images/Nails/Bridgerton/Bridgerton%20nails.PNG","name":"Bridgerton nails.PNG"},
+        {"type":"video","src":"Images/Nails/Bridgerton/Bridgerton.MP4","name":"Bridgerton.MP4"},
+        {"type":"video","src":"Images/Nails/Bridgerton/e256ccc24cde4bceaeabd7a236a9d6c3.MOV","name":"e256ccc24cde4bceaeabd7a236a9d6c3.MOV"}
+      ]
+    },
+    {
+      "id": "25",
+      "folder": "Dave the Diver",
+      "name": "Dave the Diver",
+      "size": "Custom",
+      "collection": "Media Inspired",
+      "client": "Shengnan - received",
+      "instagram_url": "",
+      "caption": "A custom set for @shengnan! As an avid @DavetheDiver player, she requested a set themed around this fishing and cooking game.\n\nFeaturing some heat-reactive glitter, this set is perfect for summer!",
+      "video_caption": "",
+      "cover": "Images/Nails/Dave%20the%20Diver/dave%202.png",
+      "media": [
+        {"type":"image","src":"Images/Nails/Dave%20the%20Diver/dave%202.png","name":"dave 2.png"},
+        {"type":"image","src":"Images/Nails/Dave%20the%20Diver/dave1.png","name":"dave1.png"}
+      ]
+    },
+    {
+      "id": "1",
+      "folder": "Fine China",
+      "name": "Fine China",
+      "size": "S - Tanya Var.",
+      "collection": "Geometric Series",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DVB2wEVgB4w/",
+      "caption": "🏺 Fine China nail set! This was the first set I ever made! 🏺\n\n💅 Short Almond, Size S",
+      "video_caption": "",
+      "cover": "Images/Nails/Fine%20China/7D8735AA-1127-4BF8-8B7A-43500F5F24A5.JPG",
+      "media": [
+        {"type":"image","src":"Images/Nails/Fine%20China/7D8735AA-1127-4BF8-8B7A-43500F5F24A5.JPG","name":"7D8735AA-1127-4BF8-8B7A-43500F5F24A5.JPG"},
+        {"type":"image","src":"Images/Nails/Fine%20China/IMG_5624.JPG","name":"IMG_5624.JPG"}
+      ]
+    },
+    {
+      "id": "5",
+      "folder": "Jeans",
+      "name": "Jeans",
+      "size": "S - Tanya Var.",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/reel/DVfBLC6AJQ7/",
+      "caption": "",
+      "video_caption": "👖 Nails to match your Canadian tuxedo! 🇨🇦\n\nFun fact: the Jean texture here is a print of my fingerprint!\n\n💅 XShort Squoval, Size S",
+      "cover": "Images/Nails/Jeans/IMG_6761.JPG",
+      "media": [
+        {"type":"image","src":"Images/Nails/Jeans/IMG_6761.JPG","name":"IMG_6761.JPG"},
+        {"type":"image","src":"Images/Nails/Jeans/IMG_6764.JPG","name":"IMG_6764.JPG"},
+        {"type":"image","src":"Images/Nails/Jeans/IMG_6767.JPG","name":"IMG_6767.JPG"},
+        {"type":"video","src":"Images/Nails/Jeans/jean%20nails.MP4","name":"jean nails.MP4"}
+      ]
+    }
+  ]
+}

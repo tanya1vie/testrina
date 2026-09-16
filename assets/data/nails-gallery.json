@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T10:01:17.126Z",
+  "generated_at": "2026-09-16T10:11:22.258Z",
   "sets": [
     {
       "id": "25",
@@ -86,6 +86,40 @@
           "type": "video",
           "src": "Images/Nails/Tennis/0829%20(1)(1).mov",
           "name": "0829 (1)(1).mov"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "folder": "Japanese Art",
+      "name": "Japanese Art",
+      "size": "S",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/Japanese%20Art/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5411.jpeg",
+          "name": "IMG_5411.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5424.jpeg",
+          "name": "IMG_5424.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5450.jpeg",
+          "name": "IMG_5450.jpeg"
         }
       ]
     },
@@ -227,6 +261,25 @@
       ]
     },
     {
+      "id": "14",
+      "folder": "Love Letter",
+      "name": "Love Letter",
+      "size": "S - Tanya Var.",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+          "name": "IMG_4784.jpeg"
+        }
+      ]
+    },
+    {
       "id": "12",
       "folder": "Secret Garden",
       "name": "Secret Garden",
@@ -344,6 +397,64 @@
           "type": "image",
           "src": "Images/Nails/Fine%20China/cover.JPG",
           "name": "cover.JPG"
+        }
+      ]
+    },
+    {
+      "id": "Citrus",
+      "folder": "Citrus",
+      "name": "Citrus",
+      "size": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/Citrus/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%202.png",
+          "name": "Cirtrus 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%203.png",
+          "name": "Cirtrus 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%204.png",
+          "name": "Cirtrus 4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/cover.png",
+          "name": "cover.png"
+        }
+      ]
+    },
+    {
+      "id": "Porcelain Statues ",
+      "folder": "Porcelain Statues ",
+      "name": "Porcelain Statues ",
+      "size": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "video_caption": "",
+      "cover": "Images/Nails/Porcelain%20Statues%20/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues%20/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues%20/IMG_5486.jpeg",
+          "name": "IMG_5486.jpeg"
         }
       ]
     }

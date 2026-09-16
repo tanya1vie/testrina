@@ -77,7 +77,9 @@ for (const entry of entries.filter(item => item.isDirectory()).sort((a, b) => a.
     instagram_url: row.instagram_url || "",
     caption: row.caption || "",
     video_caption: row.video_caption || "",
-    cover: files.find(file => file.type === "image")?.src || files[0].src,
+    cover: files.find(file => file.type === "image" && /cover/i.test(file.name))?.src
+      || files.find(file => file.type === "image")?.src
+      || files[0].src,
     media: files
   });
 }

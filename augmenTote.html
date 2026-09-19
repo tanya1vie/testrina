@@ -13,13 +13,13 @@
     :root{--augment-red:#d92d2d;--augment-cream:#f5e8bf}
     body.locked #header{filter:none!important;pointer-events:auto!important;user-select:auto!important;opacity:1!important;position:relative;z-index:10001}
     body.locked .password-overlay{z-index:9999}
-    .augmentote-page{max-width:1040px;margin:0 auto;padding:30px 22px 110px}
+    .augmentote-page{width:min(100% - 40px,var(--max-content-width));max-width:var(--max-content-width);margin:0 auto;padding:30px 0 110px}
     .augmentote-section{display:block!important;margin:82px 0}
     .augmentote-section:first-child{margin-top:40px}
     .augmentote-kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--augment-red);font-weight:700;margin:0 0 10px}
     .augmentote-section h2{font-size:28px;line-height:1.15;letter-spacing:.05em;margin:0 0 18px}
     .augmentote-section h3{font-size:17px;margin:0 0 10px}
-    .augmentote-lede{max-width:760px;font-size:20px;line-height:1.45}
+    .augmentote-lede{max-width:none;font-size:20px;line-height:1.45}
     .augmentote-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
     .augmentote-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
     .augmentote-card{border:1px solid #111;border-radius:26px;padding:24px 22px;background:#fff;box-shadow:7px 7px 0 #111}
@@ -27,7 +27,7 @@
     .augmentote-workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step;margin:28px 0}
     .augmentote-step{border-top:1px solid #111;padding-top:10px;min-height:72px}
     .augmentote-step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--augment-red);font-size:24px;font-weight:700}
-    .augmentote-band{background:var(--augment-red);color:var(--augment-cream);padding:46px 34px;margin:90px -22px 58px}
+    .augmentote-band{background:var(--augment-red);color:var(--augment-cream);padding:46px 34px;margin:90px 0 58px;box-sizing:border-box}
     .augmentote-band p{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
     .augmentote-band h2{font-size:42px;line-height:1.04;margin:0}
     .augmentote-feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 44px;padding:0;list-style:none;margin:28px 0}
@@ -40,8 +40,8 @@
     .augmentote-image-sequence .augmentote-full{display:grid!important;grid-template-columns:minmax(0,1fr) 60px!important;column-gap:10px!important;width:100%!important;max-width:none!important;min-width:0!important;clear:both!important;float:none!important;margin:28px 0 48px!important}
     .augmentote-image-sequence .augmentote-full>img{display:block!important;grid-column:1!important;width:100%!important;max-width:100%!important;height:auto!important;object-fit:contain!important;margin:0!important}
     .augmentote-image-sequence .augmentote-full>.auto-project-caption{display:block!important;grid-column:2!important;width:60px!important}
-    .augmentote-text-break{max-width:760px;margin:50px 0 20px}
-    @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{padding-left:16px;padding-right:16px}}
+    .augmentote-text-break{max-width:none;width:100%;margin:50px 0 20px}
+    @media(max-width:760px){.augmentote-grid-2,.augmentote-grid-3,.augmentote-tech-flow{grid-template-columns:1fr}.augmentote-workflow{grid-template-columns:1fr 1fr}.augmentote-feature-list{grid-template-columns:1fr}.augmentote-band{margin-left:-12px;margin-right:-12px;padding:34px 22px}.augmentote-band h2{font-size:31px}.augmentote-page{width:min(100% - 32px,var(--max-content-width));padding-left:0;padding-right:0}}
   </style>
 </head>
 <body>
@@ -59,7 +59,7 @@
     <div class="detail-column"><h2 class="detail-title">SOFTWARE + HARDWARE</h2><p>Unity3D, C#, Magic Leap 2, mixed-reality prototyping</p></div>
   </section>
 
-  <div class="augmentote-page">
+  <div class="augmentote-page project-aligned-content">
     <section class="augmentote-section">
       <p class="augmentote-kicker">Background</p>
       <h2>Why mixed reality?</h2>

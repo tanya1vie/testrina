@@ -149,7 +149,7 @@ main.main {
 
 .project-booklet-section h2 {
   margin: 0 0 24px;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.18em;
@@ -339,4 +339,11 @@ main.main {
 @media (prefers-reduced-motion: reduce) {
   .magazine-page.flip-forward,
   .magazine-page.flip-backward { animation-duration: 1ms; }
+}
+
+
+/* Keep booklet intro copy aligned to the left on every project page. */
+.project-booklet-section > h2,
+.project-booklet-section > p {
+  text-align: left;
 }

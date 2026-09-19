@@ -52,7 +52,7 @@
       }
     }
 
-    return output.charAt(0).toLowerCase() + output.slice(1);
+    return output.charAt(0).toUpperCase() + output.slice(1);
   }
 
   function existingCaptionFor(img, figure) {

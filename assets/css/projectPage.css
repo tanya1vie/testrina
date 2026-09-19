@@ -1239,3 +1239,10 @@ body.locked .password-overlay { z-index: 9999; }
   width: 100%;
   max-width: 100%;
 }
+
+
+/* Single full-width figure measure includes the 60px caption column. */
+.project-images > .auto-project-figure:not(.auto-project-pair-left):not(.auto-project-pair-right) {
+  width: 100%;
+  max-width: 900px;
+}

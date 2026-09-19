@@ -35,7 +35,7 @@
   --accent-color: #F2914B;
   --bg-color: #fff;
   --header-height: 63px;
-  --max-content-width: 900px;
+  --max-content-width: 1000px;
   --section-spacing: 74px;
 }
 
@@ -93,7 +93,7 @@
 /* Gallery */
 .gallery-wrapper {
   position: relative;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 24px 0;
 }
@@ -379,7 +379,7 @@ img {
 }
 
 .project-images {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -472,7 +472,7 @@ img {
   display: flex;
   gap: 30px;
   /* wider gap */
-  max-width: 900px;
+  max-width: 1000px;
   margin: 30px auto 0;
 }
 
@@ -519,7 +519,7 @@ img {
 .centered-video {
   width: 100%;
   /* make it narrower */
-  max-width: 900px;
+  max-width: 1000px;
   /* optional max size */
   display: block;
   /* ensures margin works */
@@ -756,7 +756,7 @@ img {
 }
 
 .video-wrapper {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 40px auto;
   aspect-ratio: 16/9;
   position: relative;
@@ -1238,4 +1238,11 @@ body.locked .password-overlay { z-index: 9999; }
 .project-images > figure.auto-project-figure > img {
   width: 100%;
   max-width: 100%;
+}
+
+
+/* Single full-width figure measure includes the 60px caption column. */
+.project-images > .auto-project-figure:not(.auto-project-pair-left):not(.auto-project-pair-right) {
+  width: 100%;
+  max-width: 900px;
 }

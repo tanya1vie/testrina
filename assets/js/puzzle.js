@@ -85,9 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const VIEWBOX_H = 320;
 
   mount.innerHTML = `
-    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" role="group" aria-labelledby="puzzle-title puzzle-description">
-      <title id="puzzle-title">Portfolio disciplines</title>
-      <desc id="puzzle-description">Five animated shapes link to Spatial Design, Industrial Design, Interaction Design, Writing, and Ceramics.</desc>
+    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" aria-hidden="true" focusable="false">
       <defs id="defs"></defs>
       <g id="layer"></g>
     </svg>
@@ -241,10 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fill: s.color,
       class: "puzzle-bubble",
       "data-i": String(i),
-      role: "link",
-      tabindex: "0",
-      focusable: "true",
-      "aria-label": `${s.name} — ${s.ringText.replaceAll(" · ", ", ")}`
+      focusable: "false"
     });
 
     const stripe = createSVG("line", {

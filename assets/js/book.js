@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const label = container.dataset.label || '';
     const sourceImages = Array.from(container.querySelectorAll('img'));
     const imagePaths = sourceImages.map(img => img.getAttribute('src')).filter(Boolean);
-    const imageAlts = sourceImages.map(img => img.getAttribute('alt') || '');
     if (!imagePaths.length) return;
 
     container.className = 'magazine-booklet-wrap';
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         verso.style.backgroundImage = '';
         recto.style.backgroundImage = `url('${imagePaths[0]}')`;
         verso.setAttribute('aria-label', 'Blank inside cover');
-        recto.setAttribute('aria-label', imageAlts[0] || label);
+        recto.setAttribute('aria-label', label ? `${label} cover` : 'Booklet cover');
         status.textContent = 'Cover';
       } else {
         book.classList.remove('is-cover');
@@ -94,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightSrc = imagePaths[rightIndex] || '';
         verso.style.backgroundImage = leftSrc ? `url('${leftSrc}')` : '';
         recto.style.backgroundImage = rightSrc ? `url('${rightSrc}')` : '';
-        verso.setAttribute('aria-label', imageAlts[leftIndex] || 'Blank verso');
-        recto.setAttribute('aria-label', imageAlts[rightIndex] || 'Blank recto');
+        verso.setAttribute('aria-label', leftSrc ? `Booklet page ${leftIndex + 1}` : 'Blank verso');
+        recto.setAttribute('aria-label', rightSrc ? `Booklet page ${rightIndex + 1}` : 'Blank recto');
         const lastVisible = Math.min(rightIndex + 1, imagePaths.length);
         status.textContent = `Pages ${leftIndex + 1}–${lastVisible} of ${imagePaths.length}`;
       }

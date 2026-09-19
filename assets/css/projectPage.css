@@ -35,7 +35,7 @@
   --accent-color: #F2914B;
   --bg-color: #fff;
   --header-height: 63px;
-  --max-content-width: 1000px;
+  --max-content-width: 900px;
   --section-spacing: 74px;
 }
 
@@ -93,7 +93,7 @@
 /* Gallery */
 .gallery-wrapper {
   position: relative;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 24px 0;
 }
@@ -379,7 +379,7 @@ img {
 }
 
 .project-images {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -472,7 +472,7 @@ img {
   display: flex;
   gap: 30px;
   /* wider gap */
-  max-width: 1000px;
+  max-width: 900px;
   margin: 30px auto 0;
 }
 
@@ -519,7 +519,7 @@ img {
 .centered-video {
   width: 100%;
   /* make it narrower */
-  max-width: 1000px;
+  max-width: 900px;
   /* optional max size */
   display: block;
   /* ensures margin works */
@@ -756,7 +756,7 @@ img {
 }
 
 .video-wrapper {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 40px auto;
   aspect-ratio: 16/9;
   position: relative;

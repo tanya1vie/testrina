@@ -1219,3 +1219,23 @@ body.locked .password-overlay { z-index: 9999; }
   margin-right: auto;
   box-sizing: border-box;
 }
+
+
+/* Ensure runtime-wrapped full-width project figures actually follow the
+   same measure as project copy. projectFigures.js wraps images in
+   .auto-project-figure, so target the wrapper rather than only the img. */
+.project-images > .auto-project-figure,
+.project-images > figure.auto-project-figure,
+.project-images > figure:not(.auto-project-pair-left):not(.auto-project-pair-right) {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.project-images > .auto-project-figure > img,
+.project-images > figure.auto-project-figure > img {
+  width: 100%;
+  max-width: 100%;
+}

@@ -952,3 +952,89 @@ img {
     font-size: 16px;
   }
 }
+
+
+/* Shared slow-scrolling image gallery.
+   Markup: .auto-scroll-gallery > .auto-scroll-track > figure.auto-scroll-item
+   Duplicate the item set once inside the track for a seamless loop. */
+.auto-scroll-gallery {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.auto-scroll-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  align-items: flex-start;
+  animation: project-gallery-scroll 80s linear infinite;
+  will-change: transform;
+}
+
+.auto-scroll-gallery:hover .auto-scroll-track {
+  animation-play-state: paused;
+}
+
+.auto-scroll-item {
+  flex: 0 0 auto;
+  width: clamp(260px, 38vw, 480px);
+  margin: 0;
+}
+
+.auto-scroll-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.auto-scroll-item figcaption {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: left;
+  color: #555;
+}
+
+@keyframes project-gallery-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 10px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto-scroll-gallery {
+    overflow-x: auto;
+  }
+
+  .auto-scroll-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .auto-scroll-item {
+    width: 78vw;
+  }
+}
+
+/* Shared alignment for project body copy and full-width media. */
+.project-aligned-content {
+  width: min(100% - 40px, var(--max-content-width));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-aligned-content > p,
+.project-aligned-content > h2,
+.project-aligned-content > h3,
+.project-aligned-content > ul,
+.project-aligned-content > ol,
+.project-aligned-content > blockquote,
+.project-aligned-content > figure,
+.project-aligned-content > .full-width {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}

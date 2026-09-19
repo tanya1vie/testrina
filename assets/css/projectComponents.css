@@ -347,3 +347,13 @@ main.main {
 .project-booklet-section > p {
   text-align: left;
 }
+
+
+/* Booklet descriptive copy always follows the left edge of its section. */
+.project-booklet-section p {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left !important;
+}

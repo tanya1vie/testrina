@@ -62,14 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!imagePaths.length) return;
 
     container.className = 'magazine-booklet-wrap';
-    container.innerHTML = `<button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet" role="group"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button><p class="magazine-booklet-status" aria-live="polite"></p>`;
+    container.innerHTML = `<button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet" role="group"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button>`;
 
     const book = container.querySelector('.magazine-booklet');
     const verso = container.querySelector('.magazine-page.verso');
     const recto = container.querySelector('.magazine-page.recto');
     const prev = container.querySelector('.magazine-booklet-arrow.prev');
     const next = container.querySelector('.magazine-booklet-arrow.next');
-    const status = container.querySelector('.magazine-booklet-status');
     if (label) book.setAttribute('aria-label', label);
 
     let spreadIndex = 0;
@@ -83,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         recto.style.backgroundImage = `url('${imagePaths[0]}')`;
         verso.setAttribute('aria-label', 'Blank inside cover');
         recto.setAttribute('aria-label', label ? `${label} cover` : 'Booklet cover');
-        status.textContent = 'Cover';
       } else {
         book.classList.remove('is-cover');
         const pairIndex = spreadIndex - 1;
@@ -95,8 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         recto.style.backgroundImage = rightSrc ? `url('${rightSrc}')` : '';
         verso.setAttribute('aria-label', leftSrc ? `Booklet page ${leftIndex + 1}` : 'Blank verso');
         recto.setAttribute('aria-label', rightSrc ? `Booklet page ${rightIndex + 1}` : 'Blank recto');
-        const lastVisible = Math.min(rightIndex + 1, imagePaths.length);
-        status.textContent = `Pages ${leftIndex + 1}–${lastVisible} of ${imagePaths.length}`;
       }
       prev.disabled = spreadIndex === 0;
       next.disabled = spreadIndex >= spreadCount;

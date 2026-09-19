@@ -44,24 +44,33 @@ const nativeMigratedPages = [
 ];
 
 const requiredPaths = [
+  ".github/workflows/build-nail-gallery.yml",
   "assets/css/base.css",
-  "assets/data/instagram-posts.json",
+  "assets/css/nailGallery.css",
+  "assets/data/nails.csv",
+  "assets/data/nails-gallery.json",
   "assets/js/cursor.js",
-  "docs/instagram-setup.md",
+  "assets/js/nailGallery.js",
+  "docs/NAIL_GALLERY.md",
   "header.html",
   "head-above-water-main/index.html",
   "footer.html",
   "index.html",
   "projects/head-above-water/index.html",
-  "tools/sync-instagram.mjs"
+  "tools/build-nail-gallery.mjs"
 ];
 
 const retiredPaths = [
+  ".github/workflows/sync-instagram.yml",
+  "assets/data/instagram-posts.json",
+  "assets/js/instagramGallery.js",
   "CSS Files",
   "JavaScript Files",
   "Nail content",
   "data/instagram-posts.json",
-  "scripts/sync-instagram.mjs"
+  "docs/instagram-setup.md",
+  "scripts/sync-instagram.mjs",
+  "tools/sync-instagram.mjs"
 ];
 
 async function exists(path) {
@@ -201,10 +210,11 @@ await Promise.all(maintainedPages.map(validateHtml));
 
 const sharedTextFiles = [
   ...maintainedPages,
-  join(root, ".github/workflows/sync-instagram.yml"),
-  join(root, "assets/js/instagramGallery.js"),
-  join(root, "docs/instagram-setup.md"),
-  join(root, "tools/sync-instagram.mjs")
+  join(root, ".github/workflows/build-nail-gallery.yml"),
+  join(root, "assets/js/nailGallery.js"),
+  join(root, "docs/NAIL_GALLERY.md"),
+  join(root, "tools/build-nail-gallery.mjs"),
+  join(root, "assets/data/nails.csv")
 ];
 const retiredReferences = [
   "CSS Files/",
@@ -235,7 +245,13 @@ for (const path of [...browserScripts, ...maintenanceScripts]) {
   }
 }
 
-JSON.parse(await readFile(join(root, "assets/data/instagram-posts.json"), "utf8"));
+const nailGalleryData = JSON.parse(await readFile(join(root, "assets/data/nails-gallery.json"), "utf8"));
+if (!Array.isArray(nailGalleryData.sets)) failures.push("Nail gallery data must contain a sets array");
+
+const nailSpreadsheet = await readFile(join(root, "assets/data/nails.csv"), "utf8");
+if (!nailSpreadsheet.startsWith("id,folder,name,size,collection,client,instagram_url,caption,video_caption")) {
+  failures.push("Nail spreadsheet has an unexpected header");
+}
 
 const homePage = await readFile(join(root, "index.html"), "utf8");
 const homeScript = await readFile(join(root, "assets/js/puzzle.js"), "utf8");

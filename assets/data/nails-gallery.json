@@ -1,0 +1,714 @@
+{
+  "generated_at": "2026-09-19T20:05:03.855Z",
+  "sets": [
+    {
+      "id": "25",
+      "folder": "Dave the Diver",
+      "name": "Dave the Diver",
+      "size": "Custom",
+      "shape": "",
+      "collection": "Media Inspired",
+      "client": "Shengnan - received",
+      "instagram_url": "",
+      "caption": "A custom set for @shengnan! As an avid @DavetheDiver player, she requested a set themed around this fishing and cooking game.\n\nFeaturing some heat-reactive glitter, this set is perfect for summer!",
+      "cover": "Images/Nails/Dave%20the%20Diver/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Dave%20the%20Diver/cover.png",
+          "name": "cover.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Dave%20the%20Diver/dave1.png",
+          "name": "dave1.png"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "folder": "Tennis",
+      "name": "Tennis",
+      "size": "M",
+      "shape": "XShort Oval",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "🎾 Serving a fresh set for the US Open 🎾",
+      "cover": "Images/Nails/Tennis/cover.jpg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/cover.jpg",
+          "name": "cover.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%201.jpg",
+          "name": "Tennis 1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%202.jpg",
+          "name": "Tennis 2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%204.jpg",
+          "name": "Tennis 4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%205.jpg",
+          "name": "Tennis 5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%206.jpg",
+          "name": "Tennis 6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%207.jpg",
+          "name": "Tennis 7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%208.jpg",
+          "name": "Tennis 8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Tennis/Tennis%209.jpg",
+          "name": "Tennis 9.jpg"
+        },
+        {
+          "type": "video",
+          "src": "Images/Nails/Tennis/0829%20(1)(1).mov",
+          "name": "0829 (1)(1).mov"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "folder": "Japanese Art",
+      "name": "Japanese Art",
+      "size": "S",
+      "shape": "",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Japanese%20Art/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5411.jpeg",
+          "name": "IMG_5411.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5424.jpeg",
+          "name": "IMG_5424.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Japanese%20Art/IMG_5450.jpeg",
+          "name": "IMG_5450.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "folder": "Monet Lillies",
+      "name": "Money Lillies",
+      "size": "S",
+      "shape": "",
+      "collection": "Artist Feature",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Monet%20Lillies/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/IMG_5498.jpeg",
+          "name": "IMG_5498.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Monet%20Lillies/IMG_5510.jpeg",
+          "name": "IMG_5510.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "folder": "Maine",
+      "name": "Maine",
+      "size": "S",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Maine/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_4643.JPG",
+          "name": "IMG_4643.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_4684.JPG",
+          "name": "IMG_4684.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_6510.JPG",
+          "name": "IMG_6510.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_6533.JPG",
+          "name": "IMG_6533.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_6548.JPG",
+          "name": "IMG_6548.JPG"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "folder": "Peterson Museum",
+      "name": "Petersen Cars",
+      "size": "S",
+      "shape": "Short Coffin",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DZokp3IAOrk/",
+      "caption": "🚙 A nail set for the journey 🚗\n\nWhile visiting the @petersenmuseum, I painted this nail set on site!",
+      "cover": "Images/Nails/Peterson%20Museum/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/cover.png",
+          "name": "cover.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/IMG_4410.jpeg",
+          "name": "IMG_4410.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/IMG_4427.jpeg",
+          "name": "IMG_4427.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/IMG_4433.jpeg",
+          "name": "IMG_4433.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/IMG_4448.jpeg",
+          "name": "IMG_4448.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/peterson%202.png",
+          "name": "peterson 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/peterson%203.png",
+          "name": "peterson 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Peterson%20Museum/Peterson%204.png",
+          "name": "Peterson 4.png"
+        },
+        {
+          "type": "video",
+          "src": "Images/Nails/Peterson%20Museum/Glam%20shots.mp4",
+          "name": "Glam shots.mp4"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "folder": "In Full Bloom",
+      "name": "In Bloom",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/Da_Xw6cFfqA/",
+      "caption": "💐 “Florals? Groundbreaking” 💐 — Miranda Priestly\n\nThrowback to when this set was painted live at @mfaboston’s In Full Bloom event.",
+      "cover": "Images/Nails/In%20Full%20Bloom/cover.jpg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/cover.jpg",
+          "name": "cover.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%201.png",
+          "name": "In Bloom 1.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%202.png",
+          "name": "In Bloom 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%203.png",
+          "name": "In Bloom 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%204.png",
+          "name": "In Bloom 4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%205.png",
+          "name": "In Bloom 5.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/In%20Full%20Bloom/In%20Bloom%206.png",
+          "name": "In Bloom 6.png"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "folder": "Love Letter",
+      "name": "Love Letter",
+      "size": "S",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+          "name": "IMG_4784.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "folder": "Porcelain Statues",
+      "name": "Porcelain Statues",
+      "size": "S",
+      "shape": "",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Porcelain%20Statues/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/IMG_5486.jpeg",
+          "name": "IMG_5486.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "folder": "Secret Garden",
+      "name": "Secret Garden",
+      "size": "S",
+      "shape": "",
+      "collection": "Media Inspired",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Secret%20Garden/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7185.jpeg",
+          "name": "IMG_7185.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7218.jpeg",
+          "name": "IMG_7218.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Secret%20Garden/IMG_7246.jpeg",
+          "name": "IMG_7246.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "folder": "Bridgerton",
+      "name": "Bridgerton",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "Media Inspired",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/reel/DVP0M3pgP2h/",
+      "caption": "🐝 “Dearest gentle reader…” 🐝\n\nIn honor of S2 wrapping up, here is my rendition of the Bridgerton nails! Complete with Sophie’s mask and inspired by the version by the Pamper Nail Gallery.",
+      "cover": "Images/Nails/Bridgerton/cover.PNG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Bridgerton/cover.PNG",
+          "name": "cover.PNG"
+        },
+        {
+          "type": "video",
+          "src": "Images/Nails/Bridgerton/Bridgerton.MP4",
+          "name": "Bridgerton.MP4"
+        },
+        {
+          "type": "video",
+          "src": "Images/Nails/Bridgerton/e256ccc24cde4bceaeabd7a236a9d6c3.MOV",
+          "name": "e256ccc24cde4bceaeabd7a236a9d6c3.MOV"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "folder": "Shadow Figures",
+      "name": "Shadow Figures",
+      "size": "S",
+      "shape": "",
+      "collection": "Spooky Season",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Shadow%20Figures/cover.jpg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Shadow%20Figures/cover.jpg",
+          "name": "cover.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Shadow%20Figures/IMG_6448.jpg",
+          "name": "IMG_6448.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Shadow%20Figures/Shadow%20figures%201.jpg",
+          "name": "Shadow figures 1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "folder": "Winter Ice",
+      "name": "Winter Ice",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "Winter Season",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DU2SqOkABmB/",
+      "caption": "❄️ Nails inspired by the recent snowstorms! ☃️",
+      "cover": "Images/Nails/Winter%20Ice/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Winter%20Ice/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Winter%20Ice/F633A1A1-20A1-4559-BCFE-FA81982347C5.JPG",
+          "name": "F633A1A1-20A1-4559-BCFE-FA81982347C5.JPG"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "folder": "No",
+      "name": "No",
+      "size": "S",
+      "shape": "XShort Squoval",
+      "collection": "Winter Season",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DVEhCZpjr7j/",
+      "caption": "👕 In honor of the snowstorm later today…. sweater nails! 👕\n\nThis set was really challenging as I was trying a lot of new techniques.",
+      "cover": "Images/Nails/No/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/No/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/No/IMG_6389.jpg",
+          "name": "IMG_6389.jpg"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "folder": "Red Velvet",
+      "name": "Red Velvet",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DU7fwgegK9-/",
+      "caption": "♥️ Velvet cabaret nails for Valentine’s Day! ♥️",
+      "cover": "Images/Nails/Red%20Velvet/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Velvet/013900A2-07E2-4209-A205-1A27E951BC74.JPG",
+          "name": "013900A2-07E2-4209-A205-1A27E951BC74.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Velvet/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Velvet/IMG_6277.JPG",
+          "name": "IMG_6277.JPG"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "folder": "Citrus",
+      "name": "Citrus",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DZyT3fqgIPV/",
+      "caption": "🍋 When life gives you lemons….. wear them! 🍋💁‍♀️\n\nJust a fun juicy set for the summer!",
+      "cover": "Images/Nails/Citrus/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%202.png",
+          "name": "Cirtrus 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%203.png",
+          "name": "Cirtrus 3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/Cirtrus%204.png",
+          "name": "Cirtrus 4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Citrus/cover.png",
+          "name": "cover.png"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "folder": "Jeans",
+      "name": "Jeans",
+      "size": "S",
+      "shape": "XShort Squoval",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/reel/DVfBLC6AJQ7/",
+      "caption": "👖 Nails to match your Canadian tuxedo! 🇨🇦\n\nFun fact: the Jean texture here is a print of my fingerprint!",
+      "cover": "Images/Nails/Jeans/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Jeans/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Jeans/IMG_6761.JPG",
+          "name": "IMG_6761.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Jeans/IMG_6764.JPG",
+          "name": "IMG_6764.JPG"
+        },
+        {
+          "type": "video",
+          "src": "Images/Nails/Jeans/jean%20nails.MP4",
+          "name": "jean nails.MP4"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "folder": "Vintage Manuscript",
+      "name": "Vintage Manuscript",
+      "size": "Custom",
+      "shape": "",
+      "collection": "",
+      "client": "Katrina - received",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Vintage%20Manuscript/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Vintage%20Manuscript/cover.JPG",
+          "name": "cover.JPG"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "folder": "Mermaid Nails",
+      "name": "Mermaid Nails",
+      "size": "Custom",
+      "shape": "",
+      "collection": "",
+      "client": "Lena - received",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Mermaid%20Nails/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG",
+          "name": "att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG",
+          "name": "att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG",
+          "name": "att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/IMG_6353.JPG",
+          "name": "IMG_6353.JPG"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "folder": "Fine China",
+      "name": "Fine China",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "Geometric Series",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DVB2wEVgB4w/",
+      "caption": "🏺 Fine China nail set! This was the first set I ever made! 🏺",
+      "cover": "Images/Nails/Fine%20China/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Fine%20China/7D8735AA-1127-4BF8-8B7A-43500F5F24A5.JPG",
+          "name": "7D8735AA-1127-4BF8-8B7A-43500F5F24A5.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Fine%20China/cover.JPG",
+          "name": "cover.JPG"
+        }
+      ]
+    },
+    {
+      "id": "Huntington Gardens",
+      "folder": "Huntington Gardens",
+      "name": "Huntington Gardens",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Huntington%20Gardens/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_3991.jpeg",
+          "name": "IMG_3991.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_7263.jpeg",
+          "name": "IMG_7263.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_7311.jpeg",
+          "name": "IMG_7311.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_8307.JPG",
+          "name": "IMG_8307.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_8312.jpeg",
+          "name": "IMG_8312.jpeg"
+        }
+      ]
+    }
+  ]
+}

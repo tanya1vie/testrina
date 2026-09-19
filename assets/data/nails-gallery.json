@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T10:17:14.959Z",
+  "generated_at": "2026-09-19T19:44:16.716Z",
   "sets": [
     {
       "id": "25",
@@ -280,6 +280,30 @@
       ]
     },
     {
+      "id": "13",
+      "folder": "Porcelain Statues",
+      "name": "Porcelain Statues",
+      "size": "S",
+      "shape": "",
+      "collection": "Museum Feature",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Porcelain%20Statues/cover.jpeg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/cover.jpeg",
+          "name": "cover.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/IMG_5486.jpeg",
+          "name": "IMG_5486.jpeg"
+        }
+      ]
+    },
+    {
       "id": "12",
       "folder": "Secret Garden",
       "name": "Secret Garden",
@@ -435,26 +459,70 @@
       ]
     },
     {
-      "id": "Porcelain Statues ",
-      "folder": "Porcelain Statues ",
-      "name": "Porcelain Statues ",
+      "id": "Huntington Gardens",
+      "folder": "Huntington Gardens",
+      "name": "Huntington Gardens",
       "size": "",
       "shape": "",
       "collection": "",
       "client": "",
       "instagram_url": "",
       "caption": "",
-      "cover": "Images/Nails/Porcelain%20Statues%20/cover.jpeg",
+      "cover": "Images/Nails/Huntington%20Gardens/cover.jpeg",
       "media": [
         {
           "type": "image",
-          "src": "Images/Nails/Porcelain%20Statues%20/cover.jpeg",
+          "src": "Images/Nails/Huntington%20Gardens/cover.jpeg",
           "name": "cover.jpeg"
         },
         {
           "type": "image",
-          "src": "Images/Nails/Porcelain%20Statues%20/IMG_5486.jpeg",
-          "name": "IMG_5486.jpeg"
+          "src": "Images/Nails/Huntington%20Gardens/IMG_3991.jpeg",
+          "name": "IMG_3991.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_7263.jpeg",
+          "name": "IMG_7263.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_7311.jpeg",
+          "name": "IMG_7311.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_8307.JPG",
+          "name": "IMG_8307.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Huntington%20Gardens/IMG_8312.jpeg",
+          "name": "IMG_8312.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "Sweaters",
+      "folder": "Sweaters",
+      "name": "Sweaters",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Sweaters/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Sweaters/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Sweaters/IMG_6389.jpg",
+          "name": "IMG_6389.jpg"
         }
       ]
     }

@@ -1202,3 +1202,40 @@ body.locked .password-overlay { z-index: 9999; }
   .augmentote-band h2 { font-size: 31px; }
   .augmentote-page { padding-left: 16px; padding-right: 16px; }
 }
+
+
+/* Keep project-page text and full-width media on the same measure. */
+.project-images {
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.project-images > .project-copy-section,
+.project-images > img,
+.project-images > figure {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+
+/* Ensure runtime-wrapped full-width project figures actually follow the
+   same measure as project copy. projectFigures.js wraps images in
+   .auto-project-figure, so target the wrapper rather than only the img. */
+.project-images > .auto-project-figure,
+.project-images > figure.auto-project-figure,
+.project-images > figure:not(.auto-project-pair-left):not(.auto-project-pair-right) {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.project-images > .auto-project-figure > img,
+.project-images > figure.auto-project-figure > img {
+  width: 100%;
+  max-width: 100%;
+}

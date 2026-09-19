@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T19:54:03.328Z",
+  "generated_at": "2026-09-19T20:05:03.855Z",
   "sets": [
     {
       "id": "25",
@@ -464,6 +464,59 @@
       ]
     },
     {
+      "id": "8",
+      "folder": "No",
+      "name": "No",
+      "size": "S",
+      "shape": "XShort Squoval",
+      "collection": "Winter Season",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DVEhCZpjr7j/",
+      "caption": "👕 In honor of the snowstorm later today…. sweater nails! 👕\n\nThis set was really challenging as I was trying a lot of new techniques.",
+      "cover": "Images/Nails/No/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/No/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/No/IMG_6389.jpg",
+          "name": "IMG_6389.jpg"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "folder": "Red Velvet",
+      "name": "Red Velvet",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DU7fwgegK9-/",
+      "caption": "♥️ Velvet cabaret nails for Valentine’s Day! ♥️",
+      "cover": "Images/Nails/Red%20Velvet/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Velvet/013900A2-07E2-4209-A205-1A27E951BC74.JPG",
+          "name": "013900A2-07E2-4209-A205-1A27E951BC74.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Velvet/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Velvet/IMG_6277.JPG",
+          "name": "IMG_6277.JPG"
+        }
+      ]
+    },
+    {
       "id": "6",
       "folder": "Citrus",
       "name": "Citrus",
@@ -551,6 +604,45 @@
       ]
     },
     {
+      "id": "2",
+      "folder": "Mermaid Nails",
+      "name": "Mermaid Nails",
+      "size": "Custom",
+      "shape": "",
+      "collection": "",
+      "client": "Lena - received",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Mermaid%20Nails/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG",
+          "name": "att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG",
+          "name": "att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG",
+          "name": "att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Nails/IMG_6353.JPG",
+          "name": "IMG_6353.JPG"
+        }
+      ]
+    },
+    {
       "id": "1",
       "folder": "Fine China",
       "name": "Fine China",
@@ -615,98 +707,6 @@
           "type": "image",
           "src": "Images/Nails/Huntington%20Gardens/IMG_8312.jpeg",
           "name": "IMG_8312.jpeg"
-        }
-      ]
-    },
-    {
-      "id": "Mermaid Princess",
-      "folder": "Mermaid Princess",
-      "name": "Mermaid Princess",
-      "size": "",
-      "shape": "",
-      "collection": "",
-      "client": "",
-      "instagram_url": "",
-      "caption": "",
-      "cover": "Images/Nails/Mermaid%20Princess/cover.JPG",
-      "media": [
-        {
-          "type": "image",
-          "src": "Images/Nails/Mermaid%20Princess/att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG",
-          "name": "att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Mermaid%20Princess/att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG",
-          "name": "att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Mermaid%20Princess/att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG",
-          "name": "att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Mermaid%20Princess/cover.JPG",
-          "name": "cover.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Mermaid%20Princess/IMG_6353.JPG",
-          "name": "IMG_6353.JPG"
-        }
-      ]
-    },
-    {
-      "id": "Red Cabaret",
-      "folder": "Red Cabaret",
-      "name": "Red Cabaret",
-      "size": "",
-      "shape": "",
-      "collection": "",
-      "client": "",
-      "instagram_url": "",
-      "caption": "",
-      "cover": "Images/Nails/Red%20Cabaret/cover.JPG",
-      "media": [
-        {
-          "type": "image",
-          "src": "Images/Nails/Red%20Cabaret/013900A2-07E2-4209-A205-1A27E951BC74.JPG",
-          "name": "013900A2-07E2-4209-A205-1A27E951BC74.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Red%20Cabaret/cover.JPG",
-          "name": "cover.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Red%20Cabaret/IMG_6277.JPG",
-          "name": "IMG_6277.JPG"
-        }
-      ]
-    },
-    {
-      "id": "Sweaters",
-      "folder": "Sweaters",
-      "name": "Sweaters",
-      "size": "",
-      "shape": "",
-      "collection": "",
-      "client": "",
-      "instagram_url": "",
-      "caption": "",
-      "cover": "Images/Nails/Sweaters/cover.JPG",
-      "media": [
-        {
-          "type": "image",
-          "src": "Images/Nails/Sweaters/cover.JPG",
-          "name": "cover.JPG"
-        },
-        {
-          "type": "image",
-          "src": "Images/Nails/Sweaters/IMG_6389.jpg",
-          "name": "IMG_6389.jpg"
         }
       ]
     }

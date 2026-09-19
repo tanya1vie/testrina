@@ -157,3 +157,64 @@
   .auto-project-pair-row.caption-side-left > .auto-project-pair-caption-column { grid-column: 3; }
   .image-row-equal-height { --image-pair-height: 34vw; gap: 14px; }
 }
+
+
+/* Keep caption typography identical even inside legacy media-grid rules. */
+.auto-project-figure > .auto-project-caption,
+.auto-project-pair-caption-column > .auto-project-caption {
+  font-family: 'Helvetica Light', sans-serif;
+  font-size: 10px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+/* Any row that contains exactly two figures uses one shared outer caption
+   column. The parent reserves the caption space so captions never sit
+   between the two images. */
+.auto-project-pair-parent {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.auto-project-pair-parent.caption-side-right {
+  padding-right: 70px !important;
+}
+
+.auto-project-pair-parent.caption-side-left {
+  padding-left: 70px !important;
+}
+
+.auto-project-pair-parent > .auto-project-figure.auto-project-paired > .auto-project-caption {
+  display: none !important;
+}
+
+.auto-project-pair-parent > .auto-project-pair-caption-column {
+  position: absolute;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1;
+}
+
+.auto-project-pair-parent.caption-side-right > .auto-project-pair-caption-column {
+  right: 0;
+}
+
+.auto-project-pair-parent.caption-side-left > .auto-project-pair-caption-column {
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .auto-project-pair-parent.caption-side-left,
+  .auto-project-pair-parent.caption-side-right {
+    padding-left: 0 !important;
+    padding-right: 70px !important;
+  }
+
+  .auto-project-pair-parent.caption-side-left > .auto-project-pair-caption-column,
+  .auto-project-pair-parent.caption-side-right > .auto-project-pair-caption-column {
+    left: auto;
+    right: 0;
+  }
+}

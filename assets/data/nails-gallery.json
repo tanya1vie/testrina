@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T19:44:16.716Z",
+  "generated_at": "2026-09-19T19:54:03.328Z",
   "sets": [
     {
       "id": "25",
@@ -149,6 +149,50 @@
           "type": "image",
           "src": "Images/Nails/Monet%20Lillies/IMG_5510.jpeg",
           "name": "IMG_5510.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "folder": "Maine",
+      "name": "Maine",
+      "size": "S",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Maine/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_4643.JPG",
+          "name": "IMG_4643.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_4684.JPG",
+          "name": "IMG_4684.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_6510.JPG",
+          "name": "IMG_6510.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_6533.JPG",
+          "name": "IMG_6533.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/IMG_6548.JPG",
+          "name": "IMG_6548.JPG"
         }
       ]
     },
@@ -367,6 +411,59 @@
       ]
     },
     {
+      "id": "10",
+      "folder": "Shadow Figures",
+      "name": "Shadow Figures",
+      "size": "S",
+      "shape": "",
+      "collection": "Spooky Season",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Shadow%20Figures/cover.jpg",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Shadow%20Figures/cover.jpg",
+          "name": "cover.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Shadow%20Figures/IMG_6448.jpg",
+          "name": "IMG_6448.jpg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Shadow%20Figures/Shadow%20figures%201.jpg",
+          "name": "Shadow figures 1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "folder": "Winter Ice",
+      "name": "Winter Ice",
+      "size": "S",
+      "shape": "Short Almond",
+      "collection": "Winter Season",
+      "client": "",
+      "instagram_url": "https://www.instagram.com/p/DU2SqOkABmB/",
+      "caption": "❄️ Nails inspired by the recent snowstorms! ☃️",
+      "cover": "Images/Nails/Winter%20Ice/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Winter%20Ice/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Winter%20Ice/F633A1A1-20A1-4559-BCFE-FA81982347C5.JPG",
+          "name": "F633A1A1-20A1-4559-BCFE-FA81982347C5.JPG"
+        }
+      ]
+    },
+    {
       "id": "6",
       "folder": "Citrus",
       "name": "Citrus",
@@ -435,6 +532,25 @@
       ]
     },
     {
+      "id": "3",
+      "folder": "Vintage Manuscript",
+      "name": "Vintage Manuscript",
+      "size": "Custom",
+      "shape": "",
+      "collection": "",
+      "client": "Katrina - received",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Vintage%20Manuscript/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Vintage%20Manuscript/cover.JPG",
+          "name": "cover.JPG"
+        }
+      ]
+    },
+    {
       "id": "1",
       "folder": "Fine China",
       "name": "Fine China",
@@ -499,6 +615,74 @@
           "type": "image",
           "src": "Images/Nails/Huntington%20Gardens/IMG_8312.jpeg",
           "name": "IMG_8312.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "Mermaid Princess",
+      "folder": "Mermaid Princess",
+      "name": "Mermaid Princess",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Mermaid%20Princess/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Princess/att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG",
+          "name": "att.aUhSscMiZcTd4I6hrHHYvvSnS4zfC6X8-ZjzFl-uuxw.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Princess/att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG",
+          "name": "att.qIWVoukorY3WPgqEe1q3WTMdTjqGiiYbi4pjYAENZZ8.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Princess/att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG",
+          "name": "att.VS-HQOPIqV7s6tihYonKdFgWyFRopalJoLSFOuFk-dI.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Princess/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Mermaid%20Princess/IMG_6353.JPG",
+          "name": "IMG_6353.JPG"
+        }
+      ]
+    },
+    {
+      "id": "Red Cabaret",
+      "folder": "Red Cabaret",
+      "name": "Red Cabaret",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Red%20Cabaret/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Cabaret/013900A2-07E2-4209-A205-1A27E951BC74.JPG",
+          "name": "013900A2-07E2-4209-A205-1A27E951BC74.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Cabaret/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Red%20Cabaret/IMG_6277.JPG",
+          "name": "IMG_6277.JPG"
         }
       ]
     },

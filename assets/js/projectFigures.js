@@ -92,10 +92,16 @@
 
   function clearPairClasses() {
     main.querySelectorAll('.auto-project-figure').forEach((figure) => {
-      figure.classList.remove('auto-project-pair-left', 'auto-project-pair-right', 'caption-side-left', 'caption-side-right');
+      figure.classList.remove(
+        'auto-project-pair-left',
+        'auto-project-pair-right',
+        'auto-project-paired',
+        'caption-side-left',
+        'caption-side-right'
+      );
     });
-    main.querySelectorAll('.auto-project-pair-row').forEach((parent) => {
-      parent.classList.remove('auto-project-pair-row', 'caption-side-left', 'caption-side-right');
+    main.querySelectorAll('.auto-project-pair-parent').forEach((parent) => {
+      parent.classList.remove('auto-project-pair-parent', 'caption-side-left', 'caption-side-right');
     });
     main.querySelectorAll('.auto-project-pair-caption-column').forEach((column) => column.remove());
   }
@@ -113,32 +119,63 @@
     });
 
     parents.forEach((parent) => {
-      const figures = Array.from(parent.children).filter((child) => child.classList?.contains('auto-project-figure'));
-      if (figures.length !== 2) return;
+      const figures = Array.from(parent.children)
+        .filter((child) => child.classList?.contains('auto-project-figure'));
+      if (figures.length < 2) return;
 
-      const firstRect = figures[0].getBoundingClientRect();
-      const secondRect = figures[1].getBoundingClientRect();
-      const sameRow = Math.abs(firstRect.top - secondRect.top) < 24 && secondRect.left > firstRect.left;
-      if (!sameRow) return;
+      const positioned = figures
+        .map((figure) => ({ figure, rect: figure.getBoundingClientRect() }))
+        .sort((a, b) => Math.abs(a.rect.top - b.rect.top) < 24
+          ? a.rect.left - b.rect.left
+          : a.rect.top - b.rect.top);
 
-      const side = captionSideFor(parent);
-      parent.classList.add('auto-project-pair-row', `caption-side-${side}`);
-      figures[0].classList.add('auto-project-pair-left');
-      figures[1].classList.add('auto-project-pair-right');
-
-      const column = document.createElement('div');
-      column.className = 'auto-project-pair-caption-column';
-      column.setAttribute('aria-label', 'Figure captions');
-
-      figures.forEach((figure) => {
-        const caption = figure.querySelector(':scope > .auto-project-caption');
-        if (!caption) return;
-        const copy = caption.cloneNode(true);
-        copy.classList.add('auto-project-pair-caption');
-        column.appendChild(copy);
+      const rows = [];
+      positioned.forEach((item) => {
+        const row = rows.find((candidate) => Math.abs(candidate.top - item.rect.top) < 24);
+        if (row) {
+          row.items.push(item);
+        } else {
+          rows.push({ top: item.rect.top, items: [item] });
+        }
       });
 
-      parent.appendChild(column);
+      const pairs = rows
+        .map((row) => ({
+          top: row.top,
+          items: row.items.sort((a, b) => a.rect.left - b.rect.left)
+        }))
+        .filter((row) =>
+          row.items.length === 2 &&
+          row.items[1].rect.left > row.items[0].rect.left + 8
+        );
+
+      if (!pairs.length) return;
+
+      const side = captionSideFor(parent);
+      parent.classList.add('auto-project-pair-parent', `caption-side-${side}`);
+
+      const parentRect = parent.getBoundingClientRect();
+
+      pairs.forEach((row) => {
+        const [left, right] = row.items.map((item) => item.figure);
+        left.classList.add('auto-project-paired', 'auto-project-pair-left');
+        right.classList.add('auto-project-paired', 'auto-project-pair-right');
+
+        const column = document.createElement('div');
+        column.className = 'auto-project-pair-caption-column';
+        column.setAttribute('aria-label', 'Figure captions');
+        column.style.top = `${Math.max(0, row.top - parentRect.top)}px`;
+
+        [left, right].forEach((figure) => {
+          const caption = figure.querySelector(':scope > .auto-project-caption');
+          if (!caption) return;
+          const copy = caption.cloneNode(true);
+          copy.classList.add('auto-project-pair-caption');
+          column.appendChild(copy);
+        });
+
+        parent.appendChild(column);
+      });
     });
   }
 

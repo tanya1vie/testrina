@@ -1202,3 +1202,20 @@ body.locked .password-overlay { z-index: 9999; }
   .augmentote-band h2 { font-size: 31px; }
   .augmentote-page { padding-left: 16px; padding-right: 16px; }
 }
+
+
+/* Keep project-page text and full-width media on the same measure. */
+.project-images {
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.project-images > .project-copy-section,
+.project-images > img,
+.project-images > figure {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}

@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const VIEWBOX_H = 320;
 
   mount.innerHTML = `
-    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 ${VIEWBOX_W} ${VIEWBOX_H}" role="group" aria-label="Work explorer">
       <defs id="defs"></defs>
       <g id="layer"></g>
     </svg>
@@ -239,7 +239,10 @@ document.addEventListener("DOMContentLoaded", () => {
       fill: s.color,
       class: "puzzle-bubble",
       "data-i": String(i),
-      focusable: "false"
+      role: "link",
+      tabindex: "0",
+      focusable: "true",
+      "aria-label": s.name
     });
 
     const stripe = createSVG("line", {

@@ -1255,12 +1255,12 @@ body.locked .password-overlay { z-index: 9999; }
 
 
 /* Scroll-linked horizontal story strip.
-   The section stays pinned while vertical scroll moves one continuous,
-   gapless horizontal sequence. */
+   The gallery fills the viewport before it pins. Vertical scroll then
+   advances the single gapless row horizontally until the final image. */
 .seamless-scroll-gallery {
   position: relative;
   width: 100vw;
-  margin: 72px calc(50% - 50vw);
+  margin: 72px calc(50% - 50vw) 0;
   padding: 0;
 }
 
@@ -1269,9 +1269,10 @@ body.locked .password-overlay { z-index: 9999; }
   top: 0;
   width: 100vw;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   padding: 0;
   margin: 0;
 }
@@ -1279,13 +1280,14 @@ body.locked .password-overlay { z-index: 9999; }
 .seamless-scroll-track {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
+  align-items: stretch;
   width: max-content;
   min-width: max-content;
+  height: 100%;
   gap: 0 !important;
   column-gap: 0 !important;
-  padding: 0;
-  margin: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
@@ -1293,10 +1295,10 @@ body.locked .password-overlay { z-index: 9999; }
 .seamless-scroll-item {
   display: block;
   flex: 0 0 auto;
-  height: min(74vh, 700px);
+  height: 100%;
   padding: 0 !important;
   margin: 0 !important;
-  border: 0;
+  border: 0 !important;
   line-height: 0;
 }
 
@@ -1305,9 +1307,10 @@ body.locked .password-overlay { z-index: 9999; }
   width: auto !important;
   max-width: none !important;
   height: 100% !important;
+  max-height: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  border: 0;
+  border: 0 !important;
   object-fit: contain;
   vertical-align: top;
 }
@@ -1322,15 +1325,12 @@ body.locked .password-overlay { z-index: 9999; }
   .seamless-scroll-sticky {
     position: static;
     width: max-content;
-    height: auto;
+    height: 100vh;
+    height: 100svh;
     overflow: visible;
   }
 
   .seamless-scroll-track {
     transform: none !important;
-  }
-
-  .seamless-scroll-item {
-    height: min(70vh, 620px);
   }
 }

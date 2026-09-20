@@ -1349,8 +1349,9 @@ body.locked .password-overlay { z-index: 9999; }
 
 
 /* Polysapien horizontal scroll story.
-   The gallery becomes a full-screen panel, stays pinned while vertical
-   scrolling moves the images horizontally, then releases at the end. */
+   This version does not rely on CSS sticky positioning. JavaScript explicitly
+   fixes the full-screen stage while the user scrolls through the horizontal
+   image sequence, then anchors it to the section bottom before releasing. */
 .horizontal-scroll-story {
   position: relative;
   width: 100vw;
@@ -1359,14 +1360,30 @@ body.locked .password-overlay { z-index: 9999; }
 }
 
 .horizontal-scroll-viewport {
-  position: sticky;
+  position: absolute;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   height: 100svh;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  z-index: 1;
+}
+
+.horizontal-scroll-story.is-pinned .horizontal-scroll-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.horizontal-scroll-story.is-ended .horizontal-scroll-viewport {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
 }
 
 .horizontal-scroll-track {
@@ -1374,17 +1391,19 @@ body.locked .password-overlay { z-index: 9999; }
   flex-flow: row nowrap;
   align-items: stretch;
   width: max-content;
+  min-width: max-content;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  gap: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  column-gap: 0 !important;
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
 .horizontal-scroll-track > img {
   display: block !important;
-  flex: 0 0 auto;
+  flex: 0 0 auto !important;
   width: auto !important;
   max-width: none !important;
   height: 100% !important;
@@ -1394,6 +1413,7 @@ body.locked .password-overlay { z-index: 9999; }
   border: 0 !important;
   border-radius: 0 !important;
   object-fit: contain;
+  vertical-align: top;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1402,7 +1422,9 @@ body.locked .password-overlay { z-index: 9999; }
     overflow-x: auto;
   }
 
-  .horizontal-scroll-viewport {
+  .horizontal-scroll-viewport,
+  .horizontal-scroll-story.is-pinned .horizontal-scroll-viewport,
+  .horizontal-scroll-story.is-ended .horizontal-scroll-viewport {
     position: static;
     width: max-content;
     height: 100vh;

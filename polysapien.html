@@ -63,9 +63,11 @@
         <figure class="wide"><img src="Images/Polysapien/Book_Layout_Large_Format38_edited.jpg" alt="Polysapien final illustrated spread" loading="lazy"></figure>
       </div>
 
-      <section class="seamless-scroll-gallery" aria-label="Polysapien sequential story gallery">
-        <div class="seamless-scroll-track">
-          <div class="seamless-scroll-item"><img data-no-figure-caption src="Images/Polysapien/Book_Pages/01.04%20page69.png" aria-hidden="true" alt="" data-duplicate="true" data-page="Polysapien story page 69" loading="lazy"></div>
+      <section class="seamless-scroll-gallery polysapien-scroll-story" aria-label="Polysapien sequential story gallery">
+        <div class="seamless-scroll-sticky">
+          <div class="seamless-scroll-track">
+
+          </div>
         </div>
       </section>
 
@@ -151,5 +153,62 @@
   <script src="assets/js/siteChrome.js"></script>
   <script src="assets/js/cursor.js"></script>
   <script src="assets/js/book.js"></script>
+  <script>
+    (() => {
+      const section = document.querySelector('.polysapien-scroll-story');
+      const sticky = section?.querySelector('.seamless-scroll-sticky');
+      const track = section?.querySelector('.seamless-scroll-track');
+      if (!section || !sticky || !track) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function measure() {
+        if (reduceMotion.matches) {
+          section.style.height = 'auto';
+          track.style.transform = '';
+          return;
+        }
+
+        const travel = Math.max(0, track.scrollWidth - sticky.clientWidth);
+        section.dataset.travel = String(travel);
+        section.style.height = `calc(100vh + ${travel}px)`;
+        update();
+      }
+
+      function update() {
+        if (reduceMotion.matches) return;
+        const travel = Number(section.dataset.travel || 0);
+        const rect = section.getBoundingClientRect();
+        const scrolled = Math.min(travel, Math.max(0, -rect.top));
+        track.style.transform = `translate3d(${-scrolled}px, 0, 0)`;
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      }, { passive: true });
+
+      window.addEventListener('resize', measure);
+      reduceMotion.addEventListener?.('change', measure);
+
+      const images = Array.from(track.querySelectorAll('img'));
+      let pending = images.filter(img => !img.complete).length;
+      const imageDone = () => {
+        pending -= 1;
+        if (pending <= 0) measure();
+      };
+      images.filter(img => !img.complete).forEach(img => {
+        img.addEventListener('load', imageDone, { once: true });
+        img.addEventListener('error', imageDone, { once: true });
+      });
+
+      measure();
+    })();
+  </script>
 </body>
 </html>

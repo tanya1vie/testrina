@@ -54,6 +54,144 @@ document.addEventListener('DOMContentLoaded', () => {
     updateView();
   }
 
+  function initSingleSpreadBooklet(container) {
+    if (!container) return;
+
+    const label = container.dataset.label || '';
+    const sourceImages = Array.from(container.querySelectorAll('img'));
+    const imagePaths = sourceImages.map(img => img.getAttribute('src')).filter(Boolean);
+    if (!imagePaths.length) return;
+
+    const imageRatios = sourceImages
+      .filter(img => img.getAttribute('src'))
+      .map(img => {
+        const width = Number(img.getAttribute('width')) || img.naturalWidth || 0;
+        const height = Number(img.getAttribute('height')) || img.naturalHeight || 0;
+        return width > 0 && height > 0 ? width / height : null;
+      });
+
+    container.className = 'magazine-booklet-wrap single-spread-booklet-wrap';
+    container.innerHTML = `<button type="button" class="magazine-booklet-expand" aria-label="Open booklet fullscreen" title="Open fullscreen">⛶</button><button type="button" class="magazine-booklet-close" aria-label="Close fullscreen booklet" title="Close fullscreen">×</button><button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet single-spread-booklet" role="group"><div class="single-spread-current" role="img"></div><div class="single-spread-fold" aria-hidden="true"><div class="single-spread-half single-spread-half-left"><div class="single-spread-half-image"></div></div><div class="single-spread-half single-spread-half-right"><div class="single-spread-half-image"></div></div></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button>`;
+
+    const book = container.querySelector('.single-spread-booklet');
+    const current = container.querySelector('.single-spread-current');
+    const fold = container.querySelector('.single-spread-fold');
+    const foldImages = Array.from(container.querySelectorAll('.single-spread-half-image'));
+    const prev = container.querySelector('.magazine-booklet-arrow.prev');
+    const next = container.querySelector('.magazine-booklet-arrow.next');
+    const expand = container.querySelector('.magazine-booklet-expand');
+    const close = container.querySelector('.magazine-booklet-close');
+
+    if (label) book.setAttribute('aria-label', label);
+
+    let spreadIndex = 0;
+    let animating = false;
+
+    function ratioFor(index) {
+      return imageRatios[index] || 1.5;
+    }
+
+    function setGeometry(index) {
+      const ratio = ratioFor(index);
+      book.style.setProperty('--book-aspect', ratio);
+      container.style.setProperty('--book-aspect', ratio);
+    }
+
+    function render() {
+      setGeometry(spreadIndex);
+      current.style.backgroundImage = `url('${imagePaths[spreadIndex]}')`;
+      current.setAttribute('aria-label', `Booklet spread ${spreadIndex + 1}`);
+      prev.disabled = spreadIndex === 0;
+      next.disabled = spreadIndex >= imagePaths.length - 1;
+    }
+
+    function openFullscreen() {
+      container.classList.add('is-fullscreen');
+      document.body.classList.add('booklet-fullscreen-open');
+      close.focus();
+    }
+
+    function closeFullscreen() {
+      container.classList.remove('is-fullscreen');
+      document.body.classList.remove('booklet-fullscreen-open');
+      expand.focus();
+    }
+
+    function prepareFold(src, direction) {
+      foldImages.forEach(img => {
+        img.style.backgroundImage = `url('${src}')`;
+      });
+      fold.classList.remove('fold-forward', 'fold-backward');
+      fold.classList.add('is-active', direction);
+    }
+
+    function finishFold(direction, targetIndex) {
+      fold.classList.remove('is-active', direction);
+      spreadIndex = targetIndex;
+      animating = false;
+      render();
+    }
+
+    next.addEventListener('click', () => {
+      if (animating || spreadIndex >= imagePaths.length - 1) return;
+      animating = true;
+      const previousSrc = imagePaths[spreadIndex];
+      const targetIndex = spreadIndex + 1;
+
+      setGeometry(targetIndex);
+      current.style.backgroundImage = `url('${imagePaths[targetIndex]}')`;
+      current.setAttribute('aria-label', `Booklet spread ${targetIndex + 1}`);
+
+      prepareFold(previousSrc, 'fold-forward');
+      const rightHalf = fold.querySelector('.single-spread-half-right');
+      rightHalf.addEventListener('animationend', () => finishFold('fold-forward', targetIndex), { once: true });
+    });
+
+    prev.addEventListener('click', () => {
+      if (animating || spreadIndex <= 0) return;
+      animating = true;
+      const previousSrc = imagePaths[spreadIndex];
+      const targetIndex = spreadIndex - 1;
+
+      setGeometry(targetIndex);
+      current.style.backgroundImage = `url('${imagePaths[targetIndex]}')`;
+      current.setAttribute('aria-label', `Booklet spread ${targetIndex + 1}`);
+
+      prepareFold(previousSrc, 'fold-backward');
+      const leftHalf = fold.querySelector('.single-spread-half-left');
+      leftHalf.addEventListener('animationend', () => finishFold('fold-backward', targetIndex), { once: true });
+    });
+
+    expand.addEventListener('click', openFullscreen);
+    close.addEventListener('click', closeFullscreen);
+
+    container.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && container.classList.contains('is-fullscreen')) {
+        event.preventDefault();
+        closeFullscreen();
+      } else if (event.key === 'ArrowRight' && !next.disabled) {
+        event.preventDefault();
+        next.click();
+      } else if (event.key === 'ArrowLeft' && !prev.disabled) {
+        event.preventDefault();
+        prev.click();
+      }
+    });
+
+    imagePaths.forEach((src, index) => {
+      if (imageRatios[index]) return;
+      const probe = new Image();
+      probe.onload = () => {
+        if (!probe.naturalWidth || !probe.naturalHeight) return;
+        imageRatios[index] = probe.naturalWidth / probe.naturalHeight;
+        if (index === spreadIndex) render();
+      };
+      probe.src = src;
+    });
+
+    render();
+  }
+
   function initMagazineBooklet(container) {
     if (!container) return;
     const label = container.dataset.label || '';
@@ -210,7 +348,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initMainFlipbook();
-  document.querySelectorAll('[data-booklet]').forEach(initMagazineBooklet);
+  document.querySelectorAll('[data-booklet]').forEach(container => {
+    if (container.dataset.bookletMode === 'single-spread') {
+      initSingleSpreadBooklet(container);
+    } else {
+      initMagazineBooklet(container);
+    }
+  });
 
   if (document.querySelector('main .project-header') && !document.querySelector('script[data-project-figures]')) {
     const figures = document.createElement('script');

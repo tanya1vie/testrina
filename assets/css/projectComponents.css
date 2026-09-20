@@ -482,3 +482,110 @@ body.booklet-fullscreen-open {
     right: 2px;
   }
 }
+
+
+/* Single-spread booklet variant.
+   Each source image is already a complete spread. During navigation the
+   previous spread folds at its center seam before the next spread is revealed. */
+.single-spread-booklet {
+  position: relative;
+  display: block;
+  overflow: visible;
+}
+
+.single-spread-current,
+.single-spread-fold {
+  position: absolute;
+  inset: 0;
+}
+
+.single-spread-current {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.single-spread-fold {
+  display: none;
+  pointer-events: none;
+  perspective: 1800px;
+  z-index: 4;
+}
+
+.single-spread-fold.is-active {
+  display: flex;
+}
+
+.single-spread-half {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.single-spread-half-image {
+  position: absolute;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.single-spread-half-left .single-spread-half-image {
+  left: 0;
+}
+
+.single-spread-half-right .single-spread-half-image {
+  right: 0;
+}
+
+.single-spread-fold.fold-forward .single-spread-half-left {
+  z-index: 2;
+}
+
+.single-spread-fold.fold-forward .single-spread-half-right {
+  transform-origin: left center;
+  animation: singleSpreadFoldForward 760ms cubic-bezier(.22,.72,.26,1) forwards;
+  z-index: 3;
+}
+
+.single-spread-fold.fold-backward .single-spread-half-right {
+  z-index: 2;
+}
+
+.single-spread-fold.fold-backward .single-spread-half-left {
+  transform-origin: right center;
+  animation: singleSpreadFoldBackward 760ms cubic-bezier(.22,.72,.26,1) forwards;
+  z-index: 3;
+}
+
+@keyframes singleSpreadFoldForward {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
+}
+
+@keyframes singleSpreadFoldBackward {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+.single-spread-booklet::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(0,0,0,.09);
+  box-shadow: 0 0 9px rgba(0,0,0,.12);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.single-spread-booklet-wrap.is-fullscreen .single-spread-booklet {
+  width: 100%;
+}

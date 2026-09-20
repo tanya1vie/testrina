@@ -2,6 +2,7 @@
   const gallery = document.getElementById('gallery');
   if (!gallery) return;
   let animating = false;
+  let autoScrollTimer = null;
 
   function easeInOutCubic(t){
     return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
@@ -20,7 +21,13 @@
     if (animating) return;
     animating = true;
     const start = gallery.scrollLeft;
-    const target = start + getStep() * (dir || 1);
+    const step = getStep() * (dir || 1);
+    const maxScroll = Math.max(0, gallery.scrollWidth - gallery.clientWidth);
+    let target = start + step;
+
+    if ((dir || 1) > 0 && target >= maxScroll - 4) target = 0;
+    if ((dir || 1) < 0 && target <= 4) target = maxScroll;
+
     const duration = 700;
     const t0 = performance.now();
 
@@ -32,6 +39,36 @@
     }
     requestAnimationFrame(frame);
   };
+
+  function startAutoScroll(){
+    const delay = Number(gallery.dataset.autoScrollMs || 0);
+    if (!delay || delay < 1000) return;
+    stopAutoScroll();
+    autoScrollTimer = window.setInterval(() => {
+      if (!animating && document.visibilityState === 'visible') {
+        window.scrollGallery(1);
+      }
+    }, delay);
+  }
+
+  function stopAutoScroll(){
+    if (autoScrollTimer !== null) {
+      clearInterval(autoScrollTimer);
+      autoScrollTimer = null;
+    }
+  }
+
+  if (gallery.dataset.autoScrollMs) {
+    gallery.addEventListener('mouseenter', stopAutoScroll);
+    gallery.addEventListener('mouseleave', startAutoScroll);
+    gallery.addEventListener('focusin', stopAutoScroll);
+    gallery.addEventListener('focusout', startAutoScroll);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') startAutoScroll();
+      else stopAutoScroll();
+    });
+    startAutoScroll();
+  }
 
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightboxImg');

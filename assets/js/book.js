@@ -61,6 +61,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const imagePaths = sourceImages.map(img => img.getAttribute('src')).filter(Boolean);
     if (!imagePaths.length) return;
 
+    const imageRatios = sourceImages
+      .filter(img => img.getAttribute('src'))
+      .map(img => {
+        const width = Number(img.getAttribute('width')) || img.naturalWidth || 0;
+        const height = Number(img.getAttribute('height')) || img.naturalHeight || 0;
+        return width > 0 && height > 0 ? width / height : null;
+      });
+
+    function ratioFor(index) {
+      return imageRatios[index] || 0.75;
+    }
+
+    function setBookGeometry(leftIndex, rightIndex, coverOnly = false) {
+      if (coverOnly) {
+        const ratio = ratioFor(0);
+        book.style.setProperty('--book-aspect', ratio);
+        book.style.setProperty('--verso-flex', '0');
+        book.style.setProperty('--recto-flex', String(ratio));
+        return;
+      }
+
+      const leftRatio = leftIndex < imagePaths.length ? ratioFor(leftIndex) : 0;
+      const rightRatio = rightIndex < imagePaths.length ? ratioFor(rightIndex) : 0;
+      const totalRatio = Math.max(0.2, leftRatio + rightRatio);
+
+      book.style.setProperty('--book-aspect', totalRatio);
+      book.style.setProperty('--verso-flex', String(leftRatio || 0.0001));
+      book.style.setProperty('--recto-flex', String(rightRatio || 0.0001));
+    }
+
     container.className = 'magazine-booklet-wrap';
     container.innerHTML = `<button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet" role="group"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button>`;
 
@@ -78,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function render() {
       if (spreadIndex === 0) {
         book.classList.add('is-cover');
+        setBookGeometry(0, 0, true);
         verso.style.backgroundImage = '';
         recto.style.backgroundImage = `url('${imagePaths[0]}')`;
         verso.setAttribute('aria-label', 'Blank inside cover');
@@ -89,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightIndex = leftIndex + 1;
         const leftSrc = imagePaths[leftIndex] || '';
         const rightSrc = imagePaths[rightIndex] || '';
+        setBookGeometry(leftIndex, rightIndex);
         verso.style.backgroundImage = leftSrc ? `url('${leftSrc}')` : '';
         recto.style.backgroundImage = rightSrc ? `url('${rightSrc}')` : '';
         verso.setAttribute('aria-label', leftSrc ? `Booklet page ${leftIndex + 1}` : 'Blank verso');
@@ -133,6 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     render();
+
+    imagePaths.forEach((src, index) => {
+      if (imageRatios[index]) return;
+      const probe = new Image();
+      probe.onload = () => {
+        if (!probe.naturalWidth || !probe.naturalHeight) return;
+        imageRatios[index] = probe.naturalWidth / probe.naturalHeight;
+
+        if (
+          spreadIndex === 0 && index === 0 ||
+          spreadIndex > 0 && (
+            index === 1 + (spreadIndex - 1) * 2 ||
+            index === 2 + (spreadIndex - 1) * 2
+          )
+        ) {
+          render();
+        }
+      };
+      probe.src = src;
+    });
   }
 
   initMainFlipbook();

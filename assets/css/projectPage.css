@@ -1248,29 +1248,39 @@ body.locked .password-overlay { z-index: 9999; }
 }
 
 
-/* Seamless, caption-free, edge-to-edge self-scrolling image strip. */
+
+}
+
+
+/* Scroll-linked horizontal story strip.
+   Vertical scrolling pins the gallery and moves the full image sequence
+   from left to right; after the last image, normal page scrolling resumes. */
 .seamless-scroll-gallery {
-  width: 100%;
-  margin: 72px 0;
+  width: 100vw;
+  margin: 72px calc(50% - 50vw);
+  position: relative;
+}
+
+.seamless-scroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .seamless-scroll-track {
   display: flex;
   width: max-content;
   gap: 0;
-  align-items: stretch;
-  animation: seamless-project-scroll 180s linear infinite;
+  align-items: center;
   will-change: transform;
-}
-
-.seamless-scroll-gallery:hover .seamless-scroll-track {
-  animation-play-state: paused;
 }
 
 .seamless-scroll-item {
   flex: 0 0 auto;
-  height: clamp(280px, 42vw, 560px);
+  height: min(72vh, 680px);
   margin: 0;
   padding: 0;
 }
@@ -1285,12 +1295,21 @@ body.locked .password-overlay { z-index: 9999; }
   object-fit: contain;
 }
 
-@keyframes seamless-project-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .seamless-scroll-gallery { overflow-x: auto; }
-  .seamless-scroll-track { animation: none; }
+  .seamless-scroll-gallery {
+    width: 100%;
+    height: auto !important;
+    margin: 72px 0;
+    overflow-x: auto;
+  }
+
+  .seamless-scroll-sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .seamless-scroll-track {
+    transform: none !important;
+  }
 }

@@ -1,16 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.polysapien-scroll-story').forEach(section => {
-    const sticky = section.querySelector('.seamless-scroll-sticky');
-    const track = section.querySelector('.seamless-scroll-track');
-    if (!sticky || !track) return;
+  document.querySelectorAll('.horizontal-scroll-story').forEach(section => {
+    const viewport = section.querySelector('.horizontal-scroll-viewport');
+    const track = section.querySelector('.horizontal-scroll-track');
+    if (!viewport || !track) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let travel = 0;
-    let startY = 0;
-    let ticking = false;
+    let start = 0;
+    let raf = 0;
 
-    function viewportHeight() {
-      return window.visualViewport?.height || window.innerHeight;
+    const viewportHeight = () =>
+      Math.round(window.visualViewport?.height || window.innerHeight);
+
+    function update() {
+      raf = 0;
+      if (reducedMotion.matches) return;
+
+      const scrolledInside = window.scrollY - start;
+      const x = Math.max(0, Math.min(travel, scrolledInside));
+      track.style.transform = `translate3d(${-x}px, 0, 0)`;
+    }
+
+    function requestUpdate() {
+      if (!raf) raf = requestAnimationFrame(update);
     }
 
     function measure() {
@@ -20,60 +32,41 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const viewportWidth = window.innerWidth;
-      const viewportH = viewportHeight();
+      const vh = viewportHeight();
+      viewport.style.height = `${vh}px`;
 
       /*
-       * The sticky panel itself is exactly one viewport high. The section
-       * gets one viewport of base height plus the horizontal travel distance.
-       * That makes it release precisely after the last page reaches the screen.
+       * Images are exactly one viewport high and sit directly beside each
+       * other. Their rendered widths therefore determine total track width.
        */
-      travel = Math.max(0, track.scrollWidth - viewportWidth);
-      section.style.height = `${viewportH + travel}px`;
+      travel = Math.max(0, track.scrollWidth - window.innerWidth);
 
       /*
-       * Start horizontal movement only when the full-height sticky panel has
-       * reached its pinned position at the top of the viewport.
+       * One viewport lets the panel become fully visible; the remaining
+       * vertical distance is converted 1:1 into horizontal movement.
        */
-      startY = section.getBoundingClientRect().top + window.scrollY;
+      section.style.height = `${vh + travel}px`;
+
+      start = section.getBoundingClientRect().top + window.scrollY;
       update();
     }
 
-    function update() {
-      if (reducedMotion.matches) return;
-
-      const horizontalProgress = Math.max(
-        0,
-        Math.min(travel, window.scrollY - startY)
-      );
-
-      track.style.transform = `translate3d(${-horizontalProgress}px, 0, 0)`;
-    }
-
-    function requestUpdate() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        update();
-        ticking = false;
+    const images = Array.from(track.querySelectorAll('img'));
+    const ready = images.map(img => {
+      if (img.complete && img.naturalWidth) return Promise.resolve();
+      if (img.decode) return img.decode().catch(() => {});
+      return new Promise(resolve => {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true });
       });
-    }
+    });
+
+    Promise.all(ready).then(measure);
 
     window.addEventListener('scroll', requestUpdate, { passive: true });
     window.addEventListener('resize', measure);
     window.visualViewport?.addEventListener('resize', measure);
     reducedMotion.addEventListener?.('change', measure);
-
-    const images = Array.from(track.querySelectorAll('img'));
-    Promise.all(images.map(img => {
-      if (img.complete && img.naturalWidth) return Promise.resolve();
-      return new Promise(resolve => {
-        img.addEventListener('load', resolve, { once: true });
-        img.addEventListener('error', resolve, { once: true });
-      });
-    })).then(() => {
-      requestAnimationFrame(measure);
-    });
 
     requestAnimationFrame(measure);
   });

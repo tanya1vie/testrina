@@ -1254,88 +1254,6 @@ body.locked .password-overlay { z-index: 9999; }
 
 
 
-/* Scroll-linked horizontal story strip.
-   The gallery fills the viewport before it pins. Vertical scroll then
-   advances the single gapless row horizontally until the final image. */
-.seamless-scroll-gallery {
-  position: relative;
-  width: 100vw;
-  margin: 72px calc(50% - 50vw) 0;
-  padding: 0;
-}
-
-.seamless-scroll-sticky {
-  position: sticky;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
-  display: flex;
-  align-items: stretch;
-  padding: 0;
-  margin: 0;
-}
-
-.seamless-scroll-track {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
-  width: max-content;
-  min-width: max-content;
-  height: 100%;
-  gap: 0 !important;
-  column-gap: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-}
-
-.seamless-scroll-item {
-  display: block;
-  flex: 0 0 auto;
-  height: 100%;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  line-height: 0;
-}
-
-.seamless-scroll-item img {
-  display: block !important;
-  width: auto !important;
-  max-width: none !important;
-  height: 100% !important;
-  max-height: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  object-fit: contain;
-  vertical-align: top;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .seamless-scroll-gallery {
-    height: auto !important;
-    overflow-x: auto;
-    overflow-y: visible;
-  }
-
-  .seamless-scroll-sticky {
-    position: static;
-    width: max-content;
-    height: 100vh;
-    height: 100svh;
-    overflow: visible;
-  }
-
-  .seamless-scroll-track {
-    transform: none !important;
-  }
-}
-
-
 /* Refined horizontal project gallery (used by Vela, Tripix, etc.). */
 .gallery-wrapper {
   position: relative;
@@ -1427,4 +1345,72 @@ body.locked .password-overlay { z-index: 9999; }
 
   .gallery-button.left { left: 2px; }
   .gallery-button.right { right: 2px; }
+}
+
+
+/* Polysapien horizontal scroll story.
+   The gallery becomes a full-screen panel, stays pinned while vertical
+   scrolling moves the images horizontally, then releases at the end. */
+.horizontal-scroll-story {
+  position: relative;
+  width: 100vw;
+  margin: 72px calc(50% - 50vw) 0;
+  padding: 0;
+}
+
+.horizontal-scroll-viewport {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal-scroll-track {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  width: max-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.horizontal-scroll-track > img {
+  display: block !important;
+  flex: 0 0 auto;
+  width: auto !important;
+  max-width: none !important;
+  height: 100% !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .horizontal-scroll-story {
+    height: auto !important;
+    overflow-x: auto;
+  }
+
+  .horizontal-scroll-viewport {
+    position: static;
+    width: max-content;
+    height: 100vh;
+    height: 100svh;
+    overflow: visible;
+  }
+
+  .horizontal-scroll-track {
+    transform: none !important;
+  }
 }

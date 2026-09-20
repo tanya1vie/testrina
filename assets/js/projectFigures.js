@@ -161,6 +161,28 @@
         left.classList.add('auto-project-paired', 'auto-project-pair-left');
         right.classList.add('auto-project-paired', 'auto-project-pair-right');
 
+        /* For the shared project-image-pair layout, size each figure by the
+           source image's natural aspect ratio. With flex-grow set to that
+           ratio, both images fill the row together at the same height. */
+        if (parent.classList.contains('project-image-pair')) {
+          [left, right].forEach((figure) => {
+            const image = figure.querySelector(':scope > img');
+            if (!image) return;
+
+            const applyAspect = () => {
+              if (image.naturalWidth && image.naturalHeight) {
+                figure.style.setProperty(
+                  '--pair-aspect',
+                  String(image.naturalWidth / image.naturalHeight)
+                );
+              }
+            };
+
+            applyAspect();
+            if (!image.complete) image.addEventListener('load', applyAspect, { once: true });
+          });
+        }
+
         const column = document.createElement('div');
         column.className = 'auto-project-pair-caption-column';
         column.setAttribute('aria-label', 'Figure captions');

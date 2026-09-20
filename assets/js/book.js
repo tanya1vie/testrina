@@ -164,32 +164,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const unloaded = sourceImages.filter(img => img.getAttribute('src') && !img.complete);
-    if (unloaded.length) {
-      let remaining = unloaded.length;
-      const done = () => {
-        remaining -= 1;
-        if (remaining <= 0) {
-          sourceImages.forEach((img, index) => {
-            if (!imageRatios[index] && img.naturalWidth && img.naturalHeight) {
-              imageRatios[index] = img.naturalWidth / img.naturalHeight;
-            }
-          });
+    render();
+
+    imagePaths.forEach((src, index) => {
+      if (imageRatios[index]) return;
+      const probe = new Image();
+      probe.onload = () => {
+        if (!probe.naturalWidth || !probe.naturalHeight) return;
+        imageRatios[index] = probe.naturalWidth / probe.naturalHeight;
+
+        if (
+          spreadIndex === 0 && index === 0 ||
+          spreadIndex > 0 && (
+            index === 1 + (spreadIndex - 1) * 2 ||
+            index === 2 + (spreadIndex - 1) * 2
+          )
+        ) {
           render();
         }
       };
-      unloaded.forEach(img => {
-        img.addEventListener('load', done, { once: true });
-        img.addEventListener('error', done, { once: true });
-      });
-    } else {
-      sourceImages.forEach((img, index) => {
-        if (!imageRatios[index] && img.naturalWidth && img.naturalHeight) {
-          imageRatios[index] = img.naturalWidth / img.naturalHeight;
-        }
-      });
-      render();
-    }
+      probe.src = src;
+    });
   }
 
   initMainFlipbook();

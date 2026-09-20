@@ -8,238 +8,8 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/projectPage.css">
+  <link rel="stylesheet" href="assets/css/projectComponents.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
-  <style>
-    .bruce-page {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 20px 100px
-    }
-
-    .bruce-intro {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 72px;
-      align-items: start;
-      margin: 85px 0 80px
-    }
-
-    .bruce-intro .project-copy {
-      margin: 0;
-      max-width: none
-    }
-
-    .bruce-intro-art img {
-      width: 100%;
-      height: auto;
-      object-fit: contain
-    }
-
-    .character-title {
-      text-align: center;
-      letter-spacing: .25em;
-      margin: 45px 0
-    }
-
-    .character-title h2 {
-      margin: 0 0 4px;
-      font-size: 20px;
-      letter-spacing: .28em
-    }
-
-    .character-title p {
-      margin: 0;
-      font-style: italic
-    }
-
-    .bruce-meet {
-      display: grid;
-      grid-template-columns: 310px 1fr;
-      gap: 70px;
-      align-items: center;
-      margin: 0 0 30px
-    }
-
-    .bruce-meet .project-copy {
-      margin: 0;
-      max-width: none
-    }
-
-    .bruce-meet figure {
-      margin: 0
-    }
-
-    .bruce-photo-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: start;
-      margin: 30px 0 40px
-    }
-
-    .bruce-photo-pair figure {
-      margin: 0
-    }
-
-    .bruce-detail {
-      width: 100%;
-      margin: 0
-    }
-
-    .bruce-detail figure {
-      margin: 0;
-      width: 100%
-    }
-
-    .bruce-detail img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain
-    }
-
-    .wendy-dark {
-      background: #000;
-      color: #fff;
-      margin-top: 20px;
-      padding: 55px 0 0
-    }
-
-    .wendy-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px
-    }
-
-    .wendy-intro {
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 70px;
-      align-items: start
-    }
-
-    .wendy-intro .project-copy {
-      margin: 55px 0 0;
-      max-width: none;
-      color: #fff
-    }
-
-    .wendy-missing-image {
-      min-height: 360px;
-      border: 1px solid #777;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: .08em;
-      color: #aaa
-    }
-
-    .wendy-dark .character-title {
-      margin: 0 0 25px
-    }
-
-    .wendy-dark .character-title h2,
-    .wendy-dark .character-title p {
-      color: #fff
-    }
-
-    .wendy-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin: 60px 0 50px
-    }
-
-    .wendy-pair figure {
-      margin: 0
-    }
-
-    .wendy-detail {
-      width: 100%;
-      margin: 0
-    }
-
-    .wendy-detail figure {
-      margin: 0;
-      width: 100%
-    }
-
-    .wendy-detail img {
-      display: block;
-      width: 100%;
-      height: auto !important;
-      max-height: none !important;
-      object-fit: contain !important;
-      object-position: center top
-    }
-
-    .wendy-dark .auto-project-caption,
-    .wendy-dark .auto-project-pair-caption-column {
-      color: #fff
-    }
-
-    .alternate {
-      background: #fff;
-      color: #000;
-      padding: 65px 20px 90px
-    }
-
-    .alternate-inner {
-      max-width: 1000px;
-      margin: 0 auto
-    }
-
-    .alternate h2 {
-      font-size: 20px;
-      letter-spacing: .28em;
-      line-height: 1.25;
-      margin: 0 0 35px;
-      max-width: 520px
-    }
-
-    .alternate-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px 28px
-    }
-
-    .alternate-grid figure {
-      margin: 0
-    }
-
-    @media(max-width:760px) {
-
-      .bruce-intro,
-      .bruce-meet,
-      .wendy-intro {
-        grid-template-columns: 1fr;
-        gap: 30px
-      }
-
-      .bruce-photo-pair,
-      .wendy-pair {
-        grid-template-columns: 1fr;
-        gap: 25px
-      }
-
-      .bruce-detail,
-      .wendy-detail {
-        width: 100%;
-        margin: 0
-      }
-
-      .alternate-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .wendy-intro .project-copy {
-        margin-top: 0
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -269,8 +39,8 @@
       </div>
     </section>
     <div class="bruce-page">
-      <section class="bruce-intro">
-        <div class="project-copy">
+      <section class="project-split bruce-intro">
+        <div class="project-copy project-split-text">
           <p>This project examines the possibility of the aggregation of limp sheet materials into structural assemblies
             via zipping and weaving techniques. In place of fasteners, these forms are self-supporting and can thus be
             disassembled and re-assembled at will. This process, which could be likened to textile Lego, may be able to
@@ -286,8 +56,8 @@
           <h2>BRUCE</h2>
           <h4>a leather assembly</h4>
         </div>
-        <div class="bruce-meet">
-          <div class="project-copy">
+        <div class="project-split bruce-meet">
+          <div class="project-copy project-split-text">
             <h2><em>meet bruce.</em></h2>
             <p>He is a fun-loving guy who just rolls with the punches. His favorite food is Hawaiian pizza but without
               the pepperoni. Almost he may seem rough on the outside, his texture on the inside is entirely different.
@@ -297,7 +67,7 @@
           <figure><img data-no-figure-caption src="Images/Bruce/Thneed_drawings-01.png"
               alt="Illustrated portrait and leather assembly diagram for Bruce"></figure>
         </div>
-        <div class="bruce-photo-pair">
+        <div class="project-image-pair bruce-photo-pair">
           <figure><img src="Images/Bruce/Bruce_1_edited.jpg"
               alt="Bruce leather assembly suspended by hand in an elongated configuration"></figure>
           <figure><img src="Images/Bruce/Bruce_2_b&w_edited.jpg"
@@ -325,7 +95,7 @@
               material flattens the assembly and leads her to seem sleeker in photos than she is in real life.</p>
           </div>
         </div>
-        <div class="wendy-pair">
+        <div class="project-image-pair wendy-pair">
           <figure><img src="Images/Bruce/wendy_2_yellow_edited.png"
               alt="Wendy acetate assembly in a folded configuration"></figure>
           <figure><img src="Images/Bruce/wendy_3_yellow.jpg"

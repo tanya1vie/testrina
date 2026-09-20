@@ -634,3 +634,218 @@ body.booklet-fullscreen-open {
   background-position: right center;
   background-size: auto 100%;
 }
+
+
+/* Bruce & Wendy
+   Page-specific composition rules live here so bruce.html does not carry its
+   own stylesheet. Shared project components are reused wherever possible. */
+.bruce-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 20px 100px;
+}
+
+/* Uses the shared .project-split behavior; these modifiers only set the
+   Bruce-specific proportions and spacing. */
+.bruce-intro {
+  grid-template-columns: 340px 1fr;
+  gap: 72px;
+  margin: 85px 0 80px;
+}
+
+.bruce-intro .project-copy,
+.bruce-meet .project-copy {
+  margin: 0;
+  max-width: none;
+}
+
+.bruce-intro-art {
+  margin: 0;
+}
+
+.bruce-intro-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.character-title {
+  text-align: center;
+  letter-spacing: .25em;
+  margin: 45px 0;
+}
+
+.character-title h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  letter-spacing: .28em;
+}
+
+.character-title p {
+  margin: 0;
+  font-style: italic;
+}
+
+.bruce-meet {
+  grid-template-columns: 310px 1fr;
+  gap: 70px;
+  align-items: center;
+  margin: 0 0 30px;
+}
+
+.bruce-meet figure,
+.bruce-photo-pair figure,
+.wendy-pair figure {
+  margin: 0;
+}
+
+/* Reuses the shared .project-image-pair layout. */
+.bruce-photo-pair {
+  gap: 50px;
+  margin: 30px 0 40px;
+}
+
+.bruce-detail,
+.wendy-detail {
+  width: 100%;
+  margin: 0;
+}
+
+.bruce-detail figure,
+.wendy-detail figure {
+  margin: 0;
+  width: 100%;
+}
+
+.bruce-detail img,
+.wendy-detail img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.wendy-dark {
+  background: #000;
+  color: #fff;
+  margin-top: 20px;
+  padding: 55px 0 0;
+}
+
+.wendy-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.wendy-intro {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 70px;
+  align-items: start;
+}
+
+.wendy-intro .project-copy {
+  margin: 55px 0 0;
+  max-width: none;
+  color: #fff;
+}
+
+.wendy-missing-image {
+  min-height: 360px;
+  border: 1px solid #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: #aaa;
+}
+
+.wendy-dark .character-title {
+  margin: 0 0 25px;
+}
+
+.wendy-dark .character-title h2,
+.wendy-dark .character-title p {
+  color: #fff;
+}
+
+.wendy-pair {
+  gap: 60px;
+  margin: 60px 0 50px;
+}
+
+.wendy-detail img {
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center top;
+}
+
+.wendy-dark .auto-project-caption,
+.wendy-dark .auto-project-pair-caption-column {
+  color: #fff;
+}
+
+.alternate {
+  background: #fff;
+  color: #000;
+  padding: 65px 20px 90px;
+}
+
+.alternate-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.alternate h2 {
+  font-size: 20px;
+  letter-spacing: .28em;
+  line-height: 1.25;
+  margin: 0 0 35px;
+  max-width: 520px;
+}
+
+/* Same three-column pattern as the shared image grid, with Bruce-specific gap. */
+.alternate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 28px;
+}
+
+.alternate-grid figure {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .bruce-intro,
+  .bruce-meet,
+  .wendy-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bruce-photo-pair,
+  .wendy-pair {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .bruce-detail,
+  .wendy-detail {
+    width: 100%;
+    margin: 0;
+  }
+
+  .alternate-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wendy-intro .project-copy {
+    margin-top: 0;
+  }
+}

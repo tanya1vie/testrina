@@ -1438,53 +1438,105 @@ body.locked .password-overlay { z-index: 9999; }
 }
 
 
-/* Polysapien uses the shared Vela-style gallery, but its images touch and
-   never receive automatic figure captions. */
-.polysapien-touch-gallery {
-  gap: 0 !important;
-  column-gap: 0 !important;
+
+
+/* Polysapien gallery.
+   This intentionally duplicates the Vela gallery styling so the two gallery
+   types can evolve independently. Polysapien differs only in having no gaps
+   between images and no captions. */
+.polysapien-gallery-wrapper {
+  position: relative;
+  width: min(100%, 1100px);
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 42px;
+  box-sizing: border-box;
 }
 
-.polysapien-touch-gallery .gallery-item {
-  margin: 0 !important;
-  padding: 0 !important;
+.polysapien-gallery {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  align-items: flex-start;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
-.polysapien-touch-gallery .gallery-item img {
-  margin: 0 !important;
-  display: block;
-}
-
-.polysapien-touch-gallery-wrapper {
-  margin-top: 72px;
-  margin-bottom: 72px;
-}
-
-
-/* Polysapien gallery pages should physically touch edge-to-edge. */
-.polysapien-touch-gallery {
-  gap: 0 !important;
-  column-gap: 0 !important;
-  row-gap: 0 !important;
-  align-items: stretch;
-}
-
-.polysapien-touch-gallery .gallery-item {
-  display: block;
+.polysapien-gallery-item {
   flex: 0 0 auto;
-  width: auto;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none !important;
+  overflow: visible;
   line-height: 0;
 }
 
-.polysapien-touch-gallery .gallery-item img {
-  display: block !important;
-  width: auto !important;
-  max-width: none !important;
-  height: min(78vh, 760px) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  vertical-align: top;
+.polysapien-gallery-item img {
+  display: block;
+  width: auto;
+  height: min(78vh, 760px);
+  max-width: 86vw;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none !important;
+  object-fit: contain;
+}
+
+.polysapien-gallery-button {
+  position: absolute;
+  top: 44%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  opacity: .78;
+}
+
+.polysapien-gallery-button:hover {
+  background: transparent !important;
+  opacity: 1;
+}
+
+.polysapien-gallery-button.left { left: 6px; }
+.polysapien-gallery-button.right { right: 6px; }
+
+/* Captions are intentionally disabled for this gallery. */
+.polysapien-gallery .auto-project-caption,
+.polysapien-gallery .auto-project-pair-caption-column {
+  display: none !important;
+}
+
+@media (max-width: 740px) {
+  .polysapien-gallery-wrapper {
+    padding: 0 30px;
+  }
+
+  .polysapien-gallery-item img {
+    height: min(66vh, 560px);
+    max-width: 88vw;
+  }
+
+  .polysapien-gallery-button {
+    font-size: 34px;
+  }
+
+  .polysapien-gallery-button.left { left: 2px; }
+  .polysapien-gallery-button.right { right: 2px; }
 }

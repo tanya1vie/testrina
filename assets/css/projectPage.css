@@ -1252,64 +1252,85 @@ body.locked .password-overlay { z-index: 9999; }
 }
 
 
+
+
 /* Scroll-linked horizontal story strip.
-   Vertical scrolling pins the gallery and moves the full image sequence
-   from left to right; after the last image, normal page scrolling resumes. */
+   The section stays pinned while vertical scroll moves one continuous,
+   gapless horizontal sequence. */
 .seamless-scroll-gallery {
+  position: relative;
   width: 100vw;
   margin: 72px calc(50% - 50vw);
-  position: relative;
+  padding: 0;
 }
 
 .seamless-scroll-sticky {
   position: sticky;
   top: 0;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .seamless-scroll-track {
   display: flex;
-  width: max-content;
-  gap: 0;
+  flex-flow: row nowrap;
   align-items: center;
+  width: max-content;
+  min-width: max-content;
+  gap: 0 !important;
+  column-gap: 0 !important;
+  padding: 0;
+  margin: 0;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
 .seamless-scroll-item {
+  display: block;
   flex: 0 0 auto;
-  height: min(72vh, 680px);
-  margin: 0;
-  padding: 0;
+  height: min(74vh, 700px);
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0;
+  line-height: 0;
 }
 
 .seamless-scroll-item img {
-  display: block;
-  width: auto;
-  height: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0;
   object-fit: contain;
+  vertical-align: top;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .seamless-scroll-gallery {
-    width: 100%;
     height: auto !important;
-    margin: 72px 0;
     overflow-x: auto;
+    overflow-y: visible;
   }
 
   .seamless-scroll-sticky {
     position: static;
+    width: max-content;
     height: auto;
     overflow: visible;
   }
 
   .seamless-scroll-track {
     transform: none !important;
+  }
+
+  .seamless-scroll-item {
+    height: min(70vh, 620px);
   }
 }

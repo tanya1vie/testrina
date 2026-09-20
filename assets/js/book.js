@@ -92,12 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setGeometry(index) {
-      const ratio = ratioFor(index);
+      const ratio = index === 0 && imagePaths.length > 1
+        ? ratioFor(1)
+        : ratioFor(index);
       book.style.setProperty('--book-aspect', ratio);
       container.style.setProperty('--book-aspect', ratio);
     }
 
     function render() {
+      book.classList.toggle('is-cover', spreadIndex === 0);
       setGeometry(spreadIndex);
       current.style.backgroundImage = `url('${imagePaths[spreadIndex]}')`;
       current.setAttribute('aria-label', `Booklet spread ${spreadIndex + 1}`);
@@ -138,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const previousSrc = imagePaths[spreadIndex];
       const targetIndex = spreadIndex + 1;
 
+      book.classList.toggle('is-cover', targetIndex === 0);
       setGeometry(targetIndex);
       current.style.backgroundImage = `url('${imagePaths[targetIndex]}')`;
       current.setAttribute('aria-label', `Booklet spread ${targetIndex + 1}`);
@@ -213,11 +217,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setBookGeometry(leftIndex, rightIndex, coverOnly = false) {
       if (coverOnly) {
-        const ratio = ratioFor(0);
-        book.style.setProperty('--book-aspect', ratio);
-        container.style.setProperty('--book-aspect', ratio);
-        book.style.setProperty('--verso-flex', '0');
-        book.style.setProperty('--recto-flex', String(ratio));
+        const coverRatio = ratioFor(0);
+
+        if (imagePaths.length > 1) {
+          const firstInteriorRatio = ratioFor(1);
+          const secondInteriorRatio = imagePaths.length > 2 ? ratioFor(2) : firstInteriorRatio;
+          const spreadRatio = Math.max(coverRatio, firstInteriorRatio + secondInteriorRatio);
+          const blankRatio = Math.max(0.0001, spreadRatio - coverRatio);
+
+          book.style.setProperty('--book-aspect', spreadRatio);
+          container.style.setProperty('--book-aspect', spreadRatio);
+          book.style.setProperty('--verso-flex', String(blankRatio));
+          book.style.setProperty('--recto-flex', String(coverRatio));
+        } else {
+          book.style.setProperty('--book-aspect', coverRatio);
+          container.style.setProperty('--book-aspect', coverRatio);
+          book.style.setProperty('--verso-flex', '0.0001');
+          book.style.setProperty('--recto-flex', String(coverRatio));
+        }
         return;
       }
 

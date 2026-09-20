@@ -198,12 +198,15 @@ main.main {
 }
 
 .magazine-booklet.is-cover .magazine-page.verso {
-  display: none;
+  display: block;
+  flex: var(--verso-flex, 1) 1 0;
+  border-right: 0;
 }
 
 .magazine-booklet.is-cover .magazine-page.recto {
-  flex: 1 1 100%;
+  flex: var(--recto-flex, 1) 1 0;
   border-left: 0;
+  background-position: right center;
 }
 
 .magazine-booklet.is-cover::after {
@@ -622,4 +625,12 @@ body.booklet-fullscreen-open {
     margin: 0 !important;
     object-fit: contain;
   }
+}
+
+
+/* Covers use the same height as the following spread and sit against the
+   right edge of the booklet window. */
+.single-spread-booklet.is-cover .single-spread-current {
+  background-position: right center;
+  background-size: auto 100%;
 }

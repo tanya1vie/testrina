@@ -1246,3 +1246,51 @@ body.locked .password-overlay { z-index: 9999; }
   width: 100%;
   max-width: 900px;
 }
+
+
+/* Seamless, caption-free, edge-to-edge self-scrolling image strip. */
+.seamless-scroll-gallery {
+  width: 100%;
+  margin: 72px 0;
+  overflow: hidden;
+}
+
+.seamless-scroll-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  align-items: stretch;
+  animation: seamless-project-scroll 180s linear infinite;
+  will-change: transform;
+}
+
+.seamless-scroll-gallery:hover .seamless-scroll-track {
+  animation-play-state: paused;
+}
+
+.seamless-scroll-item {
+  flex: 0 0 auto;
+  height: clamp(280px, 42vw, 560px);
+  margin: 0;
+  padding: 0;
+}
+
+.seamless-scroll-item img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+}
+
+@keyframes seamless-project-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seamless-scroll-gallery { overflow-x: auto; }
+  .seamless-scroll-track { animation: none; }
+}

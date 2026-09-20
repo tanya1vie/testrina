@@ -218,3 +218,56 @@
     right: 0;
   }
 }
+
+
+/* Horizontal carousel galleries use captions underneath the image,
+   rather than the standard 60px side-caption treatment. */
+.gallery-item .auto-project-figure,
+.gallery-item.auto-project-figure {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.gallery-item .auto-project-figure > img,
+.gallery-item.auto-project-figure > img {
+  display: block !important;
+  width: auto !important;
+  height: min(78vh, 760px) !important;
+  max-width: 86vw !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: contain;
+}
+
+.gallery-item .auto-project-caption,
+.gallery-item.auto-project-figure > .auto-project-caption {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 7px 0 0 !important;
+  text-align: left;
+}
+
+.gallery.auto-project-pair-parent {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.gallery > .auto-project-pair-caption-column {
+  display: none !important;
+}
+
+.gallery-item .auto-project-figure.auto-project-paired > .auto-project-caption,
+.gallery-item.auto-project-figure.auto-project-paired > .auto-project-caption {
+  display: block !important;
+}
+
+@media (max-width: 740px) {
+  .gallery-item .auto-project-figure > img,
+  .gallery-item.auto-project-figure > img {
+    height: min(66vh, 560px) !important;
+    max-width: 88vw !important;
+  }
+}

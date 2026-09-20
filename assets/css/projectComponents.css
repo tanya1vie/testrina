@@ -402,3 +402,83 @@ main.main {
 @media (prefers-reduced-motion: reduce) {
   .project-slideshow-slide { transition: none; }
 }
+
+
+/* Fullscreen mode for every shared page-flip booklet. */
+body.booklet-fullscreen-open {
+  overflow: hidden;
+}
+
+.magazine-booklet-expand,
+.magazine-booklet-close {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 30;
+}
+
+.magazine-booklet-expand {
+  top: -34px;
+  right: 44px;
+  font-size: 24px;
+}
+
+.magazine-booklet-close {
+  display: none;
+}
+
+.magazine-booklet-wrap.is-fullscreen {
+  position: fixed;
+  z-index: 10020;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(94vw, calc(82vh * var(--book-aspect, 1.48)));
+  max-width: none;
+  margin: 0;
+  padding: 44px 70px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0 0 0 120vmax rgba(0, 0, 0, 0.88);
+}
+
+.magazine-booklet-wrap.is-fullscreen .magazine-booklet {
+  width: 100%;
+  max-height: 82vh;
+}
+
+.magazine-booklet-wrap.is-fullscreen .magazine-booklet-expand {
+  display: none;
+}
+
+.magazine-booklet-wrap.is-fullscreen .magazine-booklet-close {
+  display: block;
+  top: 0;
+  right: 14px;
+  color: #fff;
+  font-size: 42px;
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+}
+
+.magazine-booklet-wrap.is-fullscreen .magazine-booklet-arrow {
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .magazine-booklet-expand {
+    right: 32px;
+  }
+
+  .magazine-booklet-wrap.is-fullscreen {
+    width: min(96vw, calc(78vh * var(--book-aspect, 1.48)));
+    padding: 44px 42px;
+  }
+
+  .magazine-booklet-wrap.is-fullscreen .magazine-booklet-close {
+    right: 2px;
+  }
+}

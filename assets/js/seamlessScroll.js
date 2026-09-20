@@ -4,37 +4,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = section.querySelector('.seamless-scroll-track');
     if (!sticky || !track) return;
 
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let travel = 0;
-    let sectionTop = 0;
+    let startY = 0;
     let ticking = false;
 
+    function viewportHeight() {
+      return window.visualViewport?.height || window.innerHeight;
+    }
+
     function measure() {
-      if (media.matches) {
+      if (reducedMotion.matches) {
         section.style.height = 'auto';
-        track.style.transform = '';
+        track.style.transform = 'none';
         return;
       }
 
-      const viewportWidth = sticky.clientWidth || window.innerWidth;
-      travel = Math.max(0, track.scrollWidth - viewportWidth);
-      sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const viewportWidth = window.innerWidth;
+      const viewportH = viewportHeight();
 
-      /* Give the user exactly enough vertical distance to travel from
-         the first image to the last, then release the sticky section. */
-      section.style.height = `${window.innerHeight + travel}px`;
+      /*
+       * The sticky panel itself is exactly one viewport high. The section
+       * gets one viewport of base height plus the horizontal travel distance.
+       * That makes it release precisely after the last page reaches the screen.
+       */
+      travel = Math.max(0, track.scrollWidth - viewportWidth);
+      section.style.height = `${viewportH + travel}px`;
+
+      /*
+       * Start horizontal movement only when the full-height sticky panel has
+       * reached its pinned position at the top of the viewport.
+       */
+      startY = section.getBoundingClientRect().top + window.scrollY;
       update();
     }
 
     function update() {
-      if (media.matches) return;
+      if (reducedMotion.matches) return;
 
-      const progress = Math.max(
+      const horizontalProgress = Math.max(
         0,
-        Math.min(travel, window.scrollY - sectionTop)
+        Math.min(travel, window.scrollY - startY)
       );
 
-      track.style.transform = `translate3d(${-progress}px, 0, 0)`;
+      track.style.transform = `translate3d(${-horizontalProgress}px, 0, 0)`;
     }
 
     function requestUpdate() {
@@ -48,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', requestUpdate, { passive: true });
     window.addEventListener('resize', measure);
-    media.addEventListener?.('change', measure);
+    window.visualViewport?.addEventListener('resize', measure);
+    reducedMotion.addEventListener?.('change', measure);
 
     const images = Array.from(track.querySelectorAll('img'));
     Promise.all(images.map(img => {
@@ -57,14 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('load', resolve, { once: true });
         img.addEventListener('error', resolve, { once: true });
       });
-    })).then(measure);
+    })).then(() => {
+      requestAnimationFrame(measure);
+    });
 
-    if ('ResizeObserver' in window) {
-      const resizeObserver = new ResizeObserver(measure);
-      resizeObserver.observe(track);
-      resizeObserver.observe(sticky);
-    }
-
-    measure();
+    requestAnimationFrame(measure);
   });
 });

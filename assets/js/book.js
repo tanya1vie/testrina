@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (coverOnly) {
         const ratio = ratioFor(0);
         book.style.setProperty('--book-aspect', ratio);
+        container.style.setProperty('--book-aspect', ratio);
         book.style.setProperty('--verso-flex', '0');
         book.style.setProperty('--recto-flex', String(ratio));
         return;
@@ -87,19 +88,37 @@ document.addEventListener('DOMContentLoaded', () => {
       const totalRatio = Math.max(0.2, leftRatio + rightRatio);
 
       book.style.setProperty('--book-aspect', totalRatio);
+      container.style.setProperty('--book-aspect', totalRatio);
       book.style.setProperty('--verso-flex', String(leftRatio || 0.0001));
       book.style.setProperty('--recto-flex', String(rightRatio || 0.0001));
     }
 
     container.className = 'magazine-booklet-wrap';
-    container.innerHTML = `<button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet" role="group"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button>`;
+    container.innerHTML = `<button type="button" class="magazine-booklet-expand" aria-label="Open booklet fullscreen" title="Open fullscreen">⛶</button><button type="button" class="magazine-booklet-close" aria-label="Close fullscreen booklet" title="Close fullscreen">×</button><button type="button" class="magazine-booklet-arrow prev" aria-label="Previous spread">❮</button><div class="magazine-booklet" role="group"><div class="magazine-page verso" role="img"></div><div class="magazine-page recto" role="img"></div></div><button type="button" class="magazine-booklet-arrow next" aria-label="Next spread">❯</button>`;
 
     const book = container.querySelector('.magazine-booklet');
     const verso = container.querySelector('.magazine-page.verso');
     const recto = container.querySelector('.magazine-page.recto');
     const prev = container.querySelector('.magazine-booklet-arrow.prev');
     const next = container.querySelector('.magazine-booklet-arrow.next');
+    const expand = container.querySelector('.magazine-booklet-expand');
+    const close = container.querySelector('.magazine-booklet-close');
     if (label) book.setAttribute('aria-label', label);
+
+    function openFullscreen() {
+      container.classList.add('is-fullscreen');
+      document.body.classList.add('booklet-fullscreen-open');
+      close.focus();
+    }
+
+    function closeFullscreen() {
+      container.classList.remove('is-fullscreen');
+      document.body.classList.remove('booklet-fullscreen-open');
+      expand.focus();
+    }
+
+    expand.addEventListener('click', openFullscreen);
+    close.addEventListener('click', closeFullscreen);
 
     let spreadIndex = 0;
     const spreadCount = Math.ceil((imagePaths.length - 1) / 2);
@@ -155,7 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     container.addEventListener('keydown', event => {
-      if (event.key === 'ArrowRight' && !next.disabled) {
+      if (event.key === 'Escape' && container.classList.contains('is-fullscreen')) {
+        event.preventDefault();
+        closeFullscreen();
+      } else if (event.key === 'ArrowRight' && !next.disabled) {
         event.preventDefault();
         next.click();
       } else if (event.key === 'ArrowLeft' && !prev.disabled) {

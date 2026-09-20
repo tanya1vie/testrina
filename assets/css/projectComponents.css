@@ -166,7 +166,7 @@ main.main {
 
 .magazine-booklet {
   width: 100%;
-  aspect-ratio: 1.48 / 1;
+  aspect-ratio: var(--book-aspect, 1.48) / 1;
   display: flex;
   position: relative;
   overflow: visible;
@@ -176,9 +176,8 @@ main.main {
 
 .magazine-page {
   position: relative;
-  flex: 1 1 50%;
   min-width: 0;
-  background-color: #fffdf7;
+  background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -187,18 +186,24 @@ main.main {
 }
 
 .magazine-page.verso {
+  flex: var(--verso-flex, 1) 1 0;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   transform-origin: right center;
 }
 
 .magazine-page.recto {
+  flex: var(--recto-flex, 1) 1 0;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
   transform-origin: left center;
 }
 
 .magazine-booklet.is-cover .magazine-page.verso {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
+}
+
+.magazine-booklet.is-cover .magazine-page.recto {
+  flex: 1 1 100%;
+  border-left: 0;
 }
 
 .magazine-booklet.is-cover::after {
@@ -330,7 +335,7 @@ main.main {
   }
   .project-booklet-section { margin: 52px 0; }
   .magazine-booklet-wrap { width: 100%; padding: 0 32px; }
-  .magazine-booklet { aspect-ratio: 1.36 / 1; }
+  .magazine-booklet { aspect-ratio: var(--book-aspect, 1.36) / 1; }
   .magazine-booklet-arrow { font-size: 30px; }
   .draggable-card-stage { height: 400px; }
   .draggable-card { width: clamp(125px, 38vw, 185px); }

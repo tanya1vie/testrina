@@ -1459,3 +1459,32 @@ body.locked .password-overlay { z-index: 9999; }
   margin-top: 72px;
   margin-bottom: 72px;
 }
+
+
+/* Polysapien gallery pages should physically touch edge-to-edge. */
+.polysapien-touch-gallery {
+  gap: 0 !important;
+  column-gap: 0 !important;
+  row-gap: 0 !important;
+  align-items: stretch;
+}
+
+.polysapien-touch-gallery .gallery-item {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;
+}
+
+.polysapien-touch-gallery .gallery-item img {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  height: min(78vh, 760px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  vertical-align: top;
+}

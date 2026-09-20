@@ -89,18 +89,22 @@
             alt="Polysapien final illustrated spread" loading="lazy"></figure>
       </div>
 
-      <section class="horizontal-scroll-story" aria-label="Polysapien sequential story gallery">
-        <div class="horizontal-scroll-viewport">
-          <div class="horizontal-scroll-track">
+      <div class="gallery-wrapper polysapien-touch-gallery-wrapper">
+        <button class="gallery-button left" onclick="scrollGallery(-1)" aria-label="Previous Polysapien image">‹</button>
+        <div class="gallery polysapien-touch-gallery" id="gallery" data-auto-scroll-ms="3500">
+          <div class="gallery-item">
             <img data-no-figure-caption src="Images/Polysapien/Book_Layout_Large_Format35.jpg"
               alt="Polysapien illustrated story spread" loading="eager">
+          </div>
+          <div class="gallery-item">
             <img data-no-figure-caption src="Images/Polysapien/Book_Layout_Large_Format39.jpg"
               alt="Polysapien illustrated story spread" loading="eager">
             <img data-no-figure-caption src="Images/Polysapien/Book_Layout_Large_Format43.jpg"
               alt="Polysapien illustrated story spread" loading="eager">
           </div>
         </div>
-      </section>
+        <button class="gallery-button right" onclick="scrollGallery(1)" aria-label="Next Polysapien image">›</button>
+      </div>
 
       <section class="project-booklet-section" aria-labelledby="polysapienBookHeading">
         <h2 id="polysapienBookHeading">THE METAMORPHOSIS OF THE POLYSAPIEN — BOOKLET</h2>
@@ -252,7 +256,7 @@
   <script src="assets/js/siteChrome.js"></script>
   <script src="assets/js/cursor.js"></script>
   <script src="assets/js/book.js"></script>
-  <script src="assets/js/seamlessScroll.js"></script>
+  <script src="assets/js/galleryscroll.js"></script>
 </body>
 
 </html>

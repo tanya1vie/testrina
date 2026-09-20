@@ -1436,3 +1436,26 @@ body.locked .password-overlay { z-index: 9999; }
     transform: none !important;
   }
 }
+
+
+/* Polysapien uses the shared Vela-style gallery, but its images touch and
+   never receive automatic figure captions. */
+.polysapien-touch-gallery {
+  gap: 0 !important;
+  column-gap: 0 !important;
+}
+
+.polysapien-touch-gallery .gallery-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.polysapien-touch-gallery .gallery-item img {
+  margin: 0 !important;
+  display: block;
+}
+
+.polysapien-touch-gallery-wrapper {
+  margin-top: 72px;
+  margin-bottom: 72px;
+}

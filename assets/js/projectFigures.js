@@ -139,42 +139,33 @@
         }
       });
 
-      const sharedCaptionRows = rows
+      const pairs = rows
         .map((row) => ({
           top: row.top,
           items: row.items.sort((a, b) => a.rect.left - b.rect.left)
         }))
-        .filter((row) => {
-          const hasHorizontalSpacing = row.items.length > 1 &&
-            row.items[1].rect.left > row.items[0].rect.left + 8;
-          const isPair = row.items.length === 2;
-          const isThreeImageGrid =
-            parent.classList.contains('project-image-grid-three') &&
-            row.items.length === 3;
-          return hasHorizontalSpacing && (isPair || isThreeImageGrid);
-        });
+        .filter((row) =>
+          row.items.length === 2 &&
+          row.items[1].rect.left > row.items[0].rect.left + 8
+        );
 
-      if (!sharedCaptionRows.length) return;
+      if (!pairs.length) return;
 
       const side = captionSideFor(parent);
       parent.classList.add('auto-project-pair-parent', `caption-side-${side}`);
 
       const parentRect = parent.getBoundingClientRect();
 
-      sharedCaptionRows.forEach((row) => {
-        const rowFigures = row.items.map((item) => item.figure);
-        rowFigures.forEach((figure) => figure.classList.add('auto-project-paired'));
-
-        if (rowFigures.length === 2) {
-          rowFigures[0].classList.add('auto-project-pair-left');
-          rowFigures[1].classList.add('auto-project-pair-right');
-        }
+      pairs.forEach((row) => {
+        const [left, right] = row.items.map((item) => item.figure);
+        left.classList.add('auto-project-paired', 'auto-project-pair-left');
+        right.classList.add('auto-project-paired', 'auto-project-pair-right');
 
         /* For the shared project-image-pair layout, size each figure by the
            source image's natural aspect ratio. With flex-grow set to that
            ratio, both images fill the row together at the same height. */
         if (parent.classList.contains('project-image-pair')) {
-          rowFigures.forEach((figure) => {
+          [left, right].forEach((figure) => {
             const image = figure.querySelector(':scope > img');
             if (!image) return;
 
@@ -197,7 +188,7 @@
         column.setAttribute('aria-label', 'Figure captions');
         column.style.top = `${Math.max(0, row.top - parentRect.top)}px`;
 
-        rowFigures.forEach((figure) => {
+        [left, right].forEach((figure) => {
           const caption = figure.querySelector(':scope > .auto-project-caption');
           if (!caption) return;
           const copy = caption.cloneNode(true);

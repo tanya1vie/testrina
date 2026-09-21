@@ -236,6 +236,71 @@
     requestAnimationFrame(markSideBySidePairs);
   }
 
+  function ensureProjectImageLightbox() {
+    let lightbox = document.getElementById('projectImageLightbox');
+    if (lightbox) return lightbox;
+
+    lightbox = document.createElement('div');
+    lightbox.id = 'projectImageLightbox';
+    lightbox.className = 'project-image-lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.innerHTML = `
+      <button type="button" class="project-image-lightbox-close" aria-label="Close full screen image">×</button>
+      <img class="project-image-lightbox-image" alt="">
+    `;
+    document.body.appendChild(lightbox);
+
+    const close = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('project-image-lightbox-open');
+      const image = lightbox.querySelector('.project-image-lightbox-image');
+      image.removeAttribute('src');
+      image.alt = '';
+    };
+
+    lightbox.querySelector('.project-image-lightbox-close').addEventListener('click', close);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+    });
+
+    lightbox._closeProjectImageLightbox = close;
+    return lightbox;
+  }
+
+  function openProjectImageLightbox(img) {
+    const lightbox = ensureProjectImageLightbox();
+    const image = lightbox.querySelector('.project-image-lightbox-image');
+    image.src = img.currentSrc || img.src;
+    image.alt = img.alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('project-image-lightbox-open');
+    lightbox.querySelector('.project-image-lightbox-close').focus();
+  }
+
+  /* Make project imagery clickable without changing the markup on every page.
+     Existing dedicated gallery lightboxes keep handling their own gallery. */
+  main.addEventListener('click', (event) => {
+    const img = event.target.closest('img');
+    if (!img || !main.contains(img)) return;
+    if (img.closest('a, button, .draggable-card')) return;
+    if (img.matches('[data-no-image-lightbox]')) return;
+    if (img.closest('.gallery') && document.getElementById('lightbox')) return;
+
+    event.preventDefault();
+    openProjectImageLightbox(img);
+  });
+
+  main.querySelectorAll('img').forEach((img) => {
+    if (!img.closest('a, button, .draggable-card') && !img.matches('[data-no-image-lightbox]')) {
+      img.classList.add('project-image-lightbox-trigger');
+    }
+  });
+
   refreshProjectFigures();
 
   let resizeTimer = null;

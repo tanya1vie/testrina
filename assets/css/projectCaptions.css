@@ -328,3 +328,39 @@ body.project-image-lightbox-open {
 .project-image-lightbox-close:hover {
   opacity: .7;
 }
+
+/* Videos use the same 60px side-caption system as project images. */
+.auto-project-figure > video,
+.auto-project-figure > .video-wrapper,
+.auto-project-figure > .project-circle-media {
+  grid-column: 1;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.auto-project-figure > video {
+  height: auto;
+}
+
+.auto-project-figure.caption-side-left > video,
+.auto-project-figure.caption-side-left > .video-wrapper,
+.auto-project-figure.caption-side-left > .project-circle-media {
+  grid-column: 2;
+}
+
+.auto-project-figure > .video-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 761px) {
+  .project-image-pair > .auto-project-figure > video {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+    object-fit: contain;
+  }
+}

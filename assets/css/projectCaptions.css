@@ -271,3 +271,60 @@
     max-width: 88vw !important;
   }
 }
+
+
+/* Shared full-screen viewer for project images. */
+.project-image-lightbox-trigger {
+  cursor: zoom-in;
+}
+
+body.project-image-lightbox-open {
+  overflow: hidden;
+}
+
+.project-image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 4vw;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.project-image-lightbox.is-open {
+  display: flex;
+}
+
+.project-image-lightbox-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  margin: 0;
+  box-shadow: none;
+}
+
+.project-image-lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 12001;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.project-image-lightbox-close:hover {
+  opacity: .7;
+}

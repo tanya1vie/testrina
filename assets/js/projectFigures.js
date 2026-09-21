@@ -55,22 +55,45 @@
     return output.charAt(0).toUpperCase() + output.slice(1);
   }
 
-  function existingCaptionFor(img, figure) {
-    if (img.dataset.caption) return stripProjectName(img.dataset.caption);
+  function captionSourceFor(media) {
+    return media.matches('.video-wrapper, .project-circle-media')
+      ? media.querySelector(':scope > iframe, :scope > video')
+      : media;
+  }
+
+  function existingCaptionFor(media, figure) {
+    const source = captionSourceFor(media);
+    if (media.dataset.caption) return stripProjectName(media.dataset.caption);
+    if (source?.dataset.caption) return stripProjectName(source.dataset.caption);
 
     const existingFigcaption = figure && figure.querySelector(':scope > figcaption');
     if (existingFigcaption && existingFigcaption.textContent.trim()) {
       return stripProjectName(existingFigcaption.textContent);
     }
 
-    const sibling = figure ? figure.nextElementSibling : img.nextElementSibling;
+    const nestedCaption = figure?.querySelector(
+      ':scope > .imageSubtitle, :scope > .image-subtitle, :scope > .image-caption, :scope > .project-image-caption'
+    );
+    if (nestedCaption && nestedCaption.textContent.trim()) {
+      const text = stripProjectName(nestedCaption.textContent);
+      nestedCaption.remove();
+      if (text) return text;
+    }
+
+    const sibling = figure ? figure.nextElementSibling : media.nextElementSibling;
     if (sibling && sibling.matches('.imageSubtitle, .image-subtitle, .image-caption, .project-image-caption')) {
       const text = stripProjectName(sibling.textContent);
       sibling.remove();
       if (text) return text;
     }
 
-    return stripProjectName(img.getAttribute('alt') || '');
+    const sourceAlt = source?.querySelector?.('source[alt]')?.getAttribute('alt') || '';
+    return stripProjectName(
+      source?.getAttribute('alt') ||
+      source?.getAttribute('aria-label') ||
+      source?.getAttribute('title') ||
+      sourceAlt
+    );
   }
 
   function setCaptionContent(caption, number, description) {
@@ -171,24 +194,27 @@
         }
 
         /* For the shared project-image-pair layout, size each figure by the
-           source image's natural aspect ratio. With flex-grow set to that
-           ratio, both images fill the row together at the same height. */
+           image or video's natural aspect ratio. With flex-grow set to that
+           ratio, all media in the row resolves to the same displayed height. */
         if (parent.classList.contains('project-image-pair')) {
           rowFigures.forEach((figure) => {
-            const image = figure.querySelector(':scope > img');
-            if (!image) return;
+            const media = figure.querySelector(':scope > img, :scope > video');
+            if (!media) return;
 
             const applyAspect = () => {
-              if (image.naturalWidth && image.naturalHeight) {
-                figure.style.setProperty(
-                  '--pair-aspect',
-                  String(image.naturalWidth / image.naturalHeight)
-                );
+              const width = media.matches('video') ? media.videoWidth : media.naturalWidth;
+              const height = media.matches('video') ? media.videoHeight : media.naturalHeight;
+              if (width && height) {
+                figure.style.setProperty('--pair-aspect', String(width / height));
               }
             };
 
             applyAspect();
-            if (!image.complete) image.addEventListener('load', applyAspect, { once: true });
+            if (media.matches('video') && media.readyState < 1) {
+              media.addEventListener('loadedmetadata', applyAspect, { once: true });
+            } else if (media.matches('img') && !media.complete) {
+              media.addEventListener('load', applyAspect, { once: true });
+            }
           });
         }
 
@@ -211,23 +237,38 @@
   }
 
   function refreshProjectFigures() {
-    const images = Array.from(main.querySelectorAll('img')).filter((img) => {
-      if (img.matches('[data-no-figure-caption]')) return false;
-      if (img.closest('.draggable-card, .draggable-card-stage, .draggable-card-section')) return false;
-      if (img.closest('.lightbox, .modal, template')) return false;
-      if (img.closest('[style*="display:none"], [style*="display: none"]')) return false;
-      return true;
-    });
+    const seen = new Set();
+    const mediaItems = Array.from(main.querySelectorAll('img, video, iframe'))
+      .map((media) => {
+        if (media.matches('iframe') && media.closest('.video-wrapper')) {
+          return media.closest('.video-wrapper');
+        }
+        if (media.matches('video') && media.closest('.project-circle-media')) {
+          return media.closest('.project-circle-media');
+        }
+        return media;
+      })
+      .filter((media) => {
+        if (seen.has(media)) return false;
+        seen.add(media);
 
-    images.forEach((img, index) => {
-      let figure = img.closest('figure');
-      const description = existingCaptionFor(img, figure);
+        const source = captionSourceFor(media);
+        if (media.matches('[data-no-figure-caption]') || source?.matches('[data-no-figure-caption]')) return false;
+        if (media.closest('.draggable-card, .draggable-card-stage, .draggable-card-section')) return false;
+        if (media.closest('.lightbox, .modal, template')) return false;
+        if (media.closest('[style*="display:none"], [style*="display: none"]')) return false;
+        return true;
+      });
 
-      if (!figure || !figure.contains(img)) {
+    mediaItems.forEach((media, index) => {
+      let figure = media.closest('figure');
+      const description = existingCaptionFor(media, figure);
+
+      if (!figure || !figure.contains(media)) {
         figure = document.createElement('figure');
         figure.className = 'auto-project-figure';
-        img.parentNode.insertBefore(figure, img);
-        figure.appendChild(img);
+        media.parentNode.insertBefore(figure, media);
+        figure.appendChild(media);
       } else {
         figure.classList.add('auto-project-figure');
       }
@@ -324,7 +365,7 @@
         node.nodeType === 1 &&
         !node.classList?.contains('auto-project-caption') &&
         !node.classList?.contains('auto-project-pair-caption-column') &&
-        (node.matches?.('img') || node.querySelector?.('img'))
+        (node.matches?.('img, video, iframe') || node.querySelector?.('img, video, iframe'))
       )
     );
     if (changed) refreshProjectFigures();

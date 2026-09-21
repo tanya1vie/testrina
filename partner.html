@@ -7,8 +7,10 @@
   <title>Phantom Partner | Tatiana Estrina</title>
   <!-- If this is a GitHub Pages project site, the base path is /testrina/ -->
   <!-- <base href="/testrina/">  Uncomment if you want all relative URLs to resolve from /testrina/ -->
-  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/base.css"
+  <script src="assets/js/pageLoad.js"></script>>
   <link rel="stylesheet" href="assets/css/projectPage.css">
+  <link rel="stylesheet" href="assets/css/projectComponents.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
 
   
@@ -95,7 +97,7 @@
     <!-- PIPELINE -->
 
 
-      <img src="Images/PhantomPartner/diagram_of_machine_learning-01.png" alt="Side by Side" class="project-image project-image--900" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/diagram_of_machine_learning-01.png" alt="Side by Side" class="project-image project-image--900" decoding="async"/>
 
       <p>
         <b>1) Ingest.</b> FBX/C3D clips from Mixamo, CMU, and HDM05 are converted to <code>.npy</code> arrays (shape: <code>[frames, markers, 3]</code>).<br/>
@@ -107,7 +109,7 @@
       </p>
     </div>
 
-  <div class="image-row-three">
+  <div class="project-image-grid-three">
   <figure>
     <img class="centered-media" src="Images/PhantomPartner/Charleston_2_2_norm.png" alt="Charleston 2.2 visualization">
     <figcaption>Rumba - Basic step</figcaption>
@@ -123,7 +125,7 @@
  
 </div>
 
-<div class="image-row-three">
+<div class="project-image-grid-three">
    <figure>
     <img class="centered-media" src="Images/PhantomPartner/HDM_mm_03-01_01_120_waltz_0-2800_norm.png" alt="Blender export">
     <figcaption>Waltz - Natrual turn</figcaption>
@@ -148,7 +150,7 @@
         <p class="project-subtitle">From leader motion to duet synthesis</p>
       </center>
 
-      <img src="Images/PhantomPartner/diagram_of_machine_learning-02.png" alt="Side by Side" class="project-image project-image--900" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/diagram_of_machine_learning-02.png" alt="Side by Side" class="project-image project-image--900" decoding="async"/>
 
       <p>
         Training uses sliding windows of length <b>K</b> (e.g., 16–32). For each window, the input is the leader’s <code>[x,y,z]</code> and velocity <code>Δ[x,y,z]</code> per marker, concatenated with a style one-hot; the GRU predicts the follower’s <code>[x,y,z]</code>. Overlapping windows are averaged to produce the full sequence.
@@ -163,7 +165,7 @@
           <p class="project-subtitle">Five styles, many duets</p>
         </center>
 
-        <div class="image-row">
+        <div class="project-image-pair">
           <figure>
             <video class="centered-video" autoplay muted loop playsinline>
               <source src="Images/PhantomPartner/cha1_duet.mp4" type="video/mp4"/>
@@ -193,13 +195,13 @@
         Leader and predicted follower are saved as <code>.obj</code> curve-like polylines and as mesh “ribbons” for immediate rendering. Blender’s modifiers (Solidify, Subdivision, Array) are used to stylize traces into sculptural forms suitable for print or animation.
       </p>
 
-      <img src="Images/PhantomPartner/salsa2.jpg" alt="Salsa render" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/salsa2.jpg" alt="Salsa render" decoding="async"/>
       <figcaption>Salsa — slot timing & cross-body lead</figcaption>
       <br><br>
-      <img src="Images/PhantomPartner/chacha1.jpg" alt="Chacha render" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/chacha1.jpg" alt="Chacha render" decoding="async"/>
       <figcaption>Chacha — syncopation & breaks</figcaption>
       <br><br>
-      <img src="Images/PhantomPartner/waltz1.jpg" alt="Waltz render" loading="lazy" decoding="async"/>
+      <img src="Images/PhantomPartner/waltz1.jpg" alt="Waltz render" decoding="async"/>
       <figcaption>Waltz — rise & fall</figcaption>
     </div>
   </main>

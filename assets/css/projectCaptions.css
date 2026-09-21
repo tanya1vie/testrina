@@ -27,7 +27,7 @@
   line-height: 1.25;
   letter-spacing: 0.01em;
   text-align: left;
-  color: #000;
+  color: inherit;
   overflow-wrap: break-word;
 }
 

@@ -56,8 +56,8 @@
   }
 
   function captionSourceFor(media) {
-    return media.matches('.video-wrapper')
-      ? media.querySelector(':scope > iframe')
+    return media.matches('.video-wrapper, .project-circle-media')
+      ? media.querySelector(':scope > iframe, :scope > video')
       : media;
   }
 
@@ -221,9 +221,15 @@
   function refreshProjectFigures() {
     const seen = new Set();
     const mediaItems = Array.from(main.querySelectorAll('img, video, iframe'))
-      .map((media) => media.matches('iframe') && media.closest('.video-wrapper')
-        ? media.closest('.video-wrapper')
-        : media)
+      .map((media) => {
+        if (media.matches('iframe') && media.closest('.video-wrapper')) {
+          return media.closest('.video-wrapper');
+        }
+        if (media.matches('video') && media.closest('.project-circle-media')) {
+          return media.closest('.project-circle-media');
+        }
+        return media;
+      })
       .filter((media) => {
         if (seen.has(media)) return false;
         seen.add(media);

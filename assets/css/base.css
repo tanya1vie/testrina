@@ -509,3 +509,29 @@ main {
   width: 100%;
 }
 
+
+
+/* Site-wide load reveal.
+   Keep the page white until all requested resources finish loading,
+   then fade the complete page in together. */
+html {
+  background: #fff;
+}
+
+body {
+  transition: opacity 420ms ease;
+}
+
+html.site-loading body {
+  opacity: 0;
+}
+
+html.site-loaded body {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}

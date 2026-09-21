@@ -71,6 +71,15 @@
       return stripProjectName(existingFigcaption.textContent);
     }
 
+    const nestedCaption = figure?.querySelector(
+      ':scope > .imageSubtitle, :scope > .image-subtitle, :scope > .image-caption, :scope > .project-image-caption'
+    );
+    if (nestedCaption && nestedCaption.textContent.trim()) {
+      const text = stripProjectName(nestedCaption.textContent);
+      nestedCaption.remove();
+      if (text) return text;
+    }
+
     const sibling = figure ? figure.nextElementSibling : media.nextElementSibling;
     if (sibling && sibling.matches('.imageSubtitle, .image-subtitle, .image-caption, .project-image-caption')) {
       const text = stripProjectName(sibling.textContent);

@@ -468,50 +468,6 @@ img {
   user-select: none;
 }
 
-.image-row {
-  display: flex;
-  gap: 30px;
-  /* wider gap */
-  max-width: 1000px;
-  margin: 30px auto 0;
-}
-
-.image-row img {
-  width: calc((100% - 30px) / 2);
-  /* subtract gap from 100% and split */
-  height: auto;
-  object-fit: cover;
-}
-
-
-.image-row-three {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.image-row-three figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-}
-
-.image-row-three img {
-  width: 100%;
-  height: 200px;
-  /* adjust as needed */
-  object-fit: contain;
-  /* ensures no cropping */
-}
-
-.image-row-three figcaption {
-  margin-top: 6px;
-  font-size: 0.6rem;
-  text-align: center;
-  color: #000;
-}
-
 .bold-line {
   font-weight: bold;
 }
@@ -528,31 +484,6 @@ img {
   border-radius: 6px;
   /* optional, matches your image style */
 }
-
-.image-row-four {
-  display: flex;
-  gap: 40px;
-  /* increase space between images */
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 40px 0;
-  /* space above and below row */
-  padding: 0 20px;
-  /* horizontal padding around the row */
-}
-
-.image-row-four img {
-  width: 100%;
-  max-width: 18%;
-  /* smaller image width */
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  /* optional: rounded corners for aesthetics */
-
-}
-
-
 
 .two-columns {
   display: flex;

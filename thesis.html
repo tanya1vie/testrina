@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="assets/css/projectComponents.css">
   <link rel="stylesheet" href="assets/css/cursor.css">
   <link rel="stylesheet" href="assets/css/book.css">
+  <link rel="stylesheet" href="assets/css/thesisSectionZoom.css">
 </head>
 
 <body>
@@ -69,7 +70,38 @@
           becomes an active pressure on how bodies behave and adapt.</p>
       </section>
       <br>
-      <img src="Images/Thesis/Human Org.jpg" alt="Diagram of human noting it's evolutions over time">
+      <!-- Replace each data-zoom-src value below with the final close-up image for that section. -->
+      <div class="thesis-section-zoom" data-thesis-section-zoom>
+        <img data-no-figure-caption data-no-image-lightbox
+          src="Images/Thesis/Human Org.jpg"
+          alt="Diagram of human noting its evolutions over time">
+        <div class="thesis-section-zoom-grid" aria-label="Open a closer view of this diagram">
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/thesisphoto1.png"
+            aria-label="Zoom diagram section 1, top left"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/thesisphoto2.png"
+            aria-label="Zoom diagram section 2, top right"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/thesisphoto3.png"
+            aria-label="Zoom diagram section 3, second row left"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/thesisphoto4.png"
+            aria-label="Zoom diagram section 4, second row right"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/thesisphoto5.png"
+            aria-label="Zoom diagram section 5, third row left"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/thesisphoto6.png"
+            aria-label="Zoom diagram section 6, third row right"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/dormphoto.png"
+            aria-label="Zoom diagram section 7, bottom left"></button>
+          <button type="button" class="thesis-section-zoom-hotspot"
+            data-zoom-src="Images/Thesis/farnsworthbookletphoto.png"
+            aria-label="Zoom diagram section 8, bottom right"></button>
+        </div>
+      </div>
        <br>
         <br>
 
@@ -660,12 +692,21 @@
     </div>
   </main>
 
+  <div class="thesis-section-zoom-modal" id="thesisSectionZoomModal"
+    role="dialog" aria-modal="true" aria-label="Enlarged thesis image section" aria-hidden="true">
+    <div class="thesis-section-zoom-dialog">
+      <button type="button" class="thesis-section-zoom-close" aria-label="Close enlarged image">×</button>
+      <img data-no-figure-caption data-no-image-lightbox class="thesis-section-zoom-image" alt="">
+    </div>
+  </div>
+
   <div id="footer"></div>
   <script>
     fetch("footer.html").then(res => res.text()).then(html => document.getElementById("footer").innerHTML = html);
   </script>
   <div class="custom-cursor" id="customCursor"></div>
   <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/thesisSectionZoom.js"></script>
   <script src="assets/js/galleryscroll.js"></script>
   <script src="assets/js/book.js"></script>
   <script>

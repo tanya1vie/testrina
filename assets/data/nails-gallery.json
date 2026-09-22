@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T20:05:03.855Z",
+  "generated_at": "2026-09-22T21:06:40.268Z",
   "sets": [
     {
       "id": "25",
@@ -357,27 +357,27 @@
       "client": "",
       "instagram_url": "",
       "caption": "",
-      "cover": "Images/Nails/Secret%20Garden/cover.jpeg",
+      "cover": "Images/Nails/Secret%20Garden/cover.png",
       "media": [
         {
           "type": "image",
-          "src": "Images/Nails/Secret%20Garden/cover.jpeg",
-          "name": "cover.jpeg"
+          "src": "Images/Nails/Secret%20Garden/cover.png",
+          "name": "cover.png"
         },
         {
           "type": "image",
-          "src": "Images/Nails/Secret%20Garden/IMG_7185.jpeg",
-          "name": "IMG_7185.jpeg"
+          "src": "Images/Nails/Secret%20Garden/Secret%20Garden%201.png",
+          "name": "Secret Garden 1.png"
         },
         {
           "type": "image",
-          "src": "Images/Nails/Secret%20Garden/IMG_7218.jpeg",
-          "name": "IMG_7218.jpeg"
+          "src": "Images/Nails/Secret%20Garden/Secret%20Garden%203.png",
+          "name": "Secret Garden 3.png"
         },
         {
           "type": "image",
-          "src": "Images/Nails/Secret%20Garden/IMG_7246.jpeg",
-          "name": "IMG_7246.jpeg"
+          "src": "Images/Nails/Secret%20Garden/Secret%20Garden%204.png",
+          "name": "Secret Garden 4.png"
         }
       ]
     },

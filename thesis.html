@@ -110,27 +110,35 @@
         <div class="thesis-section-zoom-grid" aria-label="Open a closer view of this diagram">
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/thesisphoto1.png"
+            data-zoom-caption="Close-up section 1"
             aria-label="Zoom diagram section 1, top left"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/thesisphoto2.png"
+            data-zoom-caption="Close-up section 2"
             aria-label="Zoom diagram section 2, top right"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/thesisphoto3.png"
+            data-zoom-caption="Close-up section 3"
             aria-label="Zoom diagram section 3, second row left"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/thesisphoto4.png"
+            data-zoom-caption="Close-up section 4"
             aria-label="Zoom diagram section 4, second row right"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/thesisphoto5.png"
+            data-zoom-caption="Close-up section 5"
             aria-label="Zoom diagram section 5, third row left"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/thesisphoto6.png"
+            data-zoom-caption="Close-up section 6"
             aria-label="Zoom diagram section 6, third row right"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/dormphoto.png"
+            data-zoom-caption="Close-up section 7"
             aria-label="Zoom diagram section 7, bottom left"></button>
           <button type="button" class="thesis-section-zoom-hotspot"
             data-zoom-src="Images/Thesis/farnsworthbookletphoto.png"
+            data-zoom-caption="Close-up section 8"
             aria-label="Zoom diagram section 8, bottom right"></button>
         </div>
       </div>
@@ -665,10 +673,11 @@ planet">
   </main>
 
   <div class="thesis-section-zoom-modal" id="thesisSectionZoomModal"
-    role="dialog" aria-modal="true" aria-label="Enlarged thesis image section" aria-hidden="true">
+    role="dialog" aria-modal="true" aria-label="Enlarged thesis image section" aria-describedby="thesisSectionZoomCaption" aria-hidden="true">
     <div class="thesis-section-zoom-dialog">
       <button type="button" class="thesis-section-zoom-close" aria-label="Close enlarged image">×</button>
       <img data-no-figure-caption data-no-image-lightbox class="thesis-section-zoom-image" alt="">
+      <figcaption class="thesis-section-zoom-caption" id="thesisSectionZoomCaption"></figcaption>
     </div>
   </div>
 

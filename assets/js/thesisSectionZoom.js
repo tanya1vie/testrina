@@ -5,6 +5,7 @@
 
   const hotspots = Array.from(map.querySelectorAll('[data-zoom-src]'));
   const image = modal.querySelector('.thesis-section-zoom-image');
+  const caption = modal.querySelector('.thesis-section-zoom-caption');
   const closeButton = modal.querySelector('.thesis-section-zoom-close');
   const customCursor = document.getElementById('customCursor');
   let returnFocus = null;
@@ -18,6 +19,8 @@
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('thesis-section-zoom-open');
     image.removeAttribute('src');
+    image.alt = '';
+    caption.textContent = '';
     setPlusCursor(false);
 
     if (returnFocus) {
@@ -31,8 +34,10 @@
     if (!src) return;
 
     returnFocus = hotspot;
+    const captionText = hotspot.dataset.zoomCaption || '';
     image.src = src;
-    image.alt = hotspot.getAttribute('aria-label') || 'Enlarged thesis image section';
+    image.alt = captionText || hotspot.getAttribute('aria-label') || 'Enlarged thesis image section';
+    caption.textContent = captionText;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('thesis-section-zoom-open');

@@ -90,8 +90,11 @@
 
 .thesis-section-zoom-dialog {
   position: relative;
-  display: inline-flex;
-  max-width: 90vw;
+  display: grid;
+  grid-template-columns: minmax(0, auto) 60px;
+  column-gap: 10px;
+  align-items: start;
+  max-width: calc(90vw - 70px);
   max-height: 86vh;
 }
 
@@ -104,6 +107,19 @@
   object-fit: contain;
   margin: 0;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.thesis-section-zoom-caption {
+  grid-column: 2;
+  width: 60px;
+  margin: 0;
+  color: #fff;
+  font-family: 'Helvetica Light', sans-serif;
+  font-size: 10px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 
 .thesis-section-zoom-close {
@@ -139,9 +155,13 @@ body.thesis-section-zoom-open {
     padding: 8vh 4vw 4vh;
   }
 
-  .thesis-section-zoom-dialog,
-  .thesis-section-zoom-image {
+  .thesis-section-zoom-dialog {
     max-width: 92vw;
+    max-height: 82vh;
+  }
+
+  .thesis-section-zoom-image {
+    max-width: calc(92vw - 70px);
     max-height: 82vh;
   }
 }

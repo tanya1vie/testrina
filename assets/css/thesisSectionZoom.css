@@ -1,0 +1,147 @@
+/* Thesis-specific eight-zone image zoom. */
+.thesis-section-zoom {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.thesis-section-zoom > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.thesis-section-zoom-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.thesis-section-zoom-hotspot {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  appearance: none;
+}
+
+.thesis-section-zoom-hotspot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* The site's pointer is a custom dot, so turn that dot into a true plus
+   while one of the eight zoom regions is active. */
+.custom-cursor.is-thesis-zoom-plus {
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+  background: transparent;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.custom-cursor.is-thesis-zoom-plus::before,
+.custom-cursor.is-thesis-zoom-plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.is-thesis-zoom-plus::before {
+  width: 22px;
+  height: 2px;
+}
+
+.custom-cursor.is-thesis-zoom-plus::after {
+  width: 2px;
+  height: 22px;
+}
+
+.thesis-section-zoom-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 13000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 7vh 5vw 5vh;
+  background: rgba(78, 78, 78, 0.78);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.thesis-section-zoom-modal.is-open {
+  display: flex;
+}
+
+.thesis-section-zoom-dialog {
+  position: relative;
+  display: inline-flex;
+  max-width: 90vw;
+  max-height: 86vh;
+}
+
+.thesis-section-zoom-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 86vh;
+  object-fit: contain;
+  margin: 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.thesis-section-zoom-close {
+  position: absolute;
+  left: 0;
+  top: -27px;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 20px;
+  text-align: left;
+}
+
+body.thesis-section-zoom-open {
+  overflow: hidden;
+}
+
+@media (pointer: coarse) {
+  .thesis-section-zoom-hotspot {
+    cursor: pointer !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .thesis-section-zoom-modal {
+    padding: 8vh 4vw 4vh;
+  }
+
+  .thesis-section-zoom-dialog,
+  .thesis-section-zoom-image {
+    max-width: 92vw;
+    max-height: 82vh;
+  }
+}

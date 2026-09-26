@@ -439,18 +439,27 @@ body.booklet-fullscreen-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(94vw, calc(82vh * var(--book-aspect, 1.48)));
+  width: min(96vw, calc(86vh * var(--book-aspect, 1.48) + 140px));
   max-width: none;
   margin: 0;
   padding: 44px 70px;
   box-sizing: border-box;
   background: transparent;
-  box-shadow: 0 0 0 120vmax rgba(0, 0, 0, 0.88);
+}
+
+.magazine-booklet-wrap.is-fullscreen::before {
+  content: '';
+  position: fixed;
+  inset: -120vmax;
+  z-index: -1;
+  background: rgba(78, 78, 78, 0.78);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .magazine-booklet-wrap.is-fullscreen .magazine-booklet {
   width: 100%;
-  max-height: 82vh;
+  max-height: 86vh;
 }
 
 .magazine-booklet-wrap.is-fullscreen .magazine-booklet-expand {
@@ -477,7 +486,7 @@ body.booklet-fullscreen-open {
   }
 
   .magazine-booklet-wrap.is-fullscreen {
-    width: min(96vw, calc(78vh * var(--book-aspect, 1.48)));
+    width: min(98vw, calc(82vh * var(--book-aspect, 1.48) + 84px));
     padding: 44px 42px;
   }
 

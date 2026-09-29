@@ -858,3 +858,49 @@ body.booklet-fullscreen-open {
     margin-top: 0;
   }
 }
+
+
+/* Full-bleed Bruce & Wendy band. The inner content stays on the shared
+   project measure while both the black Wendy area and white alternate area
+   reach the viewport edges. */
+.wendy-dark {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  box-sizing: border-box;
+}
+
+/* Marché du Pont: let the historical image/text row use the complete shared
+   project width instead of inheriting the generic 900px media measure and
+   220px text-column cap. */
+.marche-page .project-images {
+  width: min(calc(100% - 40px), var(--max-content-width));
+  max-width: var(--max-content-width);
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+.marche-context-row {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.marche-context-row > img {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.marche-context-row .two-col-text {
+  width: 100%;
+  max-width: none;
+}
+
+@media (max-width: 820px) {
+  .marche-context-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

@@ -1168,9 +1168,7 @@ body.locked .password-overlay { z-index: 9999; }
 .augmentote-tech-flow div { padding: 16px; border: 1px solid #111; border-radius: 18px; text-align: center; }
 .augmentote-wrap { padding: 30px; border-radius: 26px; background: #f4f4f4; }
 .augmentote-image-sequence { display: block !important; width: 100% !important; margin: 30px 0 56px !important; }
-.augmentote-image-sequence .augmentote-full { display: grid !important; grid-template-columns: minmax(0, 1fr) 60px !important; column-gap: 10px !important; width: 100% !important; max-width: none !important; min-width: 0 !important; clear: both !important; float: none !important; margin: 28px 0 48px !important; }
-.augmentote-image-sequence .augmentote-full > img { display: block !important; grid-column: 1 !important; width: 100% !important; max-width: 100% !important; height: auto !important; object-fit: contain !important; margin: 0 !important; }
-.augmentote-image-sequence .augmentote-full > .auto-project-caption { display: block !important; grid-column: 2 !important; width: 60px !important; }
+.augmentote-image-sequence > img.augmentote-full { display: block !important; width: 100% !important; max-width: 100% !important; height: auto !important; object-fit: contain !important; margin: 28px 0 48px !important; }
 .augmentote-text-break { max-width: 760px; margin: 50px 0 20px; }
 
 @media (max-width: 760px) {

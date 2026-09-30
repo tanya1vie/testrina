@@ -272,6 +272,40 @@
   }
 }
 
+@media (max-width: 520px) {
+  .auto-project-figure {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    column-gap: 8px;
+  }
+
+  .auto-project-caption,
+  .auto-project-pair-caption-column,
+  .auto-project-pair-caption-column .auto-project-caption {
+    width: 48px;
+    font-size: 9px;
+  }
+
+  .auto-project-pair-row,
+  .auto-project-pair-row.caption-side-left {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 48px !important;
+    column-gap: 8px;
+  }
+
+  .auto-project-pair-parent.caption-side-left,
+  .auto-project-pair-parent.caption-side-right {
+    padding-right: 56px !important;
+  }
+
+  .auto-project-pair-parent > .auto-project-pair-caption-column {
+    width: 48px;
+  }
+
+  .image-row-equal-height.auto-project-pair-row,
+  .image-row-equal-height.auto-project-pair-row.caption-side-left {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 48px !important;
+  }
+}
+
 
 /* Shared full-screen viewer for project images. */
 .project-image-lightbox-trigger {

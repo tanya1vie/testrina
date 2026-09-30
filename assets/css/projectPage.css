@@ -255,6 +255,7 @@ img {
 
 .thin-image {
   width: 800px;
+  max-width: 100%;
 }
 
 /* Zoom Modal */
@@ -450,6 +451,7 @@ img {
   position: relative;
   width: 800px;
   height: 600px;
+  max-width: 100%;
   margin: 0 auto;
   background: #f0f0f0;
   border: 2px dashed #ccc;
@@ -585,6 +587,7 @@ img {
 
 .small-video {
   width: 300px;
+  max-width: 100%;
   /* or any fixed width, or 100% for responsive */
   height: auto;
   /* keep aspect ratio */
@@ -1207,6 +1210,74 @@ body.locked .password-overlay { z-index: 9999; }
 
   .gallery-button.left { left: 2px; }
   .gallery-button.right { right: 2px; }
+}
+
+/* Mobile fallbacks for legacy project-page building blocks. */
+@media (max-width: 768px) {
+  .project-header {
+    margin-bottom: 42px;
+    padding-inline: 16px;
+  }
+
+  .project-title {
+    font-size: clamp(18px, 5.5vw, 20px);
+    letter-spacing: clamp(.12em, 1vw, .25em);
+    overflow-wrap: anywhere;
+  }
+
+  .multi-column-text {
+    column-count: 1;
+  }
+
+  .main .project-details {
+    gap: 18px;
+    padding: 28px 16px 0;
+  }
+
+  .detail-column {
+    flex: 1 1 130px;
+    min-width: 0;
+  }
+
+  .two-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .two-col-e,
+  .two-col-f {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .two-col-e .two-col-text,
+  .two-col-f .two-col-text {
+    max-width: none;
+  }
+
+  .image-stack {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .masonry-gallery {
+    column-count: 2;
+  }
+
+  .black-section {
+    padding: 44px 16px;
+  }
+
+  .project-code-sample {
+    columns: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-gallery {
+    column-count: 1;
+  }
 }
 
 

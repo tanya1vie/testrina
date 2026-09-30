@@ -636,20 +636,18 @@ body.booklet-fullscreen-open {
   }
 }
 
-/* Thesis design-provocation pairs: two identical, uncropped image boxes split
-   the viewport exactly in half with no gap. */
+/* Thesis design-provocation pairs: split the normal project-image width into
+   two equal, edge-to-edge image boxes. */
 .thesis-equal-image-pair {
   position: relative;
-  left: 50%;
   display: grid !important;
-  width: 100vw;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 0;
-  margin-right: 0;
-  margin-left: 0;
+  margin-right: auto;
+  margin-left: auto;
   padding: 0 !important;
-  transform: translateX(-50%);
 }
 
 .thesis-equal-image-pair > img {
@@ -659,7 +657,7 @@ body.booklet-fullscreen-open {
   height: auto;
   aspect-ratio: 1 / 1;
   margin: 0;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .thesis-equal-image-pair > .thesis-pair-caption {

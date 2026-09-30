@@ -6,6 +6,24 @@
     color: inherit;
 }
 
+/* One-off feature band used by the Humans of the Future / Polysapien row. */
+.project.project-full-width {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    padding-right: 40px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 700px) {
+    .project.project-full-width {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
 .project-info {
     width: 50%;
 }

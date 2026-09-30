@@ -961,24 +961,23 @@ body.booklet-fullscreen-open {
 
 .project-benefit-card {
   display: flex;
-  min-height: 320px;
+  min-height: 0;
   flex-direction: column;
+  gap: 22px;
   border: 2px solid var(--project-accent-contrast, #fff);
   background: var(--project-accent-contrast, #fff);
 }
 
 .project-benefit-card h3 {
+  min-height: 2.4em;
+  margin: 0;
   color: var(--project-accent, #111);
   font-size: 20px;
 }
 
-.project-benefit-card p {
-  margin-bottom: 18px;
-}
-
+.project-benefit-card p,
 .project-benefit-card p:last-child {
-  margin-top: auto;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .project-benefit-chart--details {

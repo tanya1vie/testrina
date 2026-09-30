@@ -636,6 +636,28 @@ body.booklet-fullscreen-open {
   }
 }
 
+/* Thesis design-provocation pairs mix portrait boards and landscape diagrams.
+   Give each image an equal half of the standard project width instead of
+   sizing the columns from their very different natural aspect ratios. */
+.thesis-equal-image-pair {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 761px) {
+  .thesis-equal-image-pair {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .thesis-equal-image-pair > .auto-project-figure {
+    width: 100% !important;
+  }
+}
+
 
 /* Covers use the same height as the following spread and sit against the
    right edge of the booklet window. */

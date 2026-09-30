@@ -1170,9 +1170,13 @@ body.booklet-fullscreen-open {
 }
 
 .project-feedback-response dd {
+  max-width: 421px;
   margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
+  font-family: 'Avenir Light', sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
 }
 
 .project-feedback-controls {

@@ -904,3 +904,195 @@ body.booklet-fullscreen-open {
     gap: 24px;
   }
 }
+
+
+/* Reusable layouts for project case studies, diagrams, and workflows. */
+.project-theme-red {
+  --project-accent: #d92d2d;
+  --project-accent-contrast: #f5e8bf;
+}
+
+.project-image-sequence {
+  display: block;
+  width: 100%;
+}
+
+.project-card-grid {
+  display: grid;
+  align-items: start;
+  margin: 28px 0;
+}
+
+.project-card-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 46px;
+}
+
+.project-card-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.project-info-card {
+  padding: 24px;
+  border-radius: 22px;
+  background: #f4f4f4;
+}
+
+.project-info-card h3 {
+  color: var(--project-accent, #111);
+}
+
+.project-benefit-chart {
+  margin: 62px 0 22px;
+  padding: 30px;
+  background: var(--project-accent, #d92d2d);
+}
+
+.project-benefit-title {
+  margin: 0 0 22px;
+  color: var(--project-accent-contrast, #fff);
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.project-benefit-title span {
+  display: block;
+}
+
+.project-benefit-grid {
+  margin-bottom: 0;
+}
+
+.project-benefit-card {
+  display: flex;
+  min-height: 320px;
+  flex-direction: column;
+  border: 2px solid var(--project-accent-contrast, #fff);
+  background: var(--project-accent-contrast, #fff);
+}
+
+.project-benefit-card h3 {
+  color: var(--project-accent, #111);
+  font-size: 20px;
+}
+
+.project-benefit-card p {
+  margin-bottom: 18px;
+}
+
+.project-benefit-card p:last-child {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.project-workflow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0;
+  counter-reset: step;
+}
+
+.project-workflow-step {
+  min-height: 72px;
+  padding-top: 10px;
+  border-top: 1px solid #111;
+}
+
+.project-workflow-step::before {
+  display: block;
+  color: var(--project-accent, #111);
+  font-size: 24px;
+  font-weight: 700;
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+}
+
+.project-section-band {
+  margin: 90px 0 58px;
+  padding: 46px 34px;
+  color: var(--project-accent-contrast, #fff);
+  background: var(--project-accent, #111);
+}
+
+.project-section-band p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-section-band h2 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.04;
+}
+
+.project-feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 44px;
+  margin: 28px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-feature-list li {
+  padding-top: 10px;
+  border-top: 1px solid #bbb;
+}
+
+.project-quote {
+  margin: 24px 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--project-accent, #111);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.project-process-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 28px 0;
+}
+
+.project-process-flow div {
+  padding: 16px;
+  border: 1px solid #111;
+  border-radius: 18px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .project-card-grid-two,
+  .project-card-grid-three,
+  .project-process-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .project-benefit-card {
+    min-height: 0;
+  }
+
+  .project-benefit-card p:last-child {
+    margin-top: 0;
+  }
+
+  .project-workflow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-section-band {
+    padding: 34px 22px;
+  }
+
+  .project-section-band h2 {
+    font-size: 31px;
+  }
+}

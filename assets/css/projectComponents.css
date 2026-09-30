@@ -912,11 +912,6 @@ body.booklet-fullscreen-open {
   --project-accent-contrast: #f5e8bf;
 }
 
-.project-image-sequence {
-  display: block;
-  width: 100%;
-}
-
 .project-card-grid {
   display: grid;
   align-items: start;

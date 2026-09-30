@@ -1130,7 +1130,6 @@ body.booklet-fullscreen-open {
 }
 
 .project-feedback-viewport {
-  min-height: 500px;
   overflow: hidden;
 }
 
@@ -1250,10 +1249,6 @@ body.booklet-fullscreen-open {
 @media (max-width: 700px) {
   .project-feedback-section {
     margin-top: 78px;
-  }
-
-  .project-feedback-viewport {
-    min-height: 760px;
   }
 
   .project-feedback-slide {

@@ -1,9 +1,11 @@
 (() => {
-  const map = document.querySelector('[data-thesis-section-zoom]');
+  const maps = Array.from(document.querySelectorAll('[data-thesis-section-zoom]'));
   const modal = document.getElementById('thesisSectionZoomModal');
-  if (!map || !modal) return;
+  if (!maps.length || !modal) return;
 
-  const hotspots = Array.from(map.querySelectorAll('[data-zoom-src]'));
+  const hotspots = maps.flatMap((map) =>
+    Array.from(map.querySelectorAll('[data-zoom-src]'))
+  );
   const image = modal.querySelector('.thesis-section-zoom-image');
   const closeButton = modal.querySelector('.thesis-section-zoom-close');
   const customCursor = document.getElementById('customCursor');

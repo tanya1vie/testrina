@@ -662,6 +662,18 @@ body.booklet-fullscreen-open {
   object-fit: contain;
 }
 
+.thesis-equal-image-pair > .thesis-pair-caption {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: block;
+  width: 60px;
+  margin: 0;
+  padding: 5px;
+  background: rgba(255, 255, 255, .86);
+}
+
 
 /* Covers use the same height as the following spread and sit against the
    right edge of the booklet window. */

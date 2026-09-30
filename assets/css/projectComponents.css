@@ -945,7 +945,7 @@ body.booklet-fullscreen-open {
 
 .project-benefit-chart {
   margin: 62px 0 22px;
-  padding: 30px;
+  padding: 30px max(30px, calc((100vw - 900px) / 2));
   background: var(--project-accent, #d92d2d);
 }
 
@@ -986,6 +986,24 @@ body.booklet-fullscreen-open {
   margin-bottom: 0;
 }
 
+.project-benefit-chart--details {
+  margin-top: 40px;
+}
+
+.project-benefit-chart--details .project-benefit-card {
+  min-height: 0;
+}
+
+.project-benefit-chart,
+.project-section-band,
+.project-full-bleed-band {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+}
+
 .project-workflow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1011,7 +1029,7 @@ body.booklet-fullscreen-open {
 
 .project-section-band {
   margin: 90px 0 58px;
-  padding: 46px 34px;
+  padding: 46px max(34px, calc((100vw - 900px) / 2));
   color: var(--project-accent-contrast, #fff);
   background: var(--project-accent, #111);
 }
@@ -1086,6 +1104,11 @@ body.booklet-fullscreen-open {
 
   .project-feature-list {
     grid-template-columns: 1fr;
+  }
+
+  .project-benefit-chart {
+    padding-right: 22px;
+    padding-left: 22px;
   }
 
   .project-section-band {

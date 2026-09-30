@@ -1054,12 +1054,7 @@ img {
   .project-code-sample { columns: 2; }
 }
 
-/* AugmenTote */
-:root {
-  --augment-red: #d92d2d;
-  --augment-cream: #f5e8bf;
-}
-
+/* Keep the shared header usable while protected project content is locked. */
 body.locked #header {
   filter: none !important;
   pointer-events: auto !important;
@@ -1070,128 +1065,6 @@ body.locked #header {
 }
 
 body.locked .password-overlay { z-index: 9999; }
-
-.augmentote-page {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 30px 22px 110px;
-}
-
-.augmentote-section { display: block !important; margin: 82px 0; }
-.augmentote-section:first-child { margin-top: 40px; }
-
-.augmentote-kicker {
-  margin: 0 0 10px;
-  color: var(--augment-red);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-}
-
-.augmentote-section h2 { margin: 0 0 18px; font-size: 28px; line-height: 1.15; letter-spacing: .05em; }
-.augmentote-section h3 { margin: 0 0 10px; font-size: 17px; }
-.augmentote-lede { max-width: 760px; font-size: 20px; line-height: 1.45; }
-.augmentote-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: start; }
-.augmentote-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-
-.augmentote-card {
-  padding: 24px 22px;
-  border: 1px solid #111;
-  border-radius: 26px;
-  background: #fff;
-  box-shadow: 7px 7px 0 #111;
-}
-
-.augmentote-card h3 { color: var(--augment-red); }
-
-.augmentote-benefit-chart {
-  width: 100%;
-  margin: 56px 0;
-}
-
-.augmentote-benefit-title {
-  margin: 0 0 34px !important;
-  color: #000;
-  font-family: Impact, 'Arial Narrow', sans-serif;
-  font-size: clamp(38px, 6vw, 72px) !important;
-  font-weight: 400;
-  letter-spacing: -.025em !important;
-  line-height: .95 !important;
-}
-
-.augmentote-benefit-title span {
-  color: var(--augment-red);
-}
-
-.augmentote-benefit-grid {
-  align-items: stretch;
-}
-
-.augmentote-benefit-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 430px;
-  padding: clamp(28px, 3.5vw, 48px) clamp(24px, 3vw, 42px);
-  border: 1px solid #111;
-  border-radius: clamp(40px, 6vw, 72px);
-  box-shadow: 9px 13px 0 #000;
-}
-
-.augmentote-benefit-card h3 {
-  margin-bottom: 30px;
-  font-size: clamp(18px, 2vw, 26px);
-  line-height: 1.12;
-}
-
-.augmentote-benefit-card p {
-  margin: 0 0 28px;
-  font-size: clamp(15px, 1.45vw, 19px);
-  line-height: 1.25;
-}
-
-.augmentote-benefit-card p:last-child {
-  margin-top: auto;
-  margin-bottom: 0;
-}
-
-.augmentote-workflow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: step; margin: 28px 0; }
-.augmentote-step { min-height: 72px; padding-top: 10px; border-top: 1px solid #111; }
-.augmentote-step::before { counter-increment: step; content: counter(step, decimal-leading-zero); display: block; color: var(--augment-red); font-size: 24px; font-weight: 700; }
-.augmentote-band { margin: 90px -22px 58px; padding: 46px 34px; color: var(--augment-cream); background: var(--augment-red); }
-.augmentote-band p { margin: 0 0 8px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-.augmentote-band h2 { margin: 0; font-size: 42px; line-height: 1.04; }
-.augmentote-feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 44px; margin: 28px 0; padding: 0; list-style: none; }
-.augmentote-feature-list li { padding-top: 10px; border-top: 1px solid #bbb; }
-.augmentote-quote { margin: 24px 0; padding-left: 18px; border-left: 3px solid var(--augment-red); font-size: 17px; line-height: 1.5; }
-.augmentote-tech-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 28px 0; }
-.augmentote-tech-flow div { padding: 16px; border: 1px solid #111; border-radius: 18px; text-align: center; }
-.augmentote-wrap { padding: 30px; border-radius: 26px; background: #f4f4f4; }
-.augmentote-image-sequence { display: block !important; width: 100% !important; margin: 30px 0 56px !important; }
-.augmentote-image-sequence > img.augmentote-full { display: block !important; width: 100% !important; max-width: 100% !important; height: auto !important; object-fit: contain !important; margin: 28px 0 48px !important; }
-.augmentote-text-break { max-width: 760px; margin: 50px 0 20px; }
-
-@media (max-width: 760px) {
-  .augmentote-grid-2,
-  .augmentote-grid-3,
-  .augmentote-tech-flow { grid-template-columns: 1fr; }
-
-  .augmentote-benefit-card {
-    min-height: 0;
-    border-radius: 42px;
-  }
-
-  .augmentote-benefit-card p:last-child {
-    margin-top: 0;
-  }
-
-  .augmentote-workflow { grid-template-columns: 1fr 1fr; }
-  .augmentote-feature-list { grid-template-columns: 1fr; }
-  .augmentote-band { margin-left: -12px; margin-right: -12px; padding: 34px 22px; }
-  .augmentote-band h2 { font-size: 31px; }
-  .augmentote-page { padding-left: 16px; padding-right: 16px; }
-}
-
 
 /* Keep project-page text and full-width media on the same measure. */
 .project-images {

@@ -535,3 +535,64 @@ html.site-loaded body {
     transition: none;
   }
 }
+
+/* Shared small-screen guardrails. Keep media and long labels inside the
+   viewport even on older project pages with one-off markup. */
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .main {
+    width: 100%;
+    padding-top: clamp(38px, 11vw, 64px);
+    padding-bottom: clamp(44px, 12vw, 74px);
+  }
+
+  .titleSection {
+    padding-inline: 16px;
+  }
+
+  h2 {
+    font-size: clamp(27px, 9vw, 36px);
+    overflow-wrap: anywhere;
+  }
+
+  .number {
+    font-size: clamp(68px, 24vw, 100px);
+  }
+}
+
+/* Touchscreens should use their native interaction model. The desktop dot
+   cursor has no useful position on touch devices and can obscure controls. */
+@media (hover: none), (pointer: coarse) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary {
+    cursor: auto !important;
+  }
+
+  .custom-cursor {
+    display: none !important;
+  }
+
+  .header-buttons .header-icon,
+  .home-bubble {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+}

@@ -1130,7 +1130,6 @@ body.booklet-fullscreen-open {
 }
 
 .project-feedback-viewport {
-  min-height: 500px;
   overflow: hidden;
 }
 
@@ -1252,10 +1251,6 @@ body.booklet-fullscreen-open {
     margin-top: 78px;
   }
 
-  .project-feedback-viewport {
-    min-height: 760px;
-  }
-
   .project-feedback-slide {
     padding: 26px 20px;
   }
@@ -1273,6 +1268,39 @@ body.booklet-fullscreen-open {
     grid-column: 1 / -1;
     grid-row: 2;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-copy-section,
+  .project-feedback-section {
+    margin-top: 56px;
+  }
+
+  .project-image-grid-four {
+    grid-template-columns: 1fr;
+  }
+
+  .project-split,
+  .project-image-pair {
+    gap: 20px;
+  }
+
+  .project-feedback-slide {
+    padding: 22px 16px;
+  }
+
+  .project-feedback-response {
+    padding: 18px;
+  }
+
+  .project-feedback-controls {
+    gap: 10px;
+    padding-inline: 16px;
+  }
+
+  .project-feedback-status {
+    min-width: 0;
   }
 }
 

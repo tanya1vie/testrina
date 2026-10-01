@@ -253,6 +253,7 @@
         seen.add(media);
 
         const source = captionSourceFor(media);
+        if (media.closest('[data-shared-figure-caption]')) return false;
         if (media.matches('[data-no-figure-caption]') || source?.matches('[data-no-figure-caption]')) return false;
         if (media.closest('.draggable-card, .draggable-card-stage, .draggable-card-section')) return false;
         if (media.closest('.lightbox, .modal, template')) return false;
@@ -260,7 +261,30 @@
         return true;
       });
 
-    mediaItems.forEach((media, index) => {
+    const figureItems = [
+      ...mediaItems.map((media) => ({ type: 'media', element: media })),
+      ...Array.from(main.querySelectorAll('[data-shared-figure-caption]'))
+        .map((figure) => ({ type: 'shared', element: figure }))
+    ].sort((a, b) => {
+      if (a.element === b.element) return 0;
+      return a.element.compareDocumentPosition(b.element) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
+
+    figureItems.forEach((item, index) => {
+      if (item.type === 'shared') {
+        const figure = item.element;
+        const caption = figure.querySelector(':scope > figcaption');
+        if (!caption) return;
+
+        const description = stripProjectName(
+          figure.dataset.caption || caption.textContent
+        );
+        caption.classList.add('auto-project-caption');
+        setCaptionContent(caption, index + 1, description);
+        return;
+      }
+
+      const media = item.element;
       let figure = media.closest('figure');
       const description = existingCaptionFor(media, figure);
 

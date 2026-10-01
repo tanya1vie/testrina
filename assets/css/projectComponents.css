@@ -655,21 +655,34 @@ body.booklet-fullscreen-open {
   width: 100%;
   max-width: none;
   height: auto;
-  aspect-ratio: 1 / 1;
   margin: 0;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .thesis-equal-image-pair > .thesis-pair-caption {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: -60px;
   z-index: 2;
   display: block;
-  width: 60px;
+  width: 50px;
   margin: 0;
-  padding: 5px;
-  background: rgba(255, 255, 255, .86);
+  padding: 0;
+  font-family: 'Helvetica Light', sans-serif;
+  font-size: 9px;
+  line-height: 1.25;
+  letter-spacing: .01em;
+  color: inherit;
+  background: transparent;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 760px) {
+  .thesis-equal-image-pair > .thesis-pair-caption {
+    right: 8px;
+    padding: 4px;
+    background: rgba(255, 255, 255, .86);
+  }
 }
 
 

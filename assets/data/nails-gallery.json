@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T12:47:47.216Z",
+  "generated_at": "2026-10-14T17:18:50.808Z",
   "sets": [
     {
       "id": "33",
@@ -27,6 +27,11 @@
           "type": "image",
           "src": "Images/Nails/Sealife/IMG_7972.jpeg",
           "name": "IMG_7972.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Sealife/Sealife4.png",
+          "name": "Sealife4.png"
         }
       ]
     },
@@ -49,8 +54,62 @@
         },
         {
           "type": "image",
-          "src": "Images/Nails/Dave%20the%20Diver/dave1.png",
-          "name": "dave1.png"
+          "src": "Images/Nails/Dave%20the%20Diver/dave1v2.png",
+          "name": "dave1v2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Dave%20the%20Diver/Dave3alt.png",
+          "name": "Dave3alt.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Dave%20the%20Diver/Outfit%20Inspo.png",
+          "name": "Outfit Inspo.png"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "folder": "Everdell",
+      "name": "Everdell",
+      "size": "S",
+      "shape": "",
+      "collection": "Media Inspired",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Everdell/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Everdell/cover.png",
+          "name": "cover.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Everdell/Everdell1.png",
+          "name": "Everdell1.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Everdell/Everdell2.png",
+          "name": "Everdell2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Everdell/Everdell3.png",
+          "name": "Everdell3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Everdell/Everdell4.png",
+          "name": "Everdell4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Everdell/Everdell5.png",
+          "name": "Everdell5.png"
         }
       ]
     },
@@ -343,12 +402,22 @@
       "client": "",
       "instagram_url": "",
       "caption": "",
-      "cover": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
+      "cover": "Images/Nails/Love%20Letter/cover.png",
       "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Love%20Letter/cover.png",
+          "name": "cover.png"
+        },
         {
           "type": "image",
           "src": "Images/Nails/Love%20Letter/IMG_4784.jpeg",
           "name": "IMG_4784.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Love%20Letter/Love%20Letter%202.png",
+          "name": "Love Letter 2.png"
         }
       ]
     },
@@ -362,17 +431,32 @@
       "client": "",
       "instagram_url": "",
       "caption": "",
-      "cover": "Images/Nails/Porcelain%20Statues/cover.jpeg",
+      "cover": "Images/Nails/Porcelain%20Statues/cover.png",
       "media": [
         {
           "type": "image",
-          "src": "Images/Nails/Porcelain%20Statues/cover.jpeg",
-          "name": "cover.jpeg"
+          "src": "Images/Nails/Porcelain%20Statues/cover.png",
+          "name": "cover.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/grad.jpeg",
+          "name": "grad.jpeg"
         },
         {
           "type": "image",
           "src": "Images/Nails/Porcelain%20Statues/IMG_5486.jpeg",
           "name": "IMG_5486.jpeg"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/Porcalin2.png",
+          "name": "Porcalin2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/Porcalin3.png",
+          "name": "Porcalin3.png"
         }
       ]
     },

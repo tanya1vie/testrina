@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T17:18:50.808Z",
+  "generated_at": "2026-10-14T21:11:40.638Z",
   "sets": [
     {
       "id": "33",
@@ -457,6 +457,16 @@
           "type": "image",
           "src": "Images/Nails/Porcelain%20Statues/Porcalin3.png",
           "name": "Porcalin3.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/Porcalin4.png",
+          "name": "Porcalin4.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Porcelain%20Statues/Porcalin5.png",
+          "name": "Porcalin5.png"
         }
       ]
     },
@@ -820,6 +830,50 @@
           "type": "image",
           "src": "Images/Nails/Huntington%20Gardens/IMG_8312.jpeg",
           "name": "IMG_8312.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "Pumpkins",
+      "folder": "Pumpkins",
+      "name": "Pumpkins",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Pumpkins/cover.JPG",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Pumpkins/cover.JPG",
+          "name": "cover.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Pumpkins/IMG_8564.JPG",
+          "name": "IMG_8564.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Pumpkins/IMG_8568.JPG",
+          "name": "IMG_8568.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Pumpkins/IMG_8590.JPG",
+          "name": "IMG_8590.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Pumpkins/IMG_8637.JPG",
+          "name": "IMG_8637.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Pumpkins/IMG_8649.JPG",
+          "name": "IMG_8649.JPG"
         }
       ]
     }

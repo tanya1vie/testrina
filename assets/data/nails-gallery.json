@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:11:40.638Z",
+  "generated_at": "2026-11-24T20:18:03.106Z",
   "sets": [
     {
       "id": "33",
@@ -259,6 +259,11 @@
         },
         {
           "type": "image",
+          "src": "Images/Nails/Maine/cover.png",
+          "name": "cover.png"
+        },
+        {
+          "type": "image",
           "src": "Images/Nails/Maine/IMG_4643.JPG",
           "name": "IMG_4643.JPG"
         },
@@ -281,6 +286,11 @@
           "type": "image",
           "src": "Images/Nails/Maine/IMG_6548.JPG",
           "name": "IMG_6548.JPG"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Maine/Maine1.png",
+          "name": "Maine1.png"
         }
       ]
     },
@@ -786,6 +796,40 @@
           "type": "image",
           "src": "Images/Nails/Fine%20China/cover.JPG",
           "name": "cover.JPG"
+        }
+      ]
+    },
+    {
+      "id": "Ferrari",
+      "folder": "Ferrari",
+      "name": "Ferrari",
+      "size": "",
+      "shape": "",
+      "collection": "",
+      "client": "",
+      "instagram_url": "",
+      "caption": "",
+      "cover": "Images/Nails/Ferrari/cover.png",
+      "media": [
+        {
+          "type": "image",
+          "src": "Images/Nails/Ferrari/cover.png",
+          "name": "cover.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Ferrari/Ferrari%201.png",
+          "name": "Ferrari 1.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Ferrari/Ferrari%202.png",
+          "name": "Ferrari 2.png"
+        },
+        {
+          "type": "image",
+          "src": "Images/Nails/Ferrari/Ferrari%204.png",
+          "name": "Ferrari 4.png"
         }
       ]
     },
